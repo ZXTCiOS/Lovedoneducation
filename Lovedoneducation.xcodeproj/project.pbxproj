@@ -14,6 +14,10 @@
 		5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE491F974C0B00D4AE2C /* MBProgressHUD+XMG.m */; };
 		5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE4A1F974C0B00D4AE2C /* NullSafe.m */; };
 		5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE4C1F974C0B00D4AE2C /* strisNull.m */; };
+		5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE521F975F4000D4AE2C /* LoginVC.m */; };
+		5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE551F975F5400D4AE2C /* LogupVC.m */; };
+		5317DE591F97610300D4AE2C /* startVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE581F97610300D4AE2C /* startVC.m */; };
+		5317DE5B1F9792BC00D4AE2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5317DE5A1F9792BC00D4AE2C /* Images.xcassets */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -65,6 +69,13 @@
 		5317DE4A1F974C0B00D4AE2C /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		5317DE4B1F974C0B00D4AE2C /* strisNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strisNull.h; sourceTree = "<group>"; };
 		5317DE4C1F974C0B00D4AE2C /* strisNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = strisNull.m; sourceTree = "<group>"; };
+		5317DE511F975F4000D4AE2C /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		5317DE521F975F4000D4AE2C /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		5317DE541F975F5400D4AE2C /* LogupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogupVC.h; sourceTree = "<group>"; };
+		5317DE551F975F5400D4AE2C /* LogupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogupVC.m; sourceTree = "<group>"; };
+		5317DE571F97610300D4AE2C /* startVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = startVC.h; sourceTree = "<group>"; };
+		5317DE581F97610300D4AE2C /* startVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = startVC.m; sourceTree = "<group>"; };
+		5317DE5A1F9792BC00D4AE2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +169,19 @@
 			path = utlis;
 			sourceTree = "<group>";
 		};
+		5317DE501F975F1E00D4AE2C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5317DE511F975F4000D4AE2C /* LoginVC.h */,
+				5317DE521F975F4000D4AE2C /* LoginVC.m */,
+				5317DE541F975F5400D4AE2C /* LogupVC.h */,
+				5317DE551F975F5400D4AE2C /* LogupVC.m */,
+				5317DE571F97610300D4AE2C /* startVC.h */,
+				5317DE581F97610300D4AE2C /* startVC.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		53C999481F9739D9006A6570 = {
 			isa = PBXGroup;
 			children = (
@@ -187,11 +211,13 @@
 				53C999861F973A82006A6570 /* home */,
 				53C999891F973AAB006A6570 /* live */,
 				53C999881F973AA8006A6570 /* mine */,
+				5317DE501F975F1E00D4AE2C /* Login */,
 				53C9998B1F973AC0006A6570 /* Tools */,
 				53C9998A1F973ABB006A6570 /* BASE */,
 				53C9999D1F973B89006A6570 /* define */,
 				53C9999C1F973B86006A6570 /* category */,
 				53C999AB1F973C90006A6570 /* Tabbar */,
+				5317DE5A1F9792BC00D4AE2C /* Images.xcassets */,
 			);
 			path = Lovedoneducation;
 			sourceTree = "<group>";
@@ -474,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C999611F9739D9006A6570 /* LaunchScreen.storyboard in Resources */,
+				5317DE5B1F9792BC00D4AE2C /* Images.xcassets in Resources */,
 				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
 			);
@@ -653,6 +680,7 @@
 			files = (
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
+				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
@@ -661,9 +689,11 @@
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
+				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
+				5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
 				5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */,
 				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
@@ -831,6 +861,7 @@
 			baseConfigurationReference = 74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -849,6 +880,7 @@
 			baseConfigurationReference = B0B09986C73855FE98015564 /* Pods-Lovedoneducation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

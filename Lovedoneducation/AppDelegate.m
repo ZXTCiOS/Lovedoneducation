@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
-//#import "LoginVC.h"
+#import "startVC.h"
 #import "MainNavigationController.h"
 @interface AppDelegate ()
 
@@ -23,9 +23,10 @@
     if (@available(iOS 11.0, *)){
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
-
+    
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [MainTabBarController shareInstance];
+    [self configstart];
     return YES;
 }
 
@@ -56,5 +57,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+-(void)configstart
+{
+    startVC *vc = [[startVC alloc] init];
+    MainNavigationController *nav = [[MainNavigationController alloc] init];
+    nav.viewControllers = @[vc];
+    self.window.rootViewController = nav;
+}
 @end

@@ -25,5 +25,6 @@
 #import "MBProgressHUD+XMG.h"
 #import "strisNull.h"
 #import "DNNetworking.h"
+#import "BaseViewController.h"
 #endif /* PrefixHeader_pch */
 

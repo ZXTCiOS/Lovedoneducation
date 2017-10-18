@@ -1,0 +1,921 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */; };
+		4D6F45D4CAF9ED271F774226 /* libPods-LovedoneducationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */; };
+		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
+		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
+		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
+		53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995D1F9739D9006A6570 /* Assets.xcassets */; };
+		53C999611F9739D9006A6570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995F1F9739D9006A6570 /* LaunchScreen.storyboard */; };
+		53C999641F9739D9006A6570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999631F9739D9006A6570 /* main.m */; };
+		53C9996E1F9739D9006A6570 /* LovedoneducationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C9996D1F9739D9006A6570 /* LovedoneducationTests.m */; };
+		53C999791F9739D9006A6570 /* LovedoneducationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999781F9739D9006A6570 /* LovedoneducationUITests.m */; };
+		53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C9999F1F973BBA006A6570 /* BaseViewController.m */; };
+		53C999A41F973C24006A6570 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999A31F973C24006A6570 /* homeViewController.m */; };
+		53C999A71F973C38006A6570 /* liveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999A61F973C38006A6570 /* liveViewController.m */; };
+		53C999AA1F973C40006A6570 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999A91F973C40006A6570 /* mineViewController.m */; };
+		53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999AE1F973C90006A6570 /* MainNavigationController.m */; };
+		53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B01F973C90006A6570 /* MainTabBarController.m */; };
+		53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B31F973C90006A6570 /* UIColor+HexColor.m */; };
+		53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B61F973C90006A6570 /* MainTabBar.m */; };
+		53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B81F973C90006A6570 /* MainTabBarButton.m */; };
+		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53C9996A1F9739D9006A6570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53C999491F9739D9006A6570 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53C999501F9739D9006A6570;
+			remoteInfo = Lovedoneducation;
+		};
+		53C999751F9739D9006A6570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53C999491F9739D9006A6570 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53C999501F9739D9006A6570;
+			remoteInfo = Lovedoneducation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests.release.xcconfig"; sourceTree = "<group>"; };
+		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		53C999571F9739D9006A6570 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		53C999581F9739D9006A6570 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		53C9995B1F9739D9006A6570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53C9995D1F9739D9006A6570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53C999601F9739D9006A6570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53C999621F9739D9006A6570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53C999631F9739D9006A6570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		53C999691F9739D9006A6570 /* LovedoneducationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LovedoneducationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C9996D1F9739D9006A6570 /* LovedoneducationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LovedoneducationTests.m; sourceTree = "<group>"; };
+		53C9996F1F9739D9006A6570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53C999741F9739D9006A6570 /* LovedoneducationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LovedoneducationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C999781F9739D9006A6570 /* LovedoneducationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LovedoneducationUITests.m; sourceTree = "<group>"; };
+		53C9997A1F9739D9006A6570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53C9999E1F973BBA006A6570 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		53C9999F1F973BBA006A6570 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		53C999A11F973C07006A6570 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		53C999A21F973C24006A6570 /* homeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
+		53C999A31F973C24006A6570 /* homeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		53C999A51F973C38006A6570 /* liveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = liveViewController.h; sourceTree = "<group>"; };
+		53C999A61F973C38006A6570 /* liveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = liveViewController.m; sourceTree = "<group>"; };
+		53C999A81F973C40006A6570 /* mineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mineViewController.h; sourceTree = "<group>"; };
+		53C999A91F973C40006A6570 /* mineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mineViewController.m; sourceTree = "<group>"; };
+		53C999AD1F973C90006A6570 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		53C999AE1F973C90006A6570 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		53C999AF1F973C90006A6570 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		53C999B01F973C90006A6570 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		53C999B21F973C90006A6570 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		53C999B31F973C90006A6570 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		53C999B51F973C90006A6570 /* MainTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBar.h; sourceTree = "<group>"; };
+		53C999B61F973C90006A6570 /* MainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBar.m; sourceTree = "<group>"; };
+		53C999B71F973C90006A6570 /* MainTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarButton.h; sourceTree = "<group>"; };
+		53C999B81F973C90006A6570 /* MainTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarButton.m; sourceTree = "<group>"; };
+		57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovedoneducation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovedoneducation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation.debug.xcconfig"; sourceTree = "<group>"; };
+		80414AA7EB01BDB85877C28F /* Pods-LovedoneducationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LovedoneducationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B09986C73855FE98015564 /* Pods-Lovedoneducation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovedoneducation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation.release.xcconfig"; sourceTree = "<group>"; };
+		DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LovedoneducationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53C9994E1F9739D9006A6570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999661F9739D9006A6570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999711F9739D9006A6570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6F45D4CAF9ED271F774226 /* libPods-LovedoneducationUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53C999481F9739D9006A6570 = {
+			isa = PBXGroup;
+			children = (
+				53C999531F9739D9006A6570 /* Lovedoneducation */,
+				53C9996C1F9739D9006A6570 /* LovedoneducationTests */,
+				53C999771F9739D9006A6570 /* LovedoneducationUITests */,
+				53C999521F9739D9006A6570 /* Products */,
+				A66E504CAA5472987CB8D62C /* Pods */,
+				9BAAE0C9431CE0E3714EC8E4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		53C999521F9739D9006A6570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53C999511F9739D9006A6570 /* Lovedoneducation.app */,
+				53C999691F9739D9006A6570 /* LovedoneducationTests.xctest */,
+				53C999741F9739D9006A6570 /* LovedoneducationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53C999531F9739D9006A6570 /* Lovedoneducation */ = {
+			isa = PBXGroup;
+			children = (
+				53C999871F973A8C006A6570 /* other */,
+				53C999861F973A82006A6570 /* home */,
+				53C999891F973AAB006A6570 /* live */,
+				53C999881F973AA8006A6570 /* mine */,
+				53C9998B1F973AC0006A6570 /* Tools */,
+				53C9998A1F973ABB006A6570 /* BASE */,
+				53C9999D1F973B89006A6570 /* define */,
+				53C9999C1F973B86006A6570 /* category */,
+				53C999AB1F973C90006A6570 /* Tabbar */,
+			);
+			path = Lovedoneducation;
+			sourceTree = "<group>";
+		};
+		53C9996C1F9739D9006A6570 /* LovedoneducationTests */ = {
+			isa = PBXGroup;
+			children = (
+				53C9996D1F9739D9006A6570 /* LovedoneducationTests.m */,
+				53C9996F1F9739D9006A6570 /* Info.plist */,
+			);
+			path = LovedoneducationTests;
+			sourceTree = "<group>";
+		};
+		53C999771F9739D9006A6570 /* LovedoneducationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				53C999781F9739D9006A6570 /* LovedoneducationUITests.m */,
+				53C9997A1F9739D9006A6570 /* Info.plist */,
+			);
+			path = LovedoneducationUITests;
+			sourceTree = "<group>";
+		};
+		53C999861F973A82006A6570 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				53C999A21F973C24006A6570 /* homeViewController.h */,
+				53C999A31F973C24006A6570 /* homeViewController.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		53C999871F973A8C006A6570 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				53C999541F9739D9006A6570 /* AppDelegate.h */,
+				53C999551F9739D9006A6570 /* AppDelegate.m */,
+				53C999571F9739D9006A6570 /* ViewController.h */,
+				53C999581F9739D9006A6570 /* ViewController.m */,
+				53C9995A1F9739D9006A6570 /* Main.storyboard */,
+				53C9995D1F9739D9006A6570 /* Assets.xcassets */,
+				53C9995F1F9739D9006A6570 /* LaunchScreen.storyboard */,
+				53C999621F9739D9006A6570 /* Info.plist */,
+				53C999631F9739D9006A6570 /* main.m */,
+				53C999A11F973C07006A6570 /* PrefixHeader.pch */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		53C999881F973AA8006A6570 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				53C999A81F973C40006A6570 /* mineViewController.h */,
+				53C999A91F973C40006A6570 /* mineViewController.m */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		53C999891F973AAB006A6570 /* live */ = {
+			isa = PBXGroup;
+			children = (
+				53C999A51F973C38006A6570 /* liveViewController.h */,
+				53C999A61F973C38006A6570 /* liveViewController.m */,
+			);
+			path = live;
+			sourceTree = "<group>";
+		};
+		53C9998A1F973ABB006A6570 /* BASE */ = {
+			isa = PBXGroup;
+			children = (
+				53C9999E1F973BBA006A6570 /* BaseViewController.h */,
+				53C9999F1F973BBA006A6570 /* BaseViewController.m */,
+			);
+			path = BASE;
+			sourceTree = "<group>";
+		};
+		53C9998B1F973AC0006A6570 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		53C9999C1F973B86006A6570 /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		53C9999D1F973B89006A6570 /* define */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = define;
+			sourceTree = "<group>";
+		};
+		53C999AB1F973C90006A6570 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				53C999AC1F973C90006A6570 /* Controller */,
+				53C999B11F973C90006A6570 /* tools */,
+				53C999B41F973C90006A6570 /* view */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		53C999AC1F973C90006A6570 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53C999AD1F973C90006A6570 /* MainNavigationController.h */,
+				53C999AE1F973C90006A6570 /* MainNavigationController.m */,
+				53C999AF1F973C90006A6570 /* MainTabBarController.h */,
+				53C999B01F973C90006A6570 /* MainTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		53C999B11F973C90006A6570 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				53C999B21F973C90006A6570 /* UIColor+HexColor.h */,
+				53C999B31F973C90006A6570 /* UIColor+HexColor.m */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		53C999B41F973C90006A6570 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53C999B51F973C90006A6570 /* MainTabBar.h */,
+				53C999B61F973C90006A6570 /* MainTabBar.m */,
+				53C999B71F973C90006A6570 /* MainTabBarButton.h */,
+				53C999B81F973C90006A6570 /* MainTabBarButton.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		9BAAE0C9431CE0E3714EC8E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */,
+				DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */,
+				A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A66E504CAA5472987CB8D62C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */,
+				B0B09986C73855FE98015564 /* Pods-Lovedoneducation.release.xcconfig */,
+				80414AA7EB01BDB85877C28F /* Pods-LovedoneducationTests.debug.xcconfig */,
+				4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */,
+				40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */,
+				6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53C999501F9739D9006A6570 /* Lovedoneducation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C9997D1F9739D9006A6570 /* Build configuration list for PBXNativeTarget "Lovedoneducation" */;
+			buildPhases = (
+				68A886859F6CB30CD21843A2 /* [CP] Check Pods Manifest.lock */,
+				53C9994D1F9739D9006A6570 /* Sources */,
+				53C9994E1F9739D9006A6570 /* Frameworks */,
+				53C9994F1F9739D9006A6570 /* Resources */,
+				1C0B5AC93ABDD6D627C50350 /* [CP] Embed Pods Frameworks */,
+				BDE8D704DB12AFF081B58056 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lovedoneducation;
+			productName = Lovedoneducation;
+			productReference = 53C999511F9739D9006A6570 /* Lovedoneducation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		53C999681F9739D9006A6570 /* LovedoneducationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C999801F9739D9006A6570 /* Build configuration list for PBXNativeTarget "LovedoneducationTests" */;
+			buildPhases = (
+				5BB6987EEEF9921EFF2F8FDC /* [CP] Check Pods Manifest.lock */,
+				53C999651F9739D9006A6570 /* Sources */,
+				53C999661F9739D9006A6570 /* Frameworks */,
+				53C999671F9739D9006A6570 /* Resources */,
+				91DD867E0C93648FC912452A /* [CP] Embed Pods Frameworks */,
+				4680E38881EBDDAAC9248503 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53C9996B1F9739D9006A6570 /* PBXTargetDependency */,
+			);
+			name = LovedoneducationTests;
+			productName = LovedoneducationTests;
+			productReference = 53C999691F9739D9006A6570 /* LovedoneducationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		53C999731F9739D9006A6570 /* LovedoneducationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C999831F9739D9006A6570 /* Build configuration list for PBXNativeTarget "LovedoneducationUITests" */;
+			buildPhases = (
+				A2A50B4063492754603CDE9E /* [CP] Check Pods Manifest.lock */,
+				53C999701F9739D9006A6570 /* Sources */,
+				53C999711F9739D9006A6570 /* Frameworks */,
+				53C999721F9739D9006A6570 /* Resources */,
+				77A82647FED6D508F6D5CD7B /* [CP] Embed Pods Frameworks */,
+				41CB34BF21DCC3DD775E9950 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53C999761F9739D9006A6570 /* PBXTargetDependency */,
+			);
+			name = LovedoneducationUITests;
+			productName = LovedoneducationUITests;
+			productReference = 53C999741F9739D9006A6570 /* LovedoneducationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53C999491F9739D9006A6570 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = wangjungang;
+				TargetAttributes = {
+					53C999501F9739D9006A6570 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					53C999681F9739D9006A6570 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 53C999501F9739D9006A6570;
+					};
+					53C999731F9739D9006A6570 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 53C999501F9739D9006A6570;
+					};
+				};
+			};
+			buildConfigurationList = 53C9994C1F9739D9006A6570 /* Build configuration list for PBXProject "Lovedoneducation" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53C999481F9739D9006A6570;
+			productRefGroup = 53C999521F9739D9006A6570 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53C999501F9739D9006A6570 /* Lovedoneducation */,
+				53C999681F9739D9006A6570 /* LovedoneducationTests */,
+				53C999731F9739D9006A6570 /* LovedoneducationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53C9994F1F9739D9006A6570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C999611F9739D9006A6570 /* LaunchScreen.storyboard in Resources */,
+				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
+				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999671F9739D9006A6570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999721F9739D9006A6570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C0B5AC93ABDD6D627C50350 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41CB34BF21DCC3DD775E9950 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4680E38881EBDDAAC9248503 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BB6987EEEF9921EFF2F8FDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LovedoneducationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68A886859F6CB30CD21843A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lovedoneducation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77A82647FED6D508F6D5CD7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91DD867E0C93648FC912452A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2A50B4063492754603CDE9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LovedoneducationUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDE8D704DB12AFF081B58056 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53C9994D1F9739D9006A6570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
+				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
+				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
+				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
+				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
+				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
+				53C999641F9739D9006A6570 /* main.m in Sources */,
+				53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */,
+				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
+				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
+				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
+				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999651F9739D9006A6570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C9996E1F9739D9006A6570 /* LovedoneducationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C999701F9739D9006A6570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C999791F9739D9006A6570 /* LovedoneducationUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53C9996B1F9739D9006A6570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53C999501F9739D9006A6570 /* Lovedoneducation */;
+			targetProxy = 53C9996A1F9739D9006A6570 /* PBXContainerItemProxy */;
+		};
+		53C999761F9739D9006A6570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53C999501F9739D9006A6570 /* Lovedoneducation */;
+			targetProxy = 53C999751F9739D9006A6570 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53C9995A1F9739D9006A6570 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C9995B1F9739D9006A6570 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53C9995F1F9739D9006A6570 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C999601F9739D9006A6570 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53C9997B1F9739D9006A6570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		53C9997C1F9739D9006A6570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53C9997E1F9739D9006A6570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";
+				INFOPLIST_FILE = Lovedoneducation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Lovedoneducation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		53C9997F1F9739D9006A6570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B09986C73855FE98015564 /* Pods-Lovedoneducation.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";
+				INFOPLIST_FILE = Lovedoneducation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Lovedoneducation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		53C999811F9739D9006A6570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80414AA7EB01BDB85877C28F /* Pods-LovedoneducationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				INFOPLIST_FILE = LovedoneducationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.LovedoneducationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lovedoneducation.app/Lovedoneducation";
+			};
+			name = Debug;
+		};
+		53C999821F9739D9006A6570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				INFOPLIST_FILE = LovedoneducationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.LovedoneducationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lovedoneducation.app/Lovedoneducation";
+			};
+			name = Release;
+		};
+		53C999841F9739D9006A6570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				INFOPLIST_FILE = LovedoneducationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.LovedoneducationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Lovedoneducation;
+			};
+			name = Debug;
+		};
+		53C999851F9739D9006A6570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
+				INFOPLIST_FILE = LovedoneducationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.LovedoneducationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Lovedoneducation;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53C9994C1F9739D9006A6570 /* Build configuration list for PBXProject "Lovedoneducation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C9997B1F9739D9006A6570 /* Debug */,
+				53C9997C1F9739D9006A6570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C9997D1F9739D9006A6570 /* Build configuration list for PBXNativeTarget "Lovedoneducation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C9997E1F9739D9006A6570 /* Debug */,
+				53C9997F1F9739D9006A6570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C999801F9739D9006A6570 /* Build configuration list for PBXNativeTarget "LovedoneducationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C999811F9739D9006A6570 /* Debug */,
+				53C999821F9739D9006A6570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C999831F9739D9006A6570 /* Build configuration list for PBXNativeTarget "LovedoneducationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C999841F9739D9006A6570 /* Debug */,
+				53C999851F9739D9006A6570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53C999491F9739D9006A6570 /* Project object */;
+}

@@ -19,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // AppDelegate 进行全局设置
+    if (@available(iOS 11.0, *)){
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }
+
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [MainTabBarController shareInstance];
     return YES;

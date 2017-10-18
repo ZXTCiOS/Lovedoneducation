@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */; };
 		4D6F45D4CAF9ED271F774226 /* libPods-LovedoneducationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */; };
+		5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE401F9744CB00D4AE2C /* DNNetworking.m */; };
+		5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE451F9749F400D4AE2C /* BaseTableView.m */; };
+		5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE491F974C0B00D4AE2C /* MBProgressHUD+XMG.m */; };
+		5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE4A1F974C0B00D4AE2C /* NullSafe.m */; };
+		5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE4C1F974C0B00D4AE2C /* strisNull.m */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -49,6 +54,17 @@
 /* Begin PBXFileReference section */
 		40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests.release.xcconfig"; sourceTree = "<group>"; };
+		5317DE3F1F9744CB00D4AE2C /* DNNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNNetworking.h; sourceTree = "<group>"; };
+		5317DE401F9744CB00D4AE2C /* DNNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNNetworking.m; sourceTree = "<group>"; };
+		5317DE421F9744E400D4AE2C /* wangHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wangHeader.h; sourceTree = "<group>"; };
+		5317DE431F9744F400D4AE2C /* xuHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xuHeader.h; sourceTree = "<group>"; };
+		5317DE441F9749F400D4AE2C /* BaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		5317DE451F9749F400D4AE2C /* BaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		5317DE481F974C0B00D4AE2C /* MBProgressHUD+XMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XMG.h"; sourceTree = "<group>"; };
+		5317DE491F974C0B00D4AE2C /* MBProgressHUD+XMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XMG.m"; sourceTree = "<group>"; };
+		5317DE4A1F974C0B00D4AE2C /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		5317DE4B1F974C0B00D4AE2C /* strisNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strisNull.h; sourceTree = "<group>"; };
+		5317DE4C1F974C0B00D4AE2C /* strisNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = strisNull.m; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +137,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5317DE3E1F9744CB00D4AE2C /* netWorking */ = {
+			isa = PBXGroup;
+			children = (
+				5317DE3F1F9744CB00D4AE2C /* DNNetworking.h */,
+				5317DE401F9744CB00D4AE2C /* DNNetworking.m */,
+			);
+			path = netWorking;
+			sourceTree = "<group>";
+		};
+		5317DE471F974C0B00D4AE2C /* utlis */ = {
+			isa = PBXGroup;
+			children = (
+				5317DE481F974C0B00D4AE2C /* MBProgressHUD+XMG.h */,
+				5317DE491F974C0B00D4AE2C /* MBProgressHUD+XMG.m */,
+				5317DE4A1F974C0B00D4AE2C /* NullSafe.m */,
+				5317DE4B1F974C0B00D4AE2C /* strisNull.h */,
+				5317DE4C1F974C0B00D4AE2C /* strisNull.m */,
+			);
+			path = utlis;
+			sourceTree = "<group>";
+		};
 		53C999481F9739D9006A6570 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +263,8 @@
 			children = (
 				53C9999E1F973BBA006A6570 /* BaseViewController.h */,
 				53C9999F1F973BBA006A6570 /* BaseViewController.m */,
+				5317DE441F9749F400D4AE2C /* BaseTableView.h */,
+				5317DE451F9749F400D4AE2C /* BaseTableView.m */,
 			);
 			path = BASE;
 			sourceTree = "<group>";
@@ -233,6 +272,8 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5317DE471F974C0B00D4AE2C /* utlis */,
+				5317DE3E1F9744CB00D4AE2C /* netWorking */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -247,6 +288,8 @@
 		53C9999D1F973B89006A6570 /* define */ = {
 			isa = PBXGroup;
 			children = (
+				5317DE421F9744E400D4AE2C /* wangHeader.h */,
+				5317DE431F9744F400D4AE2C /* xuHeader.h */,
 			);
 			path = define;
 			sourceTree = "<group>";
@@ -612,14 +655,19 @@
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
+				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
+				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
+				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
 				53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
+				5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */,
 				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
+				5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

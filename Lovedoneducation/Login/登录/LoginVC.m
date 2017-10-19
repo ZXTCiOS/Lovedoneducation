@@ -56,24 +56,73 @@
 -(void)layout
 {
     __weak typeof (self) weakSelf = self;
+    [weakSelf.img0 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view).with.offset(260*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.view).with.offset(41*WIDTH_SCALE);
+        make.width.mas_offset(16);
+        make.height.mas_offset(18);
+    }];
+    [weakSelf.img1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view).with.offset(316*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.view).with.offset(41*WIDTH_SCALE);
+        make.width.mas_offset(16);
+        make.height.mas_offset(18);
+    }];
+    
     [weakSelf.logoImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf.view);
         make.top.equalTo(weakSelf.view).with.offset(155);
         make.height.mas_offset(60);
+
     }];
     [weakSelf.phoneText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf.view);
-        make.top.equalTo(weakSelf.logoImg.mas_bottom).with.offset(85*HEIGHT_SCALE);
-        make.left.equalTo(weakSelf.view).with.offset(41);
+        make.left.equalTo(weakSelf.view).with.offset(90*WIDTH_SCALE);
+        make.top.equalTo(weakSelf.img0).with.offset(-4*HEIGHT_SCALE);
         make.height.mas_offset(30);
+        make.right.equalTo(weakSelf.view).with.offset(-34.5*WIDTH_SCALE);
     }];
     [weakSelf.passwordText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf.view);
-        make.top.equalTo(weakSelf.phoneText.mas_bottom).with.offset(25*HEIGHT_SCALE);
-        make.left.equalTo(weakSelf.view).with.offset(41);
+        make.left.equalTo(weakSelf.view).with.offset(90*WIDTH_SCALE);
+        make.top.equalTo(weakSelf.img1).with.offset(-4*HEIGHT_SCALE);
         make.height.mas_offset(30);
+        make.right.equalTo(weakSelf.view).with.offset(-34.5*WIDTH_SCALE);
     }];
-    
+    [weakSelf.line0 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.phoneText);
+        make.top.equalTo(weakSelf.phoneText.mas_bottom);
+        make.right.equalTo(weakSelf.phoneText);
+        make.height.mas_offset(1);
+    }];
+    [weakSelf.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.passwordText);
+        make.top.equalTo(weakSelf.passwordText.mas_bottom);
+        make.right.equalTo(weakSelf.passwordText);
+        make.height.mas_offset(1);
+    }];
+    [weakSelf.forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.line1.mas_bottom).with.offset(30*HEIGHT_SCALE);
+        make.right.equalTo(weakSelf.view).with.offset(-14);
+        make.height.mas_offset(30);
+        make.width.mas_offset(80);
+    }];
+    [weakSelf.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(weakSelf.view);
+        make.top.equalTo(weakSelf.forgetBtn.mas_bottom).with.offset(30*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.view).with.offset(34.5);
+        make.height.mas_offset(44);
+    }];
+    [weakSelf.qqBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.submitBtn.mas_bottom).with.offset(40*HEIGHT_SCALE);
+        make.right.equalTo(weakSelf.view).with.offset(-34.5);
+        make.width.mas_offset(44);
+        make.height.mas_offset(44);
+    }];
+    [weakSelf.weixinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.qqBtn);
+        make.right.equalTo(weakSelf.qqBtn.mas_left).with.offset(-20);
+        make.width.mas_offset(44);
+        make.height.mas_offset(44);
+    }];
 }
 
 #pragma mark - getters
@@ -108,7 +157,6 @@
         _passwordText = [[UITextField alloc] init];
         _passwordText.delegate = self;
         _passwordText.placeholder = @"请输入密码";
-
     }
     return _passwordText;
 }
@@ -118,8 +166,10 @@
     if(!_forgetBtn)
     {
         _forgetBtn = [[UIButton alloc] init];
-        [_forgetBtn setTitle:@"忘记密码" forState:normal];
+        [_forgetBtn setTitle:@"忘记密码?" forState:normal];
+        _forgetBtn.titleLabel.font = [UIFont systemFontOfSize: 14.0];
         [_forgetBtn setTitleColor:[UIColor colorWithHexString:@"FF9B19"] forState:normal];
+        [_forgetBtn addTarget:self action:@selector(forgetbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _forgetBtn;
 }
@@ -132,6 +182,7 @@
         [_submitBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
         [_submitBtn setTitle:@"登录" forState:normal];
+        [_submitBtn addTarget:self action:@selector(submitclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
 }
@@ -142,6 +193,7 @@
     {
         _qqBtn = [[UIButton alloc] init];
         [_qqBtn setImage:[UIImage imageNamed:@"QQ_png"] forState:normal];
+        [_qqBtn addTarget:self action:@selector(qqbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _qqBtn;
 }
@@ -152,6 +204,7 @@
     {
         _weixinBtn = [[UIButton alloc] init];
         [_weixinBtn setImage:[UIImage imageNamed:@"weixin_png"] forState:normal];
+        [_weixinBtn addTarget:self action:@selector(weixinbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _weixinBtn;
 }
@@ -197,11 +250,26 @@
     return _line1;
 }
 
-
-
-
-
 #pragma mark - 实现方法
 
+-(void)submitclick
+{
+    
+}
+
+-(void)forgetbtnclick
+{
+    
+}
+
+-(void)qqbtnclick
+{
+    
+}
+
+-(void)weixinbtnclick
+{
+    
+}
 
 @end

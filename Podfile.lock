@@ -17,6 +17,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManager (5.0.4)
   - JHUD (0.3.0)
+  - JKCountDownButton (1.1.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.14)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - IQKeyboardManager
   - JHUD
+  - JKCountDownButton
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   IQKeyboardManager: 1df9c0f147af1681cfb2d9977bc30309d45a7e76
   JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
+  JKCountDownButton: 0141b38a01cb77199184f8c0d9975bf88358216f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
@@ -55,6 +58,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b6ad57eeea8d39a4244d80784b4ad95a306bbcd0
+PODFILE CHECKSUM: cc08b4c3ba752286474a17f3118bd0913253b6b9
 
 COCOAPODS: 1.3.1

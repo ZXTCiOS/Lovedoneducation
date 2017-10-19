@@ -19,7 +19,8 @@
 //屏幕高度比
 #define HEIGHT_SCALE [UIScreen mainScreen].bounds.size.height / 667
 
-
+//导航栏+状态栏高度
+#define NAVIGATION_HEIGHT (CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]) + CGRectGetHeight(self.navigationController.navigationBar.frame))
 
 #define BASE_URL   @"http://aimidao.tv/"
 

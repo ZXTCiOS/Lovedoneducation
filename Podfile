@@ -17,6 +17,7 @@ pod 'IQKeyboardManager'
 pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
 pod 'JHUD'
+pod 'JKCountDownButton'
   target 'LovedoneducationTests' do
     inherit! :search_paths
     # Pods for testing

@@ -7,6 +7,7 @@
 //
 
 #import "LoginVC.h"
+#import "changeVC0.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -132,7 +133,7 @@
     if(!_logoImg)
     {
         _logoImg = [[UIImageView alloc] init];
-        _logoImg.image = [UIImage imageNamed:@"logo_png"];
+        _logoImg.image = [UIImage imageNamed:@"logo_icon_dengluyemian"];
     }
     return _logoImg;
 }
@@ -192,7 +193,7 @@
     if(!_qqBtn)
     {
         _qqBtn = [[UIButton alloc] init];
-        [_qqBtn setImage:[UIImage imageNamed:@"QQ_png"] forState:normal];
+        [_qqBtn setImage:[UIImage imageNamed:@"qq_icon_dengluye"] forState:normal];
         [_qqBtn addTarget:self action:@selector(qqbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _qqBtn;
@@ -203,7 +204,7 @@
     if(!_weixinBtn)
     {
         _weixinBtn = [[UIButton alloc] init];
-        [_weixinBtn setImage:[UIImage imageNamed:@"weixin_png"] forState:normal];
+        [_weixinBtn setImage:[UIImage imageNamed:@"weixin_icon_dengluye"] forState:normal];
         [_weixinBtn addTarget:self action:@selector(weixinbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _weixinBtn;
@@ -215,7 +216,7 @@
     if(!_img0)
     {
         _img0 = [[UIImageView alloc] init];
-        _img0.image = [UIImage imageNamed:@"telephone_icon"];
+        _img0.image = [UIImage imageNamed:@"telephone_icon_dengluye"];
     }
     return _img0;
 }
@@ -225,7 +226,7 @@
     if(!_img1)
     {
         _img1 = [[UIImageView alloc] init];
-        _img1.image = [UIImage imageNamed:@"mima_icon"];
+        _img1.image = [UIImage imageNamed:@"mima_icon_dengluye"];
     }
     return _img1;
 }
@@ -254,7 +255,8 @@
 
 -(void)submitclick
 {
-    
+    changeVC0 *vc = [[changeVC0 alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)forgetbtnclick

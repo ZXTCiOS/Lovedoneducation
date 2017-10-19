@@ -68,7 +68,7 @@
     if(!_logoImg)
     {
         _logoImg = [[UIImageView alloc] init];
-        _logoImg.image = [UIImage imageNamed:@"logo_png"];
+        _logoImg.image = [UIImage imageNamed:@"logo_icon_dengluyemian"];
     }
     return _logoImg;
 }

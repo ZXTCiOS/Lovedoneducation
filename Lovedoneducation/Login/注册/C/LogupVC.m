@@ -76,6 +76,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         _footView = [[UIView alloc] init];
         _footView.backgroundColor = [UIColor whiteColor];
         _footView.frame = CGRectMake(0, 0, kScreenW, 150*HEIGHT_SCALE);
+        [_footView addSubview:self.submitBtn];
     }
     return _footView;
 }
@@ -88,7 +89,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         [_submitBtn setTitle:@"完成" forState:normal];
         _submitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-        
+        _submitBtn.frame = CGRectMake(kScreenW/2-175/2*WIDTH_SCALE, 40*HEIGHT_SCALE, 175*WIDTH_SCALE, 44*HEIGHT_SCALE);
     }
     return _submitBtn;
 }

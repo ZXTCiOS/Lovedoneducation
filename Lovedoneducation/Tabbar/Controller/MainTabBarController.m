@@ -71,8 +71,8 @@
     
     NSArray *titles = @[@"练习", @"直播课",@"我的"];
     
-    NSArray *selectedImages = @[@"lianxi-xuanzhong_icon", @"zhiboxuanzhong_icon",@"wodexuanzhong_icon"];
-    NSArray *images= @[@"lianxiweixuanzhong_icon", @"zhiboweixuanzhong_icon",@"wodeweixuanzhong_icon"];
+    NSArray *selectedImages = @[@"lianxi_icon_selected_tab", @"shiboke_icon_selected_tab",@"wodexuanzhong_icon"];
+    NSArray *images= @[@"lianxiweixuanzhong_icon", @"zhiboke_icon_default_tab",@"wode_icon_default_tab"];
     
     homeViewController *home = [[homeViewController alloc] init];
     liveViewController *live = [[liveViewController alloc] init];

@@ -21,6 +21,8 @@
 		5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE641F985F7300D4AE2C /* logupCell1.m */; };
 		5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE671F985F8000D4AE2C /* logupCell2.m */; };
 		5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6A1F988F6200D4AE2C /* logupCell3.m */; };
+		5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6E1F989E9600D4AE2C /* changeVC0.m */; };
+		5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE721F98AA5200D4AE2C /* changeVC1.m */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -86,6 +88,10 @@
 		5317DE671F985F8000D4AE2C /* logupCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = logupCell2.m; sourceTree = "<group>"; };
 		5317DE691F988F6200D4AE2C /* logupCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logupCell3.h; sourceTree = "<group>"; };
 		5317DE6A1F988F6200D4AE2C /* logupCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = logupCell3.m; sourceTree = "<group>"; };
+		5317DE6D1F989E9600D4AE2C /* changeVC0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changeVC0.h; sourceTree = "<group>"; };
+		5317DE6E1F989E9600D4AE2C /* changeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC0.m; sourceTree = "<group>"; };
+		5317DE711F98AA5200D4AE2C /* changeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changeVC1.h; sourceTree = "<group>"; };
+		5317DE721F98AA5200D4AE2C /* changeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC1.m; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 		5317DE501F975F1E00D4AE2C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5317DE701F989EC800D4AE2C /* 忘记密码 */,
+				5317DE6C1F989E7E00D4AE2C /* 选择 */,
 				5317DE5D1F985E5700D4AE2C /* 注册 */,
 				5317DE5C1F985E5000D4AE2C /* 登录 */,
 				5317DE571F97610300D4AE2C /* startVC.h */,
@@ -230,6 +238,24 @@
 				5317DE6A1F988F6200D4AE2C /* logupCell3.m */,
 			);
 			path = V;
+			sourceTree = "<group>";
+		};
+		5317DE6C1F989E7E00D4AE2C /* 选择 */ = {
+			isa = PBXGroup;
+			children = (
+				5317DE6D1F989E9600D4AE2C /* changeVC0.h */,
+				5317DE6E1F989E9600D4AE2C /* changeVC0.m */,
+				5317DE711F98AA5200D4AE2C /* changeVC1.h */,
+				5317DE721F98AA5200D4AE2C /* changeVC1.m */,
+			);
+			path = "选择";
+			sourceTree = "<group>";
+		};
+		5317DE701F989EC800D4AE2C /* 忘记密码 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "忘记密码";
 			sourceTree = "<group>";
 		};
 		53C999481F9739D9006A6570 = {
@@ -730,9 +756,11 @@
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
 				5317DE621F985F5E00D4AE2C /* logupCell0.m in Sources */,
+				5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */,
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
+				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,

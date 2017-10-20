@@ -8,6 +8,7 @@
 
 #import "LoginVC.h"
 #import "changeVC0.h"
+#import "forgetVC.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -146,7 +147,7 @@
         _phoneText = [[UITextField alloc] init];
         _phoneText.delegate = self;
         _phoneText.placeholder = @"请输入手机号";
-
+        _phoneText.keyboardType = UIKeyboardTypePhonePad;
     }
     return _phoneText;
 }
@@ -158,6 +159,7 @@
         _passwordText = [[UITextField alloc] init];
         _passwordText.delegate = self;
         _passwordText.placeholder = @"请输入密码";
+        _passwordText.secureTextEntry = YES;
     }
     return _passwordText;
 }
@@ -261,7 +263,8 @@
 
 -(void)forgetbtnclick
 {
-    
+    forgetVC *vc = [[forgetVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)qqbtnclick
@@ -274,4 +277,9 @@
     
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.phoneText resignFirstResponder];
+    [self.passwordText resignFirstResponder];
+}
 @end

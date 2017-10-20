@@ -18,16 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG455" translatesAutoresizingMaskIntoConstraints="NO" id="1Jj-Wc-tfC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_img_qidongye" translatesAutoresizingMaskIntoConstraints="NO" id="qe7-V2-u7Y">
+                                <rect key="frame" x="142" y="193" width="90" height="90"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用心服务，只为用心的你" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gig-qE-1zb">
+                                <rect key="frame" x="40" y="566.5" width="295" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱唐公考" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJs-gM-V5W">
+                                <rect key="frame" x="92" y="515" width="191" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.031372549019607843" green="0.82352941176470584" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1Jj-Wc-tfC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0mB-lk-8CX"/>
-                            <constraint firstItem="1Jj-Wc-tfC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hgO-C4-Glf"/>
-                            <constraint firstItem="1Jj-Wc-tfC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kmJ-ad-o47"/>
-                            <constraint firstItem="1Jj-Wc-tfC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="uDj-3G-kkf"/>
+                            <constraint firstItem="gig-qE-1zb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="1yj-aS-8p7"/>
+                            <constraint firstItem="qe7-V2-u7Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="173" id="3eW-I8-vOZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJs-gM-V5W" secondAttribute="trailing" constant="92" id="Bb1-il-C3x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gig-qE-1zb" secondAttribute="bottom" constant="80" id="Fx4-xa-JL2"/>
+                            <constraint firstItem="qe7-V2-u7Y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hgo-zx-CYL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PJs-gM-V5W" secondAttribute="bottom" constant="116" id="V6i-0C-Z5d"/>
+                            <constraint firstItem="PJs-gM-V5W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="iEU-ud-49v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gig-qE-1zb" secondAttribute="trailing" constant="40" id="tY1-t2-Z9c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WechatIMG455" width="750" height="1334"/>
+        <image name="logo_img_qidongye" width="90" height="90"/>
     </resources>
 </document>

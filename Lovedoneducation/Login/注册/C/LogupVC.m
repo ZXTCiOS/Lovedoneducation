@@ -11,6 +11,7 @@
 #import "logupCell1.h"
 #import "logupCell2.h"
 #import "logupCell3.h"
+#import "changeVC0.h"
 
 @interface LogupVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -64,6 +65,8 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         _table = [[UITableView alloc] init];
         _table.dataSource = self;
         _table.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
@@ -90,6 +93,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         _submitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
         _submitBtn.frame = CGRectMake(kScreenW/2-175/2*WIDTH_SCALE, 40*HEIGHT_SCALE, 175*WIDTH_SCALE, 44*HEIGHT_SCALE);
+        [_submitBtn addTarget:self action:@selector(submitbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
 }
@@ -119,6 +123,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
             cell = [[logupCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logipCell1identfid];
         }
         cell.infotext.delegate = self;
+        cell.infotext.tag = 201;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.infotext.placeholder = @"请输入昵称";
         return cell;
@@ -129,8 +134,10 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
             cell = [[logupCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logipCell2identfid];
         }
         cell.infotext.delegate = self;
+        cell.infotext.tag = 202;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.infotext.placeholder = @"请输入手机号";
+        cell.infotext.keyboardType = UIKeyboardTypePhonePad;
         return cell;
     }
     if (indexPath.row==3) {
@@ -138,8 +145,11 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         if (!cell) {
             cell = [[logupCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logipCell3identfid];
         }
+        cell.yanzhengtext.tag = 203;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.yanzhengtext.placeholder = @"请输入手机验证码";
+        cell.yanzhengtext.delegate = self;
+        cell.yanzhengtext.keyboardType = UIKeyboardTypePhonePad;
         return cell;
     }
     if (indexPath.row==4) {
@@ -148,8 +158,10 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
             cell = [[logupCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logupCell4identfid];
         }
         cell.infotext.delegate = self;
+        cell.infotext.tag = 204;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.infotext.placeholder = @"请输入密码";
+        cell.infotext.secureTextEntry = YES;
         return cell;
     }
     if (indexPath.row==5) {
@@ -158,6 +170,8 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
             cell = [[logupCell3 alloc] initWithStyle:(UITableViewCellStyle)UITableViewCellStyleDefault reuseIdentifier:logupCell4identfid];
         }
         cell.passwordtext.delegate = self;
+        cell.passwordtext.tag = 205;
+        cell.passwordtext.secureTextEntry = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -185,5 +199,27 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         return 90*HEIGHT_SCALE;
     }
     return 0.01f;
+}
+
+#pragma mark - 实现方法
+
+-(void)submitbtnclick
+{
+    changeVC0 *vc = [[changeVC0 alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)tabletap
+{
+    UITextField *text0 = [self.table viewWithTag:201];
+    UITextField *text1 = [self.table viewWithTag:202];
+    UITextField *text2 = [self.table viewWithTag:203];
+    UITextField *text3 = [self.table viewWithTag:204];
+    UITextField *text4 = [self.table viewWithTag:205];
+    [text0 resignFirstResponder];
+    [text1 resignFirstResponder];
+    [text2 resignFirstResponder];
+    [text3 resignFirstResponder];
+    [text4 resignFirstResponder];
 }
 @end

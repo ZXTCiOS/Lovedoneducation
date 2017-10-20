@@ -7,10 +7,11 @@
 //
 
 #import "changeVC1.h"
+#import "changeCell1.h"
+#import "changeModel1.h"
 
 @interface changeVC1 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
-@property (nonatomic,strong) NSArray *dataSource;
 @property (nonatomic,strong) NSString *secondtype;
 @end
 
@@ -36,16 +37,6 @@ static NSString *changevc1identfid = @"changevc1identfid";
 
 #pragma mark - getters
 
--(NSArray *)dataSource
-{
-    if(!_dataSource)
-    {
-        _dataSource = [NSArray array];
-        _dataSource = @[@"省部级",@"地市"];
-    }
-    return _dataSource;
-}
-
 -(UITableView *)table
 {
     if(!_table)
@@ -66,13 +57,14 @@ static NSString *changevc1identfid = @"changevc1identfid";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:changevc1identfid];
+    changeCell1 *cell = [tableView dequeueReusableCellWithIdentifier:changevc1identfid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changevc1identfid];
+        cell = [[changeCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changevc1identfid];
     }
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-    cell.textLabel.text = self.dataSource[indexPath.row];
+//    cell.textLabel.text = self.dataSource[indexPath.row];
+    [cell setdata:self.dataSource[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"646464"];
@@ -108,6 +100,5 @@ static NSString *changevc1identfid = @"changevc1identfid";
         [MBProgressHUD showSuccess:@"请选择类型" toView:self.view];
     }
 }
-
 
 @end

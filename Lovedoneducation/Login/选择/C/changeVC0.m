@@ -10,12 +10,17 @@
 #import "changeVC1.h"
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "changeModel0.h"
+#import "changeModel1.h"
+#import "changeCell0.h"
+
 
 
 @interface changeVC0 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
-@property (nonatomic,strong) NSArray *dataSource;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) NSString *type;
+@property (nonatomic,strong) NSMutableArray *typeArray;
 @end
 
 static NSString *changevcidentfid0 = @"changevcidentfid0";
@@ -31,7 +36,9 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
     self.title = @"选择考试类型";
     self.table.tableFooterView = [UIView new];
     [self.view addSubview:self.table];
-    
+    self.dataSource = [NSMutableArray array];
+    self.typeArray = [NSMutableArray array];
+    [self loaddata];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -49,6 +56,31 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
     [self.navigationController.navigationBar setHidden:NO];
 }
 
+-(void)loaddata
+{
+    [DNNetworking getWithURLString:GET_type success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSArray *array = [obj objectForKey:@"data"];
+            for (int i = 0 ; i<array.count; i++) {
+                NSDictionary *dic = [array objectAtIndex:i];
+                changeModel0 *model = [[changeModel0 alloc] init];
+                model.testflag = [dic objectForKey:@"testflag"];
+                model.testid = [dic objectForKey:@"testid"];
+                model.testlist = [dic objectForKey:@"testlist"];
+                model.testname = [dic objectForKey:@"testname"];
+                model.testpath = [dic objectForKey:@"testpath"];
+                model.testpid = [dic objectForKey:@"testpid"];
+                model.time = [dic objectForKey:@"time"];
+                [self.dataSource addObject:model];
+                
+            }
+            [self.table reloadData];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 #pragma mark - getters
 
 -(UITableView *)table
@@ -62,33 +94,23 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
     return _table;
 }
 
--(NSArray *)dataSource
-{
-    if(!_dataSource)
-    {
-        _dataSource = [NSArray array];
-        _dataSource = @[@"国家公务员考试",@"山东公务员考试",@"山东事业单位",@"山东选调村官",@"山东招警考试",@"山东三支一扶"];
-    }
-    return _dataSource;
-}
-
-
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataSource.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:changevcidentfid0];
+    changeCell0 *cell = [tableView dequeueReusableCellWithIdentifier:changevcidentfid0];
     if(!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changevcidentfid0];
+        cell = [[changeCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changevcidentfid0];
     }
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-    cell.textLabel.text = self.dataSource[indexPath.row];
+    [cell setdata:self.dataSource[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"646464"];
@@ -100,24 +122,33 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==0) {
-        self.type = @"1";
-    }
-    if (indexPath.row==1) {
-        self.type = @"2";
-    }
-    if (indexPath.row==2) {
-        self.type = @"3";
-    }
-    if (indexPath.row==3) {
-        self.type = @"4";
-    }
-    if (indexPath.row==4) {
-        self.type = @"5";
-    }
-    if (indexPath.row==5) {
-        self.type = @"6";
-    }
+    changeModel0 *model = self.dataSource[indexPath.row];
+    NSString *parentid = model.testid;
+    NSString *url = [NSString stringWithFormat:@"%@%@",GET_type2,parentid];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSArray *arr = [obj objectForKey:@"data"];
+            for (int i = 0; i<arr.count; i++) {
+                NSDictionary *dic = [arr objectAtIndex:i];
+                changeModel1 *model = [[changeModel1 alloc] init];
+                model.testflag = [dic objectForKey:@"testflag"];
+                model.testid = [dic objectForKey:@"testid"];
+                model.testname = [dic objectForKey:@"testname"];
+                model.testpath = [dic objectForKey:@"testpath"];
+                model.testpid = [dic objectForKey:@"testpid"];
+                model.time = [dic objectForKey:@"time"];
+                [self.typeArray addObject:model];
+            }
+            self.type = @"1";
+            
+        }
+        else
+        {
+            self.type = @"2";
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - 实现方法
@@ -126,39 +157,15 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
 {
     if ([self.type isEqualToString:@"1"]) {
         changeVC1 *vc = [[changeVC1 alloc] init];
+        vc.dataSource = [NSMutableArray array];
+        vc.dataSource = self.typeArray;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([self.type isEqualToString:@"2"])
     {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        MainTabBarController * main = [[MainTabBarController alloc] init];
-        appDelegate.window.rootViewController = main;
         
     }
-    else if ([self.type isEqualToString:@"3"])
-    {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        MainTabBarController * main = [[MainTabBarController alloc] init];
-        appDelegate.window.rootViewController = main;
-    }
-    else if ([self.type isEqualToString:@"4"])
-    {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        MainTabBarController * main = [[MainTabBarController alloc] init];
-        appDelegate.window.rootViewController = main;
-    }
-    else if ([self.type isEqualToString:@"5"])
-    {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        MainTabBarController * main = [[MainTabBarController alloc] init];
-        appDelegate.window.rootViewController = main;
-    }
-    else if ([self.type isEqualToString:@"6"])
-    {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        MainTabBarController * main = [[MainTabBarController alloc] init];
-        appDelegate.window.rootViewController = main;
-    }else
+    else
     {
         [MBProgressHUD showSuccess:@"请选择类型" toView:self.view];
     }

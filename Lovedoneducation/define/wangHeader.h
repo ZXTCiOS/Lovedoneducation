@@ -22,6 +22,21 @@
 //导航栏+状态栏高度
 #define NAVIGATION_HEIGHT (CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]) + CGRectGetHeight(self.navigationController.navigationBar.frame))
 
-#define BASE_URL   @"http://aimidao.tv/"
+#define BASE_URL   @"http://55.irapidtech.net"
+
+/**
+ 考试类型接口
+ */
+#define GET_type  @"/app.php/tool/test"
+
+/**
+ 考试类型第二页选择
+ */
+#define GET_type2 @"/app.php/tool/test?parentid="
+
+/**
+获取验证码
+ */
+#define POST_value @"/app.php/tool/verification"
 
 #endif /* wangHeader_h */

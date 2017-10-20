@@ -1,13 +1,13 @@
 //
-//  changeVC1.h
+//  forgetCell0.h
 //  Lovedoneducation
 //
 //  Created by 王俊钢 on 2017/10/19.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface changeVC1 : BaseViewController
+@interface forgetCell0 : UITableViewCell
 
 @end

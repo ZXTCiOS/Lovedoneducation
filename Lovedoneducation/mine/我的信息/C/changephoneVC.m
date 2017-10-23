@@ -9,8 +9,9 @@
 #import "changephoneVC.h"
 #import "changephoneCell0.h"
 #import "changephoneCell1.h"
+#import "changephoneVC2.h"
 
-@interface changephoneVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface changephoneVC ()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @end
 static NSString *changephoneidentfid0 = @"changephoneidentfid0";
@@ -47,7 +48,7 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,6 +70,16 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
         if (!cell) {
             cell = [[changephoneCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephoneidentfid1];
         }
+        cell.phoneLabel.text = self.phonestr;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==2) {
+        changephoneCell1 *cell = [tableView dequeueReusableCellWithIdentifier:changephoneidentfid2];
+        if (!cell) {
+            cell = [[changephoneCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephoneidentfid2];
+        }
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -84,9 +95,17 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
         return 240;
     }
     if (indexPath.row==2) {
-        return 240;
+        return 360;
     }
     return 0.01f;
 }
 
+-(void)myTabVClick:(UITableViewCell *)cell
+{
+    
+}
+-(void)nextTabVClick:(UITableViewCell *)cell
+{
+    
+}
 @end

@@ -1,5 +1,5 @@
 //
-//  changephoneVC.h
+//  changephoneVC2.h
 //  Lovedoneducation
 //
 //  Created by 王俊钢 on 2017/10/23.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface changephoneVC : BaseViewController
-@property (nonatomic,copy) NSString *phonestr;
+@interface changephoneVC2 : BaseViewController
+
 @end

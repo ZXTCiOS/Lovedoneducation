@@ -93,6 +93,6 @@
 
 -(void)fasongbtnclick
 {
-    
+    [self.delegate myTabVClick:self];
 }
 @end

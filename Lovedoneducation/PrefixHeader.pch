@@ -26,5 +26,6 @@
 #import "strisNull.h"
 #import "DNNetworking.h"
 #import "BaseViewController.h"
+#import "MD5Tool.h"
 #endif /* PrefixHeader_pch */
 

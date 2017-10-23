@@ -66,7 +66,7 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
                 changeModel0 *model = [[changeModel0 alloc] init];
                 model.testflag = [dic objectForKey:@"testflag"];
                 model.testid = [dic objectForKey:@"testid"];
-                model.testlist = [dic objectForKey:@"testlist"];
+//                model.testlist = [dic objectForKey:@"testlist"];
                 model.testname = [dic objectForKey:@"testname"];
                 model.testpath = [dic objectForKey:@"testpath"];
                 model.testpid = [dic objectForKey:@"testpid"];
@@ -145,6 +145,11 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
         else
         {
             self.type = @"2";
+            changeModel0 *model0 = self.dataSource[indexPath.row];
+            self.testid = model0.testid;
+            self.utest_type = model0.testpath;
+            NSLog(@"testid---%@",self.testid);
+            NSLog(@"utest_type====%@",model.testpath);
         }
     } failure:^(NSError *error) {
         
@@ -159,11 +164,24 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
         changeVC1 *vc = [[changeVC1 alloc] init];
         vc.dataSource = [NSMutableArray array];
         vc.dataSource = self.typeArray;
+        vc.uphone = self.uphone;
+        vc.uname = self.uname;
+        vc.upwd = self.upwd;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([self.type isEqualToString:@"2"])
     {
-        
+        NSString *password = [MD5Tool MD5ForLower32Bate:self.upwd];
+        NSString *type = [NSString stringWithFormat:@"%@%@%@",self.utest_type,@"-",self.testid];
+        NSDictionary *dic = @{@"upwd":password,@"uphone":self.uphone,@"uname":self.uname,@"testid":self.testid,@"utest_type":type};
+        NSLog(@"dic-----%@",dic);
+        [DNNetworking postWithURLString:POST_REGISTER parameters:dic success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==200) {
+                [MBProgressHUD showError:@"注册成功" toView:self.view];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
     }
     else
     {

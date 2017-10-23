@@ -9,6 +9,8 @@
 #import "changeVC1.h"
 #import "changeCell1.h"
 #import "changeModel1.h"
+#import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 @interface changeVC1 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -63,7 +65,6 @@ static NSString *changevc1identfid = @"changevc1identfid";
     }
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-//    cell.textLabel.text = self.dataSource[indexPath.row];
     [cell setdata:self.dataSource[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -77,12 +78,14 @@ static NSString *changevc1identfid = @"changevc1identfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==0) {
-        self.secondtype = @"1";
-    }
-    if (indexPath.row==1) {
-        self.secondtype = @"2";
-    }
+    
+    self.secondtype = @"1";
+    
+    changeModel1 *model = self.dataSource[indexPath.row];
+    self.testid = model.testid;
+    self.utest_type = model.testpath;
+    NSLog(@"testid---%@",self.testid);
+    NSLog(@"utest_type====%@",model.testpath);
 }
 
 #pragma mark - 实现方法
@@ -90,12 +93,31 @@ static NSString *changevc1identfid = @"changevc1identfid";
 -(void)rightAction
 {
     if ([self.secondtype isEqualToString:@"1"]) {
-        
+        NSString *password = [MD5Tool MD5ForLower32Bate:self.upwd];
+        NSString *type = [NSString stringWithFormat:@"%@%@%@",self.utest_type,@"-",self.testid];
+        NSDictionary *dic = @{@"upwd":password,@"uphone":self.uphone,@"uname":self.uname,@"testid":self.testid,@"utest_type":type};
+        NSLog(@"dic-----%@",dic);
+        [DNNetworking postWithURLString:POST_REGISTER parameters:dic success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==200) {
+                [MBProgressHUD showError:@"注册成功" toView:self.view];
+                NSDictionary *dic = [obj objectForKey:@"data"];
+                NSString *token = [dic objectForKey:@"token"];
+                NSString *uid = [dic objectForKey:@"uid"];
+                NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+                [defat setObject:token forKey:user_token];
+                [defat setObject:uid forKey:user_uid];
+                [defat synchronize];
+                
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                MainTabBarController * main = [[MainTabBarController alloc] init];
+                appDelegate.window.rootViewController = main;
+                
+            }
+        } failure:^(NSError *error) {
+            
+        }];
     }
-    else if ([self.secondtype isEqualToString:@"2"])
-    {
-        
-    }else
+    else
     {
         [MBProgressHUD showSuccess:@"请选择类型" toView:self.view];
     }

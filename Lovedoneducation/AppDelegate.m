@@ -23,10 +23,17 @@
     if (@available(iOS 11.0, *)){
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
-    
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [MainTabBarController shareInstance];
-    [self configstart];
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defat objectForKey:user_token];
+    if ([strisNull isNullToString:token]) {
+         [self configstart];
+    }
+    else
+    {
+        self.window.rootViewController = [MainTabBarController shareInstance];
+    }
+    
     return YES;
 }
 

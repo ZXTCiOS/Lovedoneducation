@@ -9,6 +9,9 @@
 #import "LoginVC.h"
 #import "changeVC0.h"
 #import "forgetVC.h"
+#import "AppDelegate.h"
+#import "MainTabBarController.h"
+
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -257,8 +260,46 @@
 
 -(void)submitclick
 {
-    changeVC0 *vc = [[changeVC0 alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *phone = @"";
+    NSString *pwd = @"";
+    if (self.phoneText.text.length==0) {
+        phone = @"";
+    }
+    else
+    {
+        phone = self.phoneText.text;
+    }
+    if (self.passwordText.text.length==0) {
+        pwd = @"";
+    }
+    else
+    {
+        pwd = self.passwordText.text;
+    }
+    NSString *password = [MD5Tool MD5ForUpper32Bate:pwd];
+    NSDictionary *dic = @{@"uname":phone,@"upwd":password};
+    [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *token = [dic objectForKey:@"token"];
+            NSString *uid = [dic objectForKey:@"uid"];
+            [userDefault setObject:token forKey:user_token];
+            [userDefault setObject:uid forKey:user_uid];
+            [userDefault synchronize];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            MainTabBarController * main = [[MainTabBarController alloc] init];
+            appDelegate.window.rootViewController = main;
+        }
+        if ([[obj objectForKey:@"code"] isEqualToString:@"006"]) {
+            [MBProgressHUD showSuccess:@"账号或密码不一致" toView:self.view];
+        }
+        if ([[obj objectForKey:@"code"] isEqualToString:@"005"]) {
+            [MBProgressHUD showSuccess:@"手机号不存在" toView:self.view];
+        }
+    } failure:^(NSError *error) {
+        
+    }];;
+    
 }
 
 -(void)forgetbtnclick

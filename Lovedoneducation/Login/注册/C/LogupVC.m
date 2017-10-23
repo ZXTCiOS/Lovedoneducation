@@ -13,10 +13,11 @@
 #import "logupCell3.h"
 #import "changeVC0.h"
 
-@interface LogupVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface LogupVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,myTabVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *submitBtn;
+@property (nonatomic,copy)   NSString *verifycode;
 @end
 
 static NSString *logupCell0identfid = @"logupCell0identfid";
@@ -145,6 +146,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         if (!cell) {
             cell = [[logupCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logipCell3identfid];
         }
+        cell.delegate = self;
         cell.yanzhengtext.tag = 203;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.yanzhengtext.placeholder = @"请输入手机验证码";
@@ -205,8 +207,106 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
 
 -(void)submitbtnclick
 {
-    changeVC0 *vc = [[changeVC0 alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    UITextField *text0 = [self.table viewWithTag:201];
+    UITextField *text1 = [self.table viewWithTag:202];
+    UITextField *text2 = [self.table viewWithTag:203];
+    UITextField *text3 = [self.table viewWithTag:204];
+    UITextField *text4 = [self.table viewWithTag:205];
+    
+    NSString *username = @"";
+    NSString *phonestr = @"";
+    NSString *valuestr = @"";
+    NSString *password0 = @"";
+    NSString *password1 = @"";
+    NSString *password = @"";
+    BOOL valuetype = NO;
+    
+    if (text0.text.length==0) {
+        username = @"";
+        [MBProgressHUD showSuccess:@"请输入昵称" toView:self.view];
+    }
+    else
+    {
+        username = text0.text;
+    }
+    if (text1.text.length==0) {
+        phonestr = @"";
+        [MBProgressHUD showSuccess:@"请输入手机号" toView:self.view];
+    }
+    else
+    {
+        phonestr = text1.text;
+    }
+    if (text2.text.length==0||self.verifycode!=text2.text) {
+        valuestr = @"";
+        
+#warning 标记验证码 -- 003 等待修改
+        
+        valuetype = YES;
+        [MBProgressHUD showSuccess:@"请输入正确的验证码" toView:self.view];
+    }
+    else
+    {
+        valuestr = text2.text;
+        valuetype = YES;
+    }
+    
+    if (text3.text.length==0) {
+        password0 = @"";
+        [MBProgressHUD showSuccess:@"请输入密码" toView:self.view];
+    }
+    else
+    {
+        password0 = text3.text;
+    }
+    
+    if (text4.text.length==0) {
+        password1 = @"";
+        [MBProgressHUD showSuccess:@"请确认密码" toView:self.view];
+    }
+    else
+    {
+        password1 = text4.text;
+    }
+    if ([password0 isEqualToString:password1]&&password0.length!=0) {
+        password = password0;
+    }
+    else
+    {
+        [MBProgressHUD showSuccess:@"请检查输入" toView:self.view];
+    }
+    if (password.length!=0&&username.length!=0&&phonestr.length!=0&&valuetype==YES) {
+        changeVC0 *vc = [[changeVC0 alloc] init];
+        vc.uname = username;
+        vc.upwd = password;
+        vc.uphone = phonestr;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }
+}
+
+-(void)myTabVClick:(UITableViewCell *)cell
+{
+    UITextField *text1 = [self.table viewWithTag:202];
+    NSString *phone = @"";
+    if (text1.text.length==0) {
+        phone = @"";
+    }else
+    {
+        phone = text1.text;
+    }
+    NSString *type = @"1";
+    NSDictionary *para = @{@"phone":phone,@"type":type};
+    [DNNetworking postWithURLString:POST_value parameters:para success:^(id obj) {
+        NSLog(@"obj-----%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            self.verifycode = [dic objectForKey:@"verifycode"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
+    }];
+    
 }
 
 -(void)tabletap

@@ -66,9 +66,6 @@
                  apsForProduction:NO
             advertisingIdentifier:nil];
     
-    
-    
-    
     NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
     NSString *token = [defat objectForKey:user_token];
     if ([strisNull isNullToString:token]) {

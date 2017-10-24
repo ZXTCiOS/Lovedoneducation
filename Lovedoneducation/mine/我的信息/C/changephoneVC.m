@@ -11,8 +11,10 @@
 #import "changephoneCell1.h"
 #import "changephoneVC2.h"
 
-@interface changephoneVC ()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
+@interface changephoneVC ()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,assign) BOOL ischoose;
+@property (nonatomic,copy)   NSString *valuestr;
 @end
 static NSString *changephoneidentfid0 = @"changephoneidentfid0";
 static NSString *changephoneidentfid1 = @"changephoneidentfid1";
@@ -23,6 +25,7 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"账号信息";
+    self.ischoose = NO;
     [self.view addSubview:self.table];
 }
 
@@ -40,6 +43,8 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT)];
         _table.dataSource = self;
         _table.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
@@ -70,6 +75,7 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
         if (!cell) {
             cell = [[changephoneCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephoneidentfid1];
         }
+        self.phonestr = [userDefault objectForKey:user_phone];
         cell.phoneLabel.text = self.phonestr;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -80,6 +86,8 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
             cell = [[changephoneCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephoneidentfid2];
         }
         cell.delegate = self;
+        cell.valuetext.tag = 202;
+        cell.valuetext.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -102,10 +110,48 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
 
 -(void)myTabVClick:(UITableViewCell *)cell
 {
-    
+
+    NSString *phone = self.phonestr;
+   
+    NSString *type = @"1";
+    NSDictionary *para = @{@"phone":phone,@"type":type};
+    [DNNetworking postWithURLString:POST_value parameters:para success:^(id obj) {
+        NSLog(@"obj-----%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            self.valuestr = [dic objectForKey:@"verifycode"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
+    }];
 }
+
 -(void)nextTabVClick:(UITableViewCell *)cell
 {
-    
+    UITextField *text1 = [self.table viewWithTag:202];
+    NSString *str = @"";
+    if (text1.text.length==0) {
+        
+    }
+    else
+    {
+        str = text1.text;
+    }
+    if ([str isEqualToString:self.valuestr]) {
+        self.ischoose = YES;
+    }
+    else
+    {
+        self.ischoose = YES;
+    }
+    if (self.ischoose) {
+        changephoneVC2 *vc = [[changephoneVC2 alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+-(void)tabletap
+{
+    UITextField *text = [self.table viewWithTag:202];
+    [text resignFirstResponder];
 }
 @end

@@ -11,6 +11,7 @@
 #import "mineCell1.h"
 #import "mineCell2.h"
 #import "myinfoVC.h"
+#import "securitiesVC.h"
 
 @interface mineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -18,6 +19,7 @@
 @property (nonatomic,copy)   NSString *phonestr;
 @property (nonatomic,copy)   NSString *nicknamestr;
 @property (nonatomic,copy)   NSString *passwordstr;
+@property (nonatomic,assign) BOOL firstenload;
 @end
 
 static NSString *mineidentfid0 = @"mineidentfid0";
@@ -38,6 +40,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"我的";
+    self.firstenload = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"444444"]}];
     [self.view addSubview:self.table];
     [self loaddata];
@@ -69,10 +72,12 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
+            self.firstenload = YES;
             self.typestr = [dic objectForKey:@"utest_type"];
             self.nicknamestr = [dic objectForKey:@"uname"];
             self.phonestr = [dic objectForKey:@"uphone"];
             self.passwordstr = [dic objectForKey:@"upwd"];
+            [userDefault setObject:self.phonestr forKey:user_phone];
             [self.table reloadData];
         }
     } failure:^(NSError *error) {
@@ -245,11 +250,26 @@ static NSString *mineidentfid9 = @"mineidentfid9";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        myinfoVC *vc = [[myinfoVC alloc] init];
-        vc.phonestr = self.phonestr;
-        vc.passwordstr = self.passwordstr;
-        vc.nicknamestr = self.nicknamestr;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (self.firstenload) {
+            myinfoVC *vc = [[myinfoVC alloc] init];
+            vc.phonestr = self.phonestr;
+            vc.passwordstr = self.passwordstr;
+            vc.nicknamestr = self.nicknamestr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+    if (indexPath.section==1) {
+        if (indexPath.row==1) {
+            //代金劵
+            securitiesVC *vc = [[securitiesVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        if (indexPath.row==2) {
+            
+        }
+        if (indexPath.row==3) {
+            
+        }
     }
 }
 

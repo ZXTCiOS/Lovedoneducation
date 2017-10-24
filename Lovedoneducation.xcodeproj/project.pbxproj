@@ -77,6 +77,14 @@
 		53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B31F973C90006A6570 /* UIColor+HexColor.m */; };
 		53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B61F973C90006A6570 /* MainTabBar.m */; };
 		53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999B81F973C90006A6570 /* MainTabBarButton.m */; };
+		53D1F2681F9F063C002E1524 /* securitiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2671F9F063C002E1524 /* securitiesVC.m */; };
+		53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F26A1F9F0A6E002E1524 /* changenameVC.m */; };
+		53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F26D1F9F0E35002E1524 /* changepasswordVC.m */; };
+		53D1F2711F9F1129002E1524 /* changepasswordCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2701F9F1129002E1524 /* changepasswordCell0.m */; };
+		53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2731F9F1438002E1524 /* changepasswordCell1.m */; };
+		53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */; };
+		53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */; };
+		53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E887411F9EEB8F00CC6909 /* changephoneCell2.m */; };
 		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +244,22 @@
 		53C999B61F973C90006A6570 /* MainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBar.m; sourceTree = "<group>"; };
 		53C999B71F973C90006A6570 /* MainTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarButton.h; sourceTree = "<group>"; };
 		53C999B81F973C90006A6570 /* MainTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarButton.m; sourceTree = "<group>"; };
+		53D1F2661F9F063C002E1524 /* securitiesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = securitiesVC.h; sourceTree = "<group>"; };
+		53D1F2671F9F063C002E1524 /* securitiesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitiesVC.m; sourceTree = "<group>"; };
+		53D1F2691F9F0A6E002E1524 /* changenameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changenameVC.h; sourceTree = "<group>"; };
+		53D1F26A1F9F0A6E002E1524 /* changenameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changenameVC.m; sourceTree = "<group>"; };
+		53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changepasswordVC.h; sourceTree = "<group>"; };
+		53D1F26D1F9F0E35002E1524 /* changepasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changepasswordVC.m; sourceTree = "<group>"; };
+		53D1F26F1F9F1129002E1524 /* changepasswordCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changepasswordCell0.h; sourceTree = "<group>"; };
+		53D1F2701F9F1129002E1524 /* changepasswordCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changepasswordCell0.m; sourceTree = "<group>"; };
+		53D1F2721F9F1438002E1524 /* changepasswordCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changepasswordCell1.h; sourceTree = "<group>"; };
+		53D1F2731F9F1438002E1524 /* changepasswordCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changepasswordCell1.m; sourceTree = "<group>"; };
+		53D1F2761F9F2BC3002E1524 /* securitiesCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = securitiesCell0.h; sourceTree = "<group>"; };
+		53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitiesCell0.m; sourceTree = "<group>"; };
+		53D1F2791F9F2BCF002E1524 /* securitiesCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = securitiesCell1.h; sourceTree = "<group>"; };
+		53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitiesCell1.m; sourceTree = "<group>"; };
+		53E887401F9EEB8F00CC6909 /* changephoneCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneCell2.h; sourceTree = "<group>"; };
+		53E887411F9EEB8F00CC6909 /* changephoneCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell2.m; sourceTree = "<group>"; };
 		57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovedoneducation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovedoneducation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -531,6 +555,10 @@
 				539E17261F9DF42200EA1E2B /* changephoneVC.m */,
 				539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */,
 				539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */,
+				53D1F2691F9F0A6E002E1524 /* changenameVC.h */,
+				53D1F26A1F9F0A6E002E1524 /* changenameVC.m */,
+				53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */,
+				53D1F26D1F9F0E35002E1524 /* changepasswordVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -542,6 +570,12 @@
 				539E17291F9E00E400EA1E2B /* changephoneCell0.m */,
 				539E172B1F9E00F300EA1E2B /* changephoneCell1.h */,
 				539E172C1F9E00F300EA1E2B /* changephoneCell1.m */,
+				53E887401F9EEB8F00CC6909 /* changephoneCell2.h */,
+				53E887411F9EEB8F00CC6909 /* changephoneCell2.m */,
+				53D1F26F1F9F1129002E1524 /* changepasswordCell0.h */,
+				53D1F2701F9F1129002E1524 /* changepasswordCell0.m */,
+				53D1F2721F9F1438002E1524 /* changepasswordCell1.h */,
+				53D1F2731F9F1438002E1524 /* changepasswordCell1.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -638,6 +672,7 @@
 			children = (
 				533FCB491F9D90F600A4F6E1 /* 我的 */,
 				539E171B1F9DEB4600EA1E2B /* 我的信息 */,
+				53D1F2621F9F05A3002E1524 /* 我的代金劵 */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -735,6 +770,43 @@
 				53C999B81F973C90006A6570 /* MainTabBarButton.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		53D1F2621F9F05A3002E1524 /* 我的代金劵 */ = {
+			isa = PBXGroup;
+			children = (
+				53D1F2751F9F1B31002E1524 /* M */,
+				53D1F2651F9F05B6002E1524 /* V */,
+				53D1F2631F9F05AF002E1524 /* C */,
+			);
+			path = "我的代金劵";
+			sourceTree = "<group>";
+		};
+		53D1F2631F9F05AF002E1524 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D1F2661F9F063C002E1524 /* securitiesVC.h */,
+				53D1F2671F9F063C002E1524 /* securitiesVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D1F2651F9F05B6002E1524 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				53D1F2761F9F2BC3002E1524 /* securitiesCell0.h */,
+				53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */,
+				53D1F2791F9F2BCF002E1524 /* securitiesCell1.h */,
+				53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53D1F2751F9F1B31002E1524 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		9BAAE0C9431CE0E3714EC8E4 /* Frameworks */ = {
@@ -1078,22 +1150,33 @@
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
+
+				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
+
 				1822E4511F9E10A500C92DEA /* HomeBannerCell.m in Sources */,
 				1822E4711F9E112F00C92DEA /* NSString+myUrl.m in Sources */,
+
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
 				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
+				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */,
+				53D1F2711F9F1129002E1524 /* changepasswordCell0.m in Sources */,
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,
 				18283D0A1F9EFD6100111352 /* HomeSortDetailVC.m in Sources */,
 				533FCB421F99A9D800A4F6E1 /* changeCell0.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
+
+				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
+
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
+
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
+				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,
 				539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */,
 				533FCB481F99DA6800A4F6E1 /* Helper.m in Sources */,
 				539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */,
@@ -1112,14 +1195,17 @@
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
 				5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */,
+				53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */,
 				539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
 				533FCB4F1F9DB38600A4F6E1 /* mineCell0.m in Sources */,
+				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */,
 				539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */,
 				1822E46E1F9E112F00C92DEA /* HYBPageControl.m in Sources */,
 				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
 				5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */,
+				53D1F2681F9F063C002E1524 /* securitiesVC.m in Sources */,
 				533FCB451F99D7F200A4F6E1 /* changeCell1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

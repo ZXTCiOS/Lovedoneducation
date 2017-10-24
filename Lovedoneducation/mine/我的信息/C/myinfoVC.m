@@ -11,6 +11,8 @@
 #import "MainNavigationController.h"
 #import "AppDelegate.h"
 #import "changephoneVC.h"
+#import "changenameVC.h"
+#import "changepasswordVC.h"
 
 @interface myinfoVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -187,10 +189,12 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
 {
     if (indexPath.section==1) {
         if (indexPath.row==0) {
-            
+            changenameVC *vc = [[changenameVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==1) {
-            
+            changepasswordVC *vc = [[changepasswordVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==2) {
             changephoneVC *vc = [[changephoneVC alloc] init];

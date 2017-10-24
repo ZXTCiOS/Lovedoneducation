@@ -7,6 +7,8 @@
 //
 
 #import "securitiesVC.h"
+#import "securitiesCell0.h"
+#import "securitiesCell1.h"
 
 @interface securitiesVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -62,13 +64,19 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
         return 1;
+    }
+    if (section==1) {
+        return 2;
+    }
+    if (section==2) {
+        return 3;
     }
     return 1;
 }
@@ -87,21 +95,71 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         cell.textLabel.font = [UIFont systemFontOfSize:16];
         return cell;
     }
-    
+    if (indexPath.section==1) {
+        securitiesCell0 *cell = [tableView dequeueReusableCellWithIdentifier:securitiesidentfid1];
+        if (!cell) {
+            cell = [[securitiesCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:securitiesidentfid1];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.section==2) {
+        securitiesCell1 *cell = [tableView dequeueReusableCellWithIdentifier:securitiesidentfid2];
+        if (!cell) {
+            cell = [[securitiesCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:securitiesidentfid2];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    if (indexPath.section==0) {
+        return 50;
+    }
+    if (indexPath.section==1) {
+        return 100;
+    }
+    if (indexPath.section==2) {
+        return 150;
+    }
+    return 0.01f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (section==1) {
+        return 60;
+    }
+    if (section==2) {
+        return 60;
+    }
     return 0.01f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01f;
+}
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section==1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+        UILabel *lab0 = [[UILabel alloc] init];
+        UILabel *lab1 = [[UILabel alloc] init];
+        lab0.text = @"课程券";
+        lab1.text = @"每次限使用一张，少补不退";
+        
+        [view addSubview:lab1];
+        [view addSubview:lab0];
+        return view;
+    }
+    if (section==2) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+        
+        return view;
+    }
+    return nil;
 }
 @end

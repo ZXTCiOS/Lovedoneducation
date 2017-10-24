@@ -148,10 +148,12 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     }
     return 0.01f;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01f;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section==1) {

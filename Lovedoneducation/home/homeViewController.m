@@ -7,44 +7,231 @@
 //
 
 #import "homeViewController.h"
+#import "HomeSortCell.h"
+#import "HomeSort2Cell.h"
+#import "HomeModel.h"
+#import "HomeBannerView.h"
+#import "HomeSortDetailVC.h"
+#import "ZhuanXiangZhiNengPricticeVC.h"
 
-@interface homeViewController ()
+@interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) HomeDataModel *data;
+@property (nonatomic, strong) UIButton *qiandao;
 @end
 
 @implementation homeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configNaviBar];
+    [self.collectionView registerClass:[HomeSortCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeBannerView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    [self networking];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)configNaviBar{
     self.title = @"国家公务员考试";
-     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
-    UIBarButtonItem *rightitem0 = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction0)];
-    UIBarButtonItem *rightitem1 = [[UIBarButtonItem alloc] initWithTitle:@"签到" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction1)];
-    [rightitem0 setTintColor:[UIColor redColor]];
-    NSArray *actionButtonItems = @[rightitem0, rightitem1];
-    self.navigationItem.rightBarButtonItems = actionButtonItems;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+    UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
+    more.frame = CGRectMake(0, 0, 30, 15);
+    more.titleLabel.font = [UIFont systemFontOfSize:14];
+    more.tintColor = krgb(100, 100, 100);
+    [more addTarget:self action:@selector(rightActionMore) forControlEvents:UIControlEventTouchUpInside];
+    [more setTitle:@"更多" forState:UIControlStateNormal];
+    UIBarButtonItem *rightitemMore = [[UIBarButtonItem alloc] initWithCustomView:more];
+    
+    // message_icon_default_nav   message_icon_selected_nav
+    UIImage *img = [UIImage imageNamed:@"message_icon_default_nav"];
+    UIImage *image = [img imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *rightitemMsg = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(rightActionMessage)];
+    [rightitemMore setTintColor:krgb(100, 100, 100)];
+    
+    
+    UIButton *qiandao = [UIButton buttonWithType:UIButtonTypeSystem];
+    qiandao.frame = CGRectMake(0, 0, 30, 15);
+    qiandao.titleLabel.font = [UIFont systemFontOfSize:14];
+    qiandao.tintColor = krgb(255,155,25);
+    [qiandao addTarget:self action:@selector(leftActionQiandao:) forControlEvents:UIControlEventTouchUpInside];
+    [qiandao setTitle:@"签到" forState:UIControlStateNormal];
+    self.qiandao = qiandao;
+    UIBarButtonItem *leftItemQiandao = [[UIBarButtonItem alloc] initWithCustomView:qiandao];
+    //leftItemQiandao.tintColor = krgb(255,155,25);
+    UIBarButtonItem *leftItemChange = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"kechengxuanze_icon_nav"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftActionChange)];
+    
+    UIBarButtonItem * space_8 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    space_8.width = - 8;
+    UIBarButtonItem * space_6 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    space_6.width = - 12;
+    self.navigationItem.rightBarButtonItems = @[rightitemMore, space_6, rightitemMsg];
+    self.navigationItem.leftBarButtonItems = @[leftItemChange, space_6, leftItemQiandao];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
 }
+
+- (void)networking{
+    NSString *uid = [userDefault valueForKey:user_uid];
+    NSString *token = [userDefault valueForKey:user_token];
+    
+    [DNNetworking getWithURLString:get_shouye parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
+        NSString *code = [obj objectForKey:@"code"];
+        if ([code isEqualToString:@"200"]) {
+            HomeModel *model = [HomeModel parse:obj];
+            self.data = model.data;
+            [self.collectionView reloadData];
+            NSString *title = model.isdeport ? @"已签到": @"签到";
+            [self.qiandao setTitle:title forState:UIControlStateDisabled];
+            self.qiandao.enabled = !model.isdeport;
+        }
+    } failure:^(NSError *error) {
+        [self.view showWarning:@"网络错误"];
+    }];
+}
+
+#pragma mark - UICollectionView  delegate && datasource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return self.data.quetions.count ? 1 : 0;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.data.quetions.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    HomeSortCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    HomeQuestionsModel *quetion = self.data.quetions[indexPath.row];
+    [cell.imgV setImageWithURL:quetion.img.xd_URL placeholder:[UIImage imageNamed:@"background_tixing_shouye"]];
+    cell.titleL.text = quetion.qtname;
+    cell.titleL.textColor = krgb(50, 50, 50);
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    HomeQuestionsModel *quetion = self.data.quetions[indexPath.row];
+    for (HomeChildModel *quetion in self.data.quetions[indexPath.row].child) {
+        if (!quetion.child.count) {
+            HomeChild2Model *model = [HomeChild2Model new];
+            model.img = quetion.img;
+            model.qtid = quetion.qtid;
+            model.qtname = quetion.qtname;
+            NSArray *arr = @[model];
+            quetion.child = arr;
+        }
+    }
+    // 第一层为空 则直接跳转专项练习
+    if (!quetion.child.count) {
+        ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
+        vc.qtid = quetion.qtid;
+        vc.qtname = quetion.qtname;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    // 否则跳向二级
+    HomeSortDetailVC *vc = [[HomeSortDetailVC alloc] init];
+    vc.child = quetion.child;
+    vc.title = quetion.qtname;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        return nil;
+    }
+    HomeBannerView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+    view.frame = CGRectMake(0, 0, kScreenW, kScreenW *7 / 15 + 100);
+    HYBLoopScrollView *loop = [HYBLoopScrollView loopScrollViewWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * 7 / 15.0) imageUrls:nil timeInterval:2 didSelect:^(NSInteger atIndex) {
+        
+    } didScroll:^(NSInteger toIndex) {
+        
+    }];
+    // TODO: add default image
+    loop.placeholder = [UIImage imageNamed:@"background_banner_shouye"];
+    [view.bannerV addSubview:loop];
+    NSMutableArray *arr = [NSMutableArray array];
+    for (HomeSlideModel *slide in self.data.slide) {
+        [arr addObject:slide.posterimg];
+        if (slide == self.data.slide.lastObject) {
+            loop.imageUrls = arr;
+        }
+    }
+    loop.pageControlEnabled = YES;
+    return view;
+}
+
+#pragma mark FlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(kScreenW, kScreenW *7 / 15 + 100);
+}
+
+
+#pragma mark - 实现方法
+
+-(void)rightActionMore
+{
+    
+}
+
+-(void)rightActionMessage
+{
+    
+}
+
+- (void)leftActionQiandao:(UIButton *)button{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:@{@"uid": uid, @"token": token, @"type": @(1)} success:^(id obj) {
+        NSString *code = [obj objectForKey:@"code"];
+        if ([code isEqualToString:@"200"]) {
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)leftActionChange{
+    
+}
+
+- (UICollectionView *)collectionView{
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+        layout.minimumLineSpacing = 20;
+        layout.minimumInteritemSpacing = 8;
+        layout.sectionInset = UIEdgeInsetsMake(0, 12, 30, 12);
+        CGFloat width = (kScreenW - 34) / 2;
+        layout.itemSize = CGSizeMake(width, width * 9 / 17.0 + 31);
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        [self.view addSubview:_collectionView];
+        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+    }
+    return _collectionView;
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 实现方法
-
--(void)rightAction0
-{
-    
-}
-
--(void)rightAction1
-{
-    
 }
 
 @end

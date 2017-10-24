@@ -57,6 +57,7 @@
 		539E17271F9DF42200EA1E2B /* changephoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17261F9DF42200EA1E2B /* changephoneVC.m */; };
 		539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17291F9E00E400EA1E2B /* changephoneCell0.m */; };
 		539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172C1F9E00F300EA1E2B /* changephoneCell1.m */; };
+		539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -193,6 +194,8 @@
 		539E17291F9E00E400EA1E2B /* changephoneCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell0.m; sourceTree = "<group>"; };
 		539E172B1F9E00F300EA1E2B /* changephoneCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneCell1.h; sourceTree = "<group>"; };
 		539E172C1F9E00F300EA1E2B /* changephoneCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell1.m; sourceTree = "<group>"; };
+		539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneVC2.h; sourceTree = "<group>"; };
+		539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneVC2.m; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				539E17201F9DEB8A00EA1E2B /* myinfoVC.m */,
 				539E17251F9DF42200EA1E2B /* changephoneVC.h */,
 				539E17261F9DF42200EA1E2B /* changephoneVC.m */,
+				539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */,
+				539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1087,8 +1092,12 @@
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */,
 				533FCB3D1F99A42400A4F6E1 /* changeModel1.m in Sources */,
+
 				1822E4731F9E112F00C92DEA /* UIView+HUD.m in Sources */,
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
+
+				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,
+
 				533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */,
 				539E17211F9DEB8A00EA1E2B /* myinfoVC.m in Sources */,
 				53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */,

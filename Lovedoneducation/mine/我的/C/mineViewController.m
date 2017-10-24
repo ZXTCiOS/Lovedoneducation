@@ -14,7 +14,10 @@
 
 @interface mineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
-@property (nonatomic,copy) NSString *typestr;
+@property (nonatomic,copy)   NSString *typestr;
+@property (nonatomic,copy)   NSString *phonestr;
+@property (nonatomic,copy)   NSString *nicknamestr;
+@property (nonatomic,copy)   NSString *passwordstr;
 @end
 
 static NSString *mineidentfid0 = @"mineidentfid0";
@@ -67,6 +70,9 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.typestr = [dic objectForKey:@"utest_type"];
+            self.nicknamestr = [dic objectForKey:@"uname"];
+            self.phonestr = [dic objectForKey:@"uphone"];
+            self.passwordstr = [dic objectForKey:@"upwd"];
             [self.table reloadData];
         }
     } failure:^(NSError *error) {
@@ -235,13 +241,18 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         return 60;
     }
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
         myinfoVC *vc = [[myinfoVC alloc] init];
+        vc.phonestr = self.phonestr;
+        vc.passwordstr = self.passwordstr;
+        vc.nicknamestr = self.nicknamestr;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 #pragma mark - 实现方法
 
 - (void) switchIsChanged:(UISwitch *)paramSender {

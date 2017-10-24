@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface changephoneVC : BaseViewController
-
+@property (nonatomic,copy) NSString *phonestr;
 @end

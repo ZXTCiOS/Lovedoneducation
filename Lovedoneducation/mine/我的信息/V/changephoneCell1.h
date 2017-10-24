@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//创建一个代理
+@protocol myTabVdelegate <NSObject>
+-(void)myTabVClick:(UITableViewCell *)cell;
+-(void)nextTabVClick:(UITableViewCell *)cell;
+@end
 @interface changephoneCell1 : UITableViewCell
+@property (nonatomic,strong) UITextField *valuetext;
+@property(assign,nonatomic)id<myTabVdelegate>delegate;
 
 @end

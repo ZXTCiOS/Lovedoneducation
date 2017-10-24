@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface myinfoVC : BaseViewController
-
+@property (nonatomic,copy) NSString *phonestr;
+@property (nonatomic,copy) NSString *passwordstr;
+@property (nonatomic,copy) NSString *nicknamestr;
 @end

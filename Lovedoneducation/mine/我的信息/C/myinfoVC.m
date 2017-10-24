@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *submtiBtn;
+
 @end
 
 static NSString *myinfoidentfid0 = @"myinfoidentfid0";
@@ -193,6 +194,7 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
         }
         if (indexPath.row==2) {
             changephoneVC *vc = [[changephoneVC alloc] init];
+            vc.phonestr = self.phonestr;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

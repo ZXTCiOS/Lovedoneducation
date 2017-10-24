@@ -52,6 +52,7 @@
 
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"
+#define user_phone  @"PHONE"
 
 #define userDefault [NSUserDefaults standardUserDefaults]
 
@@ -92,4 +93,18 @@
 
  */
 #define GET_INFO @"/app.php/user/information?uid=%@&token=%@"
+
+/**
+ 修改用户信息
+
+ @return
+ */
+#define POST_CHANGEINFO @"/app.php/user/update"
+
+/**
+ 我的代金劵
+
+ @return
+ */
+#define GET_mineCoupon @"/app.php/user/mineCoupon/?uid=%@&token=%@"
 #endif /* wangHeader_h */

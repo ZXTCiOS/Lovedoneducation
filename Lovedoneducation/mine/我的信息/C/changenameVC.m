@@ -1,29 +1,30 @@
 //
-//  changephoneVC2.m
+//  changenameVC.m
 //  Lovedoneducation
 //
-//  Created by 王俊钢 on 2017/10/23.
+//  Created by 王俊钢 on 2017/10/24.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "changephoneVC2.h"
+#import "changenameVC.h"
 #import "changephoneCell2.h"
 
-@interface changephoneVC2 ()<UITableViewDataSource,UITableViewDelegate>
+@interface changenameVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *submitBtn;
 @end
 
-static NSString *changephonevc2identfid0 = @"changephonevc2identfid0";
-static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
+static NSString *changenameidentfid0 = @"changenameidentfid0";
+static NSString *changenameidentfid1 = @"changenameidentfid1";
 
-@implementation changephoneVC2
+@implementation changenameVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"账号信息";
+    
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
 }
@@ -47,7 +48,6 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
     }
     return _table;
 }
-
 -(UIView *)footView
 {
     if(!_footView)
@@ -81,26 +81,28 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
 {
     return 2;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:changephonevc2identfid0];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:changenameidentfid0];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephonevc2identfid0];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changenameidentfid0];
         }
         cell.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = @"添加新的手机号";
+        cell.textLabel.text = @"请输入新的昵称";
         cell.textLabel.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         cell.textLabel.font = [UIFont systemFontOfSize:16];
         return cell;
     }
     if (indexPath.row==1) {
-        changephoneCell2 *cell = [tableView dequeueReusableCellWithIdentifier:changephonevc2identfid1];
+        changephoneCell2 *cell = [tableView dequeueReusableCellWithIdentifier:changenameidentfid1];
         if (!cell) {
-            cell = [[changephoneCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changephonevc2identfid1];
+            cell = [[changephoneCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:changenameidentfid1];
         }
         cell.phoneText.tag = 201;
+        cell.phoneText.placeholder = @"请输入新的昵称";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -117,21 +119,20 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
         return 60;
     }
 }
-
 -(void)submitbtnclick
 {
-    NSString *phonestr = @"";
-    UITextField *text = [self.table viewWithTag:201];
-    if (text.text.length==0) {
-        phonestr = @"";
+    NSString *namestr = @"";
+    UITextField *nameText = [self.table viewWithTag:201];
+    if (nameText.text.length==0) {
+        namestr = @"";
     }
     else
     {
-        phonestr = text.text;
+        namestr = nameText.text;
     }
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *dic = @{@"uphone":phonestr};
+    NSDictionary *dic = @{@"uname":namestr};
     NSString *para = [self convertToJsonData:dic];
     NSDictionary *postdic = @{@"uid":uid,@"token":token,@"param":para};
     [DNNetworking postWithURLString:POST_CHANGEINFO parameters:postdic success:^(id obj) {
@@ -139,7 +140,6 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
             [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
             [self.navigationController popToRootViewControllerAnimated:YES];
             //[self.navigationController popViewControllerAnimated:YES];
-            
         }
     } failure:^(NSError *error) {
         
@@ -151,7 +151,6 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
     UITextField *text = [self.table viewWithTag:201];
     [text resignFirstResponder];
 }
-
 -(NSString *)convertToJsonData:(NSDictionary *)dict
 {
     NSError *error;

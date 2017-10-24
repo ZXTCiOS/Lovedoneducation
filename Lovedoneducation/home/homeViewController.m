@@ -7,10 +7,13 @@
 //
 
 #import "homeViewController.h"
+#import "HomeModel.h"
+// view
 #import "HomeSortCell.h"
 #import "HomeSort2Cell.h"
-#import "HomeModel.h"
 #import "HomeBannerView.h"
+#import "HomeQiandaoView.h"
+// viewcontroller
 #import "HomeSortDetailVC.h"
 #import "ZhuanXiangZhiNengPricticeVC.h"
 
@@ -52,11 +55,18 @@
     
     
     UIButton *qiandao = [UIButton buttonWithType:UIButtonTypeSystem];
-    qiandao.frame = CGRectMake(0, 0, 30, 15);
+    qiandao.frame = CGRectMake(0, 0, 42, 15);
     qiandao.titleLabel.font = [UIFont systemFontOfSize:14];
     qiandao.tintColor = krgb(255,155,25);
     [qiandao addTarget:self action:@selector(leftActionQiandao:) forControlEvents:UIControlEventTouchUpInside];
     [qiandao setTitle:@"签到" forState:UIControlStateNormal];
+    [qiandao setTitle:@"已签到" forState:UIControlStateDisabled];
+    for (id view in [qiandao subviews]) {
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *l = view;
+            l.textAlignment = NSTextAlignmentLeft;
+        }
+    }
     self.qiandao = qiandao;
     UIBarButtonItem *leftItemQiandao = [[UIBarButtonItem alloc] initWithCustomView:qiandao];
     //leftItemQiandao.tintColor = krgb(255,155,25);
@@ -86,8 +96,8 @@
             HomeModel *model = [HomeModel parse:obj];
             self.data = model.data;
             [self.collectionView reloadData];
-            NSString *title = model.isdeport ? @"已签到": @"签到";
-            [self.qiandao setTitle:title forState:UIControlStateDisabled];
+//            NSString *title = model.isdeport ? @"已签到": @"签到";
+//            [self.qiandao setTitle:title forState:UIControlStateDisabled];
             self.qiandao.enabled = !model.isdeport;
         }
     } failure:^(NSError *error) {
@@ -193,13 +203,24 @@
     NSString *token = [userDefault objectForKey:user_token];
     [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:@{@"uid": uid, @"token": token, @"type": @(1)} success:^(id obj) {
         NSString *code = [obj objectForKey:@"code"];
+        NSDictionary *data = [obj objectForKey:@"data"];
         if ([code isEqualToString:@"200"]) {
-            
+            HomeQiandaoView *qiandao = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([HomeQiandaoView class]) owner:nil options:nil].firstObject;
+            qiandao.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+            qiandao.tip.text = [data valueForKey:@"tip"];
+            qiandao.dayL.text = [data valueForKey:@"day"];
+            if ([[data valueForKey:@"tip"] isEqualToString:@"zxtc"]) {
+                qiandao.tip.text = @"Tips: 连续签到10天可截图至微信公众号领取更多现金抵用券哦~";
+            }
+            //[qiandao.cancelBtn
+            self.qiandao.enabled = NO;
+            [self.view addSubview:qiandao];
         }
     } failure:^(NSError *error) {
-        
+        [self.view showWarning:@"网络异常, 签到失败"];
     }];
 }
+
 
 - (void)leftActionChange{
     

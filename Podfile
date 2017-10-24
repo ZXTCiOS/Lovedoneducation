@@ -7,6 +7,8 @@ target 'Lovedoneducation' do
 
   # Pods for Lovedoneducation
 pod 'AFNetworking'
+pod 'BlocksKit'
+pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'Masonry'
 pod 'MBProgressHUD'

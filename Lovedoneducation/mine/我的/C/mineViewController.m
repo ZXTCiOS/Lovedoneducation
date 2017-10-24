@@ -12,6 +12,9 @@
 #import "mineCell2.h"
 #import "myinfoVC.h"
 #import "securitiesVC.h"
+#import "myinfomessageVC.h"
+#import "coursescacheVC.h"
+#import "feedbackVC.h"
 
 @interface mineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -44,6 +47,15 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"444444"]}];
     [self.view addSubview:self.table];
     [self loaddata];
+    
+     if (@available(iOS 11.0, *)){
+         self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT-LL_TabbarHeight);
+     }
+     else
+     {
+         self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -265,10 +277,17 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==2) {
-            
+            myinfomessageVC *vc = [[myinfomessageVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row==3) {
-            
+        if (indexPath.row==4) {
+            //课程缓存
+            coursescacheVC *vc = [[coursescacheVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        if (indexPath.row==5) {
+            feedbackVC *vc = [[feedbackVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }

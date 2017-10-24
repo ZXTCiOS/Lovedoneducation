@@ -34,6 +34,13 @@ static NSString *changepassidentfid4 = @"changepassidentfid4";
     self.ischoose = NO;
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
+    if (@available(iOS 11.0, *)){
+        self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    }
+    else
+    {
+        self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+    }
 }
 
 - (void)didReceiveMemoryWarning {

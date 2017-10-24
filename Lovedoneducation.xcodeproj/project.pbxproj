@@ -28,6 +28,8 @@
 		18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D0C1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m */; };
 		18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D0F1F9F2EC900111352 /* HomeQiandaoView.m */; };
 		18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */; };
+		18283D151F9F56D700111352 /* HomeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D141F9F56D700111352 /* HomeMoreView.m */; };
+		18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D161F9F56E600111352 /* HomeMoreView.xib */; };
 		4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */; };
 		4D6F45D4CAF9ED271F774226 /* libPods-LovedoneducationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */; };
 		5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE401F9744CB00D4AE2C /* DNNetworking.m */; };
@@ -145,6 +147,9 @@
 		18283D0E1F9F2EC900111352 /* HomeQiandaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeQiandaoView.h; sourceTree = "<group>"; };
 		18283D0F1F9F2EC900111352 /* HomeQiandaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeQiandaoView.m; sourceTree = "<group>"; };
 		18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeQiandaoView.xib; sourceTree = "<group>"; };
+		18283D131F9F56D700111352 /* HomeMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMoreView.h; sourceTree = "<group>"; };
+		18283D141F9F56D700111352 /* HomeMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMoreView.m; sourceTree = "<group>"; };
+		18283D161F9F56E600111352 /* HomeMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMoreView.xib; sourceTree = "<group>"; };
 		40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests.release.xcconfig"; sourceTree = "<group>"; };
 		5317DE3F1F9744CB00D4AE2C /* DNNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNNetworking.h; sourceTree = "<group>"; };
@@ -328,6 +333,9 @@
 				18283D0E1F9F2EC900111352 /* HomeQiandaoView.h */,
 				18283D0F1F9F2EC900111352 /* HomeQiandaoView.m */,
 				18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */,
+				18283D131F9F56D700111352 /* HomeMoreView.h */,
+				18283D141F9F56D700111352 /* HomeMoreView.m */,
+				18283D161F9F56E600111352 /* HomeMoreView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -956,6 +964,7 @@
 				18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */,
 				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
+				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
 			);
@@ -1134,6 +1143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
+				18283D151F9F56D700111352 /* HomeMoreView.m in Sources */,
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				539E17271F9DF42200EA1E2B /* changephoneVC.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
@@ -1150,12 +1160,9 @@
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
-
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
-
 				1822E4511F9E10A500C92DEA /* HomeBannerCell.m in Sources */,
 				1822E4711F9E112F00C92DEA /* NSString+myUrl.m in Sources */,
-
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
 				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
 				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
@@ -1169,11 +1176,8 @@
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
-
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
-
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
-
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
 				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,

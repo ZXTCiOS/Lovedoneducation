@@ -13,6 +13,7 @@
 #import "HomeSort2Cell.h"
 #import "HomeBannerView.h"
 #import "HomeQiandaoView.h"
+#import "HomeMoreView.h"
 // viewcontroller
 #import "HomeSortDetailVC.h"
 #import "ZhuanXiangZhiNengPricticeVC.h"
@@ -20,6 +21,7 @@
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) HomeMoreView *moreV;
 @property (nonatomic, strong) HomeDataModel *data;
 @property (nonatomic, strong) UIButton *qiandao;
 @end
@@ -36,7 +38,7 @@
 }
 
 - (void)configNaviBar{
-    self.title = @"国家公务员考试";
+    self.title = self.data.user.utest_type;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -61,12 +63,7 @@
     [qiandao addTarget:self action:@selector(leftActionQiandao:) forControlEvents:UIControlEventTouchUpInside];
     [qiandao setTitle:@"签到" forState:UIControlStateNormal];
     [qiandao setTitle:@"已签到" forState:UIControlStateDisabled];
-    for (id view in [qiandao subviews]) {
-        if ([view isKindOfClass:[UILabel class]]) {
-            UILabel *l = view;
-            l.textAlignment = NSTextAlignmentLeft;
-        }
-    }
+    
     self.qiandao = qiandao;
     UIBarButtonItem *leftItemQiandao = [[UIBarButtonItem alloc] initWithCustomView:qiandao];
     //leftItemQiandao.tintColor = krgb(255,155,25);
@@ -76,8 +73,8 @@
     space_8.width = - 8;
     UIBarButtonItem * space_6 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     space_6.width = - 12;
-    self.navigationItem.rightBarButtonItems = @[rightitemMore, space_6, rightitemMsg];
-    self.navigationItem.leftBarButtonItems = @[leftItemChange, space_6, leftItemQiandao];
+    self.navigationItem.rightBarButtonItems = @[space_8, rightitemMore, space_6, rightitemMsg];
+    self.navigationItem.leftBarButtonItems = @[space_8, leftItemChange, space_6, leftItemQiandao];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
 }
 
@@ -190,7 +187,7 @@
 
 -(void)rightActionMore
 {
-    
+    self.moreV.hidden = !self.moreV.hidden;
 }
 
 -(void)rightActionMessage
@@ -212,7 +209,10 @@
             if ([[data valueForKey:@"tip"] isEqualToString:@"zxtc"]) {
                 qiandao.tip.text = @"Tips: 连续签到10天可截图至微信公众号领取更多现金抵用券哦~";
             }
-            //[qiandao.cancelBtn
+            [qiandao.cancelBtn bk_addEventHandler:^(id sender) {
+                qiandao.hidden = YES;
+                [qiandao removeFromSuperview];
+            } forControlEvents:UIControlEventTouchUpInside];
             self.qiandao.enabled = NO;
             [self.view addSubview:qiandao];
         }
@@ -220,7 +220,6 @@
         [self.view showWarning:@"网络异常, 签到失败"];
     }];
 }
-
 
 - (void)leftActionChange{
     
@@ -245,7 +244,16 @@
     return _collectionView;
 }
 
-
+- (HomeMoreView *)moreV{
+    if (!_moreV) {
+        _moreV = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([HomeMoreView class]) owner:nil options:nil].firstObject;
+        // 计算导航栏高度
+        _moreV.frame = CGRectMake(0, LL_StatusBarAndNavigationBarHeight, kScreenW, kScreenH - LL_StatusBarAndNavigationBarHeight);
+        [self.view addSubview:_moreV];
+        _moreV.hidden = YES;
+    }
+    return _moreV;
+}
 
 
 

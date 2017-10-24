@@ -18,6 +18,7 @@ pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
 pod 'JHUD'
 pod 'JKCountDownButton'
+pod 'JPush'
   target 'LovedoneducationTests' do
     inherit! :search_paths
     # Pods for testing

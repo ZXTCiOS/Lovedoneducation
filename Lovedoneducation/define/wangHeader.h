@@ -55,6 +55,7 @@
 
 #define userDefault [NSUserDefaults standardUserDefaults]
 
+#define JIGUANG     @"ee1c88aff0f66a47758b45ae"
 
 /**
  考试类型接口

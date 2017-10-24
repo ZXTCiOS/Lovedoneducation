@@ -139,7 +139,7 @@
                     <state key="normal" image="close_icon"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29762414383561642" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PiG-hD-xfd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="170" id="02F-gh-fLy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PiG-hD-xfd" secondAttribute="trailing" constant="25" id="0aT-gB-fpr"/>

@@ -86,6 +86,7 @@
     }];
     
 }
+
 #pragma mark - getters
 
 -(JKCountDownButton *)sendBtn
@@ -94,7 +95,7 @@
     {
         _sendBtn = [[JKCountDownButton alloc] init];
         [_sendBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
-        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         _sendBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
         [_sendBtn addTarget:self action:@selector(fasongbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }

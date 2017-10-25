@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, strong) HomeDataModel *data;
-@property (nonatomic, assign) BOOL isdeport;
+
 @end
 
 @interface HomeDataModel : NSObject
@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray<HomeQuestionsModel *> *quetions;
 @property (nonatomic, strong) NSArray<HomeSlideModel *> *slide;
 @property (nonatomic, strong) HomeUserModel *user;
+@property (nonatomic, assign) BOOL isdeport;
 
 @end
 

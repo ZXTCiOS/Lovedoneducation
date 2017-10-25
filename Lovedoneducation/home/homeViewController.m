@@ -35,12 +35,15 @@
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeBannerView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     [self networking];
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    MJWeakSelf
+    [self.collectionView addHeaderRefresh:^{
+        [weakSelf networking];
+    }];
 }
 
 - (void)configNaviBar{
-    self.title = self.data.user.utest_type;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
+    self.title = [userDefault objectForKey:@"user_type"];
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
     more.frame = CGRectMake(0, 0, 30, 15);
     more.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -93,12 +96,13 @@
             HomeModel *model = [HomeModel parse:obj];
             self.data = model.data;
             [self.collectionView reloadData];
-//            NSString *title = model.isdeport ? @"已签到": @"签到";
-//            [self.qiandao setTitle:title forState:UIControlStateDisabled];
-            self.qiandao.enabled = !model.isdeport;
+            self.qiandao.enabled = !model.data.isdeport;
+            self.title = self.data.user.utest_type;
         }
+        [self.collectionView endHeaderRefresh];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络错误"];
+        [self.collectionView endHeaderRefresh];
     }];
 }
 

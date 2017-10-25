@@ -26,7 +26,24 @@
 #define post_qiandao_fenxiang_pinglun @"/app.php/user/deport"
 
 /**
- * 
+ * 直播列表
  */
+#define get_courselist @"/app.php/class/classList/"
+/**
+ * 课程表
+ */
+#define get_kechengbiao @"/app.php/class/listDetail"
+/**
+ *
+ */
+
+/**
+ *
+ */
+
+/**
+ *
+ */
+
 
 #endif /* xuHeader_h */

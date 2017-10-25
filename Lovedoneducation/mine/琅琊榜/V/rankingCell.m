@@ -7,8 +7,6 @@
 //
 
 #import "rankingCell.h"
-
-#import "YQFiveStarView.h"
 #import "WTKStarView.h"
 @interface rankingCell()
 @property (nonatomic,strong) UIImageView *infoimg;

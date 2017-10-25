@@ -96,7 +96,7 @@
             HomeModel *model = [HomeModel parse:obj];
             self.data = model.data;
             [self.collectionView reloadData];
-            self.qiandao.enabled = !model.isdeport;
+            self.qiandao.enabled = !model.data.isdeport;
             self.title = self.data.user.utest_type;
         }
         [self.collectionView endHeaderRefresh];

@@ -38,9 +38,8 @@
 }
 
 - (void)configNaviBar{
-    self.title = self.data.user.utest_type;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
+    self.title = @"爱唐公考";
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
     more.frame = CGRectMake(0, 0, 30, 15);
     more.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -96,6 +95,7 @@
 //            NSString *title = model.isdeport ? @"已签到": @"签到";
 //            [self.qiandao setTitle:title forState:UIControlStateDisabled];
             self.qiandao.enabled = !model.isdeport;
+            self.title = self.data.user.utest_type;
         }
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络错误"];

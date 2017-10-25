@@ -1,0 +1,31 @@
+
+//
+//  LiveModel.m
+//  Lovedoneducation
+//
+//  Created by apple on 2017/10/25.
+//  Copyright © 2017年 wangjungang. All rights reserved.
+//
+
+#import "LiveModel.h"
+
+@implementation LiveModel
++(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"data": [LiveCourseModel class]
+             };
+}
+@end
+
+@implementation LiveCourseModel
++(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"teacher": [LiveTeacherModel class]
+             };
+}
+@end
+
+@implementation LiveTeacherModel
+
+@end
+

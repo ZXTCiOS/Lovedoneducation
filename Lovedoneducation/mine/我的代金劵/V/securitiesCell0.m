@@ -7,10 +7,16 @@
 //
 
 #import "securitiesCell0.h"
+#import "securitesModel.h"
+#import "RMDashLineView.h"
 
 @interface securitiesCell0()
+@property (nonatomic,strong) UILabel *leftpriceLabel;
+@property (nonatomic,strong) UILabel *numberLabel;
+@property (nonatomic,strong) UILabel *messageLabel;
 @property (nonatomic,strong) UILabel *leftnameLabel;
-@property (nonatomic,strong) UIImageView *lineimg;
+@property (nonatomic,strong) RMDashLineView *lineimg;
+@property (nonatomic,strong) securitesModel *smodel;
 @end
 
 @implementation securitiesCell0
@@ -26,9 +32,12 @@
         [self.contentView addSubview:self.numberLabel];
         [self.contentView addSubview:self.messageLabel];
         [self setuplayout];
+        
+ 
     }
     return self;
 }
+
 -(void)setuplayout
 {
     __weak typeof (self) weakSelf = self;
@@ -62,6 +71,7 @@
         make.top.equalTo(weakSelf.numberLabel.mas_bottom).with.offset(20);
     }];
 }
+
 #pragma mark - getters
 
 -(UILabel *)leftpriceLabel
@@ -69,7 +79,7 @@
     if(!_leftpriceLabel)
     {
         _leftpriceLabel = [[UILabel alloc] init];
-        _leftpriceLabel.text = @"¥ 100";
+//        _leftpriceLabel.text = @"¥ 100";
         _leftpriceLabel.textColor = [UIColor colorWithHexString:@"08D2B2"];
         _leftpriceLabel.textAlignment = NSTextAlignmentRight;
         _leftpriceLabel.font = [UIFont systemFontOfSize:24];
@@ -90,12 +100,13 @@
     return _leftnameLabel;
 }
 
--(UIImageView *)lineimg
+-(RMDashLineView *)lineimg
 {
     if(!_lineimg)
     {
-        _lineimg = [[UIImageView alloc] init];
-        _lineimg.backgroundColor = [UIColor redColor];
+        _lineimg = [[RMDashLineView alloc] init];
+//        _lineimg.backgroundColor = [UIColor redColor];
+        
     }
     return _lineimg;
 }
@@ -105,7 +116,6 @@
     if(!_numberLabel)
     {
         _numberLabel = [[UILabel alloc] init];
-        _numberLabel.text = @"共3张";
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         _numberLabel.font = [UIFont systemFontOfSize:17];
         _numberLabel.textColor = [UIColor colorWithHexString:@"646464"];
@@ -118,7 +128,6 @@
     if(!_messageLabel)
     {
         _messageLabel = [[UILabel alloc] init];
-        _messageLabel.text = @"300元及300元以下课程任意券";
         _messageLabel.font = [UIFont systemFontOfSize:12];
         _messageLabel.textColor = [UIColor colorWithHexString:@"909090"];
         _messageLabel.textAlignment = NSTextAlignmentCenter;
@@ -126,4 +135,11 @@
     return _messageLabel;
 }
 
+-(void)setdata:(securitesModel *)model
+{
+    self.smodel = model;
+    self.leftpriceLabel.text = [NSString stringWithFormat:@"%@%@",@"¥",model.ucprice];
+    self.numberLabel.text = [NSString stringWithFormat:@"%@%@%@",@"共",model.number,@"张"];
+    self.messageLabel.text = [NSString stringWithFormat:@"%@%@%@%@",model.ucprice,@"元及",model.ucprice,@"元以下课程任意券"];
+}
 @end

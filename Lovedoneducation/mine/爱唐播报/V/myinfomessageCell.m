@@ -9,14 +9,11 @@
 #import "myinfomessageCell.h"
 
 @interface myinfomessageCell()
-@property (nonatomic,strong) UILabel *headingslab;
-@property (nonatomic,strong) UILabel *messagelab;
-@property (nonatomic,strong) UIImageView *timeimg;
-@property (nonatomic,strong) UILabel *timelab;
+@property (nonatomic,strong) UILabel *typelab;
+@property (nonatomic,strong) UIImageView *bgimg;
 @property (nonatomic,strong) UILabel *namelab;
-@property (nonatomic,strong) UILabel *personlab;
-@property (nonatomic,strong) UIImageView *infoimg;
-@property (nonatomic,strong) UIButton *livebtn;
+@property (nonatomic,strong) UILabel *contentlab;
+@property (nonatomic,strong) UILabel *timelab;
 @end
 
 @implementation myinfomessageCell
@@ -26,55 +23,99 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        [self.contentView addSubview:self.headingslab];
-        [self.contentView addSubview:self.messagelab];
-        [self.contentView addSubview:self.timeimg];
-        [self.contentView addSubview:self.timelab];
+        [self.contentView addSubview:self.typelab];
+        [self.contentView addSubview:self.bgimg];
         [self.contentView addSubview:self.namelab];
-        [self.contentView addSubview:self.personlab];
-        [self.contentView addSubview:self.infoimg];
-        [self.contentView addSubview:self.livebtn];
+        [self.contentView addSubview:self.contentlab];
+        [self.contentView addSubview:self.timelab];
+        [self setuplayout];
     }
     return self;
 }
 
+-(void)setuplayout
+{
+    __weak typeof (self) weakSelf = self;
+    [weakSelf.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).with.offset(14);
+        make.right.equalTo(weakSelf).with.offset(-14);
+        make.top.equalTo(weakSelf).with.offset(20);
+    }];
+    [weakSelf.bgimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.typelab.mas_bottom).with.offset(20);
+        make.left.equalTo(weakSelf.typelab);
+        make.right.equalTo(weakSelf.typelab);
+        make.height.mas_offset(125);
+    }];
+    [weakSelf.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(weakSelf.bgimg);
+        make.left.equalTo(weakSelf.bgimg);
+        make.right.equalTo(weakSelf.bgimg);
+        make.height.mas_offset(20);
+    }];
+    [weakSelf.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.bgimg);
+        make.right.equalTo(weakSelf.bgimg);
+//        make.height.mas_offset(20);
+        
+        make.top.equalTo(weakSelf.bgimg.mas_bottom).with.offset(20);
+    }];
+    [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.bgimg);
+        make.right.equalTo(weakSelf.bgimg);
+        make.top.equalTo(weakSelf.contentlab.mas_bottom).with.offset(5);
+    }];
+}
+
 #pragma mark - getters
 
-
--(UILabel *)headingslab
+-(UILabel *)typelab
 {
-    if(!_headingslab)
+    if(!_typelab)
     {
-        _headingslab = [[UILabel alloc] init];
-        _headingslab.text = @"如何突破笔试难关";
-        _headingslab.textColor = [UIColor colorWithHexString:@"323232"];
-        _headingslab.font = [UIFont systemFontOfSize:18];
-        
+        _typelab = [[UILabel alloc] init];
+        _typelab.text = @"备战面试";
+        _typelab.font = [UIFont systemFontOfSize:17];
+        _typelab.textColor = [UIColor colorWithHexString:@"323232"];
     }
-    return _headingslab;
-}
-
--(UILabel *)messagelab
-{
-    if(!_messagelab)
-    {
-        _messagelab = [[UILabel alloc] init];
-        _messagelab.text = @"课程摘要：两个月突破笔试难关";
-        _messagelab.font = [UIFont systemFontOfSize:14];
-        _messagelab.textColor = [UIColor colorWithHexString:@"646464"];
-    }
-    return _messagelab;
+    return _typelab;
 }
 
 
--(UIImageView *)timeimg
+-(UIImageView *)bgimg
 {
-    if(!_timeimg)
+    if(!_bgimg)
     {
-        _timeimg = [[UIImageView alloc] init];
-        _timeimg.image = [UIImage imageNamed:@"time_icon_kechenghuancun"];
+        _bgimg = [[UIImageView alloc] init];
+        [_bgimg sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508922269774&di=ebaf47bcf40b8288e3a5306f36cd6746&imgtype=0&src=http%3A%2F%2Fstatic.xialv.com%2Fscenery%2F2014%2F07%2F19%2F65%2F14057586247055rwqlv_700X350.jpg"]];
     }
-    return _timeimg;
+    return _bgimg;
+}
+
+
+-(UILabel *)namelab
+{
+    if(!_namelab)
+    {
+        _namelab = [[UILabel alloc] init];
+        _namelab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
+        _namelab.textAlignment = NSTextAlignmentCenter;
+        _namelab.font = [UIFont systemFontOfSize:15];
+        _namelab.text = @"泰安宁阳事业单位面试冲刺";
+    }
+    return _namelab;
+}
+
+-(UILabel *)contentlab
+{
+    if(!_contentlab)
+    {
+        _contentlab = [[UILabel alloc] init];
+        _contentlab.text = @"泰安宁阳事业单位面试冲刺";
+        _contentlab.font = [UIFont systemFontOfSize:15];
+        _contentlab.textColor = [UIColor colorWithHexString:@"909090"];
+    }
+    return _contentlab;
 }
 
 -(UILabel *)timelab
@@ -82,56 +123,16 @@
     if(!_timelab)
     {
         _timelab = [[UILabel alloc] init];
-        _timelab.text = @"2017.08.14";
-        _timelab.font = [UIFont systemFontOfSize:12];
+        _timelab.text = @"2018.08.29";
+        _timelab.font = [UIFont systemFontOfSize:15];
         _timelab.textColor = [UIColor colorWithHexString:@"909090"];
     }
     return _timelab;
 }
 
--(UILabel *)namelab
-{
-    if(!_namelab)
-    {
-        _namelab = [[UILabel alloc] init];
-        _namelab.text = @"林可为";
-        _namelab.font = [UIFont systemFontOfSize:14];
-        _namelab.textColor = [UIColor colorWithHexString:@"323232"];
-    }
-    return _namelab;
-}
 
--(UILabel *)personlab
-{
-    if(!_personlab)
-    {
-        _personlab = [[UILabel alloc] init];
-        _personlab.text = @"#笔试科目知名讲师#";
-        _personlab.font = [UIFont systemFontOfSize:12];
-        _personlab.textColor = [UIColor colorWithHexString:@"646464"];
-    }
-    return _personlab;
-}
 
--(UIImageView *)infoimg
-{
-    if(!_infoimg)
-    {
-        _infoimg = [[UIImageView alloc] init];
-        
-    }
-    return _infoimg;
-}
 
--(UIButton *)livebtn
-{
-    if(!_livebtn)
-    {
-        _livebtn = [[UIButton alloc] init];
-        
-    }
-    return _livebtn;
-}
 
 
 

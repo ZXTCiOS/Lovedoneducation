@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class securitesModel;
 @interface securitiesCell0 : UITableViewCell
-@property (nonatomic,strong) UILabel *leftpriceLabel;
-@property (nonatomic,strong) UILabel *numberLabel;
-@property (nonatomic,strong) UILabel *messageLabel;
+
+-(void)setdata:(securitesModel *)model;
 @end

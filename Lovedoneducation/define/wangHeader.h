@@ -53,10 +53,9 @@
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"
 #define user_phone  @"PHONE"
-
 #define userDefault [NSUserDefaults standardUserDefaults]
-
 #define JIGUANG     @"ee1c88aff0f66a47758b45ae"
+#define user_type   @"user_type"
 
 /**
  考试类型接口
@@ -114,4 +113,12 @@
  @return
  */
 #define GET_userMessage @"/app.php/user/userMessage?uid=%@&token=%@"
+
+/**
+ 名师琅琊榜
+
+ @return
+ */
+#define GET_ranking @"/app.php/tool/ranking?uid=%@&token=%@"
+
 #endif /* wangHeader_h */

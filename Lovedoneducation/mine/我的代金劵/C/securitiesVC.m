@@ -11,11 +11,11 @@
 #import "securitiesCell1.h"
 #import "securitesModel.h"
 
-
 @interface securitiesVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) NSDictionary *moneydic;
+@property (nonatomic,assign) BOOL isshow;
 @end
 
 static NSString *securitiesidentfid0 = @"securitiesidentfid0";
@@ -28,6 +28,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"代金劵";
+    self.isshow = NO;
     self.dataSource = [NSMutableArray new];
     self.moneydic = [NSDictionary new];
     [self.view addSubview:self.table];
@@ -55,7 +56,23 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     NSString *url = [NSString stringWithFormat:GET_mineCoupon,uid,token];
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
-            
+            NSDictionary *datadic = [obj objectForKey:@"data"];
+            NSArray *class = [datadic objectForKey:@"class"];
+            for (int i = 0; i<class.count; i++) {
+                NSDictionary *dic = [class objectAtIndex:i];
+                securitesModel *model = [[securitesModel alloc] init];
+                model.couponid = [dic objectForKey:@"couponid"];
+                model.number = [dic objectForKey:@"number"];
+                model.status = [dic objectForKey:@"status"];
+                model.time = [dic objectForKey:@"time"];
+                model.ucid = [dic objectForKey:@"ucid"];
+                model.ucprice = [dic objectForKey:@"ucprice"];
+                model.uctype = [dic objectForKey:@"uctype"];
+                [self.dataSource addObject:model];
+                self.moneydic = [datadic objectForKey:@"all"];
+                self.isshow = YES;
+                [self.table reloadData];
+            }
         }
     } failure:^(NSError *error) {
         
@@ -91,7 +108,13 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         return self.dataSource.count;
     }
     if (section==2) {
-        return 1;
+        if (self.isshow) {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
     return 1;
 }
@@ -115,6 +138,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         if (!cell) {
             cell = [[securitiesCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:securitiesidentfid1];
         }
+        [cell setdata:self.dataSource[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -123,6 +147,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         if (!cell) {
             cell = [[securitiesCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:securitiesidentfid2];
         }
+        [cell setdata:self.moneydic];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -165,25 +190,39 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section==1) {
-        UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
-        UILabel *lab0 = [[UILabel alloc] init];
-        UILabel *lab1 = [[UILabel alloc] init];
-        lab1.font = [UIFont systemFontOfSize:12];
-        lab0.text = @"课程券";
-        lab1.text = @"每次限使用一张，少补不退";
-        lab0.frame = CGRectMake(15, 20, 100, 20);
-        lab1.frame = CGRectMake(130, 20, 200, 20);
-        [footview addSubview:lab1];
-        [footview addSubview:lab0];
-        return footview;
+        if (self.isshow) {
+            UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+            UILabel *lab0 = [[UILabel alloc] init];
+            UILabel *lab1 = [[UILabel alloc] init];
+            lab1.font = [UIFont systemFontOfSize:12];
+            lab0.text = @"课程券";
+            lab1.text = @"每次限使用一张，少补不退";
+            lab0.frame = CGRectMake(15, 20, 100, 20);
+            lab1.frame = CGRectMake(130, 20, 200, 20);
+            [footview addSubview:lab1];
+            [footview addSubview:lab0];
+            return footview;
+        }
+        else
+        {
+            return nil;
+        }
+
     }
     if (section==2) {
-        UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
-        UILabel *lab0 = [[UILabel alloc] init];
-        lab0.text = @"现金抵用券";
-        lab0.frame = CGRectMake(15, 20, 100, 20);
-        [footview addSubview:lab0];
-        return footview;
+        if (self.isshow) {
+            UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+            UILabel *lab0 = [[UILabel alloc] init];
+            lab0.text = @"现金抵用券";
+            lab0.frame = CGRectMake(15, 20, 100, 20);
+            [footview addSubview:lab0];
+            return footview;
+        }
+        else
+        {
+            return nil;
+        }
+
     }
     return nil;
 }

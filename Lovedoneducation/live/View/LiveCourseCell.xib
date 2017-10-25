@@ -78,7 +78,7 @@
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pc3-U9-OMt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang_image_zhiboshouye" translatesAutoresizingMaskIntoConstraints="NO" id="pc3-U9-OMt">
                                 <rect key="frame" x="7.5" y="0.0" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="1Mj-xP-CMb"/>
@@ -105,7 +105,7 @@
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDg-yV-d7S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang_image_zhiboshouye" translatesAutoresizingMaskIntoConstraints="NO" id="rDg-yV-d7S">
                                 <rect key="frame" x="7.5" y="0.0" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="CP4-l7-m8p"/>
@@ -132,7 +132,7 @@
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X4w-NE-HQu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang_image_zhiboshouye" translatesAutoresizingMaskIntoConstraints="NO" id="X4w-NE-HQu">
                                 <rect key="frame" x="7.5" y="0.0" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="J55-4S-O3b"/>
@@ -193,10 +193,11 @@
                 <outlet property="timeL" destination="hsp-tF-LpW" id="CfH-9z-GLo"/>
                 <outlet property="titleL" destination="TT5-wI-Q5p" id="Epv-Rg-CTo"/>
             </connections>
-            <point key="canvasLocation" x="-16" y="-23"/>
+            <point key="canvasLocation" x="-69" y="-21"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="timeyellow_icon_disable" width="12" height="11"/>
+        <image name="touxiang_image_zhiboshouye" width="35" height="35"/>
     </resources>
 </document>

@@ -16,7 +16,7 @@
     self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:block];
 }
 - (void)addFooterRefreshAuto:(void(^)())block{
-    self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:block];
+    self.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:block];
 }
 - (void)beginHeaderRefresh{
     [self.mj_header beginRefreshing];
@@ -30,7 +30,7 @@
 }
 @end
 
-MJRefreshBackNormalFooter
+
 
 
 

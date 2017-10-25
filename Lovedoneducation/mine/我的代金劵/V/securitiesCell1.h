@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface securitiesCell1 : UITableViewCell
-
+-(void)setdata:(NSDictionary *)dic;
 @end

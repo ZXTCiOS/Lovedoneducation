@@ -72,7 +72,7 @@
         _numberlab.font = [UIFont systemFontOfSize:36];
         _numberlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         _numberlab.textAlignment = NSTextAlignmentCenter;
-        _numberlab.text = @"¥ 100";
+        //_numberlab.text = @"¥ 100";
     }
     return _numberlab;
 }
@@ -84,7 +84,7 @@
         _messagelab = [[UILabel alloc] init];
         _messagelab.font = [UIFont systemFontOfSize:14];
         _messagelab.textAlignment = NSTextAlignmentCenter;
-        _messagelab.text = @"您已累计签到82天，请继续努力";
+        //_messagelab.text = @"您已累计签到82天，请继续努力";
         _messagelab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         
     }
@@ -92,7 +92,11 @@
 }
 
 
-
+-(void)setdata:(NSDictionary *)dic
+{
+    self.numberlab.text = [NSString stringWithFormat:@"%@%@",@"¥",[dic objectForKey:@"price"]];
+    self.messagelab.text = [NSString stringWithFormat:@"%@%@%@",@"您已累计签到",[dic objectForKey:@"days"],@"天，请继续努力"];
+}
 
 
 

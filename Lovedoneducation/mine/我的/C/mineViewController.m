@@ -90,6 +90,10 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             self.phonestr = [dic objectForKey:@"uphone"];
             self.passwordstr = [dic objectForKey:@"upwd"];
             [userDefault setObject:self.phonestr forKey:user_phone];
+            NSArray* array = [self.typestr componentsSeparatedByString:@">>"];
+            NSString *str = array.firstObject;
+            [userDefault setObject:str forKey:user_type];
+            
             [self.table reloadData];
         }
     } failure:^(NSError *error) {

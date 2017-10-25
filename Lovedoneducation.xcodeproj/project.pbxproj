@@ -59,6 +59,8 @@
 		534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534219B91F9F5A2500F26E61 /* feedbackVC.m */; };
 		5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343E88E1FA03060001EBEBC /* securitesModel.m */; };
 		5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343E8911FA0312B001EBEBC /* myinfomessageCell.m */; };
+		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
+		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17121F9DBBDC00EA1E2B /* MD5Tool.m */; };
 		539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17161F9DDDE700EA1E2B /* mineCell1.m */; };
 		539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17191F9DE1D200EA1E2B /* mineCell2.m */; };
@@ -212,6 +214,10 @@
 		5343E88E1FA03060001EBEBC /* securitesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitesModel.m; sourceTree = "<group>"; };
 		5343E8901FA0312B001EBEBC /* myinfomessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myinfomessageCell.h; sourceTree = "<group>"; };
 		5343E8911FA0312B001EBEBC /* myinfomessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myinfomessageCell.m; sourceTree = "<group>"; };
+		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
+		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
+		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
+		53963AAE1FA060F5009AEFCA /* coursescacheCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coursescacheCell.m; sourceTree = "<group>"; };
 		539E17111F9DBBDC00EA1E2B /* MD5Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Tool.h; sourceTree = "<group>"; };
 		539E17121F9DBBDC00EA1E2B /* MD5Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5Tool.m; sourceTree = "<group>"; };
 		539E17141F9DD96C00EA1E2B /* Lovedoneducation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lovedoneducation.entitlements; sourceTree = "<group>"; };
@@ -617,6 +623,8 @@
 		534219AF1F9F597C00F26E61 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				53963AAD1FA060F5009AEFCA /* coursescacheCell.h */,
+				53963AAE1FA060F5009AEFCA /* coursescacheCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -901,6 +909,8 @@
 				53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */,
 				53D1F2791F9F2BCF002E1524 /* securitiesCell1.h */,
 				53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */,
+				53963AAA1FA05F56009AEFCA /* RMDashLineView.h */,
+				53963AAB1FA05F56009AEFCA /* RMDashLineView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1254,11 +1264,13 @@
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */,
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
+				53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
+				53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,

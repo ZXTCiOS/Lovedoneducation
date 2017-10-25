@@ -10,9 +10,11 @@
 
 @interface securitesModel : NSObject
 @property (nonatomic,copy) NSString *couponid;
-@property (nonatomic,copy) NSString *coupontype;
+@property (nonatomic,copy) NSString *number;
+@property (nonatomic,copy) NSString *status;
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,copy) NSString *ucid;
+@property (nonatomic,copy) NSString *ucprice;
 @property (nonatomic,copy) NSString *uctype;
 @property (nonatomic,copy) NSString *uid;
 @end

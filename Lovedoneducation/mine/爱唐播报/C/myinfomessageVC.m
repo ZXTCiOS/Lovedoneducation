@@ -8,6 +8,7 @@
 
 #import "myinfomessageVC.h"
 #import "myinfomessageCell.h"
+#import "myinfomessageModel.h"
 
 @interface myinfomessageVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -42,11 +43,23 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
 
 -(void)loaddata
 {
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSString *url = [NSString stringWithFormat:GET_userMessage,uid,token];
-    [DNNetworking getWithURLString:url success:^(id obj) {
-        
+    [DNNetworking getWithURLString:GET_slide success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSArray *dataarr = [obj objectForKey:@"data"];
+            for (int i = 0; i<dataarr.count; i++) {
+                NSDictionary *dic = [dataarr objectAtIndex:i];
+                myinfomessageModel *model = [[myinfomessageModel alloc] init];
+                model.pdid = [dic objectForKey:@"pdid"];
+                model.pdintro = [dic objectForKey:@"pdintro"];
+                model.pdtitle = [dic objectForKey:@"pdtitle"];
+                model.pdurl = [dic objectForKey:@"pdurl"];
+                model.posterid = [dic objectForKey:@"posterid"];
+                model.tid = [dic objectForKey:@"tid"];
+                model.time = [dic objectForKey:@"time"];
+                [self.dataSource addObject:model];
+                [self.table reloadData];
+            }
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -69,8 +82,7 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
-//    return self.dataSource.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,6 +92,7 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
         cell = [[myinfomessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myinfomessageidentfid];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.dataSource[indexPath.row]];
     return cell;
 }
 

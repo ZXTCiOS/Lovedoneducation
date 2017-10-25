@@ -15,6 +15,8 @@
 #import "myinfomessageVC.h"
 #import "coursescacheVC.h"
 #import "feedbackVC.h"
+#import "rankingVC.h"
+#import "aboutVC.h"
 
 @interface mineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -291,6 +293,14 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         }
         if (indexPath.row==5) {
             feedbackVC *vc = [[feedbackVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        if (indexPath.row==6) {
+            rankingVC *vc = [[rankingVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        if (indexPath.row==8) {
+            aboutVC *vc = [[aboutVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

@@ -9,7 +9,8 @@
 #ifndef wangHeader_h
 #define wangHeader_h
 
-
+#import "strisNull.h"
+#import "SDAutoLayout.h"
 //屏幕 宽 高
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)
@@ -115,10 +116,36 @@
 #define GET_userMessage @"/app.php/user/userMessage?uid=%@&token=%@"
 
 /**
+ 爱唐博报
+
+ @return
+ */
+#define GET_slide       @"/app.php/tool/slide"
+/**
  名师琅琊榜
 
  @return
  */
 #define GET_ranking @"/app.php/tool/ranking?uid=%@&token=%@"
 
+/**
+ 课程缓存
+
+ @return
+ */
+#define GET_userVideo @"/app.php/user/userVideo?uid=%@&token=%@"
+
+/**
+ 意见反馈
+
+ @return  意见反馈
+ */
+#define POST_proposal @"/app.php/user/proposal"
+
+/**
+ 网站配置
+
+ @return
+ */
+#define GET_confit @"/app.php/user/config?uid=%@&token=%@"
 #endif /* wangHeader_h */

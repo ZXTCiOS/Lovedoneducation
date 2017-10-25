@@ -7,6 +7,7 @@
 //
 
 #import "myinfomessageCell.h"
+#import "myinfomessageModel.h"
 
 @interface myinfomessageCell()
 @property (nonatomic,strong) UILabel *typelab;
@@ -14,6 +15,7 @@
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UILabel *contentlab;
 @property (nonatomic,strong) UILabel *timelab;
+@property (nonatomic,strong) myinfomessageModel *infomodel;
 @end
 
 @implementation myinfomessageCell
@@ -130,15 +132,28 @@
     return _timelab;
 }
 
+-(void)setdata:(myinfomessageModel *)model
+{
+    self.infomodel = model;
+    self.timelab.text = [self timeWithTimeIntervalString:model.time];
+    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:model.pdurl]];
+    self.contentlab.text = model.pdintro;
+    self.namelab.text = model.pdintro;
+    self.typelab.text = model.pdtitle;
+}
 
-
-
-
-
-
-
-
-
-
-
+-(NSString *)timeWithTimeIntervalString:(NSString *)timeString
+{
+    NSString *str=timeString;
+    NSTimeInterval time=[str doubleValue]+28800;//因为时差问题要加8小时 == 28800 sec
+    NSDate *detaildate=[NSDate dateWithTimeIntervalSince1970:time];
+    NSLog(@"date:%@",[detaildate description]);
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    // [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *currentDateStr = [dateFormatter stringFromDate: detaildate];
+    return currentDateStr;
+}
 @end

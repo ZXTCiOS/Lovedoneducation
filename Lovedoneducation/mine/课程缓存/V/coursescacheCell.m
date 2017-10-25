@@ -33,6 +33,7 @@
         [self.contentView addSubview:self.personlab];
         [self.contentView addSubview:self.infoimg];
         [self.contentView addSubview:self.livebtn];
+        [self setuplayout];
     }
     return self;
 }
@@ -40,28 +41,47 @@
 {
     __weak typeof (self) weakSelf = self;
     [weakSelf.headingslab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.equalTo(weakSelf).with.offset(14);
+        make.right.equalTo(weakSelf).with.offset(14);
+        make.top.equalTo(weakSelf).with.offset(20);
+       // make.height.mas_offset(20);
     }];
     [weakSelf.messagelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.equalTo(weakSelf.headingslab);
+        make.right.equalTo(weakSelf.headingslab);
+        make.top.equalTo(weakSelf.headingslab.mas_bottom).with.offset(10);
     }];
     [weakSelf.timeimg mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.equalTo(weakSelf.messagelab);
+        make.top.equalTo(weakSelf.messagelab.mas_bottom).with.offset(10);
     }];
     [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    }];
-    [weakSelf.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    }];
-    [weakSelf.personlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.equalTo(weakSelf.timeimg).with.offset(20);
+        make.top.equalTo(weakSelf.timeimg);
+        make.right.equalTo(weakSelf.headingslab);
     }];
     [weakSelf.infoimg mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.width.mas_offset(50);
+        make.height.mas_offset(50);
+        make.left.equalTo(weakSelf).with.offset(14);
+        make.bottom.equalTo(weakSelf).with.offset(-21);
+    }];
+
+    [weakSelf.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).with.offset(85);
+        make.top.equalTo(weakSelf.infoimg);
+        make.width.mas_offset(120);
+    }];
+
+    [weakSelf.personlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.namelab);
+        make.top.equalTo(weakSelf.namelab.mas_bottom).with.offset(10);
     }];
     [weakSelf.livebtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.top.equalTo(weakSelf).with.offset(73);
+        make.right.equalTo(weakSelf).with.offset(-57);
+        make.height.mas_offset(29);
+        make.width.mas_offset(29);
     }];
 }
 #pragma mark - getters
@@ -90,7 +110,6 @@
     }
     return _messagelab;
 }
-
 
 -(UIImageView *)timeimg
 {
@@ -143,7 +162,7 @@
     if(!_infoimg)
     {
         _infoimg = [[UIImageView alloc] init];
-        [_infoimg sd_setImageWithURL:[NSURL URLWithString:@"http://img3.imgtn.bdimg.com/it/u=413420250,691132568&fm=214&gp=0.jpg"] placeholderImage:[UIImage imageNamed:@""]];
+        [_infoimg sd_setImageWithURL:[NSURL URLWithString:@"http://img1.imgtn.bdimg.com/it/u=17202515,2068320275&fm=214&gp=0.jpg"]];
     }
     return _infoimg;
 }
@@ -158,5 +177,17 @@
     return _livebtn;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    for (UIView *subView in self.subviews) {
+        NSString *subViewName =NSStringFromClass([subView class]);
+        if ([subViewName isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
+            subView.backgroundColor = [UIColor lightGrayColor];
+            ((UIView *)[subView.subviews firstObject]).backgroundColor = [UIColor colorWithHexString:@"FF9B19"];
+            
+        }
+    }
+}
 
 @end

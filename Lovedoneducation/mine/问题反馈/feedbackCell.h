@@ -1,5 +1,5 @@
 //
-//  myinfomessageCell.h
+//  feedbackCell.h
 //  Lovedoneducation
 //
 //  Created by 王俊钢 on 2017/10/25.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class myinfomessageModel;
-@interface myinfomessageCell : UITableViewCell
--(void)setdata:(myinfomessageModel *)model;
+#import "WJGtextView.h"
+@interface feedbackCell : UITableViewCell
+@property (nonatomic,strong) WJGtextView *feedtext;
 @end

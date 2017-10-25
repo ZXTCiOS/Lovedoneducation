@@ -1,5 +1,5 @@
 //
-//  myinfomessageCell.h
+//  aboutCell1.h
 //  Lovedoneducation
 //
 //  Created by 王俊钢 on 2017/10/25.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class myinfomessageModel;
-@interface myinfomessageCell : UITableViewCell
--(void)setdata:(myinfomessageModel *)model;
+
+@interface aboutCell1 : UITableViewCell
+@property (nonatomic,strong) UILabel *leftLabel;
+@property (nonatomic,strong) UILabel *messageLabel;
 @end

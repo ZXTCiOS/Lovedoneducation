@@ -31,11 +31,25 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
         self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
     }
     self.table.tableFooterView = [UIView new];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"1",@"2",@"3", nil];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *url = [NSString stringWithFormat:GET_userVideo,uid,token];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+    
+    }];
 }
 
 #pragma mark - getters
@@ -55,8 +69,8 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
-    //    return self.dataSource.count;
+//    return 2;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,7 +85,32 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return 175;
 }
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.dataSource removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 
 @end

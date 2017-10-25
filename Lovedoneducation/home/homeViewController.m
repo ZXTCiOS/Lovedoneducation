@@ -57,7 +57,7 @@
     
     UIButton *qiandao = [UIButton buttonWithType:UIButtonTypeSystem];
     qiandao.frame = CGRectMake(0, 0, 42, 15);
-    qiandao.titleLabel.font = [UIFont systemFontOfSize:14];
+    qiandao.titleLabel.font = [UIFont systemFontOfSize:12];
     qiandao.tintColor = krgb(255,155,25);
     [qiandao addTarget:self action:@selector(leftActionQiandao:) forControlEvents:UIControlEventTouchUpInside];
     [qiandao setTitle:@"签到" forState:UIControlStateNormal];

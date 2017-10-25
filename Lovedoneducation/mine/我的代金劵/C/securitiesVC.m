@@ -9,9 +9,13 @@
 #import "securitiesVC.h"
 #import "securitiesCell0.h"
 #import "securitiesCell1.h"
+#import "securitesModel.h"
+
 
 @interface securitiesVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSDictionary *moneydic;
 @end
 
 static NSString *securitiesidentfid0 = @"securitiesidentfid0";
@@ -24,8 +28,17 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"代金劵";
+    self.dataSource = [NSMutableArray new];
+    self.moneydic = [NSDictionary new];
     [self.view addSubview:self.table];
     [self loaddata];
+    if (@available(iOS 11.0, *)){
+        self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    }
+    else
+    {
+        self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +54,9 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     NSString *token = [userDefault objectForKey:user_token];
     NSString *url = [NSString stringWithFormat:GET_mineCoupon,uid,token];
     [DNNetworking getWithURLString:url success:^(id obj) {
-        
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -53,7 +68,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 {
     if(!_table)
     {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT)];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
         _table.dataSource = self;
         _table.delegate = self;
     }
@@ -73,10 +88,10 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         return 1;
     }
     if (section==1) {
-        return 2;
+        return self.dataSource.count;
     }
     if (section==2) {
-        return 3;
+        return 1;
     }
     return 1;
 }
@@ -130,6 +145,9 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (section==0) {
+        return 0.01f;
+    }
     if (section==1) {
         return 60;
     }
@@ -138,27 +156,34 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     }
     return 0.01f;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01f;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section==1) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+        UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
         UILabel *lab0 = [[UILabel alloc] init];
         UILabel *lab1 = [[UILabel alloc] init];
+        lab1.font = [UIFont systemFontOfSize:12];
         lab0.text = @"课程券";
         lab1.text = @"每次限使用一张，少补不退";
-        
-        [view addSubview:lab1];
-        [view addSubview:lab0];
-        return view;
+        lab0.frame = CGRectMake(15, 20, 100, 20);
+        lab1.frame = CGRectMake(130, 20, 200, 20);
+        [footview addSubview:lab1];
+        [footview addSubview:lab0];
+        return footview;
     }
     if (section==2) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
-        
-        return view;
+        UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+        UILabel *lab0 = [[UILabel alloc] init];
+        lab0.text = @"现金抵用券";
+        lab0.frame = CGRectMake(15, 20, 100, 20);
+        [footview addSubview:lab0];
+        return footview;
     }
     return nil;
 }

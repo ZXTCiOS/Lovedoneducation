@@ -107,4 +107,11 @@
  @return
  */
 #define GET_mineCoupon @"/app.php/user/mineCoupon/?uid=%@&token=%@"
+
+/**
+ 用户消息
+
+ @return
+ */
+#define GET_userMessage @"/app.php/user/userMessage?uid=%@&token=%@"
 #endif /* wangHeader_h */

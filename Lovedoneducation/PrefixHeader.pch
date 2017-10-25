@@ -33,5 +33,7 @@
 //#import "UIScrollView+Refresh.h"
 #import "UIView+HUD.h"
 #import "MD5Tool.h"
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
 #endif /* PrefixHeader_pch */
 

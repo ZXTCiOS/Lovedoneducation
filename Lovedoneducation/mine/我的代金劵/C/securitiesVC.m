@@ -9,9 +9,13 @@
 #import "securitiesVC.h"
 #import "securitiesCell0.h"
 #import "securitiesCell1.h"
+#import "securitesModel.h"
+
 
 @interface securitiesVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSDictionary *moneydic;
 @end
 
 static NSString *securitiesidentfid0 = @"securitiesidentfid0";
@@ -24,6 +28,8 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"代金劵";
+    self.dataSource = [NSMutableArray new];
+    self.moneydic = [NSDictionary new];
     [self.view addSubview:self.table];
     [self loaddata];
     if (@available(iOS 11.0, *)){
@@ -48,7 +54,9 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     NSString *token = [userDefault objectForKey:user_token];
     NSString *url = [NSString stringWithFormat:GET_mineCoupon,uid,token];
     [DNNetworking getWithURLString:url success:^(id obj) {
-        
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -80,10 +88,10 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         return 1;
     }
     if (section==1) {
-        return 2;
+        return self.dataSource.count;
     }
     if (section==2) {
-        return 3;
+        return 1;
     }
     return 1;
 }

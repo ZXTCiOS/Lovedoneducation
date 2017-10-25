@@ -57,6 +57,8 @@
 		534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534219AB1F9F58FF00F26E61 /* myinfomessageVC.m */; };
 		534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534219B21F9F59A000F26E61 /* coursescacheVC.m */; };
 		534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534219B91F9F5A2500F26E61 /* feedbackVC.m */; };
+		5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343E88E1FA03060001EBEBC /* securitesModel.m */; };
+		5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343E8911FA0312B001EBEBC /* myinfomessageCell.m */; };
 		539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17121F9DBBDC00EA1E2B /* MD5Tool.m */; };
 		539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17161F9DDDE700EA1E2B /* mineCell1.m */; };
 		539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17191F9DE1D200EA1E2B /* mineCell2.m */; };
@@ -206,6 +208,10 @@
 		534219B21F9F59A000F26E61 /* coursescacheVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coursescacheVC.m; sourceTree = "<group>"; };
 		534219B81F9F5A2500F26E61 /* feedbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = feedbackVC.h; sourceTree = "<group>"; };
 		534219B91F9F5A2500F26E61 /* feedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = feedbackVC.m; sourceTree = "<group>"; };
+		5343E88D1FA03060001EBEBC /* securitesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = securitesModel.h; sourceTree = "<group>"; };
+		5343E88E1FA03060001EBEBC /* securitesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitesModel.m; sourceTree = "<group>"; };
+		5343E8901FA0312B001EBEBC /* myinfomessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myinfomessageCell.h; sourceTree = "<group>"; };
+		5343E8911FA0312B001EBEBC /* myinfomessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myinfomessageCell.m; sourceTree = "<group>"; };
 		539E17111F9DBBDC00EA1E2B /* MD5Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Tool.h; sourceTree = "<group>"; };
 		539E17121F9DBBDC00EA1E2B /* MD5Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5Tool.m; sourceTree = "<group>"; };
 		539E17141F9DD96C00EA1E2B /* Lovedoneducation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lovedoneducation.entitlements; sourceTree = "<group>"; };
@@ -554,14 +560,14 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		534219A61F9F581300F26E61 /* 爱唐博报 */ = {
+		534219A61F9F581300F26E61 /* 爱唐播报 */ = {
 			isa = PBXGroup;
 			children = (
 				534219A91F9F582300F26E61 /* M */,
 				534219A81F9F582200F26E61 /* V */,
 				534219A71F9F582100F26E61 /* C */,
 			);
-			path = "爱唐博报";
+			path = "爱唐播报";
 			sourceTree = "<group>";
 		};
 		534219A71F9F582100F26E61 /* C */ = {
@@ -576,6 +582,8 @@
 		534219A81F9F582200F26E61 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				5343E8901FA0312B001EBEBC /* myinfomessageCell.h */,
+				5343E8911FA0312B001EBEBC /* myinfomessageCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -765,7 +773,7 @@
 				533FCB491F9D90F600A4F6E1 /* 我的 */,
 				539E171B1F9DEB4600EA1E2B /* 我的信息 */,
 				53D1F2621F9F05A3002E1524 /* 我的代金劵 */,
-				534219A61F9F581300F26E61 /* 爱唐博报 */,
+				534219A61F9F581300F26E61 /* 爱唐播报 */,
 				534219AD1F9F596D00F26E61 /* 课程缓存 */,
 				534219B41F9F59E900F26E61 /* 问题反馈 */,
 			);
@@ -900,6 +908,8 @@
 		53D1F2751F9F1B31002E1524 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5343E88D1FA03060001EBEBC /* securitesModel.h */,
+				5343E88E1FA03060001EBEBC /* securitesModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1244,9 +1254,11 @@
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */,
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
+				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
+				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,

@@ -29,6 +29,20 @@
     self.tableView.tableFooterView = [UIView new];
 }
 
+- (void)configNaviBar{
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.title = [userDefault objectForKey:@"user_type"];
+    UIBarButtonItem *leftItemChange = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"kechengxuanze_icon_nav"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftActionChange)];
+//    UIBarButtonItem * space_8 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    space_8.width = - 8;
+    self.navigationItem.leftBarButtonItem = leftItemChange;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
+}
+
+- (void)leftActionChange{
+    
+}
+
 - (void)tableheaderView{
     UIControl *view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 44)];
     view.backgroundColor = krgb(8, 210, 278);

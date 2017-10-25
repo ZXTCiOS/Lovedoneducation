@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *introL;
 @property (weak, nonatomic) IBOutlet UILabel *timeL;
 @property (weak, nonatomic) IBOutlet UILabel *count;
+@property (weak, nonatomic) IBOutlet UILabel *priceL;
 
 @property (weak, nonatomic) IBOutlet UIView *teacher1;
 @property (weak, nonatomic) IBOutlet UIImageView *teacher1Img;

@@ -1,24 +1,20 @@
 //
-//  LiveCourseCell.m
+//  LiveTeacherListCell.m
 //  Lovedoneducation
 //
 //  Created by apple on 2017/10/25.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "LiveCourseCell.h"
+#import "LiveTeacherListCell.h"
 
-@implementation LiveCourseCell
+@implementation LiveTeacherListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.teacher1Img.layer.cornerRadius = 17.5;
-    self.teacher1Img.layer.masksToBounds = YES;
-    self.teacher2Img.layer.cornerRadius = 17.5;
-    self.teacher2Img.layer.masksToBounds = YES;
-    self.teacher3Img.layer.cornerRadius = 17.5;
-    self.teacher3Img.layer.masksToBounds = YES;
+    self.imgV.layer.cornerRadius = 32.5;
+    self.imgV.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

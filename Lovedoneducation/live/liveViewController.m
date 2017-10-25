@@ -9,7 +9,7 @@
 #import "liveViewController.h"
 #import "LiveModel.h"
 #import "LiveCourseCell.h"
-
+#import "LiveCourseDetailVC.h"
 
 @interface liveViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self configNaviBar];
     [self tableheaderView];
     [self netWorking];
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([LiveCourseCell class]) bundle:nil];
@@ -30,11 +30,9 @@
 }
 
 - (void)configNaviBar{
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.title = [userDefault objectForKey:@"user_type"];
+    //self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.title = [userDefault objectForKey:user_type];
     UIBarButtonItem *leftItemChange = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"kechengxuanze_icon_nav"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftActionChange)];
-//    UIBarButtonItem * space_8 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    space_8.width = - 8;
     self.navigationItem.leftBarButtonItem = leftItemChange;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
 }
@@ -87,8 +85,10 @@
             [self.datalist removeAllObjects];
             [self.datalist addObjectsFromArray:model.data];
             [self.tableView reloadData];
-            [self.tableView endHeaderRefresh];
+        } else if([code isEqualToString:@"201"]) {
+            [self.view showWarning:@"抱歉, 没有课程"];
         }
+        [self.tableView endHeaderRefresh];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络请求失败"];
         [self.tableView endHeaderRefresh];
@@ -108,8 +108,10 @@
             LiveModel *model = [LiveModel parse:obj];
             [self.datalist addObjectsFromArray:model.data];
             [self.tableView reloadData];
-            [self.tableView endFooterRefresh];
+        } else if([code isEqualToString:@"201"]){
+            [self.view showWarning:@"到头了, 别扯了..."];
         }
+        [self.tableView endFooterRefresh];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络请求失败"];
         [self.tableView endFooterRefresh];
@@ -144,6 +146,7 @@
     NSString *endTime = [dateformater stringFromDate:endDate];
     cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
     cell.count.text = model.c_pay_num;
+    cell.priceL.text = [NSString stringWithFormat:@"¥%@", model.c_price];
     cell.teacher1.hidden = YES;
     cell.teacher2.hidden = YES;
     cell.teacher3.hidden = YES;
@@ -171,7 +174,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LiveCourseDetailVC *vc = [[LiveCourseDetailVC alloc] initWithNibName:NSStringFromClass([LiveCourseDetailVC class]) bundle:nil];
+    vc.model = self.datalist[indexPath.row];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark lazy load
@@ -182,6 +189,7 @@
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }

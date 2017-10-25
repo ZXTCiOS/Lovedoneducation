@@ -35,6 +35,10 @@
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeBannerView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     [self networking];
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    MJWeakSelf
+    [self.collectionView addHeaderRefresh:^{
+        [weakSelf networking];
+    }];
 }
 
 - (void)configNaviBar{
@@ -94,10 +98,11 @@
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.isdeport;
             self.title = self.data.user.utest_type;
-            [userDefault setObject:self.title forKey:@"user_type"];
         }
+        [self.collectionView endHeaderRefresh];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络错误"];
+        [self.collectionView endHeaderRefresh];
     }];
 }
 

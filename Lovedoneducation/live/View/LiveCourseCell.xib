@@ -150,6 +150,12 @@
                             <constraint firstAttribute="height" constant="57" id="oUi-mE-jPt"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-ac-Vop">
+                        <rect key="frame" x="236.5" y="120" width="43.5" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" red="0.19435310359999999" green="0.82319551710000005" blue="0.69645899529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rpi-TR-wjY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="6BR-h5-YdJ"/>
@@ -161,12 +167,14 @@
                     <constraint firstItem="jAC-kW-Rbb" firstAttribute="leading" secondItem="SSP-AQ-o7e" secondAttribute="trailing" id="MTZ-hk-gkb"/>
                     <constraint firstItem="MJd-tB-01N" firstAttribute="top" secondItem="BRv-KU-U4V" secondAttribute="bottom" constant="17" id="PFR-Yg-bzd"/>
                     <constraint firstItem="SSP-AQ-o7e" firstAttribute="leading" secondItem="GAV-lg-cdv" secondAttribute="trailing" id="PSL-kX-d0C"/>
+                    <constraint firstItem="Rac-K7-2xX" firstAttribute="centerX" secondItem="wEv-ac-Vop" secondAttribute="centerX" id="R6f-D5-rcX"/>
                     <constraint firstItem="TT5-wI-Q5p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="RfX-Eg-Kb8"/>
                     <constraint firstItem="MJd-tB-01N" firstAttribute="top" secondItem="jAC-kW-Rbb" secondAttribute="bottom" constant="17" id="Ynf-7F-6UM"/>
                     <constraint firstItem="MJd-tB-01N" firstAttribute="top" secondItem="GAV-lg-cdv" secondAttribute="bottom" constant="17" id="a0u-Nh-dxb"/>
                     <constraint firstAttribute="trailing" secondItem="MJd-tB-01N" secondAttribute="trailing" id="cWM-gv-lau"/>
                     <constraint firstAttribute="bottom" secondItem="MJd-tB-01N" secondAttribute="bottom" id="ckQ-1q-ctn"/>
                     <constraint firstAttribute="trailing" secondItem="BRv-KU-U4V" secondAttribute="trailing" constant="12" id="cut-1p-08m"/>
+                    <constraint firstItem="Rac-K7-2xX" firstAttribute="top" secondItem="wEv-ac-Vop" secondAttribute="bottom" constant="8.5" id="dAA-q5-m1S"/>
                     <constraint firstItem="GAV-lg-cdv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="dzK-Av-lfd"/>
                     <constraint firstItem="MJd-tB-01N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gag-UK-Q25"/>
                     <constraint firstItem="BRv-KU-U4V" firstAttribute="leading" secondItem="Rac-K7-2xX" secondAttribute="trailing" id="gcR-Kv-FRE"/>
@@ -181,6 +189,7 @@
             <connections>
                 <outlet property="count" destination="Rac-K7-2xX" id="a8Z-ZC-QEx"/>
                 <outlet property="introL" destination="Otz-36-FT2" id="veo-th-jtf"/>
+                <outlet property="priceL" destination="wEv-ac-Vop" id="cHe-fy-LMT"/>
                 <outlet property="teacher1" destination="GAV-lg-cdv" id="9cC-lv-yX4"/>
                 <outlet property="teacher1Img" destination="pc3-U9-OMt" id="68w-Wg-sw4"/>
                 <outlet property="teacher1Name" destination="8WC-ed-zQy" id="soA-qo-baq"/>

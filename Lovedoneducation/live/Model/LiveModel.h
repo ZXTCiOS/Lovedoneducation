@@ -31,6 +31,7 @@
 @property (nonatomic, copy) NSString *c_type; // 1, mianfei  , 2 shoufei;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, strong) NSArray<LiveTeacherModel *> *teacher;
+@property (nonatomic, copy) NSString *classnum;
 
 @end
 
@@ -44,3 +45,20 @@
 @property (nonatomic, copy) NSString *tscore;
 
 @end
+
+@interface LiveCourseListModel : NSObject
+
+@property (nonatomic, copy) NSString *cdid;
+@property (nonatomic, copy) NSString *c_di;
+@property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *cdintro;
+@property (nonatomic, copy) NSString *tname;
+@property (nonatomic, copy) NSString *cdstart_time;
+@property (nonatomic, copy) NSString *cdend_time;
+@property (nonatomic, copy) NSString *time;
+
+@end
+
+
+
+

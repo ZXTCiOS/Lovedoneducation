@@ -30,9 +30,9 @@
  */
 #define get_courselist @"/app.php/class/classList/"
 /**
- *
+ * 课程表
  */
-
+#define get_kechengbiao @"/app.php/class/listDetail"
 /**
  *
  */

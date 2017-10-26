@@ -109,7 +109,8 @@
         _titleLab = [UILabel new];
         _titleLab.frame = CGRectMake(20, 15, kScreenWidth - 100, 24);
         _titleLab.textAlignment = NSTextAlignmentCenter;
-        _titleLab.font = [UIFont systemFontOfSize:17];
+        _titleLab.font = [UIFont systemFontOfSize:18];
+        _titleLab.textColor = [UIColor colorWithHexString:@"323232"];
     }
     return _titleLab;
 }
@@ -118,6 +119,7 @@
         _messageLab = [UILabel new];
         _messageLab.font = [UIFont systemFontOfSize:14];
         _messageLab.numberOfLines = 0;
+        _messageLab.textColor = [UIColor colorWithHexString:@"909090"];
         _messageLab.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _messageLab;
@@ -128,7 +130,8 @@
         _cancelButton.frame = (CGRect){0, _viewHeight - 50, (kScreenWidth - 60) / 2.0, 50};
         _cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
         _cancelButton.tag = 1;
-        [_cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _cancelButton.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
+        [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         //  点击选中按钮再移出按钮范围
         [_cancelButton addTarget:self action:@selector(touchDragOut:) forControlEvents:UIControlEventTouchDragOutside];
         //  修改点击选中按钮的背景色
@@ -144,7 +147,7 @@
         _confirmButton.titleLabel.font = [UIFont systemFontOfSize:14];
         _confirmButton.frame = (CGRect){(kScreenWidth - 60) / 2.0, _viewHeight - 50, (kScreenWidth - 60) / 2.0, 50};
         _confirmButton.tag = 2;
-        [_confirmButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         //  点击选中按钮再移出按钮范围
         [_confirmButton addTarget:self action:@selector(touchDragOut:) forControlEvents:UIControlEventTouchDragOutside];
         //  修改点击选中按钮的背景色
@@ -162,9 +165,9 @@
     {
         _phoneLab = [[UILabel alloc] init];
         _phoneLab.textAlignment = NSTextAlignmentCenter;
-        _phoneLab.textColor = [UIColor redColor];
+        _phoneLab.textColor = [UIColor colorWithHexString:@"323232"];
         _phoneLab.font = [UIFont systemFontOfSize:30];
-        _phoneLab.text = @"12203872237";
+
     }
     return _phoneLab;
 }

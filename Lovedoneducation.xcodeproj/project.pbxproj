@@ -79,6 +79,7 @@
 		534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49CD1FA1873400A68BA7 /* rankingModel.m */; };
 		534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D11FA194B000A68BA7 /* IBAlertView.m */; };
 		534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D31FA194B000A68BA7 /* IBConfigration.m */; };
+		534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AB11FA06AB9009AEFCA /* myinfomessageModel.m */; };
@@ -273,6 +274,8 @@
 		534B49D11FA194B000A68BA7 /* IBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAlertView.m; sourceTree = "<group>"; };
 		534B49D21FA194B000A68BA7 /* IBConfigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBConfigration.h; sourceTree = "<group>"; };
 		534B49D31FA194B000A68BA7 /* IBConfigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBConfigration.m; sourceTree = "<group>"; };
+		534B49D61FA1AAF800A68BA7 /* changephoneVC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneVC3.h; sourceTree = "<group>"; };
+		534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneVC3.m; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
 		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
 		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
@@ -876,6 +879,8 @@
 				539E17261F9DF42200EA1E2B /* changephoneVC.m */,
 				539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */,
 				539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */,
+				534B49D61FA1AAF800A68BA7 /* changephoneVC3.h */,
+				534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */,
 				53D1F2691F9F0A6E002E1524 /* changenameVC.h */,
 				53D1F26A1F9F0A6E002E1524 /* changenameVC.m */,
 				53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */,
@@ -1537,6 +1542,7 @@
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
 				53963ACC1FA090A6009AEFCA /* WJGtextView.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
+				534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */,
 				18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
 				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,

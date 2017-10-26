@@ -11,7 +11,7 @@
 #import "forgetVC.h"
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
-
+#import "ZTVendorManager.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -25,6 +25,7 @@
 @property (nonatomic,strong) UIImageView *img1;
 @property (nonatomic,strong) UIView *line0;
 @property (nonatomic,strong) UIView *line1;
+@property (nonatomic,strong) ZTVendorPayManager *payManager;
 @end
 
 @implementation LoginVC
@@ -45,6 +46,7 @@
     [self.view addSubview:self.line0];
     [self.view addSubview:self.line1];
     [self layout];
+    self.payManager = [[ZTVendorPayManager alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -310,12 +312,16 @@
 
 -(void)qqbtnclick
 {
-    
+    [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
+        NSLog(@"nickname:%@",model.nickname);
+    }];
 }
 
 -(void)weixinbtnclick
 {
-    
+    [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
+        NSLog(@"nickname:%@",model.nickname);
+    }];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

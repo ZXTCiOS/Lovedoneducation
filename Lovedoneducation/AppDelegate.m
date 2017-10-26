@@ -91,6 +91,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     // Required,For systems with less than or equal to iOS6
     //处理收到的 APNs 消息
+    application.applicationIconBadgeNumber = 0;
     [JPUSHService handleRemoteNotification:userInfo];
 }
 
@@ -120,6 +121,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [application setApplicationIconBadgeNumber:0];   //清除角标
+    [application cancelAllLocalNotifications];
 }
 
 

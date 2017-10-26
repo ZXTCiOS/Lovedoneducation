@@ -9,6 +9,7 @@
 #import "LiveCourseDetailVC.h"
 #import "LiveTeacherListCell.h"
 #import "LiveCourseListCell.h"
+#import "LiveTeacherInfoVC.h"
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -188,7 +189,8 @@
     [cell.pingjia bk_addEventHandler:^(id sender) {
         // TODO: 跳转 评价页面
     } forControlEvents:UIControlEventTouchUpInside];
-    // TODO: cell. xingxing......
+    cell.starV.star = [model.tscore intValue]/20.0;
+    cell.scoreL.text = [NSString stringWithFormat:@"%.1f", [model.tscore intValue]/10.0];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -203,9 +205,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView.tag == 100) return;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    // TODO: 跳转 教师....
-    
+    LiveTeacherInfoVC *vc = [[LiveTeacherInfoVC alloc] init];
+    vc.model = self.model.teacher[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

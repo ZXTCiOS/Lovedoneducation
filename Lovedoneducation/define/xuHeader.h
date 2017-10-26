@@ -34,13 +34,13 @@
  */
 #define get_kechengbiao @"/app.php/class/listDetail"
 /**
- *
+ * 教师历史课程
  */
-
+#define get_teacherHistory @"/app.php/Class/teacherDetail"
 /**
- *
+ * 课程评价
  */
-
+#define get_pingjia @"/app.php/Class/comment"
 /**
  *
  */

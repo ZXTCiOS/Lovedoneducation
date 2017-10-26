@@ -32,3 +32,11 @@
 @implementation LiveCourseListModel
 
 @end
+
+@implementation LiveCourseHistoryModel
+
+@end
+
+@implementation LiveEvaluateModel
+
+@end

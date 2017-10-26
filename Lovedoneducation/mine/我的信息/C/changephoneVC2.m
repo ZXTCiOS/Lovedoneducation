@@ -8,6 +8,7 @@
 
 #import "changephoneVC2.h"
 #import "changephoneCell2.h"
+#import "IBAlertView.h"
 
 @interface changephoneVC2 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -136,21 +137,36 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
     {
         phonestr = text.text;
     }
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *dic = @{@"uphone":phonestr};
-    NSString *para = [self convertToJsonData:dic];
-    NSDictionary *postdic = @{@"uid":uid,@"token":token,@"param":para};
-    [DNNetworking postWithURLString:POST_CHANGEINFO parameters:postdic success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==200) {
-            [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            //[self.navigationController popViewControllerAnimated:YES];
-            
+//    NSString *uid = [userDefault objectForKey:user_uid];
+//    NSString *token = [userDefault objectForKey:user_token];
+//    NSDictionary *dic = @{@"uphone":phonestr};
+//    NSString *para = [self convertToJsonData:dic];
+//    NSDictionary *postdic = @{@"uid":uid,@"token":token,@"param":para};
+//    [DNNetworking postWithURLString:POST_CHANGEINFO parameters:postdic success:^(id obj) {
+//        if ([[obj objectForKey:@"code"] intValue]==200) {
+//            [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+//            //[self.navigationController popViewControllerAnimated:YES];
+//
+//        }
+//    } failure:^(NSError *error) {
+//
+//    }];
+    IBConfigration *configration = [[IBConfigration alloc] init];
+    configration.title = @"温馨提示";
+    configration.message = @"我们即将发送短信验证码到这个手机";
+    configration.cancelTitle = @"取消";
+    configration.confirmTitle = @"确定";
+    configration.phonestr = phonestr;
+    configration.tintColor = [UIColor yellowColor];
+    configration.messageAlignment = NSTextAlignmentLeft;
+    
+    IBAlertView *alerView = [IBAlertView alertWithConfigration:configration block:^(NSUInteger index) {
+        if (index == 2) {
+            NSLog(@"点击确定了");
         }
-    } failure:^(NSError *error) {
-        
     }];
+    [alerView show];
 }
 
 -(void)tabletap

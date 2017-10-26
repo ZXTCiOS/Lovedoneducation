@@ -76,6 +76,9 @@
 		534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49C11FA0D75D00A68BA7 /* w_star_white@2x.png */; };
 		534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49C21FA0D75D00A68BA7 /* w_star_white@3x.png */; };
 		534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49C41FA0D75D00A68BA7 /* WTKStarView.m */; };
+		534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49CD1FA1873400A68BA7 /* rankingModel.m */; };
+		534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D11FA194B000A68BA7 /* IBAlertView.m */; };
+		534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D31FA194B000A68BA7 /* IBConfigration.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AB11FA06AB9009AEFCA /* myinfomessageModel.m */; };
@@ -264,6 +267,12 @@
 		534B49C21FA0D75D00A68BA7 /* w_star_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_star_white@3x.png"; sourceTree = "<group>"; };
 		534B49C31FA0D75D00A68BA7 /* WTKStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTKStarView.h; sourceTree = "<group>"; };
 		534B49C41FA0D75D00A68BA7 /* WTKStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTKStarView.m; sourceTree = "<group>"; };
+		534B49CC1FA1873400A68BA7 /* rankingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rankingModel.h; sourceTree = "<group>"; };
+		534B49CD1FA1873400A68BA7 /* rankingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rankingModel.m; sourceTree = "<group>"; };
+		534B49D01FA194B000A68BA7 /* IBAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAlertView.h; sourceTree = "<group>"; };
+		534B49D11FA194B000A68BA7 /* IBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAlertView.m; sourceTree = "<group>"; };
+		534B49D21FA194B000A68BA7 /* IBConfigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBConfigration.h; sourceTree = "<group>"; };
+		534B49D31FA194B000A68BA7 /* IBConfigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBConfigration.m; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
 		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
 		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
@@ -769,6 +778,17 @@
 			path = WTKStar;
 			sourceTree = "<group>";
 		};
+		534B49CF1FA194B000A68BA7 /* IBAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				534B49D01FA194B000A68BA7 /* IBAlertView.h */,
+				534B49D11FA194B000A68BA7 /* IBAlertView.m */,
+				534B49D21FA194B000A68BA7 /* IBConfigration.h */,
+				534B49D31FA194B000A68BA7 /* IBConfigration.m */,
+			);
+			path = IBAlertView;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +852,8 @@
 		53963ACF1FA0A195009AEFCA /* M */ = {
 			isa = PBXGroup;
 			children = (
+				534B49CC1FA1873400A68BA7 /* rankingModel.h */,
+				534B49CD1FA1873400A68BA7 /* rankingModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -865,6 +887,7 @@
 		539E171D1F9DEB5C00EA1E2B /* V */ = {
 			isa = PBXGroup;
 			children = (
+				534B49CF1FA194B000A68BA7 /* IBAlertView */,
 				539E17281F9E00E400EA1E2B /* changephoneCell0.h */,
 				539E17291F9E00E400EA1E2B /* changephoneCell0.m */,
 				539E172B1F9E00F300EA1E2B /* changephoneCell1.h */,
@@ -1273,18 +1296,15 @@
 				534B49C81FA0D75D00A68BA7 /* w_star_white.png in Resources */,
 				534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
-
 				534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */,
 				534B49C71FA0D75D00A68BA7 /* w_star_red@3x.png in Resources */,
-
 				1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */,
-
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
 				534B49C61FA0D75D00A68BA7 /* w_star_red@2x.png in Resources */,
 			);
@@ -1490,6 +1510,7 @@
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
 				53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */,
 				53963ABB1FA07B4A009AEFCA /* aboutVC.m in Sources */,
+				534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
@@ -1512,6 +1533,7 @@
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
+				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
 				53963ACC1FA090A6009AEFCA /* WJGtextView.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
@@ -1547,6 +1569,7 @@
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */,
 				53963AD21FA0A29E009AEFCA /* rankingCell.m in Sources */,
+				534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */,
 				539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */,
 				1822E46E1F9E112F00C92DEA /* HYBPageControl.m in Sources */,
 				1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */,

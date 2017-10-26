@@ -8,6 +8,7 @@
 
 #import "rankingCell.h"
 #import "WTKStarView.h"
+#import "rankingModel.h"
 @interface rankingCell()
 @property (nonatomic,strong) UIImageView *infoimg;
 @property (nonatomic,strong) UILabel *nameLabel;
@@ -15,6 +16,7 @@
 @property (nonatomic,strong) WTKStarView *startView;
 @property (nonatomic,strong) UILabel *scoringLabel;
 @property (nonatomic,strong) UILabel *contentLabel;
+@property (nonatomic,strong) rankingModel *rmodel;
 @end
 
 @implementation rankingCell
@@ -156,8 +158,15 @@
     return _scoringLabel;
 }
 
-
-
-
+-(void)setdata:(rankingModel *)model
+{
+    self.rmodel = model;
+    [self.infoimg sd_setImageWithURL:[NSURL URLWithString:model.tpic]];
+    self.nameLabel.text = model.tname;
+    self.introduceLabel.text = model.tsimple;
+    self.contentLabel.text = model.tintro;
+    self.scoringLabel.text = model.tscore;
+    self.startView.star = [model.tstatus floatValue];
+}
 
 @end

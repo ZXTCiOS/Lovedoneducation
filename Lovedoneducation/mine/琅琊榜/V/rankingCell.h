@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class rankingModel;
 @interface rankingCell : UITableViewCell
-
+-(void)setdata:(rankingModel *)model;
 @end

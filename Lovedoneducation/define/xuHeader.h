@@ -15,6 +15,8 @@
 
 #define kSetNaviBarColor(r, g, b, size) [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]}]
 
+#define kFrame CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT)
+
 /**
  * 首页
  */

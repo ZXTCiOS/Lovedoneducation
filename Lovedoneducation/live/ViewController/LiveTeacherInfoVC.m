@@ -134,7 +134,8 @@
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        
+        _tableView = [[UITableView alloc] initWithFrame:kFrame style:UITableViewStylePlain];
         [self.view addSubview:_tableView];
         _tableView.tableFooterView = [UIView new];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

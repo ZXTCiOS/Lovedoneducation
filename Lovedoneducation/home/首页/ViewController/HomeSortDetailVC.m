@@ -72,10 +72,13 @@
         layout.itemSize = CGSizeMake((kScreenW - 34)/2, 24);
         _collectionview = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         [self.view addSubview:_collectionview];
-        [_collectionview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(0);
-            make.top.equalTo(NAVIGATION_HEIGHT);
-        }];
+        if (@available(iOS 11.0, *)){
+            _collectionview.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+        }
+        else
+        {
+            _collectionview.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        }
         _collectionview.delegate = self;
         _collectionview.dataSource = self;
         [_collectionview registerClass:[HomeSort3Cell class] forCellWithReuseIdentifier:@"cell"];

@@ -14,6 +14,9 @@
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet UIView *greenV;
+
 @property (weak, nonatomic) IBOutlet UILabel *courseName;
 @property (weak, nonatomic) IBOutlet UILabel *timeL;
 @property (weak, nonatomic) IBOutlet UIButton *buyBtn;
@@ -38,6 +41,14 @@
     [self setbtns];
     [self netWorking];
     self.title = @"课程详情";
+    
+    if (@available(iOS 11.0, *)){
+        self.greenV.frame = CGRectMake(0, 0, kScreenW, 100);
+    }
+    else
+    {
+        self.greenV.frame = CGRectMake(0, 64, kScreenW, 100);
+    }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *data = [NSData dataWithContentsOfURL:self.model.c_intro_img.xd_URL];
         UIImage *image = [UIImage imageWithData:data];

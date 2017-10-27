@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTKStarView.h"
 
 @interface LiveTeacherListCell : UITableViewCell
 
@@ -16,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *detail;
 
 @property (weak, nonatomic) IBOutlet UIButton *pingjia;
+@property (weak, nonatomic) IBOutlet UILabel *scoreL;
+@property (weak, nonatomic) IBOutlet UILabel *fenL;
 
+@property (nonatomic, strong) WTKStarView *starV;
 
 @end

@@ -134,6 +134,7 @@
     LiveCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     LiveCourseModel *model = self.datalist[indexPath.row];
     cell.titleL.text = model.c_name;
+    // TODO:   介绍.....
     cell.introL.text = @"介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍";
     
     NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
@@ -185,7 +186,8 @@
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        CGRect frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT);
+        _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
         _tableView.dataSource = self;

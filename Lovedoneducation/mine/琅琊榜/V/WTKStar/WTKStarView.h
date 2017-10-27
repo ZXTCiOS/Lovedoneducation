@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, WTKStarType) {
 ///是否允许触摸改变星级   默认YES
 @property(nonatomic,assign)BOOL isTouch;
 
+
 ///类型（整形或者浮点型）
 //@property(nonatomic,assign)WTKStarType      starType;
 

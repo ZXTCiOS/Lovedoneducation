@@ -59,6 +59,34 @@
 
 @end
 
+@interface LiveCourseHistoryModel : NSObject
 
+@property (nonatomic, copy) NSString *cdid;
+@property (nonatomic, copy) NSString *c_id;
+@property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *cdintro;
+@property (nonatomic, copy) NSString *tname;
+@property (nonatomic, copy) NSString *cdstart_time;
+@property (nonatomic, copy) NSString *cdend_time;
+@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *comment;
+@property (nonatomic, copy) NSString *score;
+@property (nonatomic, copy) NSString *father;
+
+@end
+
+
+
+@interface LiveEvaluateModel : NSObject
+
+@property (nonatomic, copy) NSString *cid;
+@property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *cdid;
+@property (nonatomic, copy) NSString *cscore;
+@property (nonatomic, copy) NSString *ccontent;
+@property (nonatomic, copy) NSString *uname;
+@property (nonatomic, copy) NSString *ctime;
+@end
 
 

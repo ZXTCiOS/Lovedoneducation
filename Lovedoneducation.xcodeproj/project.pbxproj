@@ -30,10 +30,22 @@
 		18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */; };
 		18283D151F9F56D700111352 /* HomeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D141F9F56D700111352 /* HomeMoreView.m */; };
 		18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D161F9F56E600111352 /* HomeMoreView.xib */; };
+		18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */; };
+		18528E501FA303810081C543 /* LivePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4F1FA303810081C543 /* LivePayView.m */; };
+		18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18528E511FA3038E0081C543 /* LIvePayView.xib */; };
 		1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2511FA02ED000CB2330 /* LiveModel.m */; };
 		1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
 		1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1856E2551FA0338700CB2330 /* LiveCourseCell.xib */; };
 		1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */; };
+		186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420601FA1817E004DF7A4 /* LiveTeacherInfoVC.m */; };
+		186420651FA1855B004DF7A4 /* TeacherHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420631FA1855B004DF7A4 /* TeacherHistoryCell.m */; };
+		186420661FA1855B004DF7A4 /* TeacherHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420641FA1855B004DF7A4 /* TeacherHistoryCell.xib */; };
+		186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420681FA1B28E004DF7A4 /* LiveEvaluateVC.m */; };
+		1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864206B1FA1B637004DF7A4 /* LiveEvalutateCell.m */; };
+		1864206E1FA1B637004DF7A4 /* LiveEvalutateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1864206C1FA1B637004DF7A4 /* LiveEvalutateCell.xib */; };
+		186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */; };
+		186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420811FA1D302004DF7A4 /* LiveOrderCell.m */; };
+		186420841FA1D302004DF7A4 /* LiveOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420821FA1D302004DF7A4 /* LiveOrderCell.xib */; };
 		18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C01FA0723500FE25C3 /* LiveCourseDetailVC.m */; };
 		18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F2A7C11FA0723500FE25C3 /* LiveCourseDetailVC.xib */; };
 		18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C51FA0847300FE25C3 /* LiveCourseListCell.m */; };
@@ -219,6 +231,11 @@
 		18283D131F9F56D700111352 /* HomeMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMoreView.h; sourceTree = "<group>"; };
 		18283D141F9F56D700111352 /* HomeMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMoreView.m; sourceTree = "<group>"; };
 		18283D161F9F56E600111352 /* HomeMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMoreView.xib; sourceTree = "<group>"; };
+		18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChooseKechengquanVC.h; sourceTree = "<group>"; };
+		18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChooseKechengquanVC.m; sourceTree = "<group>"; };
+		18528E4E1FA303810081C543 /* LivePayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePayView.h; sourceTree = "<group>"; };
+		18528E4F1FA303810081C543 /* LivePayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePayView.m; sourceTree = "<group>"; };
+		18528E511FA3038E0081C543 /* LIvePayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LIvePayView.xib; sourceTree = "<group>"; };
 		1856E2501FA02ED000CB2330 /* LiveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
 		1856E2511FA02ED000CB2330 /* LiveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
 		1856E2531FA0338700CB2330 /* LiveCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCourseCell.h; sourceTree = "<group>"; };
@@ -226,6 +243,21 @@
 		1856E2551FA0338700CB2330 /* LiveCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCourseCell.xib; sourceTree = "<group>"; };
 		1856E2581FA0426A00CB2330 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		1864205F1FA1817E004DF7A4 /* LiveTeacherInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveTeacherInfoVC.h; sourceTree = "<group>"; };
+		186420601FA1817E004DF7A4 /* LiveTeacherInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveTeacherInfoVC.m; sourceTree = "<group>"; };
+		186420621FA1855B004DF7A4 /* TeacherHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherHistoryCell.h; sourceTree = "<group>"; };
+		186420631FA1855B004DF7A4 /* TeacherHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherHistoryCell.m; sourceTree = "<group>"; };
+		186420641FA1855B004DF7A4 /* TeacherHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherHistoryCell.xib; sourceTree = "<group>"; };
+		186420671FA1B28E004DF7A4 /* LiveEvaluateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveEvaluateVC.h; sourceTree = "<group>"; };
+		186420681FA1B28E004DF7A4 /* LiveEvaluateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveEvaluateVC.m; sourceTree = "<group>"; };
+		1864206A1FA1B637004DF7A4 /* LiveEvalutateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveEvalutateCell.h; sourceTree = "<group>"; };
+		1864206B1FA1B637004DF7A4 /* LiveEvalutateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveEvalutateCell.m; sourceTree = "<group>"; };
+		1864206C1FA1B637004DF7A4 /* LiveEvalutateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveEvalutateCell.xib; sourceTree = "<group>"; };
+		186420721FA1C4C2004DF7A4 /* LiveSubmitOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveSubmitOrderVC.h; sourceTree = "<group>"; };
+		186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveSubmitOrderVC.m; sourceTree = "<group>"; };
+		186420801FA1D301004DF7A4 /* LiveOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveOrderCell.h; sourceTree = "<group>"; };
+		186420811FA1D302004DF7A4 /* LiveOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveOrderCell.m; sourceTree = "<group>"; };
+		186420821FA1D302004DF7A4 /* LiveOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveOrderCell.xib; sourceTree = "<group>"; };
 		18F2A7BF1FA0723500FE25C3 /* LiveCourseDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCourseDetailVC.h; sourceTree = "<group>"; };
 		18F2A7C01FA0723500FE25C3 /* LiveCourseDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveCourseDetailVC.m; sourceTree = "<group>"; };
 		18F2A7C11FA0723500FE25C3 /* LiveCourseDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCourseDetailVC.xib; sourceTree = "<group>"; };
@@ -573,6 +605,14 @@
 				18F2A7BF1FA0723500FE25C3 /* LiveCourseDetailVC.h */,
 				18F2A7C01FA0723500FE25C3 /* LiveCourseDetailVC.m */,
 				18F2A7C11FA0723500FE25C3 /* LiveCourseDetailVC.xib */,
+				1864205F1FA1817E004DF7A4 /* LiveTeacherInfoVC.h */,
+				186420601FA1817E004DF7A4 /* LiveTeacherInfoVC.m */,
+				186420671FA1B28E004DF7A4 /* LiveEvaluateVC.h */,
+				186420681FA1B28E004DF7A4 /* LiveEvaluateVC.m */,
+				186420721FA1C4C2004DF7A4 /* LiveSubmitOrderVC.h */,
+				186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */,
+				18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */,
+				18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -598,6 +638,18 @@
 				18F2A7C91FA084D400FE25C3 /* LiveTeacherListCell.h */,
 				18F2A7CA1FA084D400FE25C3 /* LiveTeacherListCell.m */,
 				18F2A7CB1FA084D400FE25C3 /* LiveTeacherListCell.xib */,
+				186420621FA1855B004DF7A4 /* TeacherHistoryCell.h */,
+				186420631FA1855B004DF7A4 /* TeacherHistoryCell.m */,
+				186420641FA1855B004DF7A4 /* TeacherHistoryCell.xib */,
+				1864206A1FA1B637004DF7A4 /* LiveEvalutateCell.h */,
+				1864206B1FA1B637004DF7A4 /* LiveEvalutateCell.m */,
+				1864206C1FA1B637004DF7A4 /* LiveEvalutateCell.xib */,
+				186420801FA1D301004DF7A4 /* LiveOrderCell.h */,
+				186420811FA1D302004DF7A4 /* LiveOrderCell.m */,
+				186420821FA1D302004DF7A4 /* LiveOrderCell.xib */,
+				18528E4E1FA303810081C543 /* LivePayView.h */,
+				18528E4F1FA303810081C543 /* LivePayView.m */,
+				18528E511FA3038E0081C543 /* LIvePayView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1650,9 +1702,11 @@
 				18F2A7CD1FA084D400FE25C3 /* LiveTeacherListCell.xib in Resources */,
 				18F2A7C81FA0847300FE25C3 /* LiveCourseListCell.xib in Resources */,
 				534B4A161FA1AEE400A68BA7 /* README.txt in Resources */,
+				18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */,
 				53C999611F9739D9006A6570 /* LaunchScreen.storyboard in Resources */,
 				18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */,
 				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
+				186420841FA1D302004DF7A4 /* LiveOrderCell.xib in Resources */,
 				534B49C81FA0D75D00A68BA7 /* w_star_white.png in Resources */,
 				534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
@@ -1667,7 +1721,9 @@
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */,
+				186420661FA1855B004DF7A4 /* TeacherHistoryCell.xib in Resources */,
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
+				1864206E1FA1B637004DF7A4 /* LiveEvalutateCell.xib in Resources */,
 				534B49C61FA0D75D00A68BA7 /* w_star_red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1844,6 +1900,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
 				53963AC91FA08245009AEFCA /* aboutCell2.m in Sources */,
 				534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */,
@@ -1853,10 +1910,12 @@
 				539E17271F9DF42200EA1E2B /* changephoneVC.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
 				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
+				1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */,
 				1822E4571F9E10A500C92DEA /* HomeSort3View.m in Sources */,
 				1822E4531F9E10A500C92DEA /* HomeBannerView.m in Sources */,
 				5317DE621F985F5E00D4AE2C /* logupCell0.m in Sources */,
 				1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */,
+				186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */,
 				1822E4561F9E10A500C92DEA /* HomeSort3Cell.m in Sources */,
 				5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */,
 				1822E4581F9E10A500C92DEA /* HomeSortCell.m in Sources */,
@@ -1868,6 +1927,7 @@
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
+				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */,
@@ -1886,6 +1946,7 @@
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
 				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
 				53963AC31FA07F39009AEFCA /* aboutCell0.m in Sources */,
+				186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */,
 				534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */,
 				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
@@ -1897,7 +1958,11 @@
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,
 				18283D0A1F9EFD6100111352 /* HomeSortDetailVC.m in Sources */,
 				533FCB421F99A9D800A4F6E1 /* changeCell0.m in Sources */,
+
 				534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */,
+
+				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
+
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
@@ -1915,6 +1980,7 @@
 				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,
 				539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */,
 				533FCB481F99DA6800A4F6E1 /* Helper.m in Sources */,
+				18528E501FA303810081C543 /* LivePayView.m in Sources */,
 				539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */,
 				1822E4701F9E112F00C92DEA /* NSObject+Parse.m in Sources */,
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
@@ -1953,6 +2019,7 @@
 				534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */,
 				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
 				5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */,
+				186420651FA1855B004DF7A4 /* TeacherHistoryCell.m in Sources */,
 				53D1F2681F9F063C002E1524 /* securitiesVC.m in Sources */,
 				533FCB451F99D7F200A4F6E1 /* changeCell1.m in Sources */,
 			);

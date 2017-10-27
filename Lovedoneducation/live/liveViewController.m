@@ -189,6 +189,13 @@
         CGRect frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT);
         _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         [self.view addSubview:_tableView];
+        if (@available(iOS 11.0, *)){
+            _tableView.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+        }
+        else
+        {
+            _tableView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        }
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

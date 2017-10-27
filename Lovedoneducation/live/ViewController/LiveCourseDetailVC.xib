@@ -18,6 +18,7 @@
                 <outlet property="course_intro_btn" destination="kAy-NQ-Glw" id="ozX-cB-Uf3"/>
                 <outlet property="course_list_btn" destination="yf0-dc-pid" id="Hkm-9Z-eJG"/>
                 <outlet property="course_teacher_btn" destination="DIw-sz-avg" id="zZV-lQ-gIt"/>
+                <outlet property="greenV" destination="FVc-Dr-5a2" id="VaK-M5-wVt"/>
                 <outlet property="timeL" destination="i8K-d5-DMA" id="l7X-z6-Aca"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -147,6 +148,7 @@
                         <constraint firstAttribute="trailing" secondItem="OXm-8G-NdE" secondAttribute="trailing" constant="12" id="uiG-j4-kXW"/>
                         <constraint firstItem="i8K-d5-DMA" firstAttribute="leading" secondItem="vEW-UN-yYp" secondAttribute="trailing" constant="11" id="yuV-xD-2cv"/>
                     </constraints>
+                    <viewLayoutGuide key="safeArea" id="nTt-ns-hQK"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,7 +176,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="226.5" y="32.5"/>
+            <point key="canvasLocation" x="-26" y="24"/>
         </view>
     </objects>
     <resources>

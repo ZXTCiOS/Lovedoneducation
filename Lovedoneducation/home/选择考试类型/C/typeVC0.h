@@ -9,5 +9,9 @@
 #import "BaseViewController.h"
 
 @interface typeVC0 : BaseViewController
-
+@property (nonatomic,strong) NSString *uname;
+@property (nonatomic,strong) NSString *uphone;
+@property (nonatomic,strong) NSString *upwd;
+@property (nonatomic,strong) NSString *utest_type;
+@property (nonatomic,strong) NSString *testid;
 @end

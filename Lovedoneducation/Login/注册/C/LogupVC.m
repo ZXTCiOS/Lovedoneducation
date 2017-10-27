@@ -42,7 +42,14 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     }else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    if (@available(iOS 11.0, *)){
+        self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    }
+    else
+    {
+        self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+    }
+    //self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
 }
 
 - (void)didReceiveMemoryWarning {

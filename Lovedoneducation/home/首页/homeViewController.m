@@ -18,6 +18,12 @@
 #import "HomeSortDetailVC.h"
 #import "ZhuanXiangZhiNengPricticeVC.h"
 
+//
+#import "realquestionVC.h"
+#import "typeVC0.h"
+
+#import "messageVC.h"
+
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -196,7 +202,8 @@
 
 -(void)rightActionMessage
 {
-    
+    messageVC *vc = [[messageVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)leftActionQiandao:(UIButton *)button{
@@ -226,7 +233,8 @@
 }
 
 - (void)leftActionChange{
-    
+    typeVC0 *vc = [[typeVC0 alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UICollectionView *)collectionView{
@@ -258,12 +266,36 @@
         _moreV.frame = CGRectMake(0, LL_StatusBarAndNavigationBarHeight, kScreenW, kScreenH - LL_StatusBarAndNavigationBarHeight);
         [self.view addSubview:_moreV];
         _moreV.hidden = YES;
+        [_moreV.linianzhenti addTarget:self action:@selector(linianzhenticlick) forControlEvents:UIControlEventTouchUpInside];
+        [_moreV.cuotiben addTarget:self action:@selector(cuotibenclick) forControlEvents:UIControlEventTouchUpInside];
+        [_moreV.shoucangtimu addTarget:self action:@selector(shoucangtimuclick) forControlEvents:UIControlEventTouchUpInside];
+        [_moreV.lianxizhoubao addTarget:self action:@selector(lianxizhoubaoclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreV;
 }
 
+#pragma mark - 实现方法
 
+-(void)linianzhenticlick
+{
+    realquestionVC *vc = [[realquestionVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
+-(void)cuotibenclick
+{
+    
+}
+
+-(void)shoucangtimuclick
+{
+    
+}
+
+-(void)lianxizhoubaoclick
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

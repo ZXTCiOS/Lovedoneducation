@@ -8,6 +8,8 @@
 
 #import "changephoneVC2.h"
 #import "changephoneCell2.h"
+#import "IBAlertView.h"
+#import "changephoneVC3.h"
 
 @interface changephoneVC2 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -136,21 +138,32 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
     {
         phonestr = text.text;
     }
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *dic = @{@"uphone":phonestr};
-    NSString *para = [self convertToJsonData:dic];
-    NSDictionary *postdic = @{@"uid":uid,@"token":token,@"param":para};
-    [DNNetworking postWithURLString:POST_CHANGEINFO parameters:postdic success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==200) {
-            [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            //[self.navigationController popViewControllerAnimated:YES];
-            
+
+    IBConfigration *configration = [[IBConfigration alloc] init];
+    configration.title = @"温馨提示";
+    configration.message = @"我们即将发送短信验证码到这个手机";
+    configration.cancelTitle = @"取消";
+    configration.confirmTitle = @"确定";
+    configration.phonestr = phonestr;
+    configration.tintColor = [UIColor colorWithHexString:@"08D2B2"];
+    configration.messageAlignment = NSTextAlignmentLeft;
+    
+    IBAlertView *alerView = [IBAlertView alertWithConfigration:configration block:^(NSUInteger index) {
+        if (index == 2) {
+            NSLog(@"点击确定了");
+            changephoneVC3 *vc = [[changephoneVC3 alloc] init];
+            vc.phone = phonestr;
+            [self.navigationController pushViewController:vc animated:YES];
         }
-    } failure:^(NSError *error) {
-        
     }];
+    if (phonestr.length==0) {
+        [MBProgressHUD showSuccess:@"请输入新手机号" toView:self.view];
+    }
+    else
+    {
+        [alerView show];
+    }
+
 }
 
 -(void)tabletap
@@ -159,23 +172,5 @@ static NSString *changephonevc2identfid1 = @"changephonevc2identfid1";
     [text resignFirstResponder];
 }
 
--(NSString *)convertToJsonData:(NSDictionary *)dict
-{
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *jsonString;
-    if (!jsonData) {
-        NSLog(@"%@",error);
-    }else{
-        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];
-    NSRange range = {0,jsonString.length};
-    //去掉字符串中的空格
-    [mutStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:range];
-    NSRange range2 = {0,mutStr.length};
-    //去掉字符串中的换行符
-    [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
-    return mutStr;
-}
+
 @end

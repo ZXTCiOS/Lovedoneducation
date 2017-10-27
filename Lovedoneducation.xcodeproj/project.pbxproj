@@ -30,6 +30,9 @@
 		18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */; };
 		18283D151F9F56D700111352 /* HomeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D141F9F56D700111352 /* HomeMoreView.m */; };
 		18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D161F9F56E600111352 /* HomeMoreView.xib */; };
+		18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */; };
+		18528E501FA303810081C543 /* LivePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4F1FA303810081C543 /* LivePayView.m */; };
+		18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18528E511FA3038E0081C543 /* LIvePayView.xib */; };
 		1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2511FA02ED000CB2330 /* LiveModel.m */; };
 		1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
 		1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1856E2551FA0338700CB2330 /* LiveCourseCell.xib */; };
@@ -41,7 +44,6 @@
 		1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864206B1FA1B637004DF7A4 /* LiveEvalutateCell.m */; };
 		1864206E1FA1B637004DF7A4 /* LiveEvalutateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1864206C1FA1B637004DF7A4 /* LiveEvalutateCell.xib */; };
 		186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */; };
-		186420761FA1C4C2004DF7A4 /* LiveSubmitOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420741FA1C4C2004DF7A4 /* LiveSubmitOrderVC.xib */; };
 		186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420811FA1D302004DF7A4 /* LiveOrderCell.m */; };
 		186420841FA1D302004DF7A4 /* LiveOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420821FA1D302004DF7A4 /* LiveOrderCell.xib */; };
 		18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C01FA0723500FE25C3 /* LiveCourseDetailVC.m */; };
@@ -86,6 +88,34 @@
 		534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49C11FA0D75D00A68BA7 /* w_star_white@2x.png */; };
 		534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49C21FA0D75D00A68BA7 /* w_star_white@3x.png */; };
 		534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49C41FA0D75D00A68BA7 /* WTKStarView.m */; };
+		534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49CD1FA1873400A68BA7 /* rankingModel.m */; };
+		534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D11FA194B000A68BA7 /* IBAlertView.m */; };
+		534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D31FA194B000A68BA7 /* IBConfigration.m */; };
+		534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */; };
+		534B4A051FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49DC1FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m */; };
+		534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49DE1FA1AEE400A68BA7 /* ZTVendorManager.m */; };
+		534B4A071FA1AEE400A68BA7 /* ZTVendorPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E01FA1AEE400A68BA7 /* ZTVendorPayManager.m */; };
+		534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E21FA1AEE400A68BA7 /* ZTWXApiManager.m */; };
+		534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E51FA1AEE400A68BA7 /* ZTVendorAccountModel.m */; };
+		534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */; };
+		534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */; };
+		534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */; };
+		534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */; };
+		534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */; };
+		534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F21FA1AEE400A68BA7 /* libSocialSina.a */; };
+		534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F61FA1AEE400A68BA7 /* UMSocialCore.framework */; };
+		534B4A111FA1AEE400A68BA7 /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F71FA1AEE400A68BA7 /* UMSocialNetwork.framework */; };
+		534B4A121FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534B49F81FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle */; };
+		534B4A131FA1AEE400A68BA7 /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49FA1FA1AEE400A68BA7 /* libUMSocialLog.a */; };
+		534B4A141FA1AEE400A68BA7 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49FC1FA1AEE400A68BA7 /* libSocialWeChat.a */; };
+		534B4A151FA1AEE400A68BA7 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49FF1FA1AEE400A68BA7 /* libWeChatSDK.a */; };
+		534B4A161FA1AEE400A68BA7 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 534B4A001FA1AEE400A68BA7 /* README.txt */; };
+		534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A171FA1AF3E00A68BA7 /* CoreMotion.framework */; };
+		534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A191FA1AF4B00A68BA7 /* SystemConfiguration.framework */; };
+		534B4A1C1FA1AF5800A68BA7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A1B1FA1AF5800A68BA7 /* CoreTelephony.framework */; };
+		534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A1D1FA1AF6400A68BA7 /* libz.tbd */; };
+		534B4A201FA1AF7500A68BA7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A1F1FA1AF7500A68BA7 /* libc++.tbd */; };
+		534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AB11FA06AB9009AEFCA /* myinfomessageModel.m */; };
@@ -193,6 +223,11 @@
 		18283D131F9F56D700111352 /* HomeMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMoreView.h; sourceTree = "<group>"; };
 		18283D141F9F56D700111352 /* HomeMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMoreView.m; sourceTree = "<group>"; };
 		18283D161F9F56E600111352 /* HomeMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMoreView.xib; sourceTree = "<group>"; };
+		18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChooseKechengquanVC.h; sourceTree = "<group>"; };
+		18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChooseKechengquanVC.m; sourceTree = "<group>"; };
+		18528E4E1FA303810081C543 /* LivePayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePayView.h; sourceTree = "<group>"; };
+		18528E4F1FA303810081C543 /* LivePayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePayView.m; sourceTree = "<group>"; };
+		18528E511FA3038E0081C543 /* LIvePayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LIvePayView.xib; sourceTree = "<group>"; };
 		1856E2501FA02ED000CB2330 /* LiveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
 		1856E2511FA02ED000CB2330 /* LiveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
 		1856E2531FA0338700CB2330 /* LiveCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveCourseCell.h; sourceTree = "<group>"; };
@@ -212,7 +247,6 @@
 		1864206C1FA1B637004DF7A4 /* LiveEvalutateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveEvalutateCell.xib; sourceTree = "<group>"; };
 		186420721FA1C4C2004DF7A4 /* LiveSubmitOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveSubmitOrderVC.h; sourceTree = "<group>"; };
 		186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveSubmitOrderVC.m; sourceTree = "<group>"; };
-		186420741FA1C4C2004DF7A4 /* LiveSubmitOrderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveSubmitOrderVC.xib; sourceTree = "<group>"; };
 		186420801FA1D301004DF7A4 /* LiveOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveOrderCell.h; sourceTree = "<group>"; };
 		186420811FA1D302004DF7A4 /* LiveOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveOrderCell.m; sourceTree = "<group>"; };
 		186420821FA1D302004DF7A4 /* LiveOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveOrderCell.xib; sourceTree = "<group>"; };
@@ -290,6 +324,52 @@
 		534B49C21FA0D75D00A68BA7 /* w_star_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_star_white@3x.png"; sourceTree = "<group>"; };
 		534B49C31FA0D75D00A68BA7 /* WTKStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTKStarView.h; sourceTree = "<group>"; };
 		534B49C41FA0D75D00A68BA7 /* WTKStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTKStarView.m; sourceTree = "<group>"; };
+		534B49CC1FA1873400A68BA7 /* rankingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rankingModel.h; sourceTree = "<group>"; };
+		534B49CD1FA1873400A68BA7 /* rankingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rankingModel.m; sourceTree = "<group>"; };
+		534B49D01FA194B000A68BA7 /* IBAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAlertView.h; sourceTree = "<group>"; };
+		534B49D11FA194B000A68BA7 /* IBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAlertView.m; sourceTree = "<group>"; };
+		534B49D21FA194B000A68BA7 /* IBConfigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBConfigration.h; sourceTree = "<group>"; };
+		534B49D31FA194B000A68BA7 /* IBConfigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBConfigration.m; sourceTree = "<group>"; };
+		534B49D61FA1AAF800A68BA7 /* changephoneVC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneVC3.h; sourceTree = "<group>"; };
+		534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneVC3.m; sourceTree = "<group>"; };
+		534B49DB1FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZTVendorHelper.h"; sourceTree = "<group>"; };
+		534B49DC1FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZTVendorHelper.m"; sourceTree = "<group>"; };
+		534B49DD1FA1AEE400A68BA7 /* ZTVendorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManager.h; sourceTree = "<group>"; };
+		534B49DE1FA1AEE400A68BA7 /* ZTVendorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorManager.m; sourceTree = "<group>"; };
+		534B49DF1FA1AEE400A68BA7 /* ZTVendorPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorPayManager.h; sourceTree = "<group>"; };
+		534B49E01FA1AEE400A68BA7 /* ZTVendorPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorPayManager.m; sourceTree = "<group>"; };
+		534B49E11FA1AEE400A68BA7 /* ZTWXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTWXApiManager.h; sourceTree = "<group>"; };
+		534B49E21FA1AEE400A68BA7 /* ZTWXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTWXApiManager.m; sourceTree = "<group>"; };
+		534B49E41FA1AEE400A68BA7 /* ZTVendorAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorAccountModel.h; sourceTree = "<group>"; };
+		534B49E51FA1AEE400A68BA7 /* ZTVendorAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorAccountModel.m; sourceTree = "<group>"; };
+		534B49E61FA1AEE400A68BA7 /* ZTVendorPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorPayModel.h; sourceTree = "<group>"; };
+		534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorPayModel.m; sourceTree = "<group>"; };
+		534B49E81FA1AEE400A68BA7 /* ZTVendorShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorShareModel.h; sourceTree = "<group>"; };
+		534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorShareModel.m; sourceTree = "<group>"; };
+		534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		534B49F01FA1AEE400A68BA7 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		534B49F21FA1AEE400A68BA7 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		534B49F31FA1AEE400A68BA7 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		534B49F61FA1AEE400A68BA7 /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
+		534B49F71FA1AEE400A68BA7 /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
+		534B49F81FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
+		534B49FA1FA1AEE400A68BA7 /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		534B49FC1FA1AEE400A68BA7 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		534B49FD1FA1AEE400A68BA7 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		534B49FF1FA1AEE400A68BA7 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		534B4A001FA1AEE400A68BA7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		534B4A011FA1AEE400A68BA7 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		534B4A021FA1AEE400A68BA7 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		534B4A031FA1AEE400A68BA7 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		534B4A041FA1AEE400A68BA7 /* ZTVendorManagerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManagerConfig.h; sourceTree = "<group>"; };
+		534B4A171FA1AF3E00A68BA7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		534B4A191FA1AF4B00A68BA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		534B4A1B1FA1AF5800A68BA7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		534B4A1D1FA1AF6400A68BA7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		534B4A1F1FA1AF7500A68BA7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
 		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
 		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
@@ -394,7 +474,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */,
+				534B4A201FA1AF7500A68BA7 /* libc++.tbd in Frameworks */,
+				534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */,
+				534B4A1C1FA1AF5800A68BA7 /* CoreTelephony.framework in Frameworks */,
+				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
+				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
+				534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */,
+				534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */,
+				534B4A151FA1AEE400A68BA7 /* libWeChatSDK.a in Frameworks */,
+				534B4A111FA1AEE400A68BA7 /* UMSocialNetwork.framework in Frameworks */,
 				4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */,
+				534B4A131FA1AEE400A68BA7 /* libUMSocialLog.a in Frameworks */,
+				534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */,
+				534B4A141FA1AEE400A68BA7 /* libSocialWeChat.a in Frameworks */,
+				534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +587,8 @@
 				186420681FA1B28E004DF7A4 /* LiveEvaluateVC.m */,
 				186420721FA1C4C2004DF7A4 /* LiveSubmitOrderVC.h */,
 				186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */,
-				186420741FA1C4C2004DF7A4 /* LiveSubmitOrderVC.xib */,
+				18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */,
+				18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -528,6 +623,9 @@
 				186420801FA1D301004DF7A4 /* LiveOrderCell.h */,
 				186420811FA1D302004DF7A4 /* LiveOrderCell.m */,
 				186420821FA1D302004DF7A4 /* LiveOrderCell.xib */,
+				18528E4E1FA303810081C543 /* LivePayView.h */,
+				18528E4F1FA303810081C543 /* LivePayView.m */,
+				18528E511FA3038E0081C543 /* LIvePayView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -811,6 +909,144 @@
 			path = WTKStar;
 			sourceTree = "<group>";
 		};
+		534B49CF1FA194B000A68BA7 /* IBAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				534B49D01FA194B000A68BA7 /* IBAlertView.h */,
+				534B49D11FA194B000A68BA7 /* IBAlertView.m */,
+				534B49D21FA194B000A68BA7 /* IBConfigration.h */,
+				534B49D31FA194B000A68BA7 /* IBConfigration.m */,
+			);
+			path = IBAlertView;
+			sourceTree = "<group>";
+		};
+		534B49D91FA1AEE400A68BA7 /* ZTVendorManager */ = {
+			isa = PBXGroup;
+			children = (
+				534B49DA1FA1AEE400A68BA7 /* Manager */,
+				534B49E31FA1AEE400A68BA7 /* Model */,
+				534B49EA1FA1AEE400A68BA7 /* VendorSDK */,
+				534B4A041FA1AEE400A68BA7 /* ZTVendorManagerConfig.h */,
+			);
+			path = ZTVendorManager;
+			sourceTree = "<group>";
+		};
+		534B49DA1FA1AEE400A68BA7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				534B49DB1FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.h */,
+				534B49DC1FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m */,
+				534B49DD1FA1AEE400A68BA7 /* ZTVendorManager.h */,
+				534B49DE1FA1AEE400A68BA7 /* ZTVendorManager.m */,
+				534B49DF1FA1AEE400A68BA7 /* ZTVendorPayManager.h */,
+				534B49E01FA1AEE400A68BA7 /* ZTVendorPayManager.m */,
+				534B49E11FA1AEE400A68BA7 /* ZTWXApiManager.h */,
+				534B49E21FA1AEE400A68BA7 /* ZTWXApiManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		534B49E31FA1AEE400A68BA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				534B49E41FA1AEE400A68BA7 /* ZTVendorAccountModel.h */,
+				534B49E51FA1AEE400A68BA7 /* ZTVendorAccountModel.m */,
+				534B49E61FA1AEE400A68BA7 /* ZTVendorPayModel.h */,
+				534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */,
+				534B49E81FA1AEE400A68BA7 /* ZTVendorShareModel.h */,
+				534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		534B49EA1FA1AEE400A68BA7 /* VendorSDK */ = {
+			isa = PBXGroup;
+			children = (
+				534B49EB1FA1AEE400A68BA7 /* AlipaySDK */,
+				534B49EE1FA1AEE400A68BA7 /* QQ */,
+				534B49F11FA1AEE400A68BA7 /* Sina */,
+				534B49F41FA1AEE400A68BA7 /* UMSocial */,
+				534B49FB1FA1AEE400A68BA7 /* WeChat */,
+			);
+			path = VendorSDK;
+			sourceTree = "<group>";
+		};
+		534B49EB1FA1AEE400A68BA7 /* AlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */,
+				534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */,
+			);
+			path = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		534B49EE1FA1AEE400A68BA7 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */,
+				534B49F01FA1AEE400A68BA7 /* UMSocialQQHandler.h */,
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
+		534B49F11FA1AEE400A68BA7 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				534B49F21FA1AEE400A68BA7 /* libSocialSina.a */,
+				534B49F31FA1AEE400A68BA7 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
+		534B49F41FA1AEE400A68BA7 /* UMSocial */ = {
+			isa = PBXGroup;
+			children = (
+				534B49F51FA1AEE400A68BA7 /* UMSocialSDK */,
+				534B49F91FA1AEE400A68BA7 /* UMSocialSDKPlugin */,
+			);
+			path = UMSocial;
+			sourceTree = "<group>";
+		};
+		534B49F51FA1AEE400A68BA7 /* UMSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				534B49F61FA1AEE400A68BA7 /* UMSocialCore.framework */,
+				534B49F71FA1AEE400A68BA7 /* UMSocialNetwork.framework */,
+				534B49F81FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle */,
+			);
+			path = UMSocialSDK;
+			sourceTree = "<group>";
+		};
+		534B49F91FA1AEE400A68BA7 /* UMSocialSDKPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				534B49FA1FA1AEE400A68BA7 /* libUMSocialLog.a */,
+			);
+			path = UMSocialSDKPlugin;
+			sourceTree = "<group>";
+		};
+		534B49FB1FA1AEE400A68BA7 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				534B49FC1FA1AEE400A68BA7 /* libSocialWeChat.a */,
+				534B49FD1FA1AEE400A68BA7 /* UMSocialWechatHandler.h */,
+				534B49FE1FA1AEE400A68BA7 /* WechatSDK */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		534B49FE1FA1AEE400A68BA7 /* WechatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				534B49FF1FA1AEE400A68BA7 /* libWeChatSDK.a */,
+				534B4A001FA1AEE400A68BA7 /* README.txt */,
+				534B4A011FA1AEE400A68BA7 /* WechatAuthSDK.h */,
+				534B4A021FA1AEE400A68BA7 /* WXApi.h */,
+				534B4A031FA1AEE400A68BA7 /* WXApiObject.h */,
+			);
+			path = WechatSDK;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +1110,8 @@
 		53963ACF1FA0A195009AEFCA /* M */ = {
 			isa = PBXGroup;
 			children = (
+				534B49CC1FA1873400A68BA7 /* rankingModel.h */,
+				534B49CD1FA1873400A68BA7 /* rankingModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -896,6 +1134,8 @@
 				539E17261F9DF42200EA1E2B /* changephoneVC.m */,
 				539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */,
 				539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */,
+				534B49D61FA1AAF800A68BA7 /* changephoneVC3.h */,
+				534B49D71FA1AAF800A68BA7 /* changephoneVC3.m */,
 				53D1F2691F9F0A6E002E1524 /* changenameVC.h */,
 				53D1F26A1F9F0A6E002E1524 /* changenameVC.m */,
 				53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */,
@@ -907,6 +1147,7 @@
 		539E171D1F9DEB5C00EA1E2B /* V */ = {
 			isa = PBXGroup;
 			children = (
+				534B49CF1FA194B000A68BA7 /* IBAlertView */,
 				539E17281F9E00E400EA1E2B /* changephoneCell0.h */,
 				539E17291F9E00E400EA1E2B /* changephoneCell0.m */,
 				539E172B1F9E00F300EA1E2B /* changephoneCell1.h */,
@@ -1049,6 +1290,7 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				534B49D91FA1AEE400A68BA7 /* ZTVendorManager */,
 				5317DE471F974C0B00D4AE2C /* utlis */,
 				5317DE3E1F9744CB00D4AE2C /* netWorking */,
 			);
@@ -1167,6 +1409,12 @@
 		9BAAE0C9431CE0E3714EC8E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */,
+				534B4A1F1FA1AF7500A68BA7 /* libc++.tbd */,
+				534B4A1D1FA1AF6400A68BA7 /* libz.tbd */,
+				534B4A1B1FA1AF5800A68BA7 /* CoreTelephony.framework */,
+				534B4A191FA1AF4B00A68BA7 /* SystemConfiguration.framework */,
+				534B4A171FA1AF3E00A68BA7 /* CoreMotion.framework */,
 				57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */,
 				DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */,
 				A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */,
@@ -1309,6 +1557,8 @@
 			files = (
 				18F2A7CD1FA084D400FE25C3 /* LiveTeacherListCell.xib in Resources */,
 				18F2A7C81FA0847300FE25C3 /* LiveCourseListCell.xib in Resources */,
+				534B4A161FA1AEE400A68BA7 /* README.txt in Resources */,
+				18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */,
 				53C999611F9739D9006A6570 /* LaunchScreen.storyboard in Resources */,
 				18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */,
 				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
@@ -1318,10 +1568,11 @@
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
 				534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
+				534B4A121FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle in Resources */,
+				534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */,
 				534B49C71FA0D75D00A68BA7 /* w_star_red@3x.png in Resources */,
-				186420761FA1C4C2004DF7A4 /* LiveSubmitOrderVC.xib in Resources */,
 				1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
@@ -1505,6 +1756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
 				53963AC91FA08245009AEFCA /* aboutCell2.m in Sources */,
 				534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */,
@@ -1533,9 +1785,11 @@
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
+				534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */,
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
 				53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */,
 				53963ABB1FA07B4A009AEFCA /* aboutVC.m in Sources */,
+				534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
@@ -1546,9 +1800,11 @@
 				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
 				53963AC31FA07F39009AEFCA /* aboutCell0.m in Sources */,
 				186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */,
+				534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */,
 				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
+				534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */,
 				533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */,
 				18F2A7CC1FA084D400FE25C3 /* LiveTeacherListCell.m in Sources */,
 				53D1F2711F9F1129002E1524 /* changepasswordCell0.m in Sources */,
@@ -1560,14 +1816,19 @@
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
+				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
+				534B4A071FA1AEE400A68BA7 /* ZTVendorPayManager.m in Sources */,
 				53963ACC1FA090A6009AEFCA /* WJGtextView.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,
+				534B4A051FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m in Sources */,
+				534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */,
 				18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
 				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,
 				539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */,
 				533FCB481F99DA6800A4F6E1 /* Helper.m in Sources */,
+				18528E501FA303810081C543 /* LivePayView.m in Sources */,
 				539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */,
 				1822E4701F9E112F00C92DEA /* NSObject+Parse.m in Sources */,
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
@@ -1595,9 +1856,12 @@
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				5317DE4F1F974C0B00D4AE2C /* strisNull.m in Sources */,
 				53963AD21FA0A29E009AEFCA /* rankingCell.m in Sources */,
+				534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */,
 				539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */,
 				1822E46E1F9E112F00C92DEA /* HYBPageControl.m in Sources */,
 				1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */,
+				534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */,
+				534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */,
 				53C999AA1F973C40006A6570 /* mineViewController.m in Sources */,
 				5317DE4E1F974C0B00D4AE2C /* NullSafe.m in Sources */,
 				186420651FA1855B004DF7A4 /* TeacherHistoryCell.m in Sources */,
@@ -1770,11 +2034,24 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2ZJE29S6L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/AlipaySDK",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";
 				INFOPLIST_FILE = Lovedoneducation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/QQ",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/Sina",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/WeChat",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Lovedoneducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1791,11 +2068,24 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2ZJE29S6L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/AlipaySDK",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";
 				INFOPLIST_FILE = Lovedoneducation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/QQ",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/Sina",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/WeChat",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Lovedoneducation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

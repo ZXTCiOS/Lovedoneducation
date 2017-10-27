@@ -126,7 +126,7 @@
 
  @return
  */
-#define GET_ranking @"/app.php/tool/ranking?uid=%@&token=%@"
+#define GET_ranking @"/app.php/tool/ranking"
 
 /**
  课程缓存

@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UILabel *leftnameLabel;
 @property (nonatomic,strong) RMDashLineView *lineimg;
 @property (nonatomic,strong) securitesModel *smodel;
+
 @end
 
 @implementation securitiesCell0
@@ -31,6 +32,7 @@
         [self.contentView addSubview:self.lineimg];
         [self.contentView addSubview:self.numberLabel];
         [self.contentView addSubview:self.messageLabel];
+        [self selectImg];
         [self setuplayout];
         
  
@@ -142,4 +144,22 @@
     self.numberLabel.text = [NSString stringWithFormat:@"%@%@%@",@"共",model.number,@"张"];
     self.messageLabel.text = [NSString stringWithFormat:@"%@%@%@%@",model.ucprice,@"元及",model.ucprice,@"元以下课程任意券"];
 }
+
+- (UIImageView *)selectImg{
+    if (!_selectImg) {
+        _selectImg = [[UIImageView alloc] init];
+        [self.contentView addSubview:_selectImg];
+        _selectImg.image = [UIImage imageNamed:@"diyongquan_icon_default_tijiaodingdan"];
+        [_selectImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(0);
+            make.right.equalTo(-12);
+            make.size.equalTo(CGSizeMake(22, 22));
+        }];
+        _selectImg.hidden = YES;
+    }
+    return _selectImg;
+}
+
+
+
 @end

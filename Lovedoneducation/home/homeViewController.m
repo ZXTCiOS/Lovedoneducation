@@ -241,6 +241,7 @@
         [self.view addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);
+            make.top.equalTo(NAVIGATION_HEIGHT);
         }];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;

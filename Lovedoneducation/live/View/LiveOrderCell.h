@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *money;
 @property (weak, nonatomic) IBOutlet UILabel *diyongquanNum;
 
+@property (weak, nonatomic) IBOutlet UILabel *hideL;
 
 @end

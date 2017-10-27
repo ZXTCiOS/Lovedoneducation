@@ -134,6 +134,7 @@
     LiveCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     LiveCourseModel *model = self.datalist[indexPath.row];
     cell.titleL.text = model.c_name;
+    // TODO:   介绍.....
     cell.introL.text = @"介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍";
     
     NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];

@@ -8,6 +8,7 @@
 
 #import "rankingVC.h"
 #import "rankingCell.h"
+#import "rankingModel.h"
 
 @interface rankingVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -32,11 +33,40 @@ static NSString *rankingidentfid = @"rankingidentfid";
         self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
     }
     self.table.tableFooterView = [UIView new];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    [DNNetworking getWithURLString:GET_ranking success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSArray *dataarr = [obj objectForKey:@"data"];
+            for (int i = 0; i<dataarr.count; i++) {
+                NSDictionary *dic = [dataarr objectAtIndex:i];
+                rankingModel *model = [[rankingModel alloc] init];
+                model.tid = [dic objectForKey:@"tid"];
+                model.time = [dic objectForKey:@"time"];
+                model.tintro = [dic objectForKey:@"tintro"];
+                model.tname = [dic objectForKey:@"tname"];
+                model.tphone = [dic objectForKey:@"tphone"];
+                model.tpic = [dic objectForKey:@"tpic"];
+                model.tpwd = [dic objectForKey:@"tpwd"];
+                model.tscore = [dic objectForKey:@"tscore"];
+                model.tsimple = [dic objectForKey:@"tsimple"];
+                model.tstatus = [dic objectForKey:@"tstatus"];
+                model.ttime = [dic objectForKey:@"ttime"];
+                [self.dataSource addObject:model];
+                [self.table reloadData];
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];;
 }
 
 #pragma mark - getters
@@ -56,7 +86,7 @@ static NSString *rankingidentfid = @"rankingidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +95,7 @@ static NSString *rankingidentfid = @"rankingidentfid";
     if (!cell) {
         cell = [[rankingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rankingidentfid];
     }
-    
+    [cell setdata:self.dataSource[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

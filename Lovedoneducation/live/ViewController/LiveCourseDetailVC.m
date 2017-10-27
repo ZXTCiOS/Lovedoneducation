@@ -10,6 +10,7 @@
 #import "LiveTeacherListCell.h"
 #import "LiveCourseListCell.h"
 #import "LiveTeacherInfoVC.h"
+#import "LiveSubmitOrderVC.h"
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -96,7 +97,9 @@
 #pragma mark - 点击事件
 
 - (IBAction)buyNow:(id)sender {
-    
+    LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];
+    vc.model = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 /**
  * // 课程介绍

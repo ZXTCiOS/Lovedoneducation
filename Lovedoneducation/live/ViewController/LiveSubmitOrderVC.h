@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LiveModel.h"
 
-@interface LiveSubmitOrderVC : UITableViewController
+@interface LiveSubmitOrderVC : BaseViewController
+
+@property (nonatomic, strong) LiveCourseModel *model;
+@property (nonatomic, copy) NSString *kechengquan;  // 课程券金额
 
 @end

@@ -11,9 +11,13 @@
 
 #import "strisNull.h"
 #import "SDAutoLayout.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 //屏幕 宽 高
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)
+
+#define WS(weakSelf) weak typeof(&*self)weakSelf = self
 
 //屏幕宽度比
 #define WIDTH_SCALE [UIScreen mainScreen].bounds.size.width / 375
@@ -148,4 +152,19 @@
  @return
  */
 #define GET_confit @"/app.php/user/config?uid=%@&token=%@"
+
+
+/**
+ 历年真题
+
+ @return
+ */
+#define GET_realQuestion @"/app.php/tool/realQuestion?uid=%@"
+
+/**
+ 忘记密码
+
+ @return
+ */
+#define POST_forget @"/app.php/login/forget"
 #endif /* wangHeader_h */

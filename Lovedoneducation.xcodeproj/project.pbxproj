@@ -104,6 +104,14 @@
 		534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A1D1FA1AF6400A68BA7 /* libz.tbd */; };
 		534B4A201FA1AF7500A68BA7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A1F1FA1AF7500A68BA7 /* libc++.tbd */; };
 		534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */; };
+		534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A291FA1BA5E00A68BA7 /* realquestionVC.m */; };
+		534B4A2D1FA1BEC100A68BA7 /* realquestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2C1FA1BEC100A68BA7 /* realquestionCell.m */; };
+		534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */; };
+		534B4A371FA1CDCD00A68BA7 /* messageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A361FA1CDCD00A68BA7 /* messageVC.m */; };
+		534B4A3A1FA1CE4F00A68BA7 /* messageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A391FA1CE4F00A68BA7 /* messageCell.m */; };
+		534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A3C1FA1D40600A68BA7 /* messageModel.m */; };
+		534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A431FA309AF00A68BA7 /* typeVC0.m */; };
+		534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A461FA309BE00A68BA7 /* typeVC1.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AB11FA06AB9009AEFCA /* myinfomessageModel.m */; };
@@ -338,6 +346,22 @@
 		534B4A1D1FA1AF6400A68BA7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		534B4A1F1FA1AF7500A68BA7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		534B4A281FA1BA5E00A68BA7 /* realquestionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realquestionVC.h; sourceTree = "<group>"; };
+		534B4A291FA1BA5E00A68BA7 /* realquestionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realquestionVC.m; sourceTree = "<group>"; };
+		534B4A2B1FA1BEC100A68BA7 /* realquestionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realquestionCell.h; sourceTree = "<group>"; };
+		534B4A2C1FA1BEC100A68BA7 /* realquestionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realquestionCell.m; sourceTree = "<group>"; };
+		534B4A2E1FA1C6E300A68BA7 /* realquextionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realquextionModel.h; sourceTree = "<group>"; };
+		534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realquextionModel.m; sourceTree = "<group>"; };
+		534B4A351FA1CDCD00A68BA7 /* messageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageVC.h; sourceTree = "<group>"; };
+		534B4A361FA1CDCD00A68BA7 /* messageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageVC.m; sourceTree = "<group>"; };
+		534B4A381FA1CE4F00A68BA7 /* messageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageCell.h; sourceTree = "<group>"; };
+		534B4A391FA1CE4F00A68BA7 /* messageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageCell.m; sourceTree = "<group>"; };
+		534B4A3B1FA1D40600A68BA7 /* messageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageModel.h; sourceTree = "<group>"; };
+		534B4A3C1FA1D40600A68BA7 /* messageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageModel.m; sourceTree = "<group>"; };
+		534B4A421FA309AF00A68BA7 /* typeVC0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typeVC0.h; sourceTree = "<group>"; };
+		534B4A431FA309AF00A68BA7 /* typeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC0.m; sourceTree = "<group>"; };
+		534B4A451FA309BE00A68BA7 /* typeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typeVC1.h; sourceTree = "<group>"; };
+		534B4A461FA309BE00A68BA7 /* typeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC1.m; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
 		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
 		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
@@ -995,6 +1019,127 @@
 			path = WechatSDK;
 			sourceTree = "<group>";
 		};
+		534B4A231FA1BA0700A68BA7 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				1822E44C1F9E10A400C92DEA /* Model */,
+				1822E43D1F9E10A400C92DEA /* View */,
+				1822E43C1F9E10A400C92DEA /* ViewController */,
+				53C999A21F973C24006A6570 /* homeViewController.h */,
+				53C999A31F973C24006A6570 /* homeViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		534B4A241FA1BA1300A68BA7 /* 历年真题 */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A271FA1BA4400A68BA7 /* M */,
+				534B4A261FA1BA4300A68BA7 /* V */,
+				534B4A251FA1BA4100A68BA7 /* C */,
+			);
+			path = "历年真题";
+			sourceTree = "<group>";
+		};
+		534B4A251FA1BA4100A68BA7 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A281FA1BA5E00A68BA7 /* realquestionVC.h */,
+				534B4A291FA1BA5E00A68BA7 /* realquestionVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		534B4A261FA1BA4300A68BA7 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A2B1FA1BEC100A68BA7 /* realquestionCell.h */,
+				534B4A2C1FA1BEC100A68BA7 /* realquestionCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		534B4A271FA1BA4400A68BA7 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A2E1FA1C6E300A68BA7 /* realquextionModel.h */,
+				534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		534B4A311FA1CDAE00A68BA7 /* 信息 */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A341FA1CDB800A68BA7 /* M */,
+				534B4A331FA1CDB700A68BA7 /* V */,
+				534B4A321FA1CDB600A68BA7 /* C */,
+			);
+			path = "信息";
+			sourceTree = "<group>";
+		};
+		534B4A321FA1CDB600A68BA7 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A351FA1CDCD00A68BA7 /* messageVC.h */,
+				534B4A361FA1CDCD00A68BA7 /* messageVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		534B4A331FA1CDB700A68BA7 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A381FA1CE4F00A68BA7 /* messageCell.h */,
+				534B4A391FA1CE4F00A68BA7 /* messageCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		534B4A341FA1CDB800A68BA7 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A3B1FA1D40600A68BA7 /* messageModel.h */,
+				534B4A3C1FA1D40600A68BA7 /* messageModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A411FA3099900A68BA7 /* M */,
+				534B4A401FA3099800A68BA7 /* V */,
+				534B4A3F1FA3099700A68BA7 /* C */,
+			);
+			path = "选择考试类型";
+			sourceTree = "<group>";
+		};
+		534B4A3F1FA3099700A68BA7 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				534B4A421FA309AF00A68BA7 /* typeVC0.h */,
+				534B4A431FA309AF00A68BA7 /* typeVC0.m */,
+				534B4A451FA309BE00A68BA7 /* typeVC1.h */,
+				534B4A461FA309BE00A68BA7 /* typeVC1.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		534B4A401FA3099800A68BA7 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		534B4A411FA3099900A68BA7 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1171,11 +1316,10 @@
 		53C999861F973A82006A6570 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				1822E44C1F9E10A400C92DEA /* Model */,
-				1822E43D1F9E10A400C92DEA /* View */,
-				1822E43C1F9E10A400C92DEA /* ViewController */,
-				53C999A21F973C24006A6570 /* homeViewController.h */,
-				53C999A31F973C24006A6570 /* homeViewController.m */,
+				534B4A231FA1BA0700A68BA7 /* 首页 */,
+				534B4A311FA1CDAE00A68BA7 /* 信息 */,
+				534B4A241FA1BA1300A68BA7 /* 历年真题 */,
+				534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1719,6 +1863,7 @@
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */,
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
+				534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */,
 				53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
@@ -1732,6 +1877,8 @@
 				534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
+				534B4A371FA1CDCD00A68BA7 /* messageVC.m in Sources */,
+				534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
 				53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */,
 				1822E4511F9E10A500C92DEA /* HomeBannerCell.m in Sources */,
@@ -1750,6 +1897,7 @@
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,
 				18283D0A1F9EFD6100111352 /* HomeSortDetailVC.m in Sources */,
 				533FCB421F99A9D800A4F6E1 /* changeCell0.m in Sources */,
+				534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
@@ -1762,6 +1910,7 @@
 				534B4A051FA1AEE400A68BA7 /* AppDelegate+ZTVendorHelper.m in Sources */,
 				534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */,
 				18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */,
+				534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */,
 				53C999641F9739D9006A6570 /* main.m in Sources */,
 				53D1F26B1F9F0A6E002E1524 /* changenameVC.m in Sources */,
 				539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */,
@@ -1769,11 +1918,13 @@
 				539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */,
 				1822E4701F9E112F00C92DEA /* NSObject+Parse.m in Sources */,
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
+				534B4A2D1FA1BEC100A68BA7 /* realquestionCell.m in Sources */,
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */,
 				533FCB3D1F99A42400A4F6E1 /* changeModel1.m in Sources */,
 				1822E4731F9E112F00C92DEA /* UIView+HUD.m in Sources */,
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
+				534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */,
 				18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */,
 				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,
 				533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */,
@@ -1785,6 +1936,7 @@
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
 				5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */,
+				534B4A3A1FA1CE4F00A68BA7 /* messageCell.m in Sources */,
 				53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */,
 				539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,

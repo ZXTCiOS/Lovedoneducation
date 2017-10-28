@@ -32,6 +32,7 @@
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, strong) NSArray<LiveTeacherModel *> *teacher;
 @property (nonatomic, copy) NSString *classnum;
+@property (nonatomic, copy) NSString *isbuy;  // 1, 已买, 2. 没买
 
 @end
 

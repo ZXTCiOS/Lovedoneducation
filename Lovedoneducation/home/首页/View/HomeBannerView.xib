@@ -103,7 +103,7 @@
                                     <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuceshiti_icon_shouye" translatesAutoresizingMaskIntoConstraints="NO" id="8cx-b4-R9g">
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monishiti_icon_shouye" translatesAutoresizingMaskIntoConstraints="NO" id="8cx-b4-R9g">
                                     <rect key="frame" x="21" y="23" width="37" height="33"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="37" id="9Kg-Ah-Spt"/>
@@ -150,8 +150,9 @@
         </collectionReusableView>
     </objects>
     <resources>
+        <image name="monishiti_icon_shouye" width="25" height="21"/>
         <image name="shujubaogao_icon_shouye" width="21" height="17"/>
-        <image name="yuceshiti_icon_shouye" width="25" height="21"/>
+        <image name="yuceshiti_icon_shouye" width="22" height="22"/>
         <image name="zhinengzujuan_icon_shouye" width="23" height="25"/>
     </resources>
 </document>

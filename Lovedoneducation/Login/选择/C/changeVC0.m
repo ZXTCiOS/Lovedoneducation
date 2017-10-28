@@ -36,6 +36,13 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
     self.title = @"选择考试类型";
     self.table.tableFooterView = [UIView new];
     [self.view addSubview:self.table];
+    if (@available(iOS 11.0, *)){
+        self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    }
+    else
+    {
+        self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+    }
     self.dataSource = [NSMutableArray array];
     self.typeArray = [NSMutableArray array];
     [self loaddata];

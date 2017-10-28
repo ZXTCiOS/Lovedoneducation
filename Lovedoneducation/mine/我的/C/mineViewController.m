@@ -17,6 +17,7 @@
 #import "feedbackVC.h"
 #import "rankingVC.h"
 #import "aboutVC.h"
+#import "typeVC0.h"
 
 @interface mineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -48,7 +49,6 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     self.firstenload = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"444444"]}];
     [self.view addSubview:self.table];
-    [self loaddata];
     
      if (@available(iOS 11.0, *)){
          self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT-LL_TabbarHeight);
@@ -63,6 +63,12 @@ static NSString *mineidentfid9 = @"mineidentfid9";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loaddata];
 }
 
 #pragma mark - getters
@@ -277,6 +283,10 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         }
     }
     if (indexPath.section==1) {
+        if (indexPath.row==0) {
+            typeVC0 *vc = [[typeVC0 alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
         if (indexPath.row==1) {
             //代金劵
             securitiesVC *vc = [[securitiesVC alloc] init];

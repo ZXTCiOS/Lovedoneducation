@@ -10,7 +10,7 @@
 #import "messageCell.h"
 #import "messageModel.h"
 
-@interface messageVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface messageVC ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @end
@@ -75,6 +75,8 @@ static NSString *messageidentfid = @"messageidentfid";
         _table = [[UITableView alloc] init];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.emptyDataSetSource = self;
+        _table.emptyDataSetDelegate = self;
     }
     return _table;
 }
@@ -103,6 +105,10 @@ static NSString *messageidentfid = @"messageidentfid";
                         cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                    tableView:tableView];
     
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"huancun_icon_kechengwuhuancun"];
 }
 
 @end

@@ -20,6 +20,7 @@
                 <outlet property="course_teacher_btn" destination="DIw-sz-avg" id="zZV-lQ-gIt"/>
                 <outlet property="greenV" destination="FVc-Dr-5a2" id="VaK-M5-wVt"/>
                 <outlet property="timeL" destination="i8K-d5-DMA" id="l7X-z6-Aca"/>
+                <outlet property="topConstraint" destination="QgE-pB-EqF" id="plB-Tz-GeJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -155,11 +156,11 @@
             <constraints>
                 <constraint firstItem="DIw-sz-avg" firstAttribute="leading" secondItem="yf0-dc-pid" secondAttribute="trailing" constant="20" id="2k2-V1-EhR"/>
                 <constraint firstItem="wJa-VA-0fy" firstAttribute="top" secondItem="FVc-Dr-5a2" secondAttribute="bottom" constant="95" id="3ny-dm-ZNf"/>
-                <constraint firstItem="FVc-Dr-5a2" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="6y4-xF-bfO"/>
-                <constraint firstItem="FVc-Dr-5a2" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="8c0-PT-n0l"/>
                 <constraint firstItem="FVc-Dr-5a2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="8qZ-8I-SqI"/>
+                <constraint firstItem="FVc-Dr-5a2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Q5M-cg-NOt" secondAttribute="top" id="A3Y-1y-P6w"/>
                 <constraint firstItem="yf0-dc-pid" firstAttribute="leading" secondItem="kAy-NQ-Glw" secondAttribute="trailing" constant="20" id="CJe-DR-ZoG"/>
                 <constraint firstItem="yf0-dc-pid" firstAttribute="width" secondItem="kAy-NQ-Glw" secondAttribute="width" id="Njn-GI-VN6"/>
+                <constraint firstItem="FVc-Dr-5a2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QgE-pB-EqF"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DIw-sz-avg" secondAttribute="trailing" constant="12" id="RPR-Lc-2kr"/>
                 <constraint firstItem="DIw-sz-avg" firstAttribute="width" secondItem="kAy-NQ-Glw" secondAttribute="width" id="S5m-4t-sQp"/>
                 <constraint firstItem="wJa-VA-0fy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="SOk-dS-2so"/>

@@ -105,6 +105,7 @@
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.data.isdeport;
             self.title = self.data.user.utest_type;
+            [userDefault setObject:self.title forKey:user_type];
         }
         [self.collectionView endHeaderRefresh];
     } failure:^(NSError *error) {

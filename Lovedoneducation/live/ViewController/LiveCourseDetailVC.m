@@ -15,6 +15,8 @@
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+
 @property (weak, nonatomic) IBOutlet UIView *greenV;
 
 @property (weak, nonatomic) IBOutlet UILabel *courseName;
@@ -47,8 +49,20 @@
     }
     else
     {
-        self.greenV.frame = CGRectMake(0, 64, kScreenW, 100);
+        self.view.frame = CGRectMake(0, 64, kScreenW, kScreenH - 64);
+        self.topConstraint.constant = 64;
+        [self.greenV setNeedsLayout];
+        [self.greenV setNeedsDisplay];
+        [self.greenV layoutIfNeeded];
+        [self.view setNeedsLayout];
+        [self.view setNeedsDisplay];
+        [self.view layoutIfNeeded];
     }
+    if ([self.model.isbuy isEqualToString:@"1"]) {
+        [self.buyBtn setTitle:@"进入课程" forState:UIControlStateNormal];
+    }
+    
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *data = [NSData dataWithContentsOfURL:self.model.c_intro_img.xd_URL];
         UIImage *image = [UIImage imageWithData:data];
@@ -108,9 +122,18 @@
 #pragma mark - 点击事件
 
 - (IBAction)buyNow:(id)sender {
-    LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];
-    vc.model = self.model;
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([self.model.isbuy isEqualToString:@"1"]) {  // 1. 已买
+        // 上课去
+        
+        // TODO:
+        
+        
+    }else{
+        LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];
+        vc.model = self.model;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 /**
  * // 课程介绍
@@ -280,6 +303,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    if (@available(iOS 11.0, *)){
+        self.greenV.frame = CGRectMake(0, 0, kScreenW, 100);
+    }
+    else
+    {
+        self.greenV.frame = CGRectMake(0, 64, kScreenW, 100);
+    }
 }
 
 

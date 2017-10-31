@@ -93,7 +93,11 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.firstenload = YES;
-            self.typestr = [dic objectForKey:@"utest_type"];
+            NSArray *utest_typearr = [dic objectForKey:@"utest_type"];
+            NSArray *typearr = [utest_typearr objectAtIndex:0];
+            NSString *string = [typearr componentsJoinedByString:@","];
+            //self.typestr = [dic objectForKey:@"utest_type"];
+            self.typestr = string;
             self.nicknamestr = [dic objectForKey:@"uname"];
             self.phonestr = [dic objectForKey:@"uphone"];
             self.passwordstr = [dic objectForKey:@"upwd"];
@@ -101,7 +105,6 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             NSArray* array = [self.typestr componentsSeparatedByString:@">>"];
             NSString *str = array.firstObject;
             [userDefault setObject:str forKey:user_type];
-            
             [self.table reloadData];
         }
     } failure:^(NSError *error) {

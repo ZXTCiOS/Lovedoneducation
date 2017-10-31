@@ -23,6 +23,7 @@
 #import "typeVC0.h"
 
 #import "messageVC.h"
+#import "datareportVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -167,6 +168,10 @@
     }
     HomeBannerView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
     view.frame = CGRectMake(0, 0, kScreenW, kScreenW *7 / 15 + 100);
+    [view.shujubaogao addTarget:self action:@selector(shujubaogaoclick) forControlEvents:UIControlEventTouchUpInside];
+    [view.zhinengzujuan addTarget:self action:@selector(zhinengzujuanclick) forControlEvents:UIControlEventTouchUpInside];
+    [view.yuceshiti addTarget:self action:@selector(yuceshiticlick) forControlEvents:UIControlEventTouchUpInside];
+    [view.monishiti addTarget:self action:@selector(monishiticlick) forControlEvents:UIControlEventTouchUpInside];
     HYBLoopScrollView *loop = [HYBLoopScrollView loopScrollViewWithFrame:CGRectMake(0, 0, kScreenW, kScreenW * 7 / 15.0) imageUrls:nil timeInterval:2 didSelect:^(NSInteger atIndex) {
         
     } didScroll:^(NSInteger toIndex) {
@@ -302,4 +307,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark banner-click
+
+//数据报告
+-(void)shujubaogaoclick
+{
+    datareportVC *vc = [[datareportVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+//智能组卷
+-(void)zhinengzujuanclick
+{
+    
+}
+//预测试题
+-(void)yuceshiticlick
+{
+    
+}
+//模拟试题
+-(void)monishiticlick
+{
+    
+}
 @end

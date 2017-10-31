@@ -32,8 +32,7 @@
     }
     
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    
+
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         //可以添加自定义categories
         [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |

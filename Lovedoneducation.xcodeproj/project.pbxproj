@@ -102,6 +102,7 @@
 		5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6A1F988F6200D4AE2C /* logupCell3.m */; };
 		5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6E1F989E9600D4AE2C /* changeVC0.m */; };
 		5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE721F98AA5200D4AE2C /* changeVC1.m */; };
+		5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5323ADAE1FA4221200F2E626 /* datareportVC.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
 		533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533FCB391F99A41400A4F6E1 /* changeModel0.m */; };
@@ -400,6 +401,8 @@
 		5317DE6E1F989E9600D4AE2C /* changeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC0.m; sourceTree = "<group>"; };
 		5317DE711F98AA5200D4AE2C /* changeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changeVC1.h; sourceTree = "<group>"; };
 		5317DE721F98AA5200D4AE2C /* changeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC1.m; sourceTree = "<group>"; };
+		5323ADAD1FA4221200F2E626 /* datareportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportVC.h; sourceTree = "<group>"; };
+		5323ADAE1FA4221200F2E626 /* datareportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportVC.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
 		533ED7651F98BEA800C1C996 /* forgetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetVC.m; sourceTree = "<group>"; };
 		533ED7691F98C16E00C1C996 /* forgetCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetCell0.h; sourceTree = "<group>"; };
@@ -949,6 +952,39 @@
 				533ED7671F98C01500C1C996 /* C */,
 			);
 			path = "忘记密码";
+			sourceTree = "<group>";
+		};
+		5323ADA91FA421E200F2E626 /* 数据报告 */ = {
+			isa = PBXGroup;
+			children = (
+				5323ADAC1FA421F400F2E626 /* M */,
+				5323ADAB1FA421F300F2E626 /* V */,
+				5323ADAA1FA421F100F2E626 /* C */,
+			);
+			path = "数据报告";
+			sourceTree = "<group>";
+		};
+		5323ADAA1FA421F100F2E626 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5323ADAD1FA4221200F2E626 /* datareportVC.h */,
+				5323ADAE1FA4221200F2E626 /* datareportVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		5323ADAB1FA421F300F2E626 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		5323ADAC1FA421F400F2E626 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		533ED7671F98C01500C1C996 /* C */ = {
@@ -1572,6 +1608,7 @@
 				534B4A311FA1CDAE00A68BA7 /* 信息 */,
 				534B4A241FA1BA1300A68BA7 /* 历年真题 */,
 				534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */,
+				5323ADA91FA421E200F2E626 /* 数据报告 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -2123,6 +2160,7 @@
 				5317DE621F985F5E00D4AE2C /* logupCell0.m in Sources */,
 				1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */,
 				186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */,
+				5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */,
 				1822E4561F9E10A500C92DEA /* HomeSort3Cell.m in Sources */,
 				5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */,
 				1822E4581F9E10A500C92DEA /* HomeSortCell.m in Sources */,

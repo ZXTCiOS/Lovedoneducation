@@ -10,6 +10,8 @@
 #import "LiveModel.h"
 #import "LiveCourseCell.h"
 #import "LiveCourseDetailVC.h"
+#import "MyCourseViewController.h"
+
 
 @interface liveViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -43,7 +45,7 @@
 
 - (void)tableheaderView{
     UIControl *view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 44)];
-    view.backgroundColor = krgb(8, 210, 278);
+    view.backgroundColor = krgb(8, 210, 178);
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, 70, 16)];
     label.text = @"我的课程";
@@ -56,8 +58,8 @@
     imgV.image = [UIImage imageNamed:@"right_button_zhiboshouye"];
     [view addSubview:imgV];
     [view bk_addEventHandler:^(id sender) {
-        // TODO: 跳转到我的课程
-        
+        MyCourseViewController *vc = [[MyCourseViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableHeaderView = view;
 }
@@ -134,9 +136,7 @@
     LiveCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     LiveCourseModel *model = self.datalist[indexPath.row];
     cell.titleL.text = model.c_name;
-    // TODO:   介绍.....
-    cell.introL.text = @"介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍";
-    
+    cell.introL.text = model.c_intro;
     NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
     dateformater.dateFormat = @"yyyy.MM.dd";
     NSTimeInterval start = model.c_start_time;

@@ -82,8 +82,8 @@ else\
  */
 #define get_pingjia @"/app.php/Class/comment"
 /**
- *
+ * 我的课程
  */
-
+#define get_wodekecheng @"/app.php/class/userClassList/"
 
 #endif /* xuHeader_h */

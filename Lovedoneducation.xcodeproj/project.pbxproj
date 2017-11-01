@@ -151,6 +151,15 @@
 		539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17291F9E00E400EA1E2B /* changephoneCell0.m */; };
 		539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172C1F9E00F300EA1E2B /* changephoneCell1.m */; };
 		539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */; };
+		53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */; };
+		53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */; };
+		53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */; };
+		53C3DC801FA9A16800966F47 /* exerciseweeklyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7F1FA9A16800966F47 /* exerciseweeklyCell1.m */; };
+		53C3DC831FA9A7AA00966F47 /* exerciseweeklyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC821FA9A7AA00966F47 /* exerciseweeklyCell2.m */; };
+		53C3DC8C1FA9B4D300966F47 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC861FA9B4D300966F47 /* UIView+Extension.m */; };
+		53C3DC8D1FA9B4D300966F47 /* YZLineChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC891FA9B4D300966F47 /* YZLineChartModel.m */; };
+		53C3DC8E1FA9B4D300966F47 /* YZLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */; };
+		53C3DC911FA9EA9B00966F47 /* exerciseweeklyCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -457,6 +466,24 @@
 		539E172C1F9E00F300EA1E2B /* changephoneCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell1.m; sourceTree = "<group>"; };
 		539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneVC2.h; sourceTree = "<group>"; };
 		539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneVC2.m; sourceTree = "<group>"; };
+		53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quickintelligenceVC.h; sourceTree = "<group>"; };
+		53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quickintelligenceVC.m; sourceTree = "<group>"; };
+		53C3DC781FA97D4C00966F47 /* exerciseweeklyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyVC.h; sourceTree = "<group>"; };
+		53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyVC.m; sourceTree = "<group>"; };
+		53C3DC7B1FA97E4100966F47 /* exerciseweeklyCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell0.h; sourceTree = "<group>"; };
+		53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell0.m; sourceTree = "<group>"; };
+		53C3DC7E1FA9A16800966F47 /* exerciseweeklyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell1.h; sourceTree = "<group>"; };
+		53C3DC7F1FA9A16800966F47 /* exerciseweeklyCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell1.m; sourceTree = "<group>"; };
+		53C3DC811FA9A7AA00966F47 /* exerciseweeklyCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell2.h; sourceTree = "<group>"; };
+		53C3DC821FA9A7AA00966F47 /* exerciseweeklyCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell2.m; sourceTree = "<group>"; };
+		53C3DC851FA9B4D300966F47 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		53C3DC861FA9B4D300966F47 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		53C3DC881FA9B4D300966F47 /* YZLineChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLineChartModel.h; sourceTree = "<group>"; };
+		53C3DC891FA9B4D300966F47 /* YZLineChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLineChartModel.m; sourceTree = "<group>"; };
+		53C3DC8A1FA9B4D300966F47 /* YZLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLineChartView.h; sourceTree = "<group>"; };
+		53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLineChartView.m; sourceTree = "<group>"; };
+		53C3DC8F1FA9EA9B00966F47 /* exerciseweeklyCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell3.h; sourceTree = "<group>"; };
+		53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell3.m; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1386,6 +1413,102 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		53C3DC6D1FA97C6100966F47 /* 快速智能练习 */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC701FA97C6D00966F47 /* M */,
+				53C3DC6F1FA97C6C00966F47 /* V */,
+				53C3DC6E1FA97C6B00966F47 /* C */,
+			);
+			path = "快速智能练习";
+			sourceTree = "<group>";
+		};
+		53C3DC6E1FA97C6B00966F47 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */,
+				53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53C3DC6F1FA97C6C00966F47 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53C3DC701FA97C6D00966F47 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53C3DC741FA97D1A00966F47 /* 练习周报 */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC771FA97D2800966F47 /* M */,
+				53C3DC761FA97D2700966F47 /* V */,
+				53C3DC751FA97D2600966F47 /* C */,
+			);
+			path = "练习周报";
+			sourceTree = "<group>";
+		};
+		53C3DC751FA97D2600966F47 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC781FA97D4C00966F47 /* exerciseweeklyVC.h */,
+				53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53C3DC761FA97D2700966F47 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC841FA9B4D300966F47 /* Categories */,
+				53C3DC871FA9B4D300966F47 /* YZLineChart */,
+				53C3DC7B1FA97E4100966F47 /* exerciseweeklyCell0.h */,
+				53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */,
+				53C3DC7E1FA9A16800966F47 /* exerciseweeklyCell1.h */,
+				53C3DC7F1FA9A16800966F47 /* exerciseweeklyCell1.m */,
+				53C3DC811FA9A7AA00966F47 /* exerciseweeklyCell2.h */,
+				53C3DC821FA9A7AA00966F47 /* exerciseweeklyCell2.m */,
+				53C3DC8F1FA9EA9B00966F47 /* exerciseweeklyCell3.h */,
+				53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53C3DC771FA97D2800966F47 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53C3DC841FA9B4D300966F47 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC851FA9B4D300966F47 /* UIView+Extension.h */,
+				53C3DC861FA9B4D300966F47 /* UIView+Extension.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		53C3DC871FA9B4D300966F47 /* YZLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DC881FA9B4D300966F47 /* YZLineChartModel.h */,
+				53C3DC891FA9B4D300966F47 /* YZLineChartModel.m */,
+				53C3DC8A1FA9B4D300966F47 /* YZLineChartView.h */,
+				53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */,
+			);
+			path = YZLineChart;
+			sourceTree = "<group>";
+		};
 		53C999481F9739D9006A6570 = {
 			isa = PBXGroup;
 			children = (
@@ -1452,6 +1575,8 @@
 				534B4A241FA1BA1300A68BA7 /* 历年真题 */,
 				534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */,
 				5323ADA91FA421E200F2E626 /* 数据报告 */,
+				53C3DC6D1FA97C6100966F47 /* 快速智能练习 */,
+				53C3DC741FA97D1A00966F47 /* 练习周报 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1983,10 +2108,12 @@
 				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
 				53963AC91FA08245009AEFCA /* aboutCell2.m in Sources */,
+				53C3DC8D1FA9B4D300966F47 /* YZLineChartModel.m in Sources */,
 				534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */,
 				18283D151F9F56D700111352 /* HomeMoreView.m in Sources */,
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				53963AC61FA08239009AEFCA /* aboutCell1.m in Sources */,
+				53C3DC8E1FA9B4D300966F47 /* YZLineChartView.m in Sources */,
 				539E17271F9DF42200EA1E2B /* changephoneVC.m in Sources */,
 				537A369E1FA84941009E1442 /* datareportCell2.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
@@ -2015,12 +2142,14 @@
 				537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */,
+				53C3DC831FA9A7AA00966F47 /* exerciseweeklyCell2.m in Sources */,
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
 				53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */,
 				53963ABB1FA07B4A009AEFCA /* aboutVC.m in Sources */,
 				534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */,
 				537A36A11FA85888009E1442 /* datareportCell3.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
+				53C3DC911FA9EA9B00966F47 /* exerciseweeklyCell3.m in Sources */,
 				537A36981FA81740009E1442 /* datareportCell0.m in Sources */,
 				537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
@@ -2037,6 +2166,7 @@
 				534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */,
 				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
+				53C3DC801FA9A16800966F47 /* exerciseweeklyCell1.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */,
 				533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */,
@@ -2069,14 +2199,17 @@
 				1822E4701F9E112F00C92DEA /* NSObject+Parse.m in Sources */,
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
 				534B4A2D1FA1BEC100A68BA7 /* realquestionCell.m in Sources */,
+				53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */,
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */,
 				533FCB3D1F99A42400A4F6E1 /* changeModel1.m in Sources */,
 				1822E4731F9E112F00C92DEA /* UIView+HUD.m in Sources */,
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
+				53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */,
 				534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */,
 				18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */,
 				537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */,
+				53C3DC8C1FA9B4D300966F47 /* UIView+Extension.m in Sources */,
 				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,
 				533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */,
 				539E17211F9DEB8A00EA1E2B /* myinfoVC.m in Sources */,
@@ -2091,6 +2224,7 @@
 				53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */,
 				539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
+				53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */,
 				1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */,
 				533FCB4F1F9DB38600A4F6E1 /* mineCell0.m in Sources */,
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,

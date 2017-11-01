@@ -37,7 +37,9 @@
         make.top.equalTo(weakSelf).with.offset(30);
     }];
     [weakSelf.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.equalTo(weakSelf.timelab);
+        make.right.equalTo(weakSelf.timelab);
+        make.top.equalTo(weakSelf.timelab.mas_bottom).with.offset(20);
     }];
 }
 
@@ -48,7 +50,10 @@
     if(!_timelab)
     {
         _timelab = [[UILabel alloc] init];
-        
+        _timelab.text = @"生成时间：2017.09.04 14:44";
+        _timelab.textColor = [UIColor colorWithHexString:@"646464"];
+        _timelab.textAlignment = NSTextAlignmentCenter;
+        _timelab.font = [UIFont systemFontOfSize:12];
     }
     return _timelab;
 }
@@ -58,7 +63,10 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        
+        _contentlab.textAlignment = NSTextAlignmentCenter;
+        _contentlab.font = [UIFont systemFontOfSize:12];
+        _contentlab.textColor = [UIColor colorWithHexString:@"909090"];
+        _contentlab.text = @"以上全站数据基于国考所有考生";
     }
     return _contentlab;
 }

@@ -24,6 +24,7 @@
 
 #import "messageVC.h"
 #import "datareportVC.h"
+#import "exerciseweeklyVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -300,7 +301,8 @@
 
 -(void)lianxizhoubaoclick
 {
-    
+    exerciseweeklyVC *vc = [[exerciseweeklyVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

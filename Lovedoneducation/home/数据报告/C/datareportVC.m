@@ -12,6 +12,7 @@
 #import "datareportCell2.h"
 #import "datareportCell3.h"
 #import "datareportCell4.h"
+#import "datareportCell5.h"
 
 @interface datareportVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -22,6 +23,7 @@ static NSString *datareportidentfid1 = @"datareportidentfid1";
 static NSString *datareportidentfid2 = @"datareportidentfid2";
 static NSString *datareportidentfid3 = @"datareportidentfid3";
 static NSString *datareportidentfid4 = @"datareportidentfid4";
+static NSString *datareportidentfid5 = @"datareportidentfid5";
 
 @implementation datareportVC
 
@@ -63,7 +65,7 @@ static NSString *datareportidentfid4 = @"datareportidentfid4";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,6 +110,14 @@ static NSString *datareportidentfid4 = @"datareportidentfid4";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
+    if (indexPath.row==5) {
+        datareportCell5 *cell = [tableView dequeueReusableCellWithIdentifier:datareportidentfid5];
+        if (!cell) {
+            cell = [[datareportCell5 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid5];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     return nil;
 }
 
@@ -127,6 +137,9 @@ static NSString *datareportidentfid4 = @"datareportidentfid4";
     }
     if (indexPath.row==4) {
         return 475;
+    }
+    if (indexPath.row==5) {
+        return 120;
     }
     return 0.01f;
 }

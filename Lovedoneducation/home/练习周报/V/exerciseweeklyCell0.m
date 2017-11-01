@@ -1,22 +1,21 @@
 //
-//  datareportCell0.m
+//  exerciseweeklyCell0.m
 //  Lovedoneducation
 //
-//  Created by 王俊钢 on 2017/10/31.
+//  Created by 王俊钢 on 2017/11/1.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "datareportCell0.h"
+#import "exerciseweeklyCell0.h"
 
-@interface datareportCell0()
+@interface exerciseweeklyCell0()
 @property (nonatomic,strong) UIImageView *bgimg;
-@property (nonatomic,strong) UIImageView *layerimg;
-@property (nonatomic,strong) UILabel *fenshuLab;
+@property (nonatomic,strong) UILabel *fenshulab;
 @property (nonatomic,strong) UILabel *lab0;
 @property (nonatomic,strong) UILabel *timelab;
 @end
 
-@implementation datareportCell0
+@implementation exerciseweeklyCell0
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,10 +23,9 @@
     if(self)
     {
         [self.contentView addSubview:self.bgimg];
-        [self.contentView addSubview:self.layerimg];
-        [self.contentView addSubview:self.fenshuLab];
-        [self.contentView addSubview:self.timelab];
+        [self.contentView addSubview:self.fenshulab];
         [self.contentView addSubview:self.lab0];
+        [self.contentView addSubview:self.timelab];
         [self setuplayout];
     }
     return self;
@@ -42,25 +40,28 @@
         make.right.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf);
     }];
-
-    [weakSelf.fenshuLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [weakSelf.fenshulab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
-        make.top.equalTo(weakSelf).with.offset(26);
+        make.top.equalTo(weakSelf).with.offset(28);
         make.width.mas_offset(135);
         make.height.mas_offset(135);
     }];
+    
     [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf).with.offset(-15);
         make.left.equalTo(weakSelf).with.offset(15);
         make.height.mas_offset(20);
     }];
+    
     [weakSelf.lab0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf.timelab.mas_top).with.offset(-15);
         make.left.equalTo(weakSelf).with.offset(15);
     }];
 }
+
 #pragma mark - getters
 
 -(UIImageView *)bgimg
@@ -68,24 +69,23 @@
     if(!_bgimg)
     {
         _bgimg = [[UIImageView alloc] init];
-        _bgimg.image = [UIImage imageNamed:@"background_image_shujubaogao"];
+        _bgimg.image = [UIImage imageNamed:@"background_image_lianxizhoubao"];
     }
     return _bgimg;
 }
 
--(UILabel *)fenshuLab
+-(UILabel *)fenshulab
 {
-    if(!_fenshuLab)
+    if(!_fenshulab)
     {
-        _fenshuLab = [[UILabel alloc] init];
-        _fenshuLab.textColor = [UIColor whiteColor];
-        _fenshuLab.font = [UIFont systemFontOfSize:60];
-        _fenshuLab.textAlignment = NSTextAlignmentCenter;
-        _fenshuLab.text = @"98";
+        _fenshulab = [[UILabel alloc] init];
+        _fenshulab.textColor = [UIColor colorWithHexString:@"08D2B2"];
+        _fenshulab.font = [UIFont systemFontOfSize:60];
+        _fenshulab.textAlignment = NSTextAlignmentCenter;
+        _fenshulab.text = @"98";
     }
-    return _fenshuLab;
+    return _fenshulab;
 }
-
 
 -(UILabel *)lab0
 {
@@ -112,7 +112,6 @@
     }
     return _timelab;
 }
-
 
 
 

@@ -126,6 +126,12 @@
 		534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A3C1FA1D40600A68BA7 /* messageModel.m */; };
 		534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A431FA309AF00A68BA7 /* typeVC0.m */; };
 		534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A461FA309BE00A68BA7 /* typeVC1.m */; };
+		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
+		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
+		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
+		537A36A11FA85888009E1442 /* datareportCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A01FA85888009E1442 /* datareportCell3.m */; };
+		537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A31FA861C1009E1442 /* datareportCell4.m */; };
+		537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A61FA89C8D009E1442 /* datareportCell5.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
 		53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AB11FA06AB9009AEFCA /* myinfomessageModel.m */; };
@@ -400,6 +406,18 @@
 		534B4A431FA309AF00A68BA7 /* typeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC0.m; sourceTree = "<group>"; };
 		534B4A451FA309BE00A68BA7 /* typeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typeVC1.h; sourceTree = "<group>"; };
 		534B4A461FA309BE00A68BA7 /* typeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC1.m; sourceTree = "<group>"; };
+		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
+		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
+		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
+		537A369A1FA8175A009E1442 /* datareportCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell1.m; sourceTree = "<group>"; };
+		537A369C1FA84941009E1442 /* datareportCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell2.h; sourceTree = "<group>"; };
+		537A369D1FA84941009E1442 /* datareportCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell2.m; sourceTree = "<group>"; };
+		537A369F1FA85888009E1442 /* datareportCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell3.h; sourceTree = "<group>"; };
+		537A36A01FA85888009E1442 /* datareportCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell3.m; sourceTree = "<group>"; };
+		537A36A21FA861C1009E1442 /* datareportCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell4.h; sourceTree = "<group>"; };
+		537A36A31FA861C1009E1442 /* datareportCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell4.m; sourceTree = "<group>"; };
+		537A36A51FA89C8D009E1442 /* datareportCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell5.h; sourceTree = "<group>"; };
+		537A36A61FA89C8D009E1442 /* datareportCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell5.m; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
 		53963AAB1FA05F56009AEFCA /* RMDashLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMDashLineView.m; sourceTree = "<group>"; };
 		53963AAD1FA060F5009AEFCA /* coursescacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheCell.h; sourceTree = "<group>"; };
@@ -789,6 +807,18 @@
 		5323ADAB1FA421F300F2E626 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				537A36961FA81740009E1442 /* datareportCell0.h */,
+				537A36971FA81740009E1442 /* datareportCell0.m */,
+				537A36991FA8175A009E1442 /* datareportCell1.h */,
+				537A369A1FA8175A009E1442 /* datareportCell1.m */,
+				537A369C1FA84941009E1442 /* datareportCell2.h */,
+				537A369D1FA84941009E1442 /* datareportCell2.m */,
+				537A369F1FA85888009E1442 /* datareportCell3.h */,
+				537A36A01FA85888009E1442 /* datareportCell3.m */,
+				537A36A21FA861C1009E1442 /* datareportCell4.h */,
+				537A36A31FA861C1009E1442 /* datareportCell4.m */,
+				537A36A51FA89C8D009E1442 /* datareportCell5.h */,
+				537A36A61FA89C8D009E1442 /* datareportCell5.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1958,6 +1988,7 @@
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				53963AC61FA08239009AEFCA /* aboutCell1.m in Sources */,
 				539E17271F9DF42200EA1E2B /* changephoneVC.m in Sources */,
+				537A369E1FA84941009E1442 /* datareportCell2.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
 				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
 				1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */,
@@ -1981,13 +2012,17 @@
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
+				537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */,
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,
 				53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */,
 				53963ABB1FA07B4A009AEFCA /* aboutVC.m in Sources */,
 				534B49D41FA194B100A68BA7 /* IBAlertView.m in Sources */,
+				537A36A11FA85888009E1442 /* datareportCell3.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
+				537A36981FA81740009E1442 /* datareportCell0.m in Sources */,
+				537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				534B4A371FA1CDCD00A68BA7 /* messageVC.m in Sources */,
 				534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */,
@@ -2041,6 +2076,7 @@
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
 				534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */,
 				18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */,
+				537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */,
 				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,
 				533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */,
 				539E17211F9DEB8A00EA1E2B /* myinfoVC.m in Sources */,

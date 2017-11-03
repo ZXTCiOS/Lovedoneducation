@@ -39,6 +39,7 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.14)
+  - NIMSDK (4.3.0)
   - SDAutoLayout (2.2.0)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
@@ -47,6 +48,8 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - ZFPlayer (2.1.5):
+    - Masonry
 
 DEPENDENCIES:
   - AFNetworking
@@ -59,10 +62,12 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MJRefresh
+  - NIMSDK
   - SDAutoLayout
   - SDWebImage
   - TPKeyboardAvoiding
   - YYKit
+  - ZFPlayer
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -76,11 +81,13 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
+  NIMSDK: 4c7d69e30a1d7a45df07af3d28b87810510f6987
   SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
 
-PODFILE CHECKSUM: cc8291061f7d8a0bcaa7b5736259410ca5f08e9c
+PODFILE CHECKSUM: 5db69873e294ec832d8c121ca1ce765ebcda83b5
 
 COCOAPODS: 1.3.1

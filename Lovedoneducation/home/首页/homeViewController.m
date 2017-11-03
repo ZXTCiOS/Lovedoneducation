@@ -51,8 +51,8 @@
 - (void)configNaviBar{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     if ( [userDefault objectForKey:user_type]) {
-        // TODO: 崩溃 ...
-        //self.title = [userDefault objectForKey:user_type];
+        
+        self.title = [userDefault objectForKey:user_type];
     }
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
     more.frame = CGRectMake(0, 0, 30, 15);

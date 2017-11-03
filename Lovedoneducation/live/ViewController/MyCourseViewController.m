@@ -121,17 +121,29 @@ CGFloat calendar_height = 230;
 
 #pragma mark - FSCalendar  delegate, datasource
 
-//- (NSString *)calendar:(FSCalendar *)calendar titleForDate:(NSDate *)date{
-//    return @"title...";
+//- (NSDate *)minimumDateForCalendar:(FSCalendar *)calendar{
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
+//    return date;
+//}
+//
+//- (NSDate *)maximumDateForCalendar:(FSCalendar *)calendar{
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
 //}
 
-//- (UIImage *)calendar:(FSCalendar *)calendar imageForDate:(NSDate *)date{
-//    return [UIImage imageNamed:@"banner_image_shouye"];
-//}
-
-//- (NSString *)calendar:(FSCalendar *)calendar subtitleForDate:(NSDate *)date{
-//    return @"subtitle..";
-//}
+- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date{
+    NSInteger count = 0;
+    NSTimeInterval selectTime = [date timeIntervalSince1970];
+    for (LiveMyCourseModel *model in self.datalist) {
+        for (NSString *time in model.ymdhis) {
+            NSTimeInterval courseTime = [time integerValue];
+            NSTimeInterval diff = courseTime - selectTime;
+            if (diff > 0 && diff < 24 * 60 * 60) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     if ([self.selectDate timeIntervalSince1970] == [date timeIntervalSince1970]) {
@@ -273,10 +285,12 @@ CGFloat calendar_height = 230;
         [self.view addSubview:_calendar];
         _calendar.appearance.todaySelectionColor = krgb(8, 210, 178);
         _calendar.appearance.todayColor = [UIColor whiteColor];
-//        _calendar.appearance.headerTitleColor = [UIColor whiteColor];
-//        _calendar.appearance.weekdayTextColor = [UIColor whiteColor];
-        _calendar.appearance.headerDateFormat = @"MM月";
+        _calendar.appearance.headerTitleColor = krgb(8, 210, 178);
+        _calendar.appearance.weekdayTextColor = krgb(8, 210, 178);
+        
+        _calendar.appearance.headerDateFormat = @"yyyy.MM";
         _calendar.appearance.selectionColor = krgb(8, 210, 178);
+        _calendar.appearance.headerMinimumDissolvedAlpha = 0;
     }
     return _calendar;
 }

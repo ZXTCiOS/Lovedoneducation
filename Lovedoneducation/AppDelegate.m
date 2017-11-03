@@ -17,6 +17,11 @@
 #import <UserNotifications/UserNotifications.h>
 #import "myinfomessageVC.h"
 #endif
+
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+
+
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 
 @end
@@ -76,8 +81,36 @@
     {
         self.window.rootViewController = [MainTabBarController shareInstance];
     }
+    
+    // 登录云信 IM
+    [self NIMLogin];
+    
     return YES;
 }
+
+- (void)NIMLogin{
+    NSString *appKey        = @"your app key";
+    NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
+    option.apnsCername      = @"your APNs cer name";
+    option.pkCername        = @"your pushkit cer name";
+    [[NIMSDK sharedSDK] registerWithOption:option];
+    
+//    NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
+//    NSString *account = [userDefault objectForKey:@""];
+//    NSString *token = [userDefault objectForKey:@""];
+//    loginData.account = account;
+//    loginData.token = token;
+//    loginData.forcedMode = NO;
+//    [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
+}
+
+
+
+
+
+
+
+
 
 #pragma mark 极光推送
 
@@ -111,6 +144,7 @@
     NSDictionary *userInfo = [notification userInfo];
     NSLog(@"%@",userInfo);
 }
+
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

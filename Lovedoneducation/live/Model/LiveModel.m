@@ -25,6 +25,18 @@
 }
 @end
 
+@implementation LiveMyCourseModel
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"teacher": [LiveTeacherModel class],
+             @"classs": [LiveCourseModel class],
+             @"ymdhis": [NSString class]
+             };
+}
+
+@end
+
 @implementation LiveTeacherModel
 
 @end

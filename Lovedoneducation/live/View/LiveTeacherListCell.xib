@@ -22,7 +22,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hud-L1-diK">
                         <rect key="frame" x="0.0" y="300.5" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.88227540250000003" green="0.88240253930000001" blue="0.88224762680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="tfp-0z-Ka1"/>
                         </constraints>

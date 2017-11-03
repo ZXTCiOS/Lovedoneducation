@@ -27,12 +27,28 @@
 @property (nonatomic, assign) NSInteger c_end_time;
 @property (nonatomic, assign) NSInteger c_start_pay;
 @property (nonatomic, copy) NSString *c_intro_img;
+@property (nonatomic, copy) NSString *c_intro;
 @property (nonatomic, copy) NSString *c_qq;
 @property (nonatomic, copy) NSString *c_type; // 1, mianfei  , 2 shoufei;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, strong) NSArray<LiveTeacherModel *> *teacher;
 @property (nonatomic, copy) NSString *classnum;
 @property (nonatomic, copy) NSString *isbuy;  // 1, 已买, 2. 没买
+
+@end
+
+@interface LiveMyCourseModel : NSObject
+
+@property (nonatomic, copy) NSString *mid;
+@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *c_id;
+@property (nonatomic, strong) LiveCourseModel *classs;
+@property (nonatomic, copy) NSString *testid;
+@property (nonatomic, copy) NSString *mtype;
+@property (nonatomic, copy) NSString *mtime;
+@property (nonatomic, copy) NSString *classnum;
+@property (nonatomic, strong) NSArray<LiveTeacherModel *> *teacher;
+@property (nonatomic, strong) NSArray *ymdhis;
 
 @end
 

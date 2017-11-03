@@ -52,7 +52,10 @@
 
 - (void)configNaviBar{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.title = [userDefault objectForKey:@"user_type"];
+    if ( [userDefault objectForKey:user_type]) {
+        
+        self.title = [userDefault objectForKey:user_type];
+    }
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
     more.frame = CGRectMake(0, 0, 30, 15);
     more.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -93,6 +96,11 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.moreV.hidden = YES;
 }
 
 - (void)networking{

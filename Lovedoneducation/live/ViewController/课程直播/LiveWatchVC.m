@@ -10,8 +10,8 @@
 //#import "ZFPlayerView.h"
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
-#import "NTESWhiteboardCommand.h"
-#import "NTESWhiteboardCmdHandler.h"
+//#import "NTESWhiteboardCommand.h"
+//#import "NTESWhiteboardCmdHandler.h"
 #import "NTESWhiteboardLines.h"
 #import "NTESWhiteboardDrawView.h"
 
@@ -20,7 +20,7 @@
 
 #define kTimeInterval 0.06
 
-@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate, NTESMeetingRTSManagerDelegate, NTESWhiteboardCmdHandlerDelegate, NIMLoginManagerDelegate>
+@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate, NTESMeetingRTSManagerDelegate, NTESWhiteboardCmdHandlerDelegate, NIMLoginManagerDelegate, NIMNetCallManagerDelegate>
 
 
 
@@ -35,7 +35,7 @@
 // 聊天室
 @property (nonatomic, strong) UITableView *chatView;
 
-
+NIMNetCallManagerDelegate
 
 @property (nonatomic, strong) NSMutableArray *datalist;
 

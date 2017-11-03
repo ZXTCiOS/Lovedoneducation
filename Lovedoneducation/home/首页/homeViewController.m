@@ -25,6 +25,7 @@
 #import "messageVC.h"
 #import "datareportVC.h"
 #import "exerciseweeklyVC.h"
+#import "wrongtopicVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -291,7 +292,8 @@
 
 -(void)cuotibenclick
 {
-    
+    wrongtopicVC *vc = [[wrongtopicVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)shoucangtimuclick

@@ -9,5 +9,11 @@
 #import "BaseViewController.h"
 
 @interface myinfomessageVC : BaseViewController
+//定义枚举类型
+typedef enum {
+    ENUM_ViewController_ActionTypeHome=0,//推送进入
+    ENUM_ViewController_ActionTypePush,//其他
+} ENUM_ViewController_ActionType;
 
+@property (nonatomic,assign) NSInteger InActionType; //操作类型
 @end

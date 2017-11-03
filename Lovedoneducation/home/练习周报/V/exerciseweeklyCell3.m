@@ -11,6 +11,9 @@
 @interface exerciseweeklyCell3()
 @property (nonatomic,strong) UIView *bgview;
 @property (nonatomic,strong) UILabel *lab0;
+
+
+
 @end
 
 @implementation exerciseweeklyCell3
@@ -23,6 +26,7 @@
         [self.contentView addSubview:self.bgview];
         [self.contentView addSubview:self.lab0];
         [self setuplayout];
+        [self getview];
     }
     return self;
 }
@@ -40,7 +44,6 @@
         make.left.equalTo(weakSelf).with.offset(15);
         make.top.equalTo(weakSelf.bgview).with.offset(30);
     }];
-    
 }
 
 #pragma mark - getters
@@ -67,6 +70,19 @@
     return _lab0;
 }
 
+-(void)getview
+{
+    for (int i = 0; i<6; i++) {
+        UILabel *leftnamelab = [[UILabel alloc] init];
+        [self.contentView addSubview:leftnamelab];
+        [leftnamelab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).with.offset(20);
+            make.top.equalTo(self.lab0.mas_bottom).with.offset(i*50+30);
+            make.height.mas_offset(30);
+        }];
+        leftnamelab.text = @"111";
+    }
+}
 
 
 @end

@@ -126,6 +126,9 @@
 		534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A3C1FA1D40600A68BA7 /* messageModel.m */; };
 		534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A431FA309AF00A68BA7 /* typeVC0.m */; };
 		534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A461FA309BE00A68BA7 /* typeVC1.m */; };
+		534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B74881FAAEC26000D265B /* wrongtopicVC.m */; };
+		534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748B1FAAF669000D265B /* wrongtopicCell.m */; };
+		534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748E1FAAF6AA000D265B /* wrongtopicModel.m */; };
 		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
 		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
 		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
@@ -160,6 +163,7 @@
 		53C3DC8D1FA9B4D300966F47 /* YZLineChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC891FA9B4D300966F47 /* YZLineChartModel.m */; };
 		53C3DC8E1FA9B4D300966F47 /* YZLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */; };
 		53C3DC911FA9EA9B00966F47 /* exerciseweeklyCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */; };
+		53C3DCAB1FAACD1100966F47 /* ZYProGressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DCAA1FAACD1100966F47 /* ZYProGressView.m */; };
 		53C999561F9739D9006A6570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999551F9739D9006A6570 /* AppDelegate.m */; };
 		53C999591F9739D9006A6570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C999581F9739D9006A6570 /* ViewController.m */; };
 		53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C9995A1F9739D9006A6570 /* Main.storyboard */; };
@@ -415,6 +419,12 @@
 		534B4A431FA309AF00A68BA7 /* typeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC0.m; sourceTree = "<group>"; };
 		534B4A451FA309BE00A68BA7 /* typeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typeVC1.h; sourceTree = "<group>"; };
 		534B4A461FA309BE00A68BA7 /* typeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = typeVC1.m; sourceTree = "<group>"; };
+		534B74871FAAEC26000D265B /* wrongtopicVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicVC.h; sourceTree = "<group>"; };
+		534B74881FAAEC26000D265B /* wrongtopicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicVC.m; sourceTree = "<group>"; };
+		534B748A1FAAF669000D265B /* wrongtopicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicCell.h; sourceTree = "<group>"; };
+		534B748B1FAAF669000D265B /* wrongtopicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicCell.m; sourceTree = "<group>"; };
+		534B748D1FAAF6AA000D265B /* wrongtopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicModel.h; sourceTree = "<group>"; };
+		534B748E1FAAF6AA000D265B /* wrongtopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicModel.m; sourceTree = "<group>"; };
 		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
 		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
 		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
@@ -484,6 +494,8 @@
 		53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLineChartView.m; sourceTree = "<group>"; };
 		53C3DC8F1FA9EA9B00966F47 /* exerciseweeklyCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell3.h; sourceTree = "<group>"; };
 		53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell3.m; sourceTree = "<group>"; };
+		53C3DCA91FAACD1100966F47 /* ZYProGressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYProGressView.h; sourceTree = "<group>"; };
+		53C3DCAA1FAACD1100966F47 /* ZYProGressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYProGressView.m; sourceTree = "<group>"; };
 		53C999511F9739D9006A6570 /* Lovedoneducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lovedoneducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C999541F9739D9006A6570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53C999551F9739D9006A6570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1298,6 +1310,43 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		534B74831FAAE89E000D265B /* 错题本 */ = {
+			isa = PBXGroup;
+			children = (
+				534B74861FAAE953000D265B /* M */,
+				534B74851FAAE951000D265B /* V */,
+				534B74841FAAE950000D265B /* C */,
+			);
+			path = "错题本";
+			sourceTree = "<group>";
+		};
+		534B74841FAAE950000D265B /* C */ = {
+			isa = PBXGroup;
+			children = (
+				534B74871FAAEC26000D265B /* wrongtopicVC.h */,
+				534B74881FAAEC26000D265B /* wrongtopicVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		534B74851FAAE951000D265B /* V */ = {
+			isa = PBXGroup;
+			children = (
+				534B748A1FAAF669000D265B /* wrongtopicCell.h */,
+				534B748B1FAAF669000D265B /* wrongtopicCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		534B74861FAAE953000D265B /* M */ = {
+			isa = PBXGroup;
+			children = (
+				534B748D1FAAF6AA000D265B /* wrongtopicModel.h */,
+				534B748E1FAAF6AA000D265B /* wrongtopicModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1468,6 +1517,7 @@
 		53C3DC761FA97D2700966F47 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				53C3DCA81FAACD1100966F47 /* ProgressBar */,
 				53C3DC841FA9B4D300966F47 /* Categories */,
 				53C3DC871FA9B4D300966F47 /* YZLineChart */,
 				53C3DC7B1FA97E4100966F47 /* exerciseweeklyCell0.h */,
@@ -1507,6 +1557,15 @@
 				53C3DC8B1FA9B4D300966F47 /* YZLineChartView.m */,
 			);
 			path = YZLineChart;
+			sourceTree = "<group>";
+		};
+		53C3DCA81FAACD1100966F47 /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DCA91FAACD1100966F47 /* ZYProGressView.h */,
+				53C3DCAA1FAACD1100966F47 /* ZYProGressView.m */,
+			);
+			path = ProgressBar;
 			sourceTree = "<group>";
 		};
 		53C999481F9739D9006A6570 = {
@@ -1577,6 +1636,7 @@
 				5323ADA91FA421E200F2E626 /* 数据报告 */,
 				53C3DC6D1FA97C6100966F47 /* 快速智能练习 */,
 				53C3DC741FA97D1A00966F47 /* 练习周报 */,
+				534B74831FAAE89E000D265B /* 错题本 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -2134,6 +2194,7 @@
 				534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */,
 				53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */,
 				184B56B11FA45CE80017A27E /* LiveWatchVC.m in Sources */,
+				534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
@@ -2157,6 +2218,7 @@
 				534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
 				53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */,
+				534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */,
 				1822E4511F9E10A500C92DEA /* HomeBannerCell.m in Sources */,
 				1822E4711F9E112F00C92DEA /* NSString+myUrl.m in Sources */,
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
@@ -2217,7 +2279,9 @@
 				53963ABE1FA07CE9009AEFCA /* feedbackCell.m in Sources */,
 				534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
+				534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */,
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
+				53C3DCAB1FAACD1100966F47 /* ZYProGressView.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
 				5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */,
 				534B4A3A1FA1CE4F00A68BA7 /* messageCell.m in Sources */,

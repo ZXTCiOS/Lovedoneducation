@@ -297,6 +297,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         }
         if (indexPath.row==2) {
             myinfomessageVC *vc = [[myinfomessageVC alloc] init];
+            vc.InActionType = ENUM_ViewController_ActionTypePush;
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==4) {

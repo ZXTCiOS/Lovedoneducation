@@ -38,20 +38,6 @@
 		1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
 		1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1856E2551FA0338700CB2330 /* LiveCourseCell.xib */; };
 		1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */; };
-		185C04AF1FA97E4000571E67 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C049E1FA97E3F00571E67 /* libGPUImage.a */; };
-		185C04B01FA97E4000571E67 /* libnio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C049F1FA97E3F00571E67 /* libnio.a */; };
-		185C04B11FA97E4000571E67 /* libNMCVideoModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A01FA97E3F00571E67 /* libNMCVideoModule.a */; };
-		185C04B21FA97E4000571E67 /* libnts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A11FA97E3F00571E67 /* libnts.a */; };
-		185C04B31FA97E4000571E67 /* libnvs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A21FA97E3F00571E67 /* libnvs.a */; };
-		185C04B41FA97E4000571E67 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A31FA97E3F00571E67 /* libopenh264.a */; };
-		185C04B51FA97E4000571E67 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A41FA97E3F00571E67 /* libopus.a */; };
-		185C04B61FA97E4000571E67 /* NIMAVChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04A51FA97E3F00571E67 /* NIMAVChat.framework */; };
-		185C04B71FA97E4000571E67 /* NMCVideoFilter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 185C04A71FA97E3F00571E67 /* NMCVideoFilter.bundle */; };
-		185C04B81FA97E4000571E67 /* libaacplus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04AA1FA97E3F00571E67 /* libaacplus.a */; };
-		185C04B91FA97E4000571E67 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04AB1FA97E3F00571E67 /* libcrypto.a */; };
-		185C04BA1FA97E4000571E67 /* libevent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04AC1FA97E3F00571E67 /* libevent.a */; };
-		185C04BB1FA97E4000571E67 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04AD1FA97E3F00571E67 /* libssl.a */; };
-		185C04BC1FA97E4000571E67 /* NIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04AE1FA97E3F00571E67 /* NIMSDK.framework */; };
 		185C04BE1FA9987C00571E67 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04BD1FA9987C00571E67 /* MobileCoreServices.framework */; };
 		185C04C01FA9989200571E67 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04BF1FA9989200571E67 /* AVFoundation.framework */; };
 		185C04C21FA998B900571E67 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04C11FA998B800571E67 /* CoreMedia.framework */; };
@@ -319,20 +305,6 @@
 		1856E2551FA0338700CB2330 /* LiveCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCourseCell.xib; sourceTree = "<group>"; };
 		1856E2581FA0426A00CB2330 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
-		185C049E1FA97E3F00571E67 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
-		185C049F1FA97E3F00571E67 /* libnio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnio.a; sourceTree = "<group>"; };
-		185C04A01FA97E3F00571E67 /* libNMCVideoModule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNMCVideoModule.a; sourceTree = "<group>"; };
-		185C04A11FA97E3F00571E67 /* libnts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnts.a; sourceTree = "<group>"; };
-		185C04A21FA97E3F00571E67 /* libnvs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnvs.a; sourceTree = "<group>"; };
-		185C04A31FA97E3F00571E67 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
-		185C04A41FA97E3F00571E67 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
-		185C04A51FA97E3F00571E67 /* NIMAVChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIMAVChat.framework; sourceTree = "<group>"; };
-		185C04A71FA97E3F00571E67 /* NMCVideoFilter.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NMCVideoFilter.bundle; sourceTree = "<group>"; };
-		185C04AA1FA97E3F00571E67 /* libaacplus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaacplus.a; sourceTree = "<group>"; };
-		185C04AB1FA97E3F00571E67 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		185C04AC1FA97E3F00571E67 /* libevent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libevent.a; sourceTree = "<group>"; };
-		185C04AD1FA97E3F00571E67 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		185C04AE1FA97E3F00571E67 /* NIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIMSDK.framework; sourceTree = "<group>"; };
 		185C04BD1FA9987C00571E67 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		185C04BF1FA9989200571E67 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		185C04C11FA998B800571E67 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -711,27 +683,14 @@
 				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
 				185C04BE1FA9987C00571E67 /* MobileCoreServices.framework in Frameworks */,
 				534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */,
-				185C04BC1FA97E4000571E67 /* NIMSDK.framework in Frameworks */,
-				185C04BB1FA97E4000571E67 /* libssl.a in Frameworks */,
-				185C04AF1FA97E4000571E67 /* libGPUImage.a in Frameworks */,
 				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
 				534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */,
-				185C04B41FA97E4000571E67 /* libopenh264.a in Frameworks */,
-				185C04B11FA97E4000571E67 /* libNMCVideoModule.a in Frameworks */,
-				185C04B31FA97E4000571E67 /* libnvs.a in Frameworks */,
-				185C04B91FA97E4000571E67 /* libcrypto.a in Frameworks */,
 				534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */,
 				534B4A151FA1AEE400A68BA7 /* libWeChatSDK.a in Frameworks */,
 				534B4A111FA1AEE400A68BA7 /* UMSocialNetwork.framework in Frameworks */,
-				185C04B51FA97E4000571E67 /* libopus.a in Frameworks */,
-				185C04BA1FA97E4000571E67 /* libevent.a in Frameworks */,
-				185C04B21FA97E4000571E67 /* libnts.a in Frameworks */,
 				4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */,
-				185C04B61FA97E4000571E67 /* NIMAVChat.framework in Frameworks */,
 				534B4A131FA1AEE400A68BA7 /* libUMSocialLog.a in Frameworks */,
-				185C04B81FA97E4000571E67 /* libaacplus.a in Frameworks */,
 				534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */,
-				185C04B01FA97E4000571E67 /* libnio.a in Frameworks */,
 				534B4A141FA1AEE400A68BA7 /* libSocialWeChat.a in Frameworks */,
 				534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */,
 			);
@@ -885,67 +844,6 @@
 				18528E511FA3038E0081C543 /* LIvePayView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		185C049B1FA97E3F00571E67 /* NIM_iOS_SDK_v4.3.0 */ = {
-			isa = PBXGroup;
-			children = (
-				185C049C1FA97E3F00571E67 /* NIMAVChat */,
-				185C04A81FA97E3F00571E67 /* NIMSDK */,
-			);
-			path = NIM_iOS_SDK_v4.3.0;
-			sourceTree = "<group>";
-		};
-		185C049C1FA97E3F00571E67 /* NIMAVChat */ = {
-			isa = PBXGroup;
-			children = (
-				185C049D1FA97E3F00571E67 /* Libs */,
-				185C04A51FA97E3F00571E67 /* NIMAVChat.framework */,
-				185C04A61FA97E3F00571E67 /* Resources */,
-			);
-			path = NIMAVChat;
-			sourceTree = "<group>";
-		};
-		185C049D1FA97E3F00571E67 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				185C049E1FA97E3F00571E67 /* libGPUImage.a */,
-				185C049F1FA97E3F00571E67 /* libnio.a */,
-				185C04A01FA97E3F00571E67 /* libNMCVideoModule.a */,
-				185C04A11FA97E3F00571E67 /* libnts.a */,
-				185C04A21FA97E3F00571E67 /* libnvs.a */,
-				185C04A31FA97E3F00571E67 /* libopenh264.a */,
-				185C04A41FA97E3F00571E67 /* libopus.a */,
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
-		185C04A61FA97E3F00571E67 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				185C04A71FA97E3F00571E67 /* NMCVideoFilter.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		185C04A81FA97E3F00571E67 /* NIMSDK */ = {
-			isa = PBXGroup;
-			children = (
-				185C04A91FA97E3F00571E67 /* Libs */,
-				185C04AE1FA97E3F00571E67 /* NIMSDK.framework */,
-			);
-			path = NIMSDK;
-			sourceTree = "<group>";
-		};
-		185C04A91FA97E3F00571E67 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				185C04AA1FA97E3F00571E67 /* libaacplus.a */,
-				185C04AB1FA97E3F00571E67 /* libcrypto.a */,
-				185C04AC1FA97E3F00571E67 /* libevent.a */,
-				185C04AD1FA97E3F00571E67 /* libssl.a */,
-			);
-			path = Libs;
 			sourceTree = "<group>";
 		};
 		189D52201FA6F42400600947 /* ZFPlayer */ = {
@@ -2006,7 +1904,6 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				185C049B1FA97E3F00571E67 /* NIM_iOS_SDK_v4.3.0 */,
 				189D539F1FA7418700600947 /* FSCalendar copy */,
 				189D52201FA6F42400600947 /* ZFPlayer */,
 				534B49D91FA1AEE400A68BA7 /* ZTVendorManager */,
@@ -2293,7 +2190,6 @@
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
 				534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
-				185C04B71FA97E4000571E67 /* NMCVideoFilter.bundle in Resources */,
 				534B4A121FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle in Resources */,
 				534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,

@@ -12,30 +12,30 @@
 #import <NIMAVChat/NIMAVChat.h>
 //#import "NTESWhiteboardCommand.h"
 //#import "NTESWhiteboardCmdHandler.h"
-#import "NTESWhiteboardLines.h"
-#import "NTESWhiteboardDrawView.h"
+//#import "NTESWhiteboardLines.h"
+//#import "NTESWhiteboardDrawView.h"
 
 
 
 
 #define kTimeInterval 0.06
 
-@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate, NTESMeetingRTSManagerDelegate, NTESWhiteboardCmdHandlerDelegate, NIMLoginManagerDelegate, NIMNetCallManagerDelegate>
+@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate>//, NTESMeetingRTSManagerDelegate, NTESWhiteboardCmdHandlerDelegate, NIMLoginManagerDelegate, NIMNetCallManagerDelegate>
 
 
 
 // 白板
 
-@property (nonatomic, strong) NTESWhiteboardDrawView *drawView;
+//@property (nonatomic, strong) NTESWhiteboardDrawView *drawView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NIMRTSConference *conference;
-@property (nonatomic, strong) NTESWhiteboardCmdHandler *cmdHander;
-@property (nonatomic, strong) NTESWhiteboardLines *lines;
+//@property (nonatomic, strong) NTESWhiteboardCmdHandler *cmdHander;
+//@property (nonatomic, strong) NTESWhiteboardLines *lines;
 
 // 聊天室
 @property (nonatomic, strong) UITableView *chatView;
 
-NIMNetCallManagerDelegate
+//NIMNetCallManagerDelegate
 
 @property (nonatomic, strong) NSMutableArray *datalist;
 

@@ -10,21 +10,27 @@
 //#import "ZFPlayerView.h"
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
+#import "NTESWhiteboardCommand.h"
+#import "NTESWhiteboardCmdHandler.h"
+#import "NTESWhiteboardLines.h"
+#import "NTESWhiteboardDrawView.h"
 
 
 
 
-#define kTimeInterval 0.1
+#define kTimeInterval 0.06
 
-@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate>// ZFPlayerDelegate
+@interface LiveWatchVC ()<UITableViewDelegate, UITableViewDataSource, NIMRTSConferenceManagerDelegate, NTESMeetingRTSManagerDelegate, NTESWhiteboardCmdHandlerDelegate, NIMLoginManagerDelegate>
 
-// 播放器
-//@property (nonatomic, strong) ZFPlayerView *playerView;
+
 
 // 白板
 
+@property (nonatomic, strong) NTESWhiteboardDrawView *drawView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NIMRTSConference *conference;
+@property (nonatomic, strong) NTESWhiteboardCmdHandler *cmdHander;
+@property (nonatomic, strong) NTESWhiteboardLines *lines;
 
 // 聊天室
 @property (nonatomic, strong) UITableView *chatView;
@@ -144,37 +150,6 @@
 
 
 
-/*
-- (void)configZFPlayer{
-    self.playerView = [[ZFPlayerView alloc] init];
-    [self.view addSubview:self.playerView];
-    [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(0);
-        make.left.right.equalTo(self.view);
-        // Here a 16:9 aspect ratio, can customize the video aspect ratio
-        make.height.equalTo(self.playerView.mas_width).multipliedBy(9.0f/16.0f);
-    }];
-    // control view（you can custom）
-    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
-    // model
-    ZFPlayerModel *playerModel = [[ZFPlayerModel alloc]init];
-    playerModel.fatherView =  self.view;
-    playerModel.videoURL = @"".xd_URL;
-    playerModel.title = @"title...";
-    playerModel.placeholderImageURLString = @"";
-    [self.playerView playerControlView:controlView playerModel:playerModel];
-    
-    // delegate
-    self.playerView.delegate = self;
-    // auto play the video
-    [self.playerView autoPlayTheVideo];
-    
-    self.playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
-    
-    
-}
-
-*/
 
 
 

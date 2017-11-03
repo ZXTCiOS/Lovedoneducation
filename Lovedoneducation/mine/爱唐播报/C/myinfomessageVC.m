@@ -22,6 +22,8 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_icon_nav"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"1e2b3b"];
     self.title = @"爱唐播报";
     [self.view addSubview:self.table];
     self.dataSource = [NSMutableArray array];
@@ -34,6 +36,7 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
     }
     self.table.tableFooterView = [UIView new];
     [self loaddata];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,5 +103,24 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
 {
     return 250;
 }
+
+-(void)backAction
+{
+    if (self.InActionType == ENUM_ViewController_ActionTypeHome) {
+        [self popanimat];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self popanimat];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void)popanimat
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ValuePass" object:nil];
+}
+
 
 @end

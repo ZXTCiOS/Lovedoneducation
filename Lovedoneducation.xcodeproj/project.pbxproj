@@ -53,21 +53,6 @@
 		186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420731FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m */; };
 		186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420811FA1D302004DF7A4 /* LiveOrderCell.m */; };
 		186420841FA1D302004DF7A4 /* LiveOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420821FA1D302004DF7A4 /* LiveOrderCell.xib */; };
-		189D52411FA6F42500600947 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52221FA6F42400600947 /* ASValuePopUpView.m */; };
-		189D52421FA6F42500600947 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52241FA6F42400600947 /* ASValueTrackingSlider.m */; };
-		189D52431FA6F42500600947 /* UIAlertController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52271FA6F42400600947 /* UIAlertController+ZFPlayerRotation.m */; };
-		189D52441FA6F42500600947 /* UIImageView+ZFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52291FA6F42400600947 /* UIImageView+ZFCache.m */; };
-		189D52451FA6F42500600947 /* UINavigationController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D522B1FA6F42400600947 /* UINavigationController+ZFPlayerRotation.m */; };
-		189D52461FA6F42500600947 /* UITabBarController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D522D1FA6F42400600947 /* UITabBarController+ZFPlayerRotation.m */; };
-		189D52471FA6F42500600947 /* UIView+CustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D522F1FA6F42400600947 /* UIView+CustomControlView.m */; };
-		189D52481FA6F42500600947 /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52311FA6F42400600947 /* UIViewController+ZFPlayerRotation.m */; };
-		189D52491FA6F42500600947 /* UIWindow+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52331FA6F42400600947 /* UIWindow+CurrentViewController.m */; };
-		189D524A1FA6F42500600947 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52351FA6F42400600947 /* MMMaterialDesignSpinner.m */; };
-		189D524B1FA6F42500600947 /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52371FA6F42400600947 /* ZFBrightnessView.m */; };
-		189D524C1FA6F42500600947 /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 189D52381FA6F42400600947 /* ZFPlayer.bundle */; };
-		189D524D1FA6F42500600947 /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D523B1FA6F42400600947 /* ZFPlayerControlView.m */; };
-		189D524E1FA6F42500600947 /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D523E1FA6F42400600947 /* ZFPlayerModel.m */; };
-		189D524F1FA6F42500600947 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52401FA6F42400600947 /* ZFPlayerView.m */; };
 		189D52521FA6FEDF00600947 /* MyCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D52511FA6FEDF00600947 /* MyCourseViewController.m */; };
 		189D53C11FA7418700600947 /* FSCalendar+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D53A01FA7418700600947 /* FSCalendar+Deprecated.m */; };
 		189D53C21FA7418700600947 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 189D53A21FA7418700600947 /* FSCalendar.m */; };
@@ -326,37 +311,6 @@
 		186420801FA1D301004DF7A4 /* LiveOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveOrderCell.h; sourceTree = "<group>"; };
 		186420811FA1D302004DF7A4 /* LiveOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveOrderCell.m; sourceTree = "<group>"; };
 		186420821FA1D302004DF7A4 /* LiveOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveOrderCell.xib; sourceTree = "<group>"; };
-		189D52211FA6F42400600947 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
-		189D52221FA6F42400600947 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
-		189D52231FA6F42400600947 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
-		189D52241FA6F42400600947 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
-		189D52261FA6F42400600947 /* UIAlertController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
-		189D52271FA6F42400600947 /* UIAlertController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
-		189D52281FA6F42400600947 /* UIImageView+ZFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZFCache.h"; sourceTree = "<group>"; };
-		189D52291FA6F42400600947 /* UIImageView+ZFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZFCache.m"; sourceTree = "<group>"; };
-		189D522A1FA6F42400600947 /* UINavigationController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
-		189D522B1FA6F42400600947 /* UINavigationController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
-		189D522C1FA6F42400600947 /* UITabBarController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
-		189D522D1FA6F42400600947 /* UITabBarController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
-		189D522E1FA6F42400600947 /* UIView+CustomControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomControlView.h"; sourceTree = "<group>"; };
-		189D522F1FA6F42400600947 /* UIView+CustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomControlView.m"; sourceTree = "<group>"; };
-		189D52301FA6F42400600947 /* UIViewController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
-		189D52311FA6F42400600947 /* UIViewController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
-		189D52321FA6F42400600947 /* UIWindow+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+CurrentViewController.h"; sourceTree = "<group>"; };
-		189D52331FA6F42400600947 /* UIWindow+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CurrentViewController.m"; sourceTree = "<group>"; };
-		189D52341FA6F42400600947 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
-		189D52351FA6F42400600947 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
-		189D52361FA6F42400600947 /* ZFBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFBrightnessView.h; sourceTree = "<group>"; };
-		189D52371FA6F42400600947 /* ZFBrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFBrightnessView.m; sourceTree = "<group>"; };
-		189D52381FA6F42400600947 /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
-		189D52391FA6F42400600947 /* ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayer.h; sourceTree = "<group>"; };
-		189D523A1FA6F42400600947 /* ZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlView.h; sourceTree = "<group>"; };
-		189D523B1FA6F42400600947 /* ZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerControlView.m; sourceTree = "<group>"; };
-		189D523C1FA6F42400600947 /* ZFPlayerControlViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlViewDelegate.h; sourceTree = "<group>"; };
-		189D523D1FA6F42400600947 /* ZFPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerModel.h; sourceTree = "<group>"; };
-		189D523E1FA6F42400600947 /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
-		189D523F1FA6F42400600947 /* ZFPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
-		189D52401FA6F42400600947 /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
 		189D52501FA6FEDF00600947 /* MyCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCourseViewController.h; sourceTree = "<group>"; };
 		189D52511FA6FEDF00600947 /* MyCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCourseViewController.m; sourceTree = "<group>"; };
 		189D53A01FA7418700600947 /* FSCalendar+Deprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar+Deprecated.m"; sourceTree = "<group>"; };
@@ -844,52 +798,6 @@
 				18528E511FA3038E0081C543 /* LIvePayView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		189D52201FA6F42400600947 /* ZFPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				189D52211FA6F42400600947 /* ASValuePopUpView.h */,
-				189D52221FA6F42400600947 /* ASValuePopUpView.m */,
-				189D52231FA6F42400600947 /* ASValueTrackingSlider.h */,
-				189D52241FA6F42400600947 /* ASValueTrackingSlider.m */,
-				189D52251FA6F42400600947 /* Category */,
-				189D52341FA6F42400600947 /* MMMaterialDesignSpinner.h */,
-				189D52351FA6F42400600947 /* MMMaterialDesignSpinner.m */,
-				189D52361FA6F42400600947 /* ZFBrightnessView.h */,
-				189D52371FA6F42400600947 /* ZFBrightnessView.m */,
-				189D52381FA6F42400600947 /* ZFPlayer.bundle */,
-				189D52391FA6F42400600947 /* ZFPlayer.h */,
-				189D523A1FA6F42400600947 /* ZFPlayerControlView.h */,
-				189D523B1FA6F42400600947 /* ZFPlayerControlView.m */,
-				189D523C1FA6F42400600947 /* ZFPlayerControlViewDelegate.h */,
-				189D523D1FA6F42400600947 /* ZFPlayerModel.h */,
-				189D523E1FA6F42400600947 /* ZFPlayerModel.m */,
-				189D523F1FA6F42400600947 /* ZFPlayerView.h */,
-				189D52401FA6F42400600947 /* ZFPlayerView.m */,
-			);
-			path = ZFPlayer;
-			sourceTree = "<group>";
-		};
-		189D52251FA6F42400600947 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				189D52261FA6F42400600947 /* UIAlertController+ZFPlayerRotation.h */,
-				189D52271FA6F42400600947 /* UIAlertController+ZFPlayerRotation.m */,
-				189D52281FA6F42400600947 /* UIImageView+ZFCache.h */,
-				189D52291FA6F42400600947 /* UIImageView+ZFCache.m */,
-				189D522A1FA6F42400600947 /* UINavigationController+ZFPlayerRotation.h */,
-				189D522B1FA6F42400600947 /* UINavigationController+ZFPlayerRotation.m */,
-				189D522C1FA6F42400600947 /* UITabBarController+ZFPlayerRotation.h */,
-				189D522D1FA6F42400600947 /* UITabBarController+ZFPlayerRotation.m */,
-				189D522E1FA6F42400600947 /* UIView+CustomControlView.h */,
-				189D522F1FA6F42400600947 /* UIView+CustomControlView.m */,
-				189D52301FA6F42400600947 /* UIViewController+ZFPlayerRotation.h */,
-				189D52311FA6F42400600947 /* UIViewController+ZFPlayerRotation.m */,
-				189D52321FA6F42400600947 /* UIWindow+CurrentViewController.h */,
-				189D52331FA6F42400600947 /* UIWindow+CurrentViewController.m */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		189D539F1FA7418700600947 /* FSCalendar copy */ = {
@@ -1905,7 +1813,6 @@
 			isa = PBXGroup;
 			children = (
 				189D539F1FA7418700600947 /* FSCalendar copy */,
-				189D52201FA6F42400600947 /* ZFPlayer */,
 				534B49D91FA1AEE400A68BA7 /* ZTVendorManager */,
 				5317DE471F974C0B00D4AE2C /* utlis */,
 				5317DE3E1F9744CB00D4AE2C /* netWorking */,
@@ -2200,7 +2107,6 @@
 				189D53D11FA7418700600947 /* Info.plist in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */,
-				189D524C1FA6F42500600947 /* ZFPlayer.bundle in Resources */,
 				186420661FA1855B004DF7A4 /* TeacherHistoryCell.xib in Resources */,
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
 				1864206E1FA1B637004DF7A4 /* LiveEvalutateCell.xib in Resources */,
@@ -2384,10 +2290,8 @@
 			files = (
 				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				189D53C11FA7418700600947 /* FSCalendar+Deprecated.m in Sources */,
-				189D524F1FA6F42500600947 /* ZFPlayerView.m in Sources */,
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
 				53963AC91FA08245009AEFCA /* aboutCell2.m in Sources */,
-				189D524E1FA6F42500600947 /* ZFPlayerModel.m in Sources */,
 				53C3DC8D1FA9B4D300966F47 /* YZLineChartModel.m in Sources */,
 				534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */,
 				18283D151F9F56D700111352 /* HomeMoreView.m in Sources */,
@@ -2417,9 +2321,6 @@
 				534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
-				189D52441FA6F42500600947 /* UIImageView+ZFCache.m in Sources */,
-				189D52411FA6F42500600947 /* ASValuePopUpView.m in Sources */,
-				189D524D1FA6F42500600947 /* ZFPlayerControlView.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
@@ -2441,29 +2342,23 @@
 				534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
 				53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */,
-				189D52451FA6F42500600947 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				189D53CC1FA7418700600947 /* FSCalendarHeaderView.m in Sources */,
 				534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */,
 				1822E4511F9E10A500C92DEA /* HomeBannerCell.m in Sources */,
 				1822E4711F9E112F00C92DEA /* NSString+myUrl.m in Sources */,
 				5317DE681F985F8000D4AE2C /* logupCell2.m in Sources */,
-				189D52431FA6F42500600947 /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */,
 				53963AC31FA07F39009AEFCA /* aboutCell0.m in Sources */,
 				186420751FA1C4C2004DF7A4 /* LiveSubmitOrderVC.m in Sources */,
-				189D52421FA6F42500600947 /* ASValueTrackingSlider.m in Sources */,
 				534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */,
 				189D53C71FA7418700600947 /* FSCalendarCollectionViewLayout.m in Sources */,
 				53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */,
-				189D52491FA6F42500600947 /* UIWindow+CurrentViewController.m in Sources */,
 				5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */,
 				53C3DC801FA9A16800966F47 /* exerciseweeklyCell1.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */,
 				189D53C21FA7418700600947 /* FSCalendar.m in Sources */,
 				533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */,
-				189D524B1FA6F42500600947 /* ZFBrightnessView.m in Sources */,
-				189D52481FA6F42500600947 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				18F2A7CC1FA084D400FE25C3 /* LiveTeacherListCell.m in Sources */,
 				53D1F2711F9F1129002E1524 /* changepasswordCell0.m in Sources */,
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,
@@ -2475,13 +2370,10 @@
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				189D53CD1FA7418700600947 /* FSCalendarScopeHandle.m in Sources */,
-				189D524A1FA6F42500600947 /* MMMaterialDesignSpinner.m in Sources */,
-				189D52461FA6F42500600947 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				189D53C31FA7418700600947 /* FSCalendarAppearance.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
 				189D53D01FA7418700600947 /* FSCalendarWeekdayView.m in Sources */,
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
-				189D52471FA6F42500600947 /* UIView+CustomControlView.m in Sources */,
 				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
 				534B4A071FA1AEE400A68BA7 /* ZTVendorPayManager.m in Sources */,

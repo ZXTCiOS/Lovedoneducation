@@ -35,7 +35,6 @@
 		18528E501FA303810081C543 /* LivePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4F1FA303810081C543 /* LivePayView.m */; };
 		18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18528E511FA3038E0081C543 /* LIvePayView.xib */; };
 		1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2511FA02ED000CB2330 /* LiveModel.m */; };
-		1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
 		1856E2571FA0338700CB2330 /* LiveCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1856E2551FA0338700CB2330 /* LiveCourseCell.xib */; };
 		1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */; };
 		185C04BE1FA9987C00571E67 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04BD1FA9987C00571E67 /* MobileCoreServices.framework */; };
@@ -210,6 +209,9 @@
 		53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2731F9F1438002E1524 /* changepasswordCell1.m */; };
 		53D1F2781F9F2BC3002E1524 /* securitiesCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */; };
 		53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */; };
+		53E1DD5B1FAD974B009965AF /* LiveCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C51FA0847300FE25C3 /* LiveCourseListCell.m */; };
+		53E1DD5C1FAD9787009965AF /* realquextionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */; };
+		53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
 		53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E887411F9EEB8F00CC6909 /* changephoneCell2.m */; };
 		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
 /* End PBXBuildFile section */
@@ -2286,6 +2288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */,
+				53E1DD5C1FAD9787009965AF /* realquextionModel.m in Sources */,
+				53E1DD5B1FAD974B009965AF /* LiveCourseListCell.m in Sources */,
 				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				189D53C11FA7418700600947 /* FSCalendar+Deprecated.m in Sources */,
 				53C999A01F973BBA006A6570 /* BaseViewController.m in Sources */,
@@ -2419,7 +2424,6 @@
 				539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */,
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
 				53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */,
-				1856E2561FA0338700CB2330 /* LiveCourseCell.m in Sources */,
 				533FCB4F1F9DB38600A4F6E1 /* mineCell0.m in Sources */,
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				189D53C91FA7418700600947 /* FSCalendarDelegationFactory.m in Sources */,

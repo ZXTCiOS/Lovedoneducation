@@ -92,6 +92,10 @@
         .rightSpaceToView(self.contentView, 20)
         .topSpaceToView(self.lab0, i*50+44)
         .heightIs(20);
+        
+        UILabel *rightlab = [[UILabel alloc] init];
+        
+        [self.contentView addSubview:rightlab];
         [self setupAutoHeightWithBottomView:leftnamelab bottomMargin:20];
         
     }

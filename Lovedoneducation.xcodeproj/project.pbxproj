@@ -88,7 +88,6 @@
 		189D53D11FA7418700600947 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189D53C01FA7418700600947 /* Info.plist */; };
 		18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C01FA0723500FE25C3 /* LiveCourseDetailVC.m */; };
 		18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F2A7C11FA0723500FE25C3 /* LiveCourseDetailVC.xib */; };
-		18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C51FA0847300FE25C3 /* LiveCourseListCell.m */; };
 		18F2A7C81FA0847300FE25C3 /* LiveCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F2A7C61FA0847300FE25C3 /* LiveCourseListCell.xib */; };
 		18F2A7CC1FA084D400FE25C3 /* LiveTeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7CA1FA084D400FE25C3 /* LiveTeacherListCell.m */; };
 		18F2A7CD1FA084D400FE25C3 /* LiveTeacherListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F2A7CB1FA084D400FE25C3 /* LiveTeacherListCell.xib */; };
@@ -159,7 +158,6 @@
 		534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B4A211FA1AF8200A68BA7 /* libsqlite3.tbd */; };
 		534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A291FA1BA5E00A68BA7 /* realquestionVC.m */; };
 		534B4A2D1FA1BEC100A68BA7 /* realquestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2C1FA1BEC100A68BA7 /* realquestionCell.m */; };
-		534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */; };
 		534B4A371FA1CDCD00A68BA7 /* messageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A361FA1CDCD00A68BA7 /* messageVC.m */; };
 		534B4A3A1FA1CE4F00A68BA7 /* messageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A391FA1CE4F00A68BA7 /* messageCell.m */; };
 		534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A3C1FA1D40600A68BA7 /* messageModel.m */; };
@@ -2508,12 +2506,8 @@
 				1822E4731F9E112F00C92DEA /* UIView+HUD.m in Sources */,
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
 				189D53CE1FA7418700600947 /* FSCalendarStickyHeader.m in Sources */,
-				534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */,
-				18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */,
 				189D53CB1FA7418700600947 /* FSCalendarExtensions.m in Sources */,
 				53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */,
-				534B4A301FA1C6E300A68BA7 /* realquextionModel.m in Sources */,
-				18F2A7C71FA0847300FE25C3 /* LiveCourseListCell.m in Sources */,
 				537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */,
 				53C3DC8C1FA9B4D300966F47 /* UIView+Extension.m in Sources */,
 				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,

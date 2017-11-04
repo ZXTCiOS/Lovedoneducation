@@ -112,7 +112,9 @@ static NSString *exercisidentfid3 = @"exercisidentfid3";
         return 525;
     }
     if (indexPath.row==3) {
-        return 525;
+        return [tableView cellHeightForIndexPath:indexPath
+                            cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
+                                       tableView:tableView];
     }
     return 0.01f;
 }

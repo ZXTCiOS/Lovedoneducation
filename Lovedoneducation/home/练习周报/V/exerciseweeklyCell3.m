@@ -7,12 +7,10 @@
 //
 
 #import "exerciseweeklyCell3.h"
-
+#import "ZYProGressView.h"
 @interface exerciseweeklyCell3()
 @property (nonatomic,strong) UIView *bgview;
 @property (nonatomic,strong) UILabel *lab0;
-
-
 
 @end
 
@@ -75,14 +73,28 @@
     for (int i = 0; i<6; i++) {
         UILabel *leftnamelab = [[UILabel alloc] init];
         [self.contentView addSubview:leftnamelab];
-        [leftnamelab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).with.offset(20);
-            make.top.equalTo(self.lab0.mas_bottom).with.offset(i*50+30);
-            make.height.mas_offset(30);
-        }];
+        leftnamelab.sd_layout
+        .topSpaceToView(self.lab0, i*50+30)
+        .heightIs(30)
+        .leftSpaceToView(self.contentView, 20)
+        .widthIs(50);
         leftnamelab.text = @"111";
+     
+        ZYProGressView*  progress = [[ZYProGressView alloc]initWithFrame:CGRectMake(50, 100, 200, 2)];
+        progress.progressValue = @"0.7";
+        [self.contentView addSubview:progress];
+        progress.progressValue = @"8";
+        progress.bottomColor = [UIColor whiteColor];
+        progress.progressColor = [UIColor orangeColor];
+        progress.time = 2;
+        progress.sd_layout
+        .leftSpaceToView(leftnamelab, 20)
+        .rightSpaceToView(self.contentView, 20)
+        .topSpaceToView(self.lab0, i*50+44)
+        .heightIs(20);
+        [self setupAutoHeightWithBottomView:leftnamelab bottomMargin:20];
+        
     }
 }
-
 
 @end

@@ -212,6 +212,9 @@
 		53E1DD5B1FAD974B009965AF /* LiveCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2A7C51FA0847300FE25C3 /* LiveCourseListCell.m */; };
 		53E1DD5C1FAD9787009965AF /* realquextionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B4A2F1FA1C6E300A68BA7 /* realquextionModel.m */; };
 		53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E2541FA0338700CB2330 /* LiveCourseCell.m */; };
+		53E1DD661FADA12A009965AF /* exerciseweeklyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E1DD651FADA12A009965AF /* exerciseweeklyModel.m */; };
+		53E1DD6A1FADA14B009965AF /* datareportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E1DD681FADA14B009965AF /* datareportModel.m */; };
+		53E1DD6E1FADA17A009965AF /* coursescacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E1DD6D1FADA17A009965AF /* coursescacheModel.m */; };
 		53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E887411F9EEB8F00CC6909 /* changephoneCell2.m */; };
 		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
 /* End PBXBuildFile section */
@@ -610,6 +613,12 @@
 		53D1F2771F9F2BC3002E1524 /* securitiesCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitiesCell0.m; sourceTree = "<group>"; };
 		53D1F2791F9F2BCF002E1524 /* securitiesCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = securitiesCell1.h; sourceTree = "<group>"; };
 		53D1F27A1F9F2BCF002E1524 /* securitiesCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = securitiesCell1.m; sourceTree = "<group>"; };
+		53E1DD641FADA12A009965AF /* exerciseweeklyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyModel.h; sourceTree = "<group>"; };
+		53E1DD651FADA12A009965AF /* exerciseweeklyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyModel.m; sourceTree = "<group>"; };
+		53E1DD681FADA14B009965AF /* datareportModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = datareportModel.m; sourceTree = "<group>"; };
+		53E1DD691FADA14B009965AF /* datareportModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = datareportModel.h; sourceTree = "<group>"; };
+		53E1DD6C1FADA17A009965AF /* coursescacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coursescacheModel.h; sourceTree = "<group>"; };
+		53E1DD6D1FADA17A009965AF /* coursescacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coursescacheModel.m; sourceTree = "<group>"; };
 		53E887401F9EEB8F00CC6909 /* changephoneCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneCell2.h; sourceTree = "<group>"; };
 		53E887411F9EEB8F00CC6909 /* changephoneCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell2.m; sourceTree = "<group>"; };
 		57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovedoneducation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -940,7 +949,7 @@
 		5323ADA91FA421E200F2E626 /* 数据报告 */ = {
 			isa = PBXGroup;
 			children = (
-				5323ADAC1FA421F400F2E626 /* M */,
+				53E1DD671FADA130009965AF /* M */,
 				5323ADAB1FA421F300F2E626 /* V */,
 				5323ADAA1FA421F100F2E626 /* C */,
 			);
@@ -973,13 +982,6 @@
 				537A36A61FA89C8D009E1442 /* datareportCell5.m */,
 			);
 			path = V;
-			sourceTree = "<group>";
-		};
-		5323ADAC1FA421F400F2E626 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		533ED7671F98C01500C1C996 /* C */ = {
@@ -1104,7 +1106,7 @@
 		534219AD1F9F596D00F26E61 /* 课程缓存 */ = {
 			isa = PBXGroup;
 			children = (
-				534219B01F9F597D00F26E61 /* M */,
+				53E1DD6B1FADA16C009965AF /* M */,
 				534219AF1F9F597C00F26E61 /* V */,
 				534219AE1F9F597B00F26E61 /* C */,
 			);
@@ -1127,13 +1129,6 @@
 				53963AAE1FA060F5009AEFCA /* coursescacheCell.m */,
 			);
 			path = V;
-			sourceTree = "<group>";
-		};
-		534219B01F9F597D00F26E61 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		534219B41F9F59E900F26E61 /* 问题反馈 */ = {
@@ -1578,8 +1573,6 @@
 		53C3DC6D1FA97C6100966F47 /* 快速智能练习 */ = {
 			isa = PBXGroup;
 			children = (
-				53C3DC701FA97C6D00966F47 /* M */,
-				53C3DC6F1FA97C6C00966F47 /* V */,
 				53C3DC6E1FA97C6B00966F47 /* C */,
 			);
 			path = "快速智能练习";
@@ -1594,24 +1587,10 @@
 			path = C;
 			sourceTree = "<group>";
 		};
-		53C3DC6F1FA97C6C00966F47 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		53C3DC701FA97C6D00966F47 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
 		53C3DC741FA97D1A00966F47 /* 练习周报 */ = {
 			isa = PBXGroup;
 			children = (
-				53C3DC771FA97D2800966F47 /* M */,
+				53E1DD631FADA11B009965AF /* M */,
 				53C3DC761FA97D2700966F47 /* V */,
 				53C3DC751FA97D2600966F47 /* C */,
 			);
@@ -1643,13 +1622,6 @@
 				53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */,
 			);
 			path = V;
-			sourceTree = "<group>";
-		};
-		53C3DC771FA97D2800966F47 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		53C3DC841FA9B4D300966F47 /* Categories */ = {
@@ -1925,6 +1897,33 @@
 			children = (
 				5343E88D1FA03060001EBEBC /* securitesModel.h */,
 				5343E88E1FA03060001EBEBC /* securitesModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53E1DD631FADA11B009965AF /* M */ = {
+			isa = PBXGroup;
+			children = (
+				53E1DD641FADA12A009965AF /* exerciseweeklyModel.h */,
+				53E1DD651FADA12A009965AF /* exerciseweeklyModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53E1DD671FADA130009965AF /* M */ = {
+			isa = PBXGroup;
+			children = (
+				53E1DD691FADA14B009965AF /* datareportModel.h */,
+				53E1DD681FADA14B009965AF /* datareportModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53E1DD6B1FADA16C009965AF /* M */ = {
+			isa = PBXGroup;
+			children = (
+				53E1DD6C1FADA17A009965AF /* coursescacheModel.h */,
+				53E1DD6D1FADA17A009965AF /* coursescacheModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2290,6 +2289,7 @@
 			files = (
 				53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */,
 				53E1DD5C1FAD9787009965AF /* realquextionModel.m in Sources */,
+				53E1DD661FADA12A009965AF /* exerciseweeklyModel.m in Sources */,
 				53E1DD5B1FAD974B009965AF /* LiveCourseListCell.m in Sources */,
 				18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */,
 				189D53C11FA7418700600947 /* FSCalendar+Deprecated.m in Sources */,
@@ -2342,6 +2342,7 @@
 				537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				534B4A371FA1CDCD00A68BA7 /* messageVC.m in Sources */,
+				53E1DD6E1FADA17A009965AF /* coursescacheModel.m in Sources */,
 				534B4A2A1FA1BA5E00A68BA7 /* realquestionVC.m in Sources */,
 				53D1F2741F9F1438002E1524 /* changepasswordCell1.m in Sources */,
 				53963AB21FA06AB9009AEFCA /* myinfomessageModel.m in Sources */,
@@ -2372,6 +2373,7 @@
 				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
+				53E1DD6A1FADA14B009965AF /* datareportModel.m in Sources */,
 				189D53CD1FA7418700600947 /* FSCalendarScopeHandle.m in Sources */,
 				189D53C31FA7418700600947 /* FSCalendarAppearance.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,

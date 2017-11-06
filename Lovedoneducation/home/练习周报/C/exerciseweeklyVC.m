@@ -11,6 +11,10 @@
 #import "exerciseweeklyCell1.h"
 #import "exerciseweeklyCell2.h"
 #import "exerciseweeklyCell3.h"
+#import "exerciseweeklyCell4.h"
+#import "exerciseweeklyCell5.h"
+#import "exerciseweeklyCell6.h"
+#import "exerciseweeklyCell7.h"
 
 @interface exerciseweeklyVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -20,6 +24,10 @@ static NSString *exercisidentfid0 = @"exercisidentfid0";
 static NSString *exercisidentfid1 = @"exercisidentfid1";
 static NSString *exercisidentfid2 = @"exercisidentfid2";
 static NSString *exercisidentfid3 = @"exercisidentfid3";
+static NSString *exercisidentfid4 = @"exercisidentfid4";
+static NSString *exercisidentfid5 = @"exercisidentfid5";
+static NSString *exercisidentfid6 = @"exercisidentfid6";
+static NSString *exercisidentfid7 = @"exercisidentfid7";
 
 @implementation exerciseweeklyVC
 
@@ -60,7 +68,7 @@ static NSString *exercisidentfid3 = @"exercisidentfid3";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,6 +105,38 @@ static NSString *exercisidentfid3 = @"exercisidentfid3";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
+    if (indexPath.row==4) {
+        exerciseweeklyCell4 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid4];
+        if (!cell) {
+            cell = [[exerciseweeklyCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid4];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==5) {
+        exerciseweeklyCell5 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid5];
+        if (!cell) {
+            cell = [[exerciseweeklyCell5 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid5];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==6) {
+        exerciseweeklyCell6 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid6];
+        if (!cell) {
+            cell = [[exerciseweeklyCell6 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid6];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==7) {
+        exerciseweeklyCell7 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid7];
+        if (!cell) {
+            cell = [[exerciseweeklyCell7 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid7];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     return nil;
 }
 
@@ -111,11 +151,13 @@ static NSString *exercisidentfid3 = @"exercisidentfid3";
     if (indexPath.row==2) {
         return 525;
     }
-    if (indexPath.row==3) {
+    else
+    {
         return [tableView cellHeightForIndexPath:indexPath
                             cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                        tableView:tableView];
     }
+
     return 0.01f;
 }
 

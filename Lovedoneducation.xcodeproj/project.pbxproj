@@ -150,6 +150,9 @@
 		534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B74881FAAEC26000D265B /* wrongtopicVC.m */; };
 		534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748B1FAAF669000D265B /* wrongtopicCell.m */; };
 		534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748E1FAAF6AA000D265B /* wrongtopicModel.m */; };
+		535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */; };
+		535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */; };
+		535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */; };
 		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
 		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
 		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
@@ -175,6 +178,8 @@
 		539E172A1F9E00E400EA1E2B /* changephoneCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17291F9E00E400EA1E2B /* changephoneCell0.m */; };
 		539E172D1F9E00F300EA1E2B /* changephoneCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172C1F9E00F300EA1E2B /* changephoneCell1.m */; };
 		539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */; };
+		53B851A71FB054F700608925 /* BarChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A61FB054F600608925 /* BarChat.m */; };
+		53B851AA1FB0596100608925 /* exerciseweeklyCell7.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A91FB0596100608925 /* exerciseweeklyCell7.m */; };
 		53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */; };
 		53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */; };
 		53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */; };
@@ -493,6 +498,12 @@
 		534B748B1FAAF669000D265B /* wrongtopicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicCell.m; sourceTree = "<group>"; };
 		534B748D1FAAF6AA000D265B /* wrongtopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicModel.h; sourceTree = "<group>"; };
 		534B748E1FAAF6AA000D265B /* wrongtopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicModel.m; sourceTree = "<group>"; };
+		535F33AC1FB030AF005C3176 /* exerciseweeklyCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell4.h; sourceTree = "<group>"; };
+		535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell4.m; sourceTree = "<group>"; };
+		535F33AF1FB03BF0005C3176 /* exerciseweeklyCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell5.h; sourceTree = "<group>"; };
+		535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell5.m; sourceTree = "<group>"; };
+		535F33B21FB0401D005C3176 /* exerciseweeklyCell6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell6.h; sourceTree = "<group>"; };
+		535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell6.m; sourceTree = "<group>"; };
 		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
 		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
 		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
@@ -544,6 +555,10 @@
 		539E172C1F9E00F300EA1E2B /* changephoneCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell1.m; sourceTree = "<group>"; };
 		539E172E1F9E0EF700EA1E2B /* changephoneVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changephoneVC2.h; sourceTree = "<group>"; };
 		539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneVC2.m; sourceTree = "<group>"; };
+		53B851A51FB054F600608925 /* BarChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChat.h; sourceTree = "<group>"; };
+		53B851A61FB054F600608925 /* BarChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChat.m; sourceTree = "<group>"; };
+		53B851A81FB0596100608925 /* exerciseweeklyCell7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell7.h; sourceTree = "<group>"; };
+		53B851A91FB0596100608925 /* exerciseweeklyCell7.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell7.m; sourceTree = "<group>"; };
 		53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quickintelligenceVC.h; sourceTree = "<group>"; };
 		53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quickintelligenceVC.m; sourceTree = "<group>"; };
 		53C3DC781FA97D4C00966F47 /* exerciseweeklyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyVC.h; sourceTree = "<group>"; };
@@ -1570,6 +1585,15 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		53B851A41FB054F600608925 /* barchat */ = {
+			isa = PBXGroup;
+			children = (
+				53B851A51FB054F600608925 /* BarChat.h */,
+				53B851A61FB054F600608925 /* BarChat.m */,
+			);
+			path = barchat;
+			sourceTree = "<group>";
+		};
 		53C3DC6D1FA97C6100966F47 /* 快速智能练习 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1609,6 +1633,7 @@
 		53C3DC761FA97D2700966F47 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				53B851A41FB054F600608925 /* barchat */,
 				53C3DCA81FAACD1100966F47 /* ProgressBar */,
 				53C3DC841FA9B4D300966F47 /* Categories */,
 				53C3DC871FA9B4D300966F47 /* YZLineChart */,
@@ -1620,6 +1645,14 @@
 				53C3DC821FA9A7AA00966F47 /* exerciseweeklyCell2.m */,
 				53C3DC8F1FA9EA9B00966F47 /* exerciseweeklyCell3.h */,
 				53C3DC901FA9EA9B00966F47 /* exerciseweeklyCell3.m */,
+				535F33AC1FB030AF005C3176 /* exerciseweeklyCell4.h */,
+				535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */,
+				535F33AF1FB03BF0005C3176 /* exerciseweeklyCell5.h */,
+				535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */,
+				535F33B21FB0401D005C3176 /* exerciseweeklyCell6.h */,
+				535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */,
+				53B851A81FB0596100608925 /* exerciseweeklyCell7.h */,
+				53B851A91FB0596100608925 /* exerciseweeklyCell7.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2319,11 +2352,13 @@
 				534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */,
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
 				534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */,
+				535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */,
 				53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */,
 				184B56B11FA45CE80017A27E /* LiveWatchVC.m in Sources */,
 				534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
+				535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
@@ -2362,6 +2397,7 @@
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */,
 				189D53C21FA7418700600947 /* FSCalendar.m in Sources */,
+				53B851AA1FB0596100608925 /* exerciseweeklyCell7.m in Sources */,
 				533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */,
 				18F2A7CC1FA084D400FE25C3 /* LiveTeacherListCell.m in Sources */,
 				53D1F2711F9F1129002E1524 /* changepasswordCell0.m in Sources */,
@@ -2401,6 +2437,7 @@
 				53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */,
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */,
+				53B851A71FB054F700608925 /* BarChat.m in Sources */,
 				533FCB3D1F99A42400A4F6E1 /* changeModel1.m in Sources */,
 				1822E4731F9E112F00C92DEA /* UIView+HUD.m in Sources */,
 				1822E46C1F9E112F00C92DEA /* HYBLoadImageView.m in Sources */,
@@ -2439,6 +2476,7 @@
 				534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */,
 				189D53C61FA7418700600947 /* FSCalendarCollectionView.m in Sources */,
 				189D53CA1FA7418700600947 /* FSCalendarDelegationProxy.m in Sources */,
+				535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */,
 				189D53C81FA7418700600947 /* FSCalendarConstants.m in Sources */,
 				534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */,
 				189D53C51FA7418700600947 /* FSCalendarCell.m in Sources */,

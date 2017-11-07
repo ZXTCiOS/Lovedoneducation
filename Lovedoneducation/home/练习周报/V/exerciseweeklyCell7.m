@@ -11,7 +11,6 @@
 @interface exerciseweeklyCell7()
 @property (nonatomic,strong) UILabel *leftlab;
 @property (nonatomic,strong) UILabel *rightlab;
-
 @property (nonatomic,strong) UILabel *lab0;
 @property (nonatomic,strong) UILabel *lab1;
 @end

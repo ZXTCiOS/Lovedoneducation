@@ -180,6 +180,7 @@
 		539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E172F1F9E0EF700EA1E2B /* changephoneVC2.m */; };
 		53B851A71FB054F700608925 /* BarChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A61FB054F600608925 /* BarChat.m */; };
 		53B851AA1FB0596100608925 /* exerciseweeklyCell7.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A91FB0596100608925 /* exerciseweeklyCell7.m */; };
+		53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */; };
 		53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */; };
 		53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */; };
 		53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */; };
@@ -559,6 +560,8 @@
 		53B851A61FB054F600608925 /* BarChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChat.m; sourceTree = "<group>"; };
 		53B851A81FB0596100608925 /* exerciseweeklyCell7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell7.h; sourceTree = "<group>"; };
 		53B851A91FB0596100608925 /* exerciseweeklyCell7.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell7.m; sourceTree = "<group>"; };
+		53B851AF1FB07ABD00608925 /* smartgroupvolumeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartgroupvolumeVC.h; sourceTree = "<group>"; };
+		53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartgroupvolumeVC.m; sourceTree = "<group>"; };
 		53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quickintelligenceVC.h; sourceTree = "<group>"; };
 		53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quickintelligenceVC.m; sourceTree = "<group>"; };
 		53C3DC781FA97D4C00966F47 /* exerciseweeklyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyVC.h; sourceTree = "<group>"; };
@@ -1594,6 +1597,39 @@
 			path = barchat;
 			sourceTree = "<group>";
 		};
+		53B851AB1FB079E200608925 /* 智能组卷 */ = {
+			isa = PBXGroup;
+			children = (
+				53B851AE1FB07A9700608925 /* M */,
+				53B851AD1FB07A9400608925 /* V */,
+				53B851AC1FB07A9300608925 /* C */,
+			);
+			path = "智能组卷";
+			sourceTree = "<group>";
+		};
+		53B851AC1FB07A9300608925 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53B851AF1FB07ABD00608925 /* smartgroupvolumeVC.h */,
+				53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53B851AD1FB07A9400608925 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53B851AE1FB07A9700608925 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		53C3DC6D1FA97C6100966F47 /* 快速智能练习 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1755,6 +1791,7 @@
 				53C3DC6D1FA97C6100966F47 /* 快速智能练习 */,
 				53C3DC741FA97D1A00966F47 /* 练习周报 */,
 				534B74831FAAE89E000D265B /* 错题本 */,
+				53B851AB1FB079E200608925 /* 智能组卷 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -2452,6 +2489,7 @@
 				53C999BC1F973C90006A6570 /* MainTabBar.m in Sources */,
 				53963ABE1FA07CE9009AEFCA /* feedbackCell.m in Sources */,
 				534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */,
+				53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */,
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,

@@ -26,6 +26,7 @@
 #import "datareportVC.h"
 #import "exerciseweeklyVC.h"
 #import "wrongtopicVC.h"
+#import "smartgroupvolumeVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -331,7 +332,8 @@
 //智能组卷
 -(void)zhinengzujuanclick
 {
-    
+    smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //预测试题
 -(void)yuceshiticlick

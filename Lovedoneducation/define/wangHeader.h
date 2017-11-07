@@ -167,4 +167,11 @@
  @return
  */
 #define POST_forget @"/app.php/login/forget"
+
+/**
+ 首页练习类型选择
+
+ @return  首页练习类型选择
+ */
+#define GET_practice @"/app.php/questions/practice/?uid=%@&token=%@&practiceType=%@"
 #endif /* wangHeader_h */

@@ -77,6 +77,8 @@
 		18F2A7CD1FA084D400FE25C3 /* LiveTeacherListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F2A7CB1FA084D400FE25C3 /* LiveTeacherListCell.xib */; };
 		4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */; };
 		4D6F45D4CAF9ED271F774226 /* libPods-LovedoneducationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22AF7AD652B11D229AAFFEE /* libPods-LovedoneducationUITests.a */; };
+		531288311FB195BF00378FD5 /* smartgroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 531288301FB195BF00378FD5 /* smartgroupCell.m */; };
+		531288341FB1A2E300378FD5 /* smartgroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531288331FB1A2E300378FD5 /* smartgroupModel.m */; };
 		5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE401F9744CB00D4AE2C /* DNNetworking.m */; };
 		5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE451F9749F400D4AE2C /* BaseTableView.m */; };
 		5317DE4D1F974C0B00D4AE2C /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE491F974C0B00D4AE2C /* MBProgressHUD+XMG.m */; };
@@ -366,6 +368,10 @@
 		18F2A7CB1FA084D400FE25C3 /* LiveTeacherListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveTeacherListCell.xib; sourceTree = "<group>"; };
 		40BFC051162119E6BCCFFEE3 /* Pods-LovedoneducationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EEEAAB28B0625D2ABD5240C /* Pods-LovedoneducationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationTests/Pods-LovedoneducationTests.release.xcconfig"; sourceTree = "<group>"; };
+		5312882F1FB195BF00378FD5 /* smartgroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartgroupCell.h; sourceTree = "<group>"; };
+		531288301FB195BF00378FD5 /* smartgroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartgroupCell.m; sourceTree = "<group>"; };
+		531288321FB1A2E300378FD5 /* smartgroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartgroupModel.h; sourceTree = "<group>"; };
+		531288331FB1A2E300378FD5 /* smartgroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartgroupModel.m; sourceTree = "<group>"; };
 		5317DE3F1F9744CB00D4AE2C /* DNNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNNetworking.h; sourceTree = "<group>"; };
 		5317DE401F9744CB00D4AE2C /* DNNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNNetworking.m; sourceTree = "<group>"; };
 		5317DE421F9744E400D4AE2C /* wangHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wangHeader.h; sourceTree = "<group>"; };
@@ -1619,6 +1625,8 @@
 		53B851AD1FB07A9400608925 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				5312882F1FB195BF00378FD5 /* smartgroupCell.h */,
+				531288301FB195BF00378FD5 /* smartgroupCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1626,6 +1634,8 @@
 		53B851AE1FB07A9700608925 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				531288321FB1A2E300378FD5 /* smartgroupModel.h */,
+				531288331FB1A2E300378FD5 /* smartgroupModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2443,6 +2453,7 @@
 				533FCB421F99A9D800A4F6E1 /* changeCell0.m in Sources */,
 				189D53C41FA7418700600947 /* FSCalendarCalculator.m in Sources */,
 				534B4A471FA309BE00A68BA7 /* typeVC1.m in Sources */,
+				531288311FB195BF00378FD5 /* smartgroupCell.m in Sources */,
 				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
@@ -2509,6 +2520,7 @@
 				534B49D51FA194B100A68BA7 /* IBConfigration.m in Sources */,
 				539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */,
 				189D53CF1FA7418700600947 /* FSCalendarTransitionCoordinator.m in Sources */,
+				531288341FB1A2E300378FD5 /* smartgroupModel.m in Sources */,
 				1822E46E1F9E112F00C92DEA /* HYBPageControl.m in Sources */,
 				1856E25A1FA0426B00CB2330 /* UIScrollView+Refresh.m in Sources */,
 				534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */,

@@ -34,7 +34,7 @@
         [self.contentView addSubview:self.rightbtn];
         [self.contentView addSubview:self.timelab];
         [self setuolayout];
-        [self startCount];
+//        [self startCount];
     }
     return self;
 }
@@ -104,6 +104,8 @@
 }
 
 #pragma marm - 实现方法
+
+
 
 /**
  开始倒计时方法

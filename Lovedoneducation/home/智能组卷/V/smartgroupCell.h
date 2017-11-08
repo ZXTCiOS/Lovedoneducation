@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class smartgroupModel;
 @interface smartgroupCell : UICollectionViewCell
-
+-(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr;
 @end

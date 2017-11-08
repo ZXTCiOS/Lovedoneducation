@@ -59,6 +59,7 @@
                 
                 [self.dataSource addObject:model];
             }
+            [self.collectionV reloadData];
         }
     } failure:^(NSError *error) {
         
@@ -73,8 +74,8 @@
 - (void)prepareLayout {
     self.layout = [[UICollectionViewFlowLayout alloc] init];
     self.layout .scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - 64);
-    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH - 64) collectionViewLayout:self.layout];
+    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - NAVIGATION_HEIGHT);
+    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT) collectionViewLayout:self.layout];
     self.collectionV.backgroundColor = [UIColor whiteColor];
     self.collectionV.showsVerticalScrollIndicator = NO;
     self.collectionV.showsHorizontalScrollIndicator = NO;
@@ -89,11 +90,12 @@
 #pragma mark - delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     smartgroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
+    [cell setdata:self.dataSource[indexPath.item] andinitger:[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
     return cell;
 }
 

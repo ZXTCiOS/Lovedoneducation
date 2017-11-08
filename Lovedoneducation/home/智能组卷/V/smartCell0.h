@@ -10,5 +10,4 @@
 
 @interface smartCell0 : UITableViewCell
 -(void)setdata:(NSString *)numstr andallstr:(NSString *)allnum;
--(void)startCount;
 @end

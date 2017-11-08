@@ -8,9 +8,10 @@
 
 #import "smartgroupCell.h"
 #import "smartCell0.h"
+#import "smartgroupModel.h"
 @interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate>
-
 @property (nonatomic, strong) UITableView *table;
+@property (nonatomic, copy) NSString *allnum;
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
@@ -59,8 +60,8 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
     if (!cell) {
         cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
     }
+    [cell setdata:@"2" andallstr:self.allnum];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
 }
 
@@ -70,5 +71,12 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
                         cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                    tableView:tableView];
 }
+
+-(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr
+{
+    self.allnum = numstr;
+    [self.table reloadData];
+}
+
 @end
 

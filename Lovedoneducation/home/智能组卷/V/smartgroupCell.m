@@ -7,7 +7,7 @@
 //
 
 #import "smartgroupCell.h"
-
+#import "smartCell0.h"
 @interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *table;
@@ -28,6 +28,7 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
             make.top.equalTo(self);
             make.bottom.equalTo(self);
         }];
+        self.table.tableFooterView = [UIView new];
     }
     return self;
 }
@@ -49,22 +50,25 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:smarttableidentfid0];
+    smartCell0 *cell = [tableView dequeueReusableCellWithIdentifier:smarttableidentfid0];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
+        cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return [tableView cellHeightForIndexPath:indexPath
+                        cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
+                                   tableView:tableView];
 }
 @end
 

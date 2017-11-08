@@ -8,6 +8,9 @@
 
 #import "smartgroupvolumeVC.h"
 #import "smartgroupCell.h"
+#import "smartgroupModel.h"
+
+
 @interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionV;
 /**
@@ -16,6 +19,7 @@
 @property (nonatomic, strong) NSIndexPath *indexPathNow;
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 @implementation smartgroupvolumeVC
@@ -25,6 +29,7 @@
     // Do any additional setup after loading the view.
     self.title = @"智能组卷";
     [self prepareLayout];
+    self.dataSource = [NSMutableArray array];
     if (@available(iOS 11.0, *)){
         self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
     }
@@ -45,7 +50,16 @@
     //1 智能组卷 2预测试题 3专项智能练习
     NSString *url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
     [DNNetworking getWithURLString:url success:^(id obj) {
-        
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSArray *data = [obj objectForKey:@"data"];
+            for (int i = 0; i<data.count; i++) {
+                NSDictionary *dic = [data objectAtIndex:i];
+                smartgroupModel *model = [[smartgroupModel alloc] init];
+                model.qid = [dic objectForKey:@"qid"];
+                
+                [self.dataSource addObject:model];
+            }
+        }
     } failure:^(NSError *error) {
         
     }];

@@ -152,6 +152,7 @@
 		534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B74881FAAEC26000D265B /* wrongtopicVC.m */; };
 		534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748B1FAAF669000D265B /* wrongtopicCell.m */; };
 		534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748E1FAAF6AA000D265B /* wrongtopicModel.m */; };
+		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
 		535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */; };
 		535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */; };
 		535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */; };
@@ -505,6 +506,8 @@
 		534B748B1FAAF669000D265B /* wrongtopicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicCell.m; sourceTree = "<group>"; };
 		534B748D1FAAF6AA000D265B /* wrongtopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicModel.h; sourceTree = "<group>"; };
 		534B748E1FAAF6AA000D265B /* wrongtopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicModel.m; sourceTree = "<group>"; };
+		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
+		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
 		535F33AC1FB030AF005C3176 /* exerciseweeklyCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell4.h; sourceTree = "<group>"; };
 		535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell4.m; sourceTree = "<group>"; };
 		535F33AF1FB03BF0005C3176 /* exerciseweeklyCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell5.h; sourceTree = "<group>"; };
@@ -1627,6 +1630,8 @@
 			children = (
 				5312882F1FB195BF00378FD5 /* smartgroupCell.h */,
 				531288301FB195BF00378FD5 /* smartgroupCell.m */,
+				535BE2B71FB2E5DF00A6E89E /* smartCell0.h */,
+				535BE2B81FB2E5DF00A6E89E /* smartCell0.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2411,6 +2416,7 @@
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
 				537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
+				535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */,
 				534B4A081FA1AEE400A68BA7 /* ZTWXApiManager.m in Sources */,
 				53C3DC831FA9A7AA00966F47 /* exerciseweeklyCell2.m in Sources */,
 				5343E8921FA0312B001EBEBC /* myinfomessageCell.m in Sources */,

@@ -29,6 +29,14 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManager (5.0.4)
   - JCore (1.1.5)
@@ -40,10 +48,13 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.14)
   - NIMSDK (4.3.0)
+  - Reachability (3.1.1)
   - SDAutoLayout (2.2.0)
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
+  - SVProgressHUD (1.1.3)
+  - Toast (2.4)
   - TPKeyboardAvoiding (1.3.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -54,6 +65,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
+  - CocoaLumberjack (~> 2.2.0)
   - DZNEmptyDataSet
   - IQKeyboardManager
   - JHUD
@@ -63,8 +75,11 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - NIMSDK
+  - Reachability (~> 3.1.1)
   - SDAutoLayout
   - SDWebImage
+  - SVProgressHUD (~> 1.1.2)
+  - Toast (~> 2.4)
   - TPKeyboardAvoiding
   - YYKit
   - ZFPlayer
@@ -72,6 +87,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   IQKeyboardManager: 1df9c0f147af1681cfb2d9977bc30309d45a7e76
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
@@ -82,12 +98,15 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
   NIMSDK: 4c7d69e30a1d7a45df07af3d28b87810510f6987
+  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
 
-PODFILE CHECKSUM: 5db69873e294ec832d8c121ca1ce765ebcda83b5
+PODFILE CHECKSUM: cb2d0e17da436b5663fb1e14593221e6b90dce22
 
 COCOAPODS: 1.3.1

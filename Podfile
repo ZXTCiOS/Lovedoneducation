@@ -9,6 +9,11 @@ target 'Lovedoneducation' do
 pod 'AFNetworking'
 pod 'BlocksKit'
 pod 'SDWebImage'
+pod 'Toast', '~> 2.4'
+pod 'SVProgressHUD', '~> 1.1.2'
+pod 'CocoaLumberjack', '~> 2.2.0'
+pod 'Reachability', '~> 3.1.1'
+
 pod 'MJRefresh'
 pod 'ZFPlayer'
 pod 'NIMSDK'

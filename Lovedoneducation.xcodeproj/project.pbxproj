@@ -30,7 +30,6 @@
 		18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */; };
 		18283D151F9F56D700111352 /* HomeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D141F9F56D700111352 /* HomeMoreView.m */; };
 		18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D161F9F56E600111352 /* HomeMoreView.xib */; };
-		184B56B11FA45CE80017A27E /* LiveWatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B56B01FA45CE70017A27E /* LiveWatchVC.m */; };
 		18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */; };
 		18528E501FA303810081C543 /* LivePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4F1FA303810081C543 /* LivePayView.m */; };
 		18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18528E511FA3038E0081C543 /* LIvePayView.xib */; };
@@ -276,8 +275,6 @@
 		18283D131F9F56D700111352 /* HomeMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMoreView.h; sourceTree = "<group>"; };
 		18283D141F9F56D700111352 /* HomeMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMoreView.m; sourceTree = "<group>"; };
 		18283D161F9F56E600111352 /* HomeMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMoreView.xib; sourceTree = "<group>"; };
-		184B56AF1FA45CE70017A27E /* LiveWatchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveWatchVC.h; sourceTree = "<group>"; };
-		184B56B01FA45CE70017A27E /* LiveWatchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveWatchVC.m; sourceTree = "<group>"; };
 		18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChooseKechengquanVC.h; sourceTree = "<group>"; };
 		18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChooseKechengquanVC.m; sourceTree = "<group>"; };
 		18528E4E1FA303810081C543 /* LivePayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePayView.h; sourceTree = "<group>"; };
@@ -733,15 +730,6 @@
 			path = HYBLoopScrollView;
 			sourceTree = "<group>";
 		};
-		184B56AE1FA45C970017A27E /* 课程直播 */ = {
-			isa = PBXGroup;
-			children = (
-				184B56AF1FA45CE70017A27E /* LiveWatchVC.h */,
-				184B56B01FA45CE70017A27E /* LiveWatchVC.m */,
-			);
-			path = "课程直播";
-			sourceTree = "<group>";
-		};
 		1856E24D1FA02B9B00CB2330 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,7 +746,6 @@
 				18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */,
 				189D52501FA6FEDF00600947 /* MyCourseViewController.h */,
 				189D52511FA6FEDF00600947 /* MyCourseViewController.m */,
-				184B56AE1FA45C970017A27E /* 课程直播 */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2320,7 +2307,6 @@
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
 				534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */,
 				53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */,
-				184B56B11FA45CE80017A27E /* LiveWatchVC.m in Sources */,
 				534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */,
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,

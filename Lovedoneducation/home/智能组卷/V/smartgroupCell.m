@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, copy) NSString *allnum;
 @property (nonatomic, copy) NSString *itemstr;
+@property (nonatomic, strong) NSMutableArray *contentarr;
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
@@ -73,6 +74,7 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
     if (!cell) {
         cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
     }
+    [cell setdata:self.contentarr];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -91,8 +93,10 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
     self.itemstr = [NSString stringWithFormat:@"%d",inem];
     self.allnum = numstr;
     self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",self.itemstr,@"/",self.allnum];
+    smartgroupModel *smodel = model;
+    self.contentarr = [NSMutableArray array];
+    self.contentarr = smodel.qcontent;
     [self.table reloadData];
 }
-
 
 @end

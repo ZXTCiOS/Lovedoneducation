@@ -62,7 +62,28 @@
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
                 model.qid = [dic objectForKey:@"qid"];
-                
+                model.accuracy = [dic objectForKey:@"accuracy"];
+                model.come = [dic objectForKey:@"come"];
+                model.kaodian = [dic objectForKey:@"kaodian"];
+                model.playnum = [dic objectForKey:@"playnum"];
+                model.qanswer = [NSMutableArray array];
+                model.qanswer = [dic objectForKey:@"qanswer"];
+                model.qcid = [dic objectForKey:@"qcid"];
+                model.qcontent = [NSMutableArray array];
+                model.qcontent = [dic objectForKey:@"qcontent"];
+                model.qctypeid = [dic objectForKey:@"qctypeid"];
+                model.qdegree = [dic objectForKey:@"qdegree"];
+                model.qdes = [NSMutableArray array];
+                model.qdes = [dic objectForKey:@"qdes"];
+                model.qerror = [dic objectForKey:@"qerror"];
+                model.qsuccess = [dic objectForKey:@"qsuccess"];
+                model.qtid = [dic objectForKey:@"qtid"];
+                model.qtgroup = [dic objectForKey:@"qtgroup"];
+                model.qtitle = [dic objectForKey:@"qtitle"];
+                model.qtype = [dic objectForKey:@"qtype"];
+                model.qtpath = [dic objectForKey:@"qtpath"];
+                model.successnum = [dic objectForKey:@"successnum"];
+                model.time = [dic objectForKey:@"time"];
                 [self.dataSource addObject:model];
             }
             [self.collectionV reloadData];

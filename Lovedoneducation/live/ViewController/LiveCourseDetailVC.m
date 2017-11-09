@@ -11,7 +11,7 @@
 #import "LiveCourseListCell.h"
 #import "LiveTeacherInfoVC.h"
 #import "LiveSubmitOrderVC.h"
-#import "LiveWatchVC.h"
+
 
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
@@ -128,10 +128,7 @@
         // 上课去
         
         // TODO:
-        LiveWatchVC *vc = [[LiveWatchVC alloc] init];
-        
-        
-        [self.navigationController pushViewController:vc animated:YES];
+
     }else{
         LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];
         vc.model = self.model;

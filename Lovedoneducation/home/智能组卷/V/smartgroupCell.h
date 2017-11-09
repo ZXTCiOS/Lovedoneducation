@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "headView.h"
 @class smartgroupModel;
 @interface smartgroupCell : UICollectionViewCell
--(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr;
+@property (nonatomic,strong) headView *head;
+-(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr andnumstr:(NSString *)numitem;
 @end

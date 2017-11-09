@@ -9,11 +9,11 @@
 #import "smartgroupCell.h"
 #import "smartCell0.h"
 #import "smartgroupModel.h"
+
 @interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, copy) NSString *allnum;
 @property (nonatomic, copy) NSString *itemstr;
-
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
@@ -31,12 +31,23 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
             make.top.equalTo(self);
             make.bottom.equalTo(self);
         }];
+        self.table.tableHeaderView = self.head;
         self.table.tableFooterView = [UIView new];
     }
     return self;
 }
 
 #pragma mark - getters
+
+-(headView *)head
+{
+    if(!_head)
+    {
+        _head = [[headView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
+
+    }
+    return _head;
+}
 
 -(UITableView *)table
 {
@@ -62,7 +73,6 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
     if (!cell) {
         cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
     }
-    [cell setdata:[NSString stringWithFormat:@"%ld",(long)indexPath.row] andallstr:self.allnum];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -74,12 +84,15 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
                                    tableView:tableView];
 }
 
--(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr
+-(void)setdata:(smartgroupModel *)model andinitger:(NSString *)numstr andnumstr:(NSString *)numitem
 {
+    int itemint = [numitem intValue];
+    int inem = itemint+1;
+    self.itemstr = [NSString stringWithFormat:@"%d",inem];
     self.allnum = numstr;
-    
+    self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",self.itemstr,@"/",self.allnum];
     [self.table reloadData];
 }
 
-@end
 
+@end

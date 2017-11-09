@@ -152,6 +152,7 @@
 		534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748B1FAAF669000D265B /* wrongtopicCell.m */; };
 		534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748E1FAAF6AA000D265B /* wrongtopicModel.m */; };
 		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
+		535BE2BC1FB446FB00A6E89E /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BB1FB446FB00A6E89E /* headView.m */; };
 		535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */; };
 		535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */; };
 		535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */; };
@@ -505,6 +506,8 @@
 		534B748E1FAAF6AA000D265B /* wrongtopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicModel.m; sourceTree = "<group>"; };
 		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
 		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
+		535BE2BA1FB446FB00A6E89E /* headView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
+		535BE2BB1FB446FB00A6E89E /* headView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = headView.m; sourceTree = "<group>"; };
 		535F33AC1FB030AF005C3176 /* exerciseweeklyCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell4.h; sourceTree = "<group>"; };
 		535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell4.m; sourceTree = "<group>"; };
 		535F33AF1FB03BF0005C3176 /* exerciseweeklyCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell5.h; sourceTree = "<group>"; };
@@ -1619,6 +1622,8 @@
 				531288301FB195BF00378FD5 /* smartgroupCell.m */,
 				535BE2B71FB2E5DF00A6E89E /* smartCell0.h */,
 				535BE2B81FB2E5DF00A6E89E /* smartCell0.m */,
+				535BE2BA1FB446FB00A6E89E /* headView.h */,
+				535BE2BB1FB446FB00A6E89E /* headView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2496,6 +2501,7 @@
 				53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */,
+				535BE2BC1FB446FB00A6E89E /* headView.m in Sources */,
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				53C3DCAB1FAACD1100966F47 /* ZYProGressView.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,

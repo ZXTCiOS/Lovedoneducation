@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface smartCell0 : UITableViewCell
--(void)setdata:(NSString *)numstr andallstr:(NSString *)allnum;
+
 @end

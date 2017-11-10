@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface smartCell1 : UITableViewCell
-
+-(void)setdata:(NSMutableArray *)answer;
 @end

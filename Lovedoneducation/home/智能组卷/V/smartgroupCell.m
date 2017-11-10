@@ -8,16 +8,20 @@
 
 #import "smartgroupCell.h"
 #import "smartCell0.h"
+#import "smartCell1.h"
 #import "smartgroupModel.h"
+
 
 @interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, copy) NSString *allnum;
 @property (nonatomic, copy) NSString *itemstr;
 @property (nonatomic, strong) NSMutableArray *contentarr;
+@property (nonatomic, strong) NSMutableArray *answerarr;
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
+static NSString *smarttableidentfid1 = @"smarttableidentfid1";
 
 @implementation smartgroupCell
 
@@ -65,18 +69,30 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    smartCell0 *cell = [tableView dequeueReusableCellWithIdentifier:smarttableidentfid0];
-    if (!cell) {
-        cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
+    if (indexPath.row==0) {
+        smartCell0 *cell = [tableView dequeueReusableCellWithIdentifier:smarttableidentfid0];
+        if (!cell) {
+            cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
+        }
+        [cell setdata:self.contentarr];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-    [cell setdata:self.contentarr];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    if (indexPath.row==1) {
+        smartCell1 *cell = [tableView dequeueReusableCellWithIdentifier:smarttableidentfid1];
+        if (!cell) {
+            cell = [[smartCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid1];
+        }
+        [cell setdata:self.answerarr];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,6 +112,8 @@ static NSString *smarttableidentfid0 = @"smarttableidentfid0";
     smartgroupModel *smodel = model;
     self.contentarr = [NSMutableArray array];
     self.contentarr = smodel.qcontent;
+    self.answerarr = [NSMutableArray array];
+    self.answerarr = smodel.qanswer;
     [self.table reloadData];
 }
 

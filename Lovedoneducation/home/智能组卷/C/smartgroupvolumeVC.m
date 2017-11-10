@@ -9,7 +9,7 @@
 #import "smartgroupvolumeVC.h"
 #import "smartgroupCell.h"
 #import "smartgroupModel.h"
-
+#import "headView.h"
 
 @interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource>
 {
@@ -18,6 +18,7 @@
 @property (nonatomic,assign) int timeCount;
 @property (nonatomic, strong) NSString *timestr;
 @property (nonatomic, strong) UICollectionView *collectionV;
+@property (nonatomic,strong) headView *head;
 /**
  *  当前的位置
  */
@@ -25,6 +26,7 @@
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation smartgroupvolumeVC
@@ -34,16 +36,39 @@
     // Do any additional setup after loading the view.
     self.title = @"智能组卷";
     [self prepareLayout];
+    [self.view addSubview:self.head];
     self.dataSource = [NSMutableArray array];
     if (@available(iOS 11.0, *)){
-        self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+        self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
+        self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
     }
     else
     {
-        self.collectionV.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
+        self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
     [self startCount];
+}
+
+-(headView *)head
+{
+    if(!_head)
+    {
+        _head = [[headView alloc] init];
+        
+    }
+    return _head;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    CGPoint pInView = [self.view convertPoint:self.collectionV.center toView:self.collectionV];
+    self.indexPathNow = [self.collectionV indexPathForItemAtPoint:pInView];
+    int inter = (int)self.indexPathNow.item;
+    int newint = inter+1;
+    NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
+    self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
 }
 
 #pragma mark - 数据源
@@ -87,6 +112,7 @@
                 [self.dataSource addObject:model];
             }
             [self.collectionV reloadData];
+            self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
         }
     } failure:^(NSError *error) {
         
@@ -101,8 +127,8 @@
 - (void)prepareLayout {
     self.layout = [[UICollectionViewFlowLayout alloc] init];
     self.layout .scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - NAVIGATION_HEIGHT);
-    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT) collectionViewLayout:self.layout];
+    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - NAVIGATION_HEIGHT-60);
+    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH - NAVIGATION_HEIGHT-60) collectionViewLayout:self.layout];
     self.collectionV.backgroundColor = [UIColor whiteColor];
     self.collectionV.showsVerticalScrollIndicator = NO;
     self.collectionV.showsHorizontalScrollIndicator = NO;
@@ -132,6 +158,8 @@
     return 0;
 }
 
+#pragma mark - 实现方法
+
 /**
  开始倒计时方法
  */
@@ -154,11 +182,14 @@
             //           ======在这根据自己的需求去刷新UI==============
             
             self.timestr = strTime;
-            [self.collectionV reloadData];
+            self.head.timelab.text = strTime;
+            
         });
         _timeCount ++;
     });
     dispatch_resume(timer);
 }
+
+
 
 @end

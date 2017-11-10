@@ -12,7 +12,7 @@
 #import "smartgroupModel.h"
 
 
-@interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate>
+@interface smartgroupCell()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, copy) NSString *allnum;
 @property (nonatomic, copy) NSString *itemstr;
@@ -36,23 +36,12 @@ static NSString *smarttableidentfid1 = @"smarttableidentfid1";
             make.top.equalTo(self);
             make.bottom.equalTo(self);
         }];
-        self.table.tableHeaderView = self.head;
         self.table.tableFooterView = [UIView new];
     }
     return self;
 }
 
 #pragma mark - getters
-
--(headView *)head
-{
-    if(!_head)
-    {
-        _head = [[headView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
-
-    }
-    return _head;
-}
 
 -(UITableView *)table
 {
@@ -89,6 +78,7 @@ static NSString *smarttableidentfid1 = @"smarttableidentfid1";
             cell = [[smartCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid1];
         }
         [cell setdata:self.answerarr];
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -115,6 +105,28 @@ static NSString *smarttableidentfid1 = @"smarttableidentfid1";
     self.answerarr = [NSMutableArray array];
     self.answerarr = smodel.qanswer;
     [self.table reloadData];
+}
+
+#pragma mark - 选择方式
+
+-(void)myTabVClickA:(UITableViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickB:(UITableViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickC:(UITableViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickD:(UITableViewCell *)cell
+{
+    
 }
 
 @end

@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *itemstr;
 @property (nonatomic, strong) NSMutableArray *contentarr;
 @property (nonatomic, strong) NSMutableArray *answerarr;
+
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
@@ -111,22 +112,22 @@ static NSString *smarttableidentfid1 = @"smarttableidentfid1";
 
 -(void)myTabVClickA:(UITableViewCell *)cell
 {
-    
+    [self.delegate myTabVClickA:self];
 }
 
 -(void)myTabVClickB:(UITableViewCell *)cell
 {
-    
+    [self.delegate myTabVClickB:self];
 }
 
 -(void)myTabVClickC:(UITableViewCell *)cell
 {
-    
+    [self.delegate myTabVClickC:self];
 }
 
 -(void)myTabVClickD:(UITableViewCell *)cell
 {
-    
+    [self.delegate myTabVClickD:self];
 }
 
 @end

@@ -11,7 +11,7 @@
 #import "smartgroupModel.h"
 #import "headView.h"
 
-@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource>
+@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
 {
     dispatch_source_t timer;
 }
@@ -150,6 +150,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     smartgroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
     cell.head.timelab.text = self.timestr;
+    cell.delegate = self;
     [cell setdata:self.dataSource[indexPath.item] andinitger:[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count] andnumstr:[NSString stringWithFormat:@"%ld",(long)indexPath.item]];
     return cell;
 }
@@ -190,6 +191,31 @@
     dispatch_resume(timer);
 }
 
+-(void)myTabVClickA:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+}
 
+-(void)myTabVClickB:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
+
+-(void)myTabVClickC:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
+
+-(void)myTabVClickD:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
 
 @end

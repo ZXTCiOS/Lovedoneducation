@@ -9,10 +9,16 @@
 #import "smartgroupvolumeVC.h"
 #import "smartgroupCell.h"
 #import "smartgroupModel.h"
+#import "headView.h"
 
-
-@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource>
+@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
+{
+    dispatch_source_t timer;
+}
+@property (nonatomic,assign) int timeCount;
+@property (nonatomic, strong) NSString *timestr;
 @property (nonatomic, strong) UICollectionView *collectionV;
+@property (nonatomic,strong) headView *head;
 /**
  *  当前的位置
  */
@@ -20,6 +26,7 @@
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation smartgroupvolumeVC
@@ -29,15 +36,39 @@
     // Do any additional setup after loading the view.
     self.title = @"智能组卷";
     [self prepareLayout];
+    [self.view addSubview:self.head];
     self.dataSource = [NSMutableArray array];
     if (@available(iOS 11.0, *)){
-        self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+        self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
+        self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
     }
     else
     {
-        self.collectionV.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
+        self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
+    [self startCount];
+}
+
+-(headView *)head
+{
+    if(!_head)
+    {
+        _head = [[headView alloc] init];
+        
+    }
+    return _head;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    CGPoint pInView = [self.view convertPoint:self.collectionV.center toView:self.collectionV];
+    self.indexPathNow = [self.collectionV indexPathForItemAtPoint:pInView];
+    int inter = (int)self.indexPathNow.item;
+    int newint = inter+1;
+    NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
+    self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
 }
 
 #pragma mark - 数据源
@@ -56,10 +87,32 @@
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
                 model.qid = [dic objectForKey:@"qid"];
-                
+                model.accuracy = [dic objectForKey:@"accuracy"];
+                model.come = [dic objectForKey:@"come"];
+                model.kaodian = [dic objectForKey:@"kaodian"];
+                model.playnum = [dic objectForKey:@"playnum"];
+                model.qanswer = [NSMutableArray array];
+                model.qanswer = [dic objectForKey:@"qanswer"];
+                model.qcid = [dic objectForKey:@"qcid"];
+                model.qcontent = [NSMutableArray array];
+                model.qcontent = [dic objectForKey:@"qcontent"];
+                model.qctypeid = [dic objectForKey:@"qctypeid"];
+                model.qdegree = [dic objectForKey:@"qdegree"];
+                model.qdes = [NSMutableArray array];
+                model.qdes = [dic objectForKey:@"qdes"];
+                model.qerror = [dic objectForKey:@"qerror"];
+                model.qsuccess = [dic objectForKey:@"qsuccess"];
+                model.qtid = [dic objectForKey:@"qtid"];
+                model.qtgroup = [dic objectForKey:@"qtgroup"];
+                model.qtitle = [dic objectForKey:@"qtitle"];
+                model.qtype = [dic objectForKey:@"qtype"];
+                model.qtpath = [dic objectForKey:@"qtpath"];
+                model.successnum = [dic objectForKey:@"successnum"];
+                model.time = [dic objectForKey:@"time"];
                 [self.dataSource addObject:model];
             }
             [self.collectionV reloadData];
+            self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
         }
     } failure:^(NSError *error) {
         
@@ -74,8 +127,8 @@
 - (void)prepareLayout {
     self.layout = [[UICollectionViewFlowLayout alloc] init];
     self.layout .scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - NAVIGATION_HEIGHT);
-    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT) collectionViewLayout:self.layout];
+    self.layout .itemSize = CGSizeMake(kScreenW, kScreenH - NAVIGATION_HEIGHT-60);
+    self.collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH - NAVIGATION_HEIGHT-60) collectionViewLayout:self.layout];
     self.collectionV.backgroundColor = [UIColor whiteColor];
     self.collectionV.showsVerticalScrollIndicator = NO;
     self.collectionV.showsHorizontalScrollIndicator = NO;
@@ -89,13 +142,16 @@
 
 #pragma mark - delegate
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     smartgroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
-    [cell setdata:self.dataSource[indexPath.item] andinitger:[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+    cell.head.timelab.text = self.timestr;
+    cell.delegate = self;
+    [cell setdata:self.dataSource[indexPath.item] andinitger:[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count] andnumstr:[NSString stringWithFormat:@"%ld",(long)indexPath.item]];
     return cell;
 }
 
@@ -103,5 +159,63 @@
     return 0;
 }
 
+#pragma mark - 实现方法
+
+/**
+ 开始倒计时方法
+ */
+
+-(void)startCount
+{
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalQueue);
+    //_isCreat = YES;
+    
+    //    每秒执行一次
+    dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), 1.0*NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(timer, ^{
+        int hours = _timeCount / 3600;
+        int minutes = (_timeCount - (3600*hours)) / 60;
+        int seconds = _timeCount%60;
+        NSString *strTime = [NSString stringWithFormat:@"%.2d:%.2d",minutes,seconds];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //           ======在这根据自己的需求去刷新UI==============
+            
+            self.timestr = strTime;
+            self.head.timelab.text = strTime;
+            
+        });
+        _timeCount ++;
+    });
+    dispatch_resume(timer);
+}
+
+-(void)myTabVClickA:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+}
+
+-(void)myTabVClickB:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
+
+-(void)myTabVClickC:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
+
+-(void)myTabVClickD:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.item);
+}
 
 @end

@@ -89,19 +89,19 @@
 }
 
 - (void)NIMLogin{
-    NSString *appKey        = @"your app key";
+    NSString *appKey        = NIMKEY;
     NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
     option.apnsCername      = @"your APNs cer name";
     option.pkCername        = @"your pushkit cer name";
     [[NIMSDK sharedSDK] registerWithOption:option];
     
-//    NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
-//    NSString *account = [userDefault objectForKey:@""];
-//    NSString *token = [userDefault objectForKey:@""];
-//    loginData.account = account;
-//    loginData.token = token;
-//    loginData.forcedMode = NO;
-//    [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
+    NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
+    NSString *account = [userDefault objectForKey:@""];
+    NSString *token = [userDefault objectForKey:@""];
+    loginData.account = account;
+    loginData.token = token;
+    loginData.forcedMode = NO;
+    [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
 }
 
 

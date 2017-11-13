@@ -9,13 +9,13 @@
 #import "UIScrollView+Refresh.h"
 
 @implementation UIScrollView (Refresh)
-- (void)addHeaderRefresh:(void(^)())block{
+- (void)addHeaderRefresh:(void(^)(void))block{
     self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:block];
 }
-- (void)addFooterRefresh:(void(^)())block{
+- (void)addFooterRefresh:(void(^)(void))block{
     self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:block];
 }
-- (void)addFooterRefreshAuto:(void(^)())block{
+- (void)addFooterRefreshAuto:(void(^)(void))block{
     self.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:block];
 }
 - (void)beginHeaderRefresh{

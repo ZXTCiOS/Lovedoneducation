@@ -45,6 +45,8 @@ _Pragma("clang diagnostic pop")\
 
 
 
+#define NIMKEY @"8210a542cf018de3bb35c11282dbb23c"
+#define TeacherBGImage @""
 
 
 #define kFrameeeee if (@available(iOS 11.0, *)){\

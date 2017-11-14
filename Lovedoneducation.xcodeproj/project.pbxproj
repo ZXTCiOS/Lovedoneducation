@@ -151,6 +151,10 @@
 		534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B74881FAAEC26000D265B /* wrongtopicVC.m */; };
 		534B748C1FAAF669000D265B /* wrongtopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748B1FAAF669000D265B /* wrongtopicCell.m */; };
 		534B748F1FAAF6AA000D265B /* wrongtopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B748E1FAAF6AA000D265B /* wrongtopicModel.m */; };
+		535A35781FB974C500F4EA06 /* cardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35771FB974C500F4EA06 /* cardVC.m */; };
+		535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A357A1FB9792D00F4EA06 /* cardCell.m */; };
+		535A357C1FBADD2700F4EA06 /* smartgroupvolumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */; };
+		535A357F1FBADFBE00F4EA06 /* smartCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A357E1FBADFBE00F4EA06 /* smartCell2.m */; };
 		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
 		535BE2BC1FB446FB00A6E89E /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BB1FB446FB00A6E89E /* headView.m */; };
 		535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BE1FB472ED00A6E89E /* smartCell1.m */; };
@@ -505,6 +509,12 @@
 		534B748B1FAAF669000D265B /* wrongtopicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicCell.m; sourceTree = "<group>"; };
 		534B748D1FAAF6AA000D265B /* wrongtopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrongtopicModel.h; sourceTree = "<group>"; };
 		534B748E1FAAF6AA000D265B /* wrongtopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wrongtopicModel.m; sourceTree = "<group>"; };
+		535A35761FB974C500F4EA06 /* cardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cardVC.h; sourceTree = "<group>"; };
+		535A35771FB974C500F4EA06 /* cardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardVC.m; sourceTree = "<group>"; };
+		535A35791FB9792D00F4EA06 /* cardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cardCell.h; sourceTree = "<group>"; };
+		535A357A1FB9792D00F4EA06 /* cardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardCell.m; sourceTree = "<group>"; };
+		535A357D1FBADFBE00F4EA06 /* smartCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell2.h; sourceTree = "<group>"; };
+		535A357E1FBADFBE00F4EA06 /* smartCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell2.m; sourceTree = "<group>"; };
 		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
 		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
 		535BE2BA1FB446FB00A6E89E /* headView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
@@ -1614,6 +1624,8 @@
 			children = (
 				53B851AF1FB07ABD00608925 /* smartgroupvolumeVC.h */,
 				53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */,
+				535A35761FB974C500F4EA06 /* cardVC.h */,
+				535A35771FB974C500F4EA06 /* cardVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1629,6 +1641,10 @@
 				535BE2B81FB2E5DF00A6E89E /* smartCell0.m */,
 				535BE2BD1FB472ED00A6E89E /* smartCell1.h */,
 				535BE2BE1FB472ED00A6E89E /* smartCell1.m */,
+				535A357D1FBADFBE00F4EA06 /* smartCell2.h */,
+				535A357E1FBADFBE00F4EA06 /* smartCell2.m */,
+				535A35791FB9792D00F4EA06 /* cardCell.h */,
+				535A357A1FB9792D00F4EA06 /* cardCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2411,7 +2427,9 @@
 				535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
+				535A35781FB974C500F4EA06 /* cardVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
+				535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */,
 				537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
 				535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */,
@@ -2465,6 +2483,7 @@
 				189D53CD1FA7418700600947 /* FSCalendarScopeHandle.m in Sources */,
 				189D53C31FA7418700600947 /* FSCalendarAppearance.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
+				535A357F1FBADFBE00F4EA06 /* smartCell2.m in Sources */,
 				189D53D01FA7418700600947 /* FSCalendarWeekdayView.m in Sources */,
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
 				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
@@ -2555,6 +2574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535A357C1FBADD2700F4EA06 /* smartgroupvolumeVC.m in Sources */,
 				53C999791F9739D9006A6570 /* LovedoneducationUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

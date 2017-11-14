@@ -74,7 +74,7 @@
         NSString *contstr = @"";
         NSArray *dataarr = [conarr firstObject];
         contstr = [dataarr componentsJoinedByString:@" "];
-        NSString *str = [self filterHTML:contstr];
+        NSString *str = contstr;
         NSString *strs = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
         self.lab0.text = strs;
         [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
@@ -82,9 +82,9 @@
     if (conarr.count==2) {
         NSString *contstr = @"";
         NSArray *dataarr = [conarr firstObject];
-        contstr = [self filterHTML:[dataarr objectAtIndex:0]];
+        contstr = [dataarr objectAtIndex:0];
         NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSString *contstr1 =  [self filterHTML:[dataarr1 objectAtIndex:0]];;
+        NSString *contstr1 =  [dataarr1 objectAtIndex:0];
         NSString *str = [NSString stringWithFormat:@"%@%@%@",contstr,@"\n\n",contstr1];
         self.lab0.text = str;
         [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
@@ -244,22 +244,5 @@
     }
 }
 
--(NSString *)filterHTML:(NSString *)html
-{
-    NSScanner * scanner = [NSScanner scannerWithString:html];
-    NSString * text = nil;
-    while([scanner isAtEnd]==NO)
-    {
-        //找到标签的起始位置
-        [scanner scanUpToString:@"<" intoString:nil];
-        //找到标签的结束位置
-        [scanner scanUpToString:@">" intoString:&text];
-        //替换字符
-        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>",text] withString:@""];
-    }
-    //    NSString * regEx = @"<([^>]*)>";
-    //    html = [html stringByReplacingOccurrencesOfString:regEx withString:@""];
-    return html;
-}
 
 @end

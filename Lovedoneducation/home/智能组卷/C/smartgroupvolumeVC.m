@@ -10,23 +10,24 @@
 #import "smartgroupCell.h"
 #import "smartgroupModel.h"
 #import "headView.h"
+#import "cardVC.h"
 
 @interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
 {
     dispatch_source_t timer;
 }
-@property (nonatomic,assign) int timeCount;
+@property (nonatomic, assign) int timeCount;
 @property (nonatomic, strong) NSString *timestr;
 @property (nonatomic, strong) UICollectionView *collectionV;
-@property (nonatomic,strong) headView *head;
+@property (nonatomic, strong) headView *head;
 /**
  *  当前的位置
  */
 @property (nonatomic, strong) NSIndexPath *indexPathNow;
-
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
-@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
+@property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @end
 
 @implementation smartgroupvolumeVC
@@ -38,6 +39,8 @@
     [self prepareLayout];
     [self.view addSubview:self.head];
     self.dataSource = [NSMutableArray array];
+    self.arrayDatasource = [NSMutableArray array];
+
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
         self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
@@ -56,7 +59,7 @@
     if(!_head)
     {
         _head = [[headView alloc] init];
-        
+        [_head.rightbtn addTarget:self action:@selector(cardclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _head;
 }
@@ -111,6 +114,9 @@
                 model.time = [dic objectForKey:@"time"];
                 [self.dataSource addObject:model];
             }
+            for (int i = 0; i<self.dataSource.count; i++) {
+                [self.arrayDatasource addObject:@""];
+            }
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
         }
@@ -149,9 +155,15 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     smartgroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
-    cell.head.timelab.text = self.timestr;
+    
+    if (indexPath.row == self.dataSource.count - 1) {
+        cell.copystr = @"1";
+    }else{
+        cell.copystr = @"2";
+    }
+    [cell setarray:self.arrayDatasource[indexPath.item]];
     cell.delegate = self;
-    [cell setdata:self.dataSource[indexPath.item] andinitger:[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count] andnumstr:[NSString stringWithFormat:@"%ld",(long)indexPath.item]];
+    [cell setdata:self.dataSource[indexPath.item]];
     return cell;
 }
 
@@ -195,27 +207,35 @@
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
 }
 
 -(void)myTabVClickB:(UICollectionViewCell *)cell
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    
     NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
+    
 }
 
 -(void)myTabVClickC:(UICollectionViewCell *)cell
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    
     NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
 }
 
 -(void)myTabVClickD:(UICollectionViewCell *)cell
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    
     NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
+}
+
+-(void)cardclick
+{
+    cardVC *vc = [[cardVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

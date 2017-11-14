@@ -192,4 +192,41 @@
     [self.delegate myTabVClickD:self];
 }
 
+-(void)setanswer:(NSString *)str
+{
+    if ([str isEqualToString:@"A"]) {
+        self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"B"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"C"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"D"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    }else
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+}
+
 @end

@@ -17,5 +17,6 @@
 @end
 @interface smartCell1 : UITableViewCell
 -(void)setdata:(NSMutableArray *)answer;
+-(void)setanswer:(NSString *)str;
 @property(assign,nonatomic)id<myTabVdelegate>delegate;
 @end

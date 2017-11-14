@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIScrollView (Refresh)
-- (void)addHeaderRefresh:(void(^)())block;
-- (void)addFooterRefresh:(void(^)())block;
-- (void)addFooterRefreshAuto:(void(^)())block;
+- (void)addHeaderRefresh:(void(^)(void))block;
+- (void)addFooterRefresh:(void(^)(void))block;
+- (void)addFooterRefreshAuto:(void(^)(void))block;
 - (void)beginHeaderRefresh;
 - (void)endHeaderRefresh;
 

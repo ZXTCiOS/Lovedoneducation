@@ -11,6 +11,8 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+
 #import <YYKit.h>
 #import <MBProgressHUD.h>
 #define MAS_SHORTHAND_GLOBALS
@@ -36,5 +38,37 @@
 #import "MD5Tool.h"
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
+
+#import <NIMSDK/NIMSDK.h>
+#import "NIMKit.h"
+#import "NTESGlobalMacro.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+
+#define NTES_USE_CLEAR_BAR - (BOOL)useClearBar{return YES;}
+#define NTES_FORBID_INTERACTIVE_POP - (BOOL)forbidInteractivePop{return YES;}
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
+
+
+
+
+
 #endif /* PrefixHeader_pch */
 

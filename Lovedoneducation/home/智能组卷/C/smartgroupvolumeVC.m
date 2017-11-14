@@ -11,6 +11,7 @@
 #import "smartgroupModel.h"
 #import "headView.h"
 #import "cardVC.h"
+#import "LYMenu.h"
 
 @interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
 {
@@ -36,6 +37,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"智能组卷";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"1e2b3b"];
     [self prepareLayout];
     [self.view addSubview:self.head];
     self.dataSource = [NSMutableArray array];
@@ -236,6 +239,22 @@
 {
     cardVC *vc = [[cardVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)rightAction
+{
+    LYMenu * menu = [[LYMenu alloc]initWithTitles:@[@"收藏本题",@"分享本题"] images:@[@"shoucangtimu_icon_gengduo",@"fenxiang_icon"] menuType:LYMenuTypeRight buttonAction:^(NSInteger buttonIndex) {
+        NSLog(@"RightMenu INDEX %d",(int)buttonIndex);
+        if (buttonIndex==0) {
+            NSLog(@"收藏本题");
+            
+        }
+        if (buttonIndex==1) {
+            NSLog(@"分享本题");
+            
+        }
+    }];
+    [menu show];
 }
 
 @end

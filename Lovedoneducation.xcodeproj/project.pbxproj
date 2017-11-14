@@ -391,6 +391,7 @@
 		535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A357A1FB9792D00F4EA06 /* cardCell.m */; };
 		535A357C1FBADD2700F4EA06 /* smartgroupvolumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */; };
 		535A357F1FBADFBE00F4EA06 /* smartCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A357E1FBADFBE00F4EA06 /* smartCell2.m */; };
+		535A35831FBB07D100F4EA06 /* LYMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35821FBB07D000F4EA06 /* LYMenu.m */; };
 		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
 		535BE2BC1FB446FB00A6E89E /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BB1FB446FB00A6E89E /* headView.m */; };
 		535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BE1FB472ED00A6E89E /* smartCell1.m */; };
@@ -1234,6 +1235,8 @@
 		535A357A1FB9792D00F4EA06 /* cardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardCell.m; sourceTree = "<group>"; };
 		535A357D1FBADFBE00F4EA06 /* smartCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell2.h; sourceTree = "<group>"; };
 		535A357E1FBADFBE00F4EA06 /* smartCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell2.m; sourceTree = "<group>"; };
+		535A35811FBB07D000F4EA06 /* LYMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYMenu.h; sourceTree = "<group>"; };
+		535A35821FBB07D000F4EA06 /* LYMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYMenu.m; sourceTree = "<group>"; };
 		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
 		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
 		535BE2BA1FB446FB00A6E89E /* headView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
@@ -3222,6 +3225,15 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		535A35801FBB07D000F4EA06 /* LYMenuLib */ = {
+			isa = PBXGroup;
+			children = (
+				535A35811FBB07D000F4EA06 /* LYMenu.h */,
+				535A35821FBB07D000F4EA06 /* LYMenu.m */,
+			);
+			path = LYMenuLib;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3370,6 +3382,7 @@
 		53B851AD1FB07A9400608925 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				535A35801FBB07D000F4EA06 /* LYMenuLib */,
 				535BE2BA1FB446FB00A6E89E /* headView.h */,
 				535BE2BB1FB446FB00A6E89E /* headView.m */,
 				5312882F1FB195BF00378FD5 /* smartgroupCell.h */,
@@ -4177,11 +4190,8 @@
 				181F86E51FB437790090EDEF /* NIMInputAudioRecordIndicatorView.m in Sources */,
 				181F87141FB437790090EDEF /* NIMCardMemberItem.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
-
 				181F866D1FB437790090EDEF /* NTESBadgeView.m in Sources */,
-
 				535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */,
-
 				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
 				181F86781FB437790090EDEF /* NTESChatroomCellLayoutConfig.m in Sources */,
 				1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */,
@@ -4249,15 +4259,12 @@
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				535A35781FB974C500F4EA06 /* cardVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
-
 				535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */,
-
 				181F87171FB437790090EDEF /* NIMTeamInfoData.m in Sources */,
 				181F86931FB437790090EDEF /* color.c in Sources */,
 				181F86A71FB437790090EDEF /* NTESChatroomSegmentedControl.m in Sources */,
 				186570B21FB9875E00FB9E55 /* LievWhiteboardRecoredVC.m in Sources */,
 				181F869D1FB437790090EDEF /* renderer_yuv420sp_vtb.m in Sources */,
-
 				537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */,
 				181F86E71FB437790090EDEF /* NIMInputEmoticonContainerView.m in Sources */,
 				53C999BA1F973C90006A6570 /* MainTabBarController.m in Sources */,
@@ -4359,9 +4366,7 @@
 				189D53CD1FA7418700600947 /* FSCalendarScopeHandle.m in Sources */,
 				189D53C31FA7418700600947 /* FSCalendarAppearance.m in Sources */,
 				5317DE461F9749F400D4AE2C /* BaseTableView.m in Sources */,
-
 				535A357F1FBADFBE00F4EA06 /* smartCell2.m in Sources */,
-
 				181F86BF1FB437790090EDEF /* NTESDocumentCell.m in Sources */,
 				181F87261FB437790090EDEF /* NIMKitUtil.m in Sources */,
 				181F87001FB437790090EDEF /* NIMMessageMaker.m in Sources */,
@@ -4370,13 +4375,13 @@
 				181F86E61FB437790090EDEF /* NIMInputEmoticonButton.m in Sources */,
 				181F86AA1FB437790090EDEF /* NTESMeetingActionView.m in Sources */,
 				181F86CD1FB437790090EDEF /* NTESTimerHolder.m in Sources */,
-
 				189D53D01FA7418700600947 /* FSCalendarWeekdayView.m in Sources */,
 				181F86A41FB437790090EDEF /* ijksdl_vout_overlay_videotoolbox.m in Sources */,
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
 				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
 				181F87201FB437790090EDEF /* NIMKitColorButtonCell.m in Sources */,
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
+				535A35831FBB07D100F4EA06 /* LYMenu.m in Sources */,
 				181F86881FB437790090EDEF /* NTESMeetingViewController.m in Sources */,
 				534B4A071FA1AEE400A68BA7 /* ZTVendorPayManager.m in Sources */,
 				181F86DB1FB437790090EDEF /* NIMMemberGroupView.m in Sources */,
@@ -4470,11 +4475,8 @@
 				181F873A1FB437790090EDEF /* NIMProgressHUD.m in Sources */,
 				181F871F1FB437790090EDEF /* NIMAdvancedTeamMemberCell.m in Sources */,
 				534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */,
-
 				181F870D1FB437790090EDEF /* NIMSessionNotificationContentView.m in Sources */,
-
 				535BE2BC1FB446FB00A6E89E /* headView.m in Sources */,
-
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				181F86E41FB437790090EDEF /* NIMContactSelectViewController.m in Sources */,
 				181F871D1FB437790090EDEF /* NIMTeamMemberCardViewController.m in Sources */,

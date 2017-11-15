@@ -265,7 +265,6 @@
 
 - (void)shareBtnClicked{
     
-    
     NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
     NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
     
@@ -284,7 +283,6 @@
             [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
                 
             }];
-            
         }
         if (btnTag==2) {
             
@@ -292,13 +290,9 @@
             [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
                 
             }];
-            
         }
-        
     }];
     [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
 }
-
-
 
 @end

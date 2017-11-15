@@ -13,6 +13,10 @@
 #import "cardVC.h"
 #import "LYMenu.h"
 
+// 分享
+#import "ZTVendorManager.h"
+#import "ActionSheetView.h"
+
 @interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
 {
     dispatch_source_t timer;
@@ -251,10 +255,50 @@
         }
         if (buttonIndex==1) {
             NSLog(@"分享本题");
+            [self shareBtnClicked];
             
         }
     }];
     [menu show];
 }
+
+
+- (void)shareBtnClicked{
+    
+    
+    NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+    NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+    
+    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"测试" and:ShowTypeIsShareStyle];
+    [actionsheet setBtnClick:^(NSInteger btnTag) {
+        NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+        if (btnTag==0) {
+            
+            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+            [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                
+            }];
+        }
+        if (btnTag==1) {
+            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+            [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                
+            }];
+            
+        }
+        if (btnTag==2) {
+            
+            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+            [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                
+            }];
+            
+        }
+        
+    }];
+    [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+}
+
+
 
 @end

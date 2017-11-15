@@ -392,6 +392,9 @@
 		535A357C1FBADD2700F4EA06 /* smartgroupvolumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */; };
 		535A357F1FBADFBE00F4EA06 /* smartCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A357E1FBADFBE00F4EA06 /* smartCell2.m */; };
 		535A35831FBB07D100F4EA06 /* LYMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35821FBB07D000F4EA06 /* LYMenu.m */; };
+		535A358B1FBC0C2700F4EA06 /* ActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35851FBC0C2600F4EA06 /* ActionSheetView.m */; };
+		535A358C1FBC0C2700F4EA06 /* VerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35861FBC0C2600F4EA06 /* VerButton.m */; };
+		535A358D1FBC0C2700F4EA06 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A358A1FBC0C2600F4EA06 /* ActionButton.m */; };
 		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
 		535BE2BC1FB446FB00A6E89E /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BB1FB446FB00A6E89E /* headView.m */; };
 		535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BE1FB472ED00A6E89E /* smartCell1.m */; };
@@ -1237,6 +1240,12 @@
 		535A357E1FBADFBE00F4EA06 /* smartCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell2.m; sourceTree = "<group>"; };
 		535A35811FBB07D000F4EA06 /* LYMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYMenu.h; sourceTree = "<group>"; };
 		535A35821FBB07D000F4EA06 /* LYMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYMenu.m; sourceTree = "<group>"; };
+		535A35851FBC0C2600F4EA06 /* ActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetView.m; sourceTree = "<group>"; };
+		535A35861FBC0C2600F4EA06 /* VerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerButton.m; sourceTree = "<group>"; };
+		535A35871FBC0C2600F4EA06 /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionButton.h; sourceTree = "<group>"; };
+		535A35881FBC0C2600F4EA06 /* ActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetView.h; sourceTree = "<group>"; };
+		535A35891FBC0C2600F4EA06 /* VerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerButton.h; sourceTree = "<group>"; };
+		535A358A1FBC0C2600F4EA06 /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionButton.m; sourceTree = "<group>"; };
 		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
 		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
 		535BE2BA1FB446FB00A6E89E /* headView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
@@ -3234,6 +3243,19 @@
 			path = LYMenuLib;
 			sourceTree = "<group>";
 		};
+		535A35841FBC0C2600F4EA06 /* ZPActionsheet */ = {
+			isa = PBXGroup;
+			children = (
+				535A35851FBC0C2600F4EA06 /* ActionSheetView.m */,
+				535A35861FBC0C2600F4EA06 /* VerButton.m */,
+				535A35871FBC0C2600F4EA06 /* ActionButton.h */,
+				535A35881FBC0C2600F4EA06 /* ActionSheetView.h */,
+				535A35891FBC0C2600F4EA06 /* VerButton.h */,
+				535A358A1FBC0C2600F4EA06 /* ActionButton.m */,
+			);
+			path = ZPActionsheet;
+			sourceTree = "<group>";
+		};
 		53963AB31FA07AF4009AEFCA /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3382,6 +3404,7 @@
 		53B851AD1FB07A9400608925 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				535A35841FBC0C2600F4EA06 /* ZPActionsheet */,
 				535A35801FBB07D000F4EA06 /* LYMenuLib */,
 				535BE2BA1FB446FB00A6E89E /* headView.h */,
 				535BE2BB1FB446FB00A6E89E /* headView.m */,
@@ -4161,6 +4184,7 @@
 				181F86EF1FB437790090EDEF /* NIMKitEvent.m in Sources */,
 				181F86D31FB437790090EDEF /* UIImage+NIM.m in Sources */,
 				181F86571FB437790090EDEF /* NSDictionary+NTESJson.m in Sources */,
+				535A358C1FBC0C2700F4EA06 /* VerButton.m in Sources */,
 				181F86D71FB437790090EDEF /* NIMAvatarImageView.m in Sources */,
 				181F87061FB437790090EDEF /* NIMSessionTimestampCell.m in Sources */,
 				181F86EC1FB437790090EDEF /* NIMInputTextView.m in Sources */,
@@ -4247,6 +4271,7 @@
 				5343E88F1FA03060001EBEBC /* securitesModel.m in Sources */,
 				53963AB81FA07B3A009AEFCA /* rankingVC.m in Sources */,
 				181F86C21FB437790090EDEF /* NTESCADisplayLinkHolder.m in Sources */,
+				535A358B1FBC0C2700F4EA06 /* ActionSheetView.m in Sources */,
 				181F87341FB437790090EDEF /* NIMWebImagePrefetcher.m in Sources */,
 				181F86B11FB437790090EDEF /* NTESDemoCreateMeetingTask.m in Sources */,
 				181F868E1FB437790090EDEF /* NTESMeetingRole.m in Sources */,
@@ -4384,6 +4409,7 @@
 				535A35831FBB07D100F4EA06 /* LYMenu.m in Sources */,
 				181F86881FB437790090EDEF /* NTESMeetingViewController.m in Sources */,
 				534B4A071FA1AEE400A68BA7 /* ZTVendorPayManager.m in Sources */,
+				535A358D1FBC0C2700F4EA06 /* ActionButton.m in Sources */,
 				181F86DB1FB437790090EDEF /* NIMMemberGroupView.m in Sources */,
 				181F86961FB437790090EDEF /* yuv420p.fsh.c in Sources */,
 				181F868B1FB437790090EDEF /* NTESJanKenPonAttachment.m in Sources */,

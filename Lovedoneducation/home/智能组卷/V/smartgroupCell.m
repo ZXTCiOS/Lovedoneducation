@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UIView *footView;
 @property (nonatomic, strong) UIButton *setBtn;
 @property (nonatomic, copy) NSString *answerstr;
+@property (nonatomic, copy) NSString *qtitle;
+@property (nonatomic, copy) NSString *qtype;
 @end
 
 static NSString *smarttableidentfid0 = @"smarttableidentfid0";
@@ -81,7 +83,8 @@ static NSString *smarttableidentfid2 = @"smarttableidentfid2";
         if (!cell) {
             cell = [[smartCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:smarttableidentfid0];
         }
-        [cell setdata:self.contentarr];
+//        [cell setdata:self.contentarr];
+        [cell setdata:self.contentarr andtype:self.qtype andtitle:self.qtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -121,7 +124,8 @@ static NSString *smarttableidentfid2 = @"smarttableidentfid2";
     self.contentarr = smodel.qcontent;
     self.answerarr = [NSMutableArray array];
     self.answerarr = smodel.qanswer;
-    
+    self.qtitle =smodel.qtitle;
+    self.qtype = model.qtype;
     [self.table reloadData];
 }
 

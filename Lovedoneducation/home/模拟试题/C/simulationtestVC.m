@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"模拟试题";
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +26,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *practiceType = @"2";
+    //1 智能组卷 2预测试题 3专项智能练习
+    NSString *url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];;
 }
-*/
 
 @end

@@ -4161,11 +4161,8 @@
 				181F86E51FB437790090EDEF /* NIMInputAudioRecordIndicatorView.m in Sources */,
 				181F87141FB437790090EDEF /* NIMCardMemberItem.m in Sources */,
 				533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */,
-
 				181F866D1FB437790090EDEF /* NTESBadgeView.m in Sources */,
-
 				535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */,
-
 				5317DE531F975F4000D4AE2C /* LoginVC.m in Sources */,
 				181F86781FB437790090EDEF /* NTESChatroomCellLayoutConfig.m in Sources */,
 				1864206D1FA1B637004DF7A4 /* LiveEvalutateCell.m in Sources */,
@@ -4445,11 +4442,8 @@
 				181F873A1FB437790090EDEF /* NIMProgressHUD.m in Sources */,
 				181F871F1FB437790090EDEF /* NIMAdvancedTeamMemberCell.m in Sources */,
 				534B74891FAAEC26000D265B /* wrongtopicVC.m in Sources */,
-
 				181F870D1FB437790090EDEF /* NIMSessionNotificationContentView.m in Sources */,
-
 				535BE2BC1FB446FB00A6E89E /* headView.m in Sources */,
-
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				181F86E41FB437790090EDEF /* NIMContactSelectViewController.m in Sources */,
 				181F871D1FB437790090EDEF /* NIMTeamMemberCardViewController.m in Sources */,

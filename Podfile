@@ -16,6 +16,7 @@ pod 'Reachability', '~> 3.1.1'
 
 pod 'MJRefresh'
 pod 'ZFPlayer'
+pod 'ZFDownload'
 pod 'NIMSDK'
 pod 'Masonry'
 pod 'MBProgressHUD'

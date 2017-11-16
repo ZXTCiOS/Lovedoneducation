@@ -21,6 +21,7 @@
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
 
+#import "ZTVendorManager.h"
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 
@@ -69,6 +70,8 @@
 //                          channel:@"Test"
 //                 apsForProduction:NO
 //            advertisingIdentifier:nil];
+    
+    [ZTVendorManager registerVendorSDK];
     
     [self configJPushoptions:launchOptions];
     

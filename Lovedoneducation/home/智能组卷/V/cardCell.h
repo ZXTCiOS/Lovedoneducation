@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class cardModel;
 @interface cardCell : UICollectionViewCell
-
+-(void)setdata:(NSString *)str andnumitem:(NSString *)itemstr;
 @end

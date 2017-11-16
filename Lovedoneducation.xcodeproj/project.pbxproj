@@ -395,6 +395,7 @@
 		535A358B1FBC0C2700F4EA06 /* ActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35851FBC0C2600F4EA06 /* ActionSheetView.m */; };
 		535A358C1FBC0C2700F4EA06 /* VerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A35861FBC0C2600F4EA06 /* VerButton.m */; };
 		535A358D1FBC0C2700F4EA06 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A358A1FBC0C2600F4EA06 /* ActionButton.m */; };
+		535A35901FBC340300F4EA06 /* cardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 535A358F1FBC340300F4EA06 /* cardModel.m */; };
 		535BE2B91FB2E5DF00A6E89E /* smartCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2B81FB2E5DF00A6E89E /* smartCell0.m */; };
 		535BE2BC1FB446FB00A6E89E /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BB1FB446FB00A6E89E /* headView.m */; };
 		535BE2BF1FB472ED00A6E89E /* smartCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 535BE2BE1FB472ED00A6E89E /* smartCell1.m */; };
@@ -1246,6 +1247,8 @@
 		535A35881FBC0C2600F4EA06 /* ActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetView.h; sourceTree = "<group>"; };
 		535A35891FBC0C2600F4EA06 /* VerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerButton.h; sourceTree = "<group>"; };
 		535A358A1FBC0C2600F4EA06 /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionButton.m; sourceTree = "<group>"; };
+		535A358E1FBC340300F4EA06 /* cardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cardModel.h; sourceTree = "<group>"; };
+		535A358F1FBC340300F4EA06 /* cardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardModel.m; sourceTree = "<group>"; };
 		535BE2B71FB2E5DF00A6E89E /* smartCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartCell0.h; sourceTree = "<group>"; };
 		535BE2B81FB2E5DF00A6E89E /* smartCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartCell0.m; sourceTree = "<group>"; };
 		535BE2BA1FB446FB00A6E89E /* headView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
@@ -1406,20 +1409,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
+				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
+				534B4A1C1FA1AF5800A68BA7 /* CoreTelephony.framework in Frameworks */,
+				534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */,
+				534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */,
+				534B4A201FA1AF7500A68BA7 /* libc++.tbd in Frameworks */,
 				181F82A61FB42C8F0090EDEF /* UIKit.framework in Frameworks */,
 				181F82A41FB42C1E0090EDEF /* Foundation.framework in Frameworks */,
-				534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */,
 				185C04C81FA998F600571E67 /* libsqlite3.0.tbd in Frameworks */,
-				534B4A201FA1AF7500A68BA7 /* libc++.tbd in Frameworks */,
 				185C04C61FA998DD00571E67 /* VideoToolbox.framework in Frameworks */,
 				185C04C41FA998D200571E67 /* AudioToolbox.framework in Frameworks */,
 				185C04C21FA998B900571E67 /* CoreMedia.framework in Frameworks */,
-				534B4A1C1FA1AF5800A68BA7 /* CoreTelephony.framework in Frameworks */,
 				185C04C01FA9989200571E67 /* AVFoundation.framework in Frameworks */,
-				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
 				185C04BE1FA9987C00571E67 /* MobileCoreServices.framework in Frameworks */,
-				534B4A221FA1AF8200A68BA7 /* libsqlite3.tbd in Frameworks */,
-				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
 				534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */,
 				534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */,
 				534B4A151FA1AEE400A68BA7 /* libWeChatSDK.a in Frameworks */,
@@ -3427,6 +3430,8 @@
 			children = (
 				531288321FB1A2E300378FD5 /* smartgroupModel.h */,
 				531288331FB1A2E300378FD5 /* smartgroupModel.m */,
+				535A358E1FBC340300F4EA06 /* cardModel.h */,
+				535A358F1FBC340300F4EA06 /* cardModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4378,6 +4383,7 @@
 				181F870A1FB437790090EDEF /* NIMSessionLocationContentView.m in Sources */,
 				181F87221FB437790090EDEF /* NIMTeamCardHeaderCell.m in Sources */,
 				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
+				535A35901FBC340300F4EA06 /* cardModel.m in Sources */,
 				181F865C1FB437790090EDEF /* UIImage+NTESColor.m in Sources */,
 				181F867F1FB437790090EDEF /* NTESMeetingNetCallManager.m in Sources */,
 				181F87021FB437790090EDEF /* NIMSessionViewController.m in Sources */,

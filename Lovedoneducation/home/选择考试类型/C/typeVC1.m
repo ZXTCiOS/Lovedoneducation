@@ -84,6 +84,7 @@ static NSString *type1identfid1 = @"type1identfid1";
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"646464"];
+    cell.textLabel.highlightedTextColor = [UIColor colorWithHexString:@"FFFFFF"];
     return cell;
 }
 

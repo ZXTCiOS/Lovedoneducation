@@ -10,7 +10,7 @@
 #define ZTShare_PayConfig_h
 
 //UMeng https://i.umeng.com
-static NSString * const kUMAppKey = @"59126acacae7e72a4b001a1c";
+static NSString * const kUMAppKey = @"59eff819a40fa33f25000038";
 
 //Vendor: Sina http://open.weibo.com
 static NSString * const kSinaAppKey = @"427975783";

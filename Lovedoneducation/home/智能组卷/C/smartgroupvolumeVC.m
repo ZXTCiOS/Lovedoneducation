@@ -31,7 +31,6 @@
 @property (nonatomic, strong) NSIndexPath *indexPathNow;
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic, strong) NSMutableArray *dataSource;
-
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @end
 
@@ -242,6 +241,7 @@
 -(void)cardclick
 {
     cardVC *vc = [[cardVC alloc] init];
+    vc.dataSource = self.arrayDatasource;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -255,44 +255,79 @@
         }
         if (buttonIndex==1) {
             NSLog(@"分享本题");
-            [self shareBtnClicked];
-            
+            [self screenShot:self.collectionV];
         }
     }];
     [menu show];
 }
 
+#pragma mark - 截图发送
 
-- (void)shareBtnClicked{
+- (void)screenShot:(UIScrollView *)basetable{
+    UIImage* image = nil;
+//    UIGraphicsBeginImageContext(basetable.contentSize);
+//    {
+//        CGPoint savedContentOffset = basetable.contentOffset;
+//        CGRect savedFrame = basetable.frame;
+//        basetable.contentOffset = CGPointZero;
+//
+//        basetable.frame = CGRectMake(0, 0, basetable.contentSize.width, basetable.contentSize.height);
+//        [basetable.layer renderInContext: UIGraphicsGetCurrentContext()];
+//
+//        image = UIGraphicsGetImageFromCurrentImageContext();
+//
+//        basetable.contentOffset = savedContentOffset;
+//        basetable.frame = savedFrame;
+//    }
+//    UIGraphicsEndImageContext();
+//
     
-    NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
-    NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
-    
-    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"测试" and:ShowTypeIsShareStyle];
-    [actionsheet setBtnClick:^(NSInteger btnTag) {
-        NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
-        if (btnTag==0) {
-            
-            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
-            [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    if (image != nil) {
+        NSLog(@"截图成功!");
+//    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+
+        NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+        NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+        
+        ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
+        [actionsheet setBtnClick:^(NSInteger btnTag) {
+            NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+            if (btnTag==0) {
                 
-            }];
-        }
-        if (btnTag==1) {
-            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
-            [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+               // model.shareimage = [UIImage imageNamed:@"shuliangguanxi_image_shouye"];
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
+
+            }
+            if (btnTag==1) {
                 
-            }];
-        }
-        if (btnTag==2) {
-            
-            ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
-            [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
                 
-            }];
-        }
-    }];
-    [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+            }
+            if (btnTag==2) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
+            }
+        }];
+        [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+        
+    }
 }
+
 
 @end

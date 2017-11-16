@@ -8,6 +8,7 @@
 
 #import "cardVC.h"
 #import "cardCell.h"
+#import "cardModel.h"
 
 @interface cardVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collection;
@@ -38,12 +39,15 @@ static NSString *cardidentfid1 = @"cardidentfid1";
         self.headView.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
         self.collection.frame = CGRectMake(30, 80, kScreenW-60, kScreenH-80);
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark - getters
 
@@ -91,11 +95,15 @@ static NSString *cardidentfid1 = @"cardidentfid1";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 60;
+    return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     cardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cardidentfid0 forIndexPath:indexPath];
+    int intnum = (long)indexPath.item;
+    int intnum2 = intnum+1;
+    NSString *numstr = [NSString stringWithFormat:@"%d",intnum2];
+    [cell setdata:self.dataSource[indexPath.item] andnumitem:numstr];
     return cell;
 }
 

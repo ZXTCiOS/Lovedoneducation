@@ -7,9 +7,10 @@
 //
 
 #import "cardCell.h"
-
+#import "cardModel.h"
 @interface cardCell()
 @property (nonatomic,strong) UIButton *setBtn;
+@property (nonatomic,strong) cardModel *cmodel;
 @end
 
 @implementation cardCell
@@ -58,6 +59,19 @@
 -(void)setbtnclick
 {
     NSLog(@"选择题卡");
+}
+
+-(void)setdata:(NSString *)str andnumitem:(NSString *)itemstr
+{
+    if (str.length==0) {
+        
+    }else
+    {
+        self.setBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
+        self.setBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+        [self.setBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
+    }
+    [self.setBtn setTitle:itemstr forState:normal];
 }
 
 @end

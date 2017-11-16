@@ -121,8 +121,10 @@ static NSString *changevcidentfid0 = @"changevcidentfid0";
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"646464"];
+    cell.textLabel.highlightedTextColor = [UIColor colorWithHexString:@"FFFFFF"];
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 75;

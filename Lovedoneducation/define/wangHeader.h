@@ -174,4 +174,13 @@
  @return  首页练习类型选择
  */
 #define GET_practice @"/app.php/questions/practice/?uid=%@&token=%@&practiceType=%@"
+
+
+/**
+ 添加收藏
+
+ @return 添加收藏
+ */
+#define POST_userCollection @"/app.php/user/userCollection"
+
 #endif /* wangHeader_h */

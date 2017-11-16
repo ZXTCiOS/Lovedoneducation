@@ -2728,6 +2728,68 @@
 			path = "忘记密码";
 			sourceTree = "<group>";
 		};
+		531A7F3C1FBD66BE009E8934 /* 预测试题 */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F401FBD66DE009E8934 /* M */,
+				531A7F3F1FBD66DD009E8934 /* V */,
+				531A7F3E1FBD66DC009E8934 /* C */,
+			);
+			path = "预测试题";
+			sourceTree = "<group>";
+		};
+		531A7F3D1FBD66C8009E8934 /* 模拟试题 */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F431FBD66E6009E8934 /* M */,
+				531A7F421FBD66E5009E8934 /* V */,
+				531A7F411FBD66E4009E8934 /* C */,
+			);
+			path = "模拟试题";
+			sourceTree = "<group>";
+		};
+		531A7F3E1FBD66DC009E8934 /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		531A7F3F1FBD66DD009E8934 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		531A7F401FBD66DE009E8934 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		531A7F411FBD66E4009E8934 /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		531A7F421FBD66E5009E8934 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		531A7F431FBD66E6009E8934 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		5323ADA91FA421E200F2E626 /* 数据报告 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3599,6 +3661,8 @@
 				53C3DC741FA97D1A00966F47 /* 练习周报 */,
 				534B74831FAAE89E000D265B /* 错题本 */,
 				53B851AB1FB079E200608925 /* 智能组卷 */,
+				531A7F3C1FBD66BE009E8934 /* 预测试题 */,
+				531A7F3D1FBD66C8009E8934 /* 模拟试题 */,
 			);
 			path = home;
 			sourceTree = "<group>";

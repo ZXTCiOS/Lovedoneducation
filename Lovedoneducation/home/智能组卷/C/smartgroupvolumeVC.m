@@ -32,6 +32,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
+@property (nonatomic, copy)   NSString *pidstr;
 @end
 
 @implementation smartgroupvolumeVC
@@ -78,6 +79,9 @@
     int newint = inter+1;
     NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
     self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+    
+    smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+    self.pidstr = model.qid;
 }
 
 #pragma mark - 数据源
@@ -125,6 +129,11 @@
             }
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+            
+            
+            smartgroupModel *model = [self.dataSource objectAtIndex:0];
+            self.pidstr = model.qid;
+            
         }
     } failure:^(NSError *error) {
         
@@ -251,7 +260,17 @@
         NSLog(@"RightMenu INDEX %d",(int)buttonIndex);
         if (buttonIndex==0) {
             NSLog(@"收藏本题");
-            
+            NSLog(@"pid------%@",self.pidstr);
+            NSString *uid = [userDefault objectForKey:user_uid];
+            NSString *token = [userDefault objectForKey:user_token];
+            NSDictionary *dic = @{@"uid":uid,@"token":token,@"qid":self.pidstr};
+            [DNNetworking postWithURLString:POST_userCollection parameters:dic success:^(id obj) {
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
         }
         if (buttonIndex==1) {
             NSLog(@"分享本题");

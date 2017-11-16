@@ -29,6 +29,7 @@
 #import "smartgroupvolumeVC.h"
 #import "predictexamVC.h"
 #import "simulationtestVC.h"
+#import "collecttopicVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -309,7 +310,8 @@
 
 -(void)shoucangtimuclick
 {
-    
+    collecttopicVC *vc = [[collecttopicVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)lianxizhoubaoclick

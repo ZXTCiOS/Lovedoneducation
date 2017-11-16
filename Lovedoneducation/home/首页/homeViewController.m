@@ -27,7 +27,8 @@
 #import "exerciseweeklyVC.h"
 #import "wrongtopicVC.h"
 #import "smartgroupvolumeVC.h"
-
+#import "predictexamVC.h"
+#import "simulationtestVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -339,11 +340,13 @@
 //预测试题
 -(void)yuceshiticlick
 {
-    
+    predictexamVC *vc = [[predictexamVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //模拟试题
 -(void)monishiticlick
 {
-    
+    simulationtestVC *vc = [[simulationtestVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

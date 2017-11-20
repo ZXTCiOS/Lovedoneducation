@@ -12,6 +12,7 @@
 @implementation UINavigationBar (Swizzling)
 
 + (void)load{
+    //[super load];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         swizzling_exchangeMethod([UINavigationBar class] ,@selector(layoutSubviews), @selector(swizzling_layoutSubviews));
@@ -39,8 +40,8 @@
         label.textColor = color;
     }
     [label sizeToFit];
-    [self layoutLabel];
-    
+    //[self layoutLabel];
+
     if (!IOS8) {
         UIViewController *vc = self.viewController;
         //在竖屏转横屏后，iOS7下导航条会变成32，但是并没有通知到对应vc...这里手动加一个... 否则排版会出问题
@@ -55,7 +56,7 @@
     UIView *rightView  = [[navigationItem rightBarButtonItems].firstObject customView];
     CGFloat left  = leftView.right;
     CGFloat right = rightView ? rightView.right : self.width;
-    
+
     CGFloat maxWidth   = right - left - 2 * TitleMargin;
     UIView *view = navigationItem.titleView;
     view.width   = view.width > maxWidth ? maxWidth : view.width;

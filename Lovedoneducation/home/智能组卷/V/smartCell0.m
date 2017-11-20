@@ -45,9 +45,7 @@
     .rightSpaceToView(weakSelf.contentView, 15)
     .topSpaceToView(weakSelf.contentView, 20)
     .autoHeightRatio(0);
-    
 
-    
     [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
     
 }
@@ -67,181 +65,358 @@
 
 #pragma mark - 实现方法
 
--(void)setdata:(NSMutableArray *)conarr
+-(void)setdata:(NSMutableArray *)conarr andtype:(NSString *)type andtitle:(NSString *)title
 {
     __weak typeof (self) weakSelf = self;
-    if (conarr.count==1) {
-        NSString *contstr = @"";
-        NSArray *dataarr = [conarr firstObject];
-        contstr = [dataarr componentsJoinedByString:@" "];
-        NSString *str = contstr;
-        NSString *strs = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
-        self.lab0.text = strs;
-        [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+    if ([type isEqualToString:@"1"]) {
+        if (conarr.count==1) {
+            NSString *contstr = @"";
+            NSArray *dataarr = [conarr firstObject];
+            contstr = [dataarr componentsJoinedByString:@" "];
+            NSString *str = contstr;
+            NSString *strs = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+            self.lab0.text = strs;
+            [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+        }
+        if (conarr.count==2) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *newstr0 = [str0 stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+            NSString *newstr1 = [str1 stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@",newstr0,@"\n\n",newstr1];
+            self.lab0.text = str;
+            [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+        }
+        if (conarr.count==3) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2];
+            self.lab0.text = str;
+        }
+        if (conarr.count==4) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==5) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==6) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5];
+            self.lab0.text = str;
+            
+            
+        }
+        if (conarr.count==7) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6];
+            self.lab0.text = str;
+            
+            
+        }
+        if (conarr.count==8) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==9) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            NSArray *dataarr8 = [conarr objectAtIndex:8];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str8 = [dataarr8 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8];
+            self.lab0.text = str;
+        }
+        if (conarr.count==10) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            NSArray *dataarr8 = [conarr objectAtIndex:8];
+            NSArray *dataarr9 = [conarr objectAtIndex:9];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str8 = [dataarr8 componentsJoinedByString:@" "];
+            NSString *str9 = [dataarr9 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8,@"\n t\n",str9];
+            self.lab0.text = str;
+            
+        }
     }
-    if (conarr.count==2) {
-        NSString *contstr = @"";
-        NSArray *dataarr = [conarr firstObject];
-        contstr = [dataarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSString *contstr1 =  [dataarr1 objectAtIndex:0];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@",contstr,@"\n\n",contstr1];
-        self.lab0.text = str;
-        [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+    if ([type isEqualToString:@"2"]) {
+        if (conarr.count==1) {
+            NSString *contstr = @"";
+            NSArray *dataarr = [conarr firstObject];
+            contstr = [dataarr componentsJoinedByString:@" "];
+            NSString *str = contstr;
+            NSString *strs = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+            
+            self.lab0.text = [NSString stringWithFormat:@"%@%@%@",title,@"\n\n",strs];
+            [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+        }
+        if (conarr.count==2) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1];
+            self.lab0.text = str;
+            [self setupAutoHeightWithBottomView: weakSelf.lab0 bottomMargin:20];
+        }
+        if (conarr.count==3) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2];
+            self.lab0.text = str;
+        }
+        if (conarr.count==4) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==5) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==6) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5];
+            self.lab0.text = str;
+            
+            
+        }
+        if (conarr.count==7) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6];
+            self.lab0.text = str;
+            
+            
+        }
+        if (conarr.count==8) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7];
+            self.lab0.text = str;
+            
+        }
+        if (conarr.count==9) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            NSArray *dataarr8 = [conarr objectAtIndex:8];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str8 = [dataarr8 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8];
+            self.lab0.text = str;
+        }
+        if (conarr.count==10) {
+            NSArray *dataarr0 = [conarr objectAtIndex:0];
+            NSArray *dataarr1 = [conarr objectAtIndex:1];
+            NSArray *dataarr2 = [conarr objectAtIndex:2];
+            NSArray *dataarr3 = [conarr objectAtIndex:3];
+            NSArray *dataarr4 = [conarr objectAtIndex:4];
+            NSArray *dataarr5 = [conarr objectAtIndex:5];
+            NSArray *dataarr6 = [conarr objectAtIndex:6];
+            NSArray *dataarr7 = [conarr objectAtIndex:7];
+            NSArray *dataarr8 = [conarr objectAtIndex:8];
+            NSArray *dataarr9 = [conarr objectAtIndex:9];
+            
+            NSString *str0 = [dataarr0 componentsJoinedByString:@" "];
+            NSString *str1 = [dataarr1 componentsJoinedByString:@" "];
+            NSString *str2 = [dataarr2 componentsJoinedByString:@" "];
+            NSString *str3 = [dataarr3 componentsJoinedByString:@" "];
+            NSString *str4 = [dataarr4 componentsJoinedByString:@" "];
+            NSString *str5 = [dataarr5 componentsJoinedByString:@" "];
+            NSString *str6 = [dataarr6 componentsJoinedByString:@" "];
+            NSString *str7 = [dataarr7 componentsJoinedByString:@" "];
+            NSString *str8 = [dataarr8 componentsJoinedByString:@" "];
+            NSString *str9 = [dataarr9 componentsJoinedByString:@" "];
+            NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",title,@"\n\n",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8,@"\n t\n",str9];
+            self.lab0.text = str;
+            
+        }
     }
-    if (conarr.count==3) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-       
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2];
-        self.lab0.text = str;
-    }
-    if (conarr.count==4) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3];
-        self.lab0.text = str;
-        
-    }
-    if (conarr.count==5) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-     
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4];
-        self.lab0.text = str;
-        
-    }
-    if (conarr.count==6) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-        NSArray *dataarr5 = [conarr objectAtIndex:5];
-       
    
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str5 = [dataarr5 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5];
-        self.lab0.text = str;
-
-        
-    }
-    if (conarr.count==7) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-        NSArray *dataarr5 = [conarr objectAtIndex:5];
-        NSArray *dataarr6 = [conarr objectAtIndex:6];
-      
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str5 = [dataarr5 firstObject];
-        NSString *str6 = [dataarr6 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6];
-        self.lab0.text = str;
-
-        
-    }
-    if (conarr.count==8) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-        NSArray *dataarr5 = [conarr objectAtIndex:5];
-        NSArray *dataarr6 = [conarr objectAtIndex:6];
-        NSArray *dataarr7 = [conarr objectAtIndex:7];
-       
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str5 = [dataarr5 firstObject];
-        NSString *str6 = [dataarr6 firstObject];
-        NSString *str7 = [dataarr7 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7];
-        self.lab0.text = str;
-
-    }
-    if (conarr.count==9) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-        NSArray *dataarr5 = [conarr objectAtIndex:5];
-        NSArray *dataarr6 = [conarr objectAtIndex:6];
-        NSArray *dataarr7 = [conarr objectAtIndex:7];
-        NSArray *dataarr8 = [conarr objectAtIndex:8];
-    
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str5 = [dataarr5 firstObject];
-        NSString *str6 = [dataarr6 firstObject];
-        NSString *str7 = [dataarr7 firstObject];
-        NSString *str8 = [dataarr8 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8];
-        self.lab0.text = str;
-    }
-    if (conarr.count==10) {
-        NSArray *dataarr0 = [conarr objectAtIndex:0];
-        NSArray *dataarr1 = [conarr objectAtIndex:1];
-        NSArray *dataarr2 = [conarr objectAtIndex:2];
-        NSArray *dataarr3 = [conarr objectAtIndex:3];
-        NSArray *dataarr4 = [conarr objectAtIndex:4];
-        NSArray *dataarr5 = [conarr objectAtIndex:5];
-        NSArray *dataarr6 = [conarr objectAtIndex:6];
-        NSArray *dataarr7 = [conarr objectAtIndex:7];
-        NSArray *dataarr8 = [conarr objectAtIndex:8];
-        NSArray *dataarr9 = [conarr objectAtIndex:9];
-       
-        NSString *str0 = [dataarr0 firstObject];
-        NSString *str1 = [dataarr1 firstObject];
-        NSString *str2 = [dataarr2 firstObject];
-        NSString *str3 = [dataarr3 firstObject];
-        NSString *str4 = [dataarr4 firstObject];
-        NSString *str5 = [dataarr5 firstObject];
-        NSString *str6 = [dataarr6 firstObject];
-        NSString *str7 = [dataarr7 firstObject];
-        NSString *str8 = [dataarr8 firstObject];
-        NSString *str9 = [dataarr9 firstObject];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",str0,@"\n\n",str1,@"\n\n",str2,@"\n\n",str3,@"\n\n",str4,@"\n\n",str5,@"\n\n",str6,@"\n\n",str7,@"\n\n",str8,@"\n t\n",str9];
-        self.lab0.text = str;
-        
-    }
 }
 
 

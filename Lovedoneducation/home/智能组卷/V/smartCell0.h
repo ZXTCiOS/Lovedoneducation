@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface smartCell0 : UITableViewCell
--(void)setdata:(NSMutableArray *)conarr;
+-(void)setdata:(NSMutableArray *)conarr andtype:(NSString *)type andtitle:(NSString *)title;
 @end

@@ -31,5 +31,4 @@
 @property (nonatomic,copy) NSString *successnum;
 @property (nonatomic,copy) NSString *time;
 
-
 @end

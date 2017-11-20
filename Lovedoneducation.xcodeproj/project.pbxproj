@@ -329,6 +329,9 @@
 		5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6A1F988F6200D4AE2C /* logupCell3.m */; };
 		5317DE6F1F989E9600D4AE2C /* changeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE6E1F989E9600D4AE2C /* changeVC0.m */; };
 		5317DE731F98AA5200D4AE2C /* changeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5317DE721F98AA5200D4AE2C /* changeVC1.m */; };
+		531A7F461FBD698F009E8934 /* predictexamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F451FBD698F009E8934 /* predictexamVC.m */; };
+		531A7F491FBD6A05009E8934 /* simulationtestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F481FBD6A05009E8934 /* simulationtestVC.m */; };
+		531A7F501FBD6ADD009E8934 /* collecttopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */; };
 		5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5323ADAE1FA4221200F2E626 /* datareportVC.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
@@ -1132,6 +1135,12 @@
 		5317DE6E1F989E9600D4AE2C /* changeVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC0.m; sourceTree = "<group>"; };
 		5317DE711F98AA5200D4AE2C /* changeVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = changeVC1.h; sourceTree = "<group>"; };
 		5317DE721F98AA5200D4AE2C /* changeVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changeVC1.m; sourceTree = "<group>"; };
+		531A7F441FBD698F009E8934 /* predictexamVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = predictexamVC.h; sourceTree = "<group>"; };
+		531A7F451FBD698F009E8934 /* predictexamVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = predictexamVC.m; sourceTree = "<group>"; };
+		531A7F471FBD6A05009E8934 /* simulationtestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = simulationtestVC.h; sourceTree = "<group>"; };
+		531A7F481FBD6A05009E8934 /* simulationtestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simulationtestVC.m; sourceTree = "<group>"; };
+		531A7F4E1FBD6ADD009E8934 /* collecttopicVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = collecttopicVC.h; sourceTree = "<group>"; };
+		531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicVC.m; sourceTree = "<group>"; };
 		5323ADAD1FA4221200F2E626 /* datareportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportVC.h; sourceTree = "<group>"; };
 		5323ADAE1FA4221200F2E626 /* datareportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportVC.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
@@ -2740,6 +2749,105 @@
 			path = "忘记密码";
 			sourceTree = "<group>";
 		};
+		531A7F3C1FBD66BE009E8934 /* 预测试题 */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F401FBD66DE009E8934 /* M */,
+				531A7F3F1FBD66DD009E8934 /* V */,
+				531A7F3E1FBD66DC009E8934 /* C */,
+			);
+			path = "预测试题";
+			sourceTree = "<group>";
+		};
+		531A7F3D1FBD66C8009E8934 /* 模拟试题 */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F431FBD66E6009E8934 /* M */,
+				531A7F421FBD66E5009E8934 /* V */,
+				531A7F411FBD66E4009E8934 /* C */,
+			);
+			path = "模拟试题";
+			sourceTree = "<group>";
+		};
+		531A7F3E1FBD66DC009E8934 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F441FBD698F009E8934 /* predictexamVC.h */,
+				531A7F451FBD698F009E8934 /* predictexamVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		531A7F3F1FBD66DD009E8934 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		531A7F401FBD66DE009E8934 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		531A7F411FBD66E4009E8934 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F471FBD6A05009E8934 /* simulationtestVC.h */,
+				531A7F481FBD6A05009E8934 /* simulationtestVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		531A7F421FBD66E5009E8934 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		531A7F431FBD66E6009E8934 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		531A7F4A1FBD6AAE009E8934 /* 收藏题目 */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F4D1FBD6ABC009E8934 /* M */,
+				531A7F4C1FBD6ABB009E8934 /* V */,
+				531A7F4B1FBD6ABA009E8934 /* C */,
+			);
+			path = "收藏题目";
+			sourceTree = "<group>";
+		};
+		531A7F4B1FBD6ABA009E8934 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				531A7F4E1FBD6ADD009E8934 /* collecttopicVC.h */,
+				531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		531A7F4C1FBD6ABB009E8934 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		531A7F4D1FBD6ABC009E8934 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		5323ADA91FA421E200F2E626 /* 数据报告 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3611,6 +3719,9 @@
 				53C3DC741FA97D1A00966F47 /* 练习周报 */,
 				534B74831FAAE89E000D265B /* 错题本 */,
 				53B851AB1FB079E200608925 /* 智能组卷 */,
+				531A7F3C1FBD66BE009E8934 /* 预测试题 */,
+				531A7F3D1FBD66C8009E8934 /* 模拟试题 */,
+				531A7F4A1FBD6AAE009E8934 /* 收藏题目 */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -4398,6 +4509,7 @@
 				181F87221FB437790090EDEF /* NIMTeamCardHeaderCell.m in Sources */,
 				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
 				535A35901FBC340300F4EA06 /* cardModel.m in Sources */,
+				531A7F501FBD6ADD009E8934 /* collecttopicVC.m in Sources */,
 				181F865C1FB437790090EDEF /* UIImage+NTESColor.m in Sources */,
 				181F867F1FB437790090EDEF /* NTESMeetingNetCallManager.m in Sources */,
 				181F87021FB437790090EDEF /* NIMSessionViewController.m in Sources */,
@@ -4496,6 +4608,7 @@
 				181F86B81FB437790090EDEF /* NTESWhiteboardCmdHandler.m in Sources */,
 				181F870F1FB437790090EDEF /* NIMSessionUnknowContentView.m in Sources */,
 				53C3DC8C1FA9B4D300966F47 /* UIView+Extension.m in Sources */,
+				531A7F461FBD698F009E8934 /* predictexamVC.m in Sources */,
 				181F86C61FB437790090EDEF /* NTESDevice.m in Sources */,
 				181F86801FB437790090EDEF /* NTESMeetingRolesManager.m in Sources */,
 				181F86DA1FB437790090EDEF /* NIMLoadProgressView.m in Sources */,
@@ -4539,6 +4652,7 @@
 				534B4A3A1FA1CE4F00A68BA7 /* messageCell.m in Sources */,
 				53D1F27B1F9F2BCF002E1524 /* securitiesCell1.m in Sources */,
 				181F868A1FB437790090EDEF /* NTESCustomAttachmentDecoder.m in Sources */,
+				531A7F491FBD6A05009E8934 /* simulationtestVC.m in Sources */,
 				181F86701FB437790090EDEF /* NTESPageView.m in Sources */,
 				181F86741FB437790090EDEF /* NTESLoginViewController.m in Sources */,
 				539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */,

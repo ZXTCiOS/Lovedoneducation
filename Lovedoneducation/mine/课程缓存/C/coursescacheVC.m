@@ -8,9 +8,12 @@
 
 #import "coursescacheVC.h"
 #import "coursescacheCell.h"
-@interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate>
+#import <ZFDownloadManager.h>
+@interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, ZFDownloadDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) ZFDownloadManager *downloadManager;
+
 @end
 
 static NSString *coursecacheidentfid = @"coursecacheidentfid";
@@ -32,7 +35,12 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     }
     self.table.tableFooterView = [UIView new];
     self.dataSource = [NSMutableArray arrayWithObjects:@"1",@"2",@"3", nil];
-    [self loaddata];
+    
+    
+    self.downloadManager = [ZFDownloadManager sharedDownloadManager];
+    [self.dataSource addObjectsFromArray:self.downloadManager.downinglist];
+    [self.dataSource addObjectsFromArray:self.downloadManager.finishedlist];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,17 +48,7 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     // Dispose of any resources that can be recreated.
 }
 
--(void)loaddata
-{
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSString *url = [NSString stringWithFormat:GET_userVideo,uid,token];
-    [DNNetworking getWithURLString:url success:^(id obj) {
-        
-    } failure:^(NSError *error) {
-    
-    }];
-}
+
 
 #pragma mark - getters
 
@@ -80,6 +78,7 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
         cell = [[coursescacheCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:coursecacheidentfid];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.progressV.progress = 0.5;
     return cell;
 }
 

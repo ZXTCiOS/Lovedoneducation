@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, CourseState) {
+    CourseStateBefore,
+    CourseStateing,
+    CourseStateAfter
+};
+
 @class LiveCourseModel, LiveTeacherModel;
 @interface LiveModel : NSObject
 
@@ -69,6 +75,8 @@
 @property (nonatomic, copy) NSString *c_di;
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *cdintro;
+@property (nonatomic, copy) NSString *cdimg;
+@property (nonatomic, assign) CourseState isstart;
 @property (nonatomic, copy) NSString *tname;
 @property (nonatomic, copy) NSString *cdstart_time;
 @property (nonatomic, copy) NSString *cdend_time;

@@ -23,7 +23,7 @@
 
 #import "ZTVendorManager.h"
 
-@interface AppDelegate ()<JPUSHRegisterDelegate>
+@interface AppDelegate ()<JPUSHRegisterDelegate, NIMLoginManagerDelegate>
 
 @end
 
@@ -97,19 +97,23 @@
     option.apnsCername      = @"your APNs cer name";
     option.pkCername        = @"your pushkit cer name";
     [[NIMSDK sharedSDK] registerWithOption:option];
-    
+    [[NIMSDK sharedSDK].loginManager addDelegate:self];
     NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
-    NSString *account = [userDefault objectForKey:@""];
-    NSString *token = [userDefault objectForKey:@""];
+    NSString *account = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_imtoken];
     loginData.account = account;
     loginData.token = token;
     loginData.forcedMode = NO;
     [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
 }
 
+- (void)onLogin:(NIMLoginStep)step{
+    NSLog(@"%ld", step);
+}
 
-
-
+- (void)onAutoLoginFailed:(NSError *)error{
+    NSLog(@"NIM auto login failed.");
+}
 
 
 

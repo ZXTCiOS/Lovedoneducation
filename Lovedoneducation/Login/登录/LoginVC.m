@@ -287,6 +287,8 @@
             NSString *uid = [dic objectForKey:@"uid"];
             [userDefault setObject:token forKey:user_token];
             [userDefault setObject:uid forKey:user_uid];
+            NSString *imtoken = [obj objectForKey:@"acctoken"];
+            [userDefault setObject:imtoken forKey:user_imtoken];
             [userDefault synchronize];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];

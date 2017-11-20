@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UILabel *personlab;
 @property (nonatomic,strong) UIImageView *infoimg;
 @property (nonatomic,strong) UIButton *livebtn;
+
 @end
 
 @implementation coursescacheCell
@@ -33,6 +34,7 @@
         [self.contentView addSubview:self.personlab];
         [self.contentView addSubview:self.infoimg];
         [self.contentView addSubview:self.livebtn];
+        [self progressV];
         [self setuplayout];
     }
     return self;
@@ -177,6 +179,23 @@
     return _livebtn;
 }
 
+- (UIProgressView *)progressV{
+    if (!_progressV) {
+        _progressV = [[UIProgressView alloc] init];
+        [self.contentView addSubview:_progressV];
+        [_progressV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(8);
+            make.right.equalTo(-8);
+            make.bottom.equalTo(-4);
+            make.height.equalTo(1.8);
+        }];
+        
+        _progressV.progressTintColor = krgb(50, 210, 178);
+        _progressV.trackTintColor = [UIColor lightGrayColor];
+    }
+    return _progressV;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -189,5 +208,7 @@
         }
     }
 }
+
+
 
 @end

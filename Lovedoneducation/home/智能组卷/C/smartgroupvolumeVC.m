@@ -17,7 +17,7 @@
 #import "ZTVendorManager.h"
 #import "ActionSheetView.h"
 
-@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDataSource,myTabVdelegate>
+@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate>
 {
     dispatch_source_t timer;
 }
@@ -129,8 +129,6 @@
             }
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
-            
-            
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
             self.pidstr = model.qid;
             

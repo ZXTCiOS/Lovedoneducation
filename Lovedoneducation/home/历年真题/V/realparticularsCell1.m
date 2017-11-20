@@ -1,0 +1,25 @@
+//
+//  realparticularsCell1.m
+//  Lovedoneducation
+//
+//  Created by 王俊钢 on 2017/11/17.
+//  Copyright © 2017年 wangjungang. All rights reserved.
+//
+
+#import "realparticularsCell1.h"
+
+@implementation realparticularsCell1
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self)
+    {
+        
+    }
+    return self;
+}
+
+
+
+@end

@@ -183,4 +183,12 @@
  */
 #define POST_userCollection @"/app.php/user/userCollection"
 
+
+/**
+ 真题详情
+
+ @return 真题详情
+ */
+#define GET_realQuestionDetail @"/app.php/tool/realQuestionDetail?qcid=%@"
+
 #endif /* wangHeader_h */

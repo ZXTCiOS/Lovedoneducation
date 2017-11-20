@@ -331,6 +331,12 @@
 		531A7F461FBD698F009E8934 /* predictexamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F451FBD698F009E8934 /* predictexamVC.m */; };
 		531A7F491FBD6A05009E8934 /* simulationtestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F481FBD6A05009E8934 /* simulationtestVC.m */; };
 		531A7F501FBD6ADD009E8934 /* collecttopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */; };
+		531A7F531FBEB8E1009E8934 /* realparticularsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F521FBEB8E1009E8934 /* realparticularsVC.m */; };
+		531A7F561FBEC000009E8934 /* realparticularsCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F551FBEC000009E8934 /* realparticularsCell0.m */; };
+		531A7F591FBEC015009E8934 /* realparticularsCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F581FBEC015009E8934 /* realparticularsCell1.m */; };
+		531A7F5C1FBEC0D3009E8934 /* realparticularsCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F5B1FBEC0D3009E8934 /* realparticularsCell2.m */; };
+		531A7F5F1FBEC4A0009E8934 /* realCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F5E1FBEC4A0009E8934 /* realCell.m */; };
+		531A7F621FBEC751009E8934 /* realparticularsCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F611FBEC751009E8934 /* realparticularsCell3.m */; };
 		5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5323ADAE1FA4221200F2E626 /* datareportVC.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
@@ -1138,6 +1144,19 @@
 		531A7F481FBD6A05009E8934 /* simulationtestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simulationtestVC.m; sourceTree = "<group>"; };
 		531A7F4E1FBD6ADD009E8934 /* collecttopicVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = collecttopicVC.h; sourceTree = "<group>"; };
 		531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicVC.m; sourceTree = "<group>"; };
+		531A7F511FBEB8E1009E8934 /* realparticularsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsVC.h; sourceTree = "<group>"; };
+		531A7F521FBEB8E1009E8934 /* realparticularsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsVC.m; sourceTree = "<group>"; };
+		531A7F541FBEC000009E8934 /* realparticularsCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsCell0.h; sourceTree = "<group>"; };
+		531A7F551FBEC000009E8934 /* realparticularsCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsCell0.m; sourceTree = "<group>"; };
+		531A7F571FBEC015009E8934 /* realparticularsCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsCell1.h; sourceTree = "<group>"; };
+		531A7F581FBEC015009E8934 /* realparticularsCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsCell1.m; sourceTree = "<group>"; };
+		531A7F5A1FBEC0D3009E8934 /* realparticularsCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsCell2.h; sourceTree = "<group>"; };
+		531A7F5B1FBEC0D3009E8934 /* realparticularsCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsCell2.m; sourceTree = "<group>"; };
+		531A7F5D1FBEC4A0009E8934 /* realCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realCell.h; sourceTree = "<group>"; };
+		531A7F5E1FBEC4A0009E8934 /* realCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realCell.m; sourceTree = "<group>"; };
+		531A7F601FBEC751009E8934 /* realparticularsCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsCell3.h; sourceTree = "<group>"; };
+		531A7F611FBEC751009E8934 /* realparticularsCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsCell3.m; sourceTree = "<group>"; };
+		531A7F631FC2BA8B009E8934 /* NSString+Extension_NSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension_NSString.h"; sourceTree = "<group>"; };
 		5323ADAD1FA4221200F2E626 /* datareportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportVC.h; sourceTree = "<group>"; };
 		5323ADAE1FA4221200F2E626 /* datareportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportVC.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
@@ -3214,6 +3233,8 @@
 			children = (
 				534B4A281FA1BA5E00A68BA7 /* realquestionVC.h */,
 				534B4A291FA1BA5E00A68BA7 /* realquestionVC.m */,
+				531A7F511FBEB8E1009E8934 /* realparticularsVC.h */,
+				531A7F521FBEB8E1009E8934 /* realparticularsVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -3223,6 +3244,16 @@
 			children = (
 				534B4A2B1FA1BEC100A68BA7 /* realquestionCell.h */,
 				534B4A2C1FA1BEC100A68BA7 /* realquestionCell.m */,
+				531A7F5D1FBEC4A0009E8934 /* realCell.h */,
+				531A7F5E1FBEC4A0009E8934 /* realCell.m */,
+				531A7F541FBEC000009E8934 /* realparticularsCell0.h */,
+				531A7F551FBEC000009E8934 /* realparticularsCell0.m */,
+				531A7F571FBEC015009E8934 /* realparticularsCell1.h */,
+				531A7F581FBEC015009E8934 /* realparticularsCell1.m */,
+				531A7F5A1FBEC0D3009E8934 /* realparticularsCell2.h */,
+				531A7F5B1FBEC0D3009E8934 /* realparticularsCell2.m */,
+				531A7F601FBEC751009E8934 /* realparticularsCell3.h */,
+				531A7F611FBEC751009E8934 /* realparticularsCell3.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3786,6 +3817,7 @@
 			children = (
 				533FCB461F99DA6800A4F6E1 /* Helper.h */,
 				533FCB471F99DA6800A4F6E1 /* Helper.m */,
+				531A7F631FC2BA8B009E8934 /* NSString+Extension_NSString.h */,
 				1822E45C1F9E112E00C92DEA /* HYBLoopScrollView */,
 				1822E4671F9E112E00C92DEA /* NSObject+Parse.h */,
 				1822E4651F9E112E00C92DEA /* NSObject+Parse.m */,
@@ -4338,6 +4370,7 @@
 				1822E4571F9E10A500C92DEA /* HomeSort3View.m in Sources */,
 				181F86B41FB437790090EDEF /* NTESLoginManager.m in Sources */,
 				1822E4531F9E10A500C92DEA /* HomeBannerView.m in Sources */,
+				531A7F591FBEC015009E8934 /* realparticularsCell1.m in Sources */,
 				5317DE621F985F5E00D4AE2C /* logupCell0.m in Sources */,
 				181F86651FB437790090EDEF /* UINavigationController+Swizzling.m in Sources */,
 				1856E2521FA02ED000CB2330 /* LiveModel.m in Sources */,
@@ -4403,6 +4436,7 @@
 				535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */,
 				181F87171FB437790090EDEF /* NIMTeamInfoData.m in Sources */,
 				181F86931FB437790090EDEF /* color.c in Sources */,
+				531A7F561FBEC000009E8934 /* realparticularsCell0.m in Sources */,
 				181F86A71FB437790090EDEF /* NTESChatroomSegmentedControl.m in Sources */,
 				186570B21FB9875E00FB9E55 /* LievWhiteboardRecoredVC.m in Sources */,
 				181F869D1FB437790090EDEF /* renderer_yuv420sp_vtb.m in Sources */,
@@ -4523,6 +4557,7 @@
 				53D1F26E1F9F0E35002E1524 /* changepasswordVC.m in Sources */,
 				534B49CE1FA1873400A68BA7 /* rankingModel.m in Sources */,
 				181F87201FB437790090EDEF /* NIMKitColorButtonCell.m in Sources */,
+				531A7F531FBEB8E1009E8934 /* realparticularsVC.m in Sources */,
 				1822E46D1F9E112F00C92DEA /* HYBLoopScrollView.m in Sources */,
 				535A35831FBB07D100F4EA06 /* LYMenu.m in Sources */,
 				181F86881FB437790090EDEF /* NTESMeetingViewController.m in Sources */,
@@ -4669,6 +4704,7 @@
 				181F86B61FB437790090EDEF /* NTESDocumentHandler.m in Sources */,
 				534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */,
 				181F865D1FB437790090EDEF /* UIResponder+NTESFirstResponder.m in Sources */,
+				531A7F621FBEC751009E8934 /* realparticularsCell3.m in Sources */,
 				181F870E1FB437790090EDEF /* NIMSessionTextContentView.m in Sources */,
 				181F867A1FB437790090EDEF /* NTESChatroomTextContentConfig.m in Sources */,
 				189D53C61FA7418700600947 /* FSCalendarCollectionView.m in Sources */,
@@ -4676,6 +4712,7 @@
 				181F867B1FB437790090EDEF /* NTESChatroomUnknowMessageConfig.m in Sources */,
 				535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */,
 				189D53C81FA7418700600947 /* FSCalendarConstants.m in Sources */,
+				531A7F5C1FBEC0D3009E8934 /* realparticularsCell2.m in Sources */,
 				181F86601FB437790090EDEF /* UIView+NTES.m in Sources */,
 				181F86C11FB437790090EDEF /* NTESBundleSetting.m in Sources */,
 				181F867E1FB437790090EDEF /* NTESMeetingMessageHandler.m in Sources */,
@@ -4690,6 +4727,7 @@
 				181F86D41FB437790090EDEF /* UITableView+NIMScrollToBottom.m in Sources */,
 				181F86A01FB437790090EDEF /* mvp.vsh.c in Sources */,
 				53D1F2681F9F063C002E1524 /* securitiesVC.m in Sources */,
+				531A7F5F1FBEC4A0009E8934 /* realCell.m in Sources */,
 				181F87031FB437790090EDEF /* NIMSessionViewLayoutManager.m in Sources */,
 				181F86631FB437790090EDEF /* NTESNavigationHandler.m in Sources */,
 				181F86E31FB437790090EDEF /* NIMContactSelectTabView.m in Sources */,

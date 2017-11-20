@@ -21,7 +21,12 @@
 }
 
 
-
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    
+}
 
 
 

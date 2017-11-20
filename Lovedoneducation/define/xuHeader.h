@@ -46,6 +46,9 @@ _Pragma("clang diagnostic pop")\
 
 
 #define NIMKEY @"8210a542cf018de3bb35c11282dbb23c"
+#define user_accid @"test0"
+#define user_imtoken @"b1b87dcdfbd844e2c98f0d00d0f7a634"
+
 #define TeacherBGImage @""
 
 

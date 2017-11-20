@@ -113,6 +113,8 @@ static NSString *changevc1identfid = @"changevc1identfid";
                 NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
                 [defat setObject:token forKey:user_token];
                 [defat setObject:uid forKey:user_uid];
+                NSString *imtoken = [obj objectForKey:@"acctoken"];
+                [userDefault setObject:imtoken forKey:user_imtoken];
                 [defat synchronize];
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

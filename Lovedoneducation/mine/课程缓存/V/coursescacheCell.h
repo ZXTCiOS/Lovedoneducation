@@ -10,4 +10,12 @@
 
 @interface coursescacheCell : UITableViewCell
 
+
+@property (nonatomic, strong) UIProgressView *progressV;
+
+
+
+
+
+
 @end

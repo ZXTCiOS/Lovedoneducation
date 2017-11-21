@@ -429,7 +429,6 @@
 		53963AC31FA07F39009AEFCA /* aboutCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AC21FA07F39009AEFCA /* aboutCell0.m */; };
 		53963AC61FA08239009AEFCA /* aboutCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AC51FA08239009AEFCA /* aboutCell1.m */; };
 		53963AC91FA08245009AEFCA /* aboutCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AC81FA08245009AEFCA /* aboutCell2.m */; };
-		53963ACC1FA090A6009AEFCA /* WJGtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963ACB1FA090A6009AEFCA /* WJGtextView.m */; };
 		53963AD21FA0A29E009AEFCA /* rankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AD11FA0A29E009AEFCA /* rankingCell.m */; };
 		539E17131F9DBBDC00EA1E2B /* MD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17121F9DBBDC00EA1E2B /* MD5Tool.m */; };
 		539E17171F9DDDE700EA1E2B /* mineCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 539E17161F9DDDE700EA1E2B /* mineCell1.m */; };
@@ -1328,8 +1327,6 @@
 		53963AC51FA08239009AEFCA /* aboutCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = aboutCell1.m; sourceTree = "<group>"; };
 		53963AC71FA08245009AEFCA /* aboutCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aboutCell2.h; sourceTree = "<group>"; };
 		53963AC81FA08245009AEFCA /* aboutCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = aboutCell2.m; sourceTree = "<group>"; };
-		53963ACA1FA090A6009AEFCA /* WJGtextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJGtextView.h; sourceTree = "<group>"; };
-		53963ACB1FA090A6009AEFCA /* WJGtextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJGtextView.m; sourceTree = "<group>"; };
 		53963AD01FA0A29E009AEFCA /* rankingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rankingCell.h; sourceTree = "<group>"; };
 		53963AD11FA0A29E009AEFCA /* rankingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rankingCell.m; sourceTree = "<group>"; };
 		539E17111F9DBBDC00EA1E2B /* MD5Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Tool.h; sourceTree = "<group>"; };
@@ -3065,8 +3062,6 @@
 				534219B91F9F5A2500F26E61 /* feedbackVC.m */,
 				53963ABC1FA07CE9009AEFCA /* feedbackCell.h */,
 				53963ABD1FA07CE9009AEFCA /* feedbackCell.m */,
-				53963ACA1FA090A6009AEFCA /* WJGtextView.h */,
-				53963ACB1FA090A6009AEFCA /* WJGtextView.m */,
 			);
 			path = "问题反馈";
 			sourceTree = "<group>";
@@ -4592,7 +4587,6 @@
 				181F868B1FB437790090EDEF /* NTESJanKenPonAttachment.m in Sources */,
 				181F86D11FB437790090EDEF /* NIMAttributedLabel+NIMKit.m in Sources */,
 				181F873B1FB437790090EDEF /* UIView+NIMKitToast.m in Sources */,
-				53963ACC1FA090A6009AEFCA /* WJGtextView.m in Sources */,
 				181F86861FB437790090EDEF /* NTESMeetingRoomCreateViewController.m in Sources */,
 				181F87331FB437790090EDEF /* NIMWebImageManager.m in Sources */,
 				53C999591F9739D9006A6570 /* ViewController.m in Sources */,

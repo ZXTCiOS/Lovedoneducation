@@ -39,6 +39,9 @@ static NSString *cellFooterId = @"photoCellFooterId";
     
     // 改变选中状态的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSelectPhotoAy:) name:@"HX_SelectPhotosNotica" object:nil];
+    
+    
+
 }
 
 #pragma mark - < 取消按钮 删除改变过的选择 >
@@ -91,6 +94,15 @@ static NSString *cellFooterId = @"photoCellFooterId";
     flowLayout.footerReferenceSize = CGSizeMake(width, 40);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, width, heght - 50) collectionViewLayout:flowLayout];
+    
+    if (@available(iOS 11.0, *)){
+        collectionView.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
+    }
+    else
+    {
+        collectionView.frame = CGRectMake(0, 0, kScreenW, kScreenH-60);
+    }
+    
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.alwaysBounceVertical = YES;

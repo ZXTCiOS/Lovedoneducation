@@ -385,6 +385,8 @@
 		5344D9311FC43F730011F504 /* HX_PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344D90D1FC43F720011F504 /* HX_PhotoModel.m */; };
 		5344D9321FC43F730011F504 /* HX_AssetContainerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344D90F1FC43F720011F504 /* HX_AssetContainerViewCell.m */; };
 		5344D9331FC43F730011F504 /* HX_PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344D9111FC43F720011F504 /* HX_PhotosViewController.m */; };
+		5344D9371FC449D40011F504 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5344D9351FC449D40011F504 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		5344D9381FC449D40011F504 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5344D9361FC449D40011F504 /* TencentOpenAPI.framework */; };
 		534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49BD1FA0D75D00A68BA7 /* w_star_red.png */; };
 		534B49C61FA0D75D00A68BA7 /* w_star_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49BE1FA0D75D00A68BA7 /* w_star_red@2x.png */; };
 		534B49C71FA0D75D00A68BA7 /* w_star_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534B49BF1FA0D75D00A68BA7 /* w_star_red@3x.png */; };
@@ -1269,6 +1271,8 @@
 		5344D9101FC43F720011F504 /* HX_AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HX_AssetManager.h; sourceTree = "<group>"; };
 		5344D9111FC43F720011F504 /* HX_PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HX_PhotosViewController.m; sourceTree = "<group>"; };
 		5344D9121FC43F720011F504 /* HX_PhotosFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HX_PhotosFooterView.h; sourceTree = "<group>"; };
+		5344D9351FC449D40011F504 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		5344D9361FC449D40011F504 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		534B49BD1FA0D75D00A68BA7 /* w_star_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w_star_red.png; sourceTree = "<group>"; };
 		534B49BE1FA0D75D00A68BA7 /* w_star_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_star_red@2x.png"; sourceTree = "<group>"; };
 		534B49BF1FA0D75D00A68BA7 /* w_star_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_star_red@3x.png"; sourceTree = "<group>"; };
@@ -1520,6 +1524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
+				5344D9381FC449D40011F504 /* TencentOpenAPI.framework in Frameworks */,
 				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
 				534B4A1C1FA1AF5800A68BA7 /* CoreTelephony.framework in Frameworks */,
 				534B4A1E1FA1AF6400A68BA7 /* libz.tbd in Frameworks */,
@@ -3204,6 +3209,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		5344D9341FC449D40011F504 /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				5344D9351FC449D40011F504 /* TencentOpenApi_IOS_Bundle.bundle */,
+				5344D9361FC449D40011F504 /* TencentOpenAPI.framework */,
+			);
+			path = Tencent;
+			sourceTree = "<group>";
+		};
 		534B49BC1FA0D75D00A68BA7 /* WTKStar */ = {
 			isa = PBXGroup;
 			children = (
@@ -3957,6 +3971,7 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5344D9341FC449D40011F504 /* Tencent */,
 				189D539F1FA7418700600947 /* FSCalendar copy */,
 				534B49D91FA1AEE400A68BA7 /* ZTVendorManager */,
 				5317DE471F974C0B00D4AE2C /* utlis */,
@@ -4269,6 +4284,7 @@
 				5344D9261FC43F730011F504 /* album_checkbox_blue@2x.png in Resources */,
 				18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */,
 				53C9995E1F9739D9006A6570 /* Assets.xcassets in Resources */,
+				5344D9371FC449D40011F504 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5344D91C1FC43F730011F504 /* 37x-Checkmark@2x.png in Resources */,
 				5344D91F1FC43F730011F504 /* tianjiatupian@2x.png in Resources */,
 				181F86751FB437790090EDEF /* NTESLoginViewController.xib in Resources */,
@@ -5096,6 +5112,7 @@
 					"$(PROJECT_DIR)/Lovedoneducation/Tools/NIM_iOS_SDK_v4.3.0/NIMSDK",
 					"$(PROJECT_DIR)/Lovedoneducation/NIMDemo/Classes/Vendors/NIMSDK/NIMAVChat",
 					"$(PROJECT_DIR)/Lovedoneducation/NIMDemo/Classes/Vendors/NIMSDK/NIMSDK",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/Tencent",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";
@@ -5138,6 +5155,7 @@
 					"$(PROJECT_DIR)/Lovedoneducation/Tools/NIM_iOS_SDK_v4.3.0/NIMSDK",
 					"$(PROJECT_DIR)/Lovedoneducation/NIMDemo/Classes/Vendors/NIMSDK/NIMAVChat",
 					"$(PROJECT_DIR)/Lovedoneducation/NIMDemo/Classes/Vendors/NIMSDK/NIMSDK",
+					"$(PROJECT_DIR)/Lovedoneducation/Tools/Tencent",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lovedoneducation/PrefixHeader.pch";

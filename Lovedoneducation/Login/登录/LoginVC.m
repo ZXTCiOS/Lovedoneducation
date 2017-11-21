@@ -12,6 +12,10 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "ZTVendorManager.h"
+#import "WXApi.h"
+#import "UMSocialQQHandler.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -47,6 +51,7 @@
     [self.view addSubview:self.line1];
     [self layout];
     self.payManager = [[ZTVendorPayManager alloc]init];
+    [self xianshi];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -332,4 +337,22 @@
     [self.passwordText resignFirstResponder];
 }
 
+-(void)xianshi{
+    if([WXApi isWXAppInstalled]){
+        
+        [self.weixinBtn setHidden:NO];
+        
+    }else{
+        [self.weixinBtn setHidden:YES];
+    }
+    if ([QQApiInterface isQQInstalled]) {
+        [self.qqBtn setHidden:NO];
+    }
+    else
+    {
+        [self.qqBtn setHidden:YES];
+    }
+    
+    
+}
 @end

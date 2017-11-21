@@ -9,7 +9,7 @@
 #import "realparticularsCell2.h"
 
 @interface realparticularsCell2()
-@property (nonatomic,strong) UITextView *textView;
+
 @end
 
 @implementation realparticularsCell2
@@ -19,7 +19,7 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        [self.contentView addSubview:self.textView];
+        
     }
     return self;
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface realparticularsCell1 : UITableViewCell
-
+-(void)setarray:(NSMutableArray *)array andtype:(NSString *)type;
 @end

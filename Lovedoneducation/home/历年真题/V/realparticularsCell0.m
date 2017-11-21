@@ -9,6 +9,7 @@
 #import "realparticularsCell0.h"
 #import "NSString+Extension_NSString.h"
 
+
 @interface realparticularsCell0()
 @property (nonatomic,strong) UILabel *contentlab;
 @property (nonatomic,strong) UIImageView *realImg;
@@ -33,14 +34,15 @@
 -(void)setlayout
 {
     __weak typeof (self) weakSelf = self;
-    
+    weakSelf.contentlab.isAttributedContent = YES;
+
     weakSelf.contentlab
     .sd_layout
     .leftSpaceToView(weakSelf.contentView, 15)
     .rightSpaceToView(weakSelf.contentView, 15)
     .topSpaceToView(weakSelf.contentView, 20)
     .autoHeightRatio(0);
-    
+
 
 }
 
@@ -95,19 +97,20 @@
                 NSString *url = [urlarr firstObject];
                 [self.realImg sd_setImageWithURL:[NSURL URLWithString:url]];
                 [self.contentView addSubview:self.realImg];
-
-                NSArray *arrayhei = [url componentsSeparatedByString:@"height="]; //从字符A中分隔成2个元素的数组
+                NSArray *arrayhei = [url componentsSeparatedByString:@"&height="]; //从字符A中分隔成2个元素的数组
                 NSString *result = [arrayhei objectAtIndex:1];
-                
+
+//                NSString *widstr = [arrayhei firstObject];
+//                NSArray *arraywidth = [widstr componentsSeparatedByString:@"?width="];
+//                NSString *widthstr = [arraywidth objectAtIndex:1];
                 [weakSelf.realImg setHidden:NO];
-                
                 weakSelf.realImg
                 .sd_layout
                 .leftEqualToView(weakSelf.contentlab)
-                .rightEqualToView(weakSelf.contentlab)
+                .rightSpaceToView(weakSelf.contentView, 20)
                 .topSpaceToView(weakSelf.contentlab, 20)
                 .heightIs([result intValue]);
-                
+//                .widthIs([widthstr intValue]);
                 [self setupAutoHeightWithBottomView: weakSelf.realImg bottomMargin:20];
             }
             else
@@ -170,6 +173,7 @@
     
     contentstr = [arr1 componentsJoinedByString:@" "];
     self.contentlab.text = contentstr;
+    [UILabel changeLineSpaceForLabel:self.contentlab WithSpace:5];
 }
 
 -(NSString* )datacontentarr:(NSArray *)arr

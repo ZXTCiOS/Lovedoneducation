@@ -338,6 +338,8 @@
 		531A7F5C1FBEC0D3009E8934 /* realparticularsCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F5B1FBEC0D3009E8934 /* realparticularsCell2.m */; };
 		531A7F5F1FBEC4A0009E8934 /* realCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F5E1FBEC4A0009E8934 /* realCell.m */; };
 		531A7F621FBEC751009E8934 /* realparticularsCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F611FBEC751009E8934 /* realparticularsCell3.m */; };
+		531A7F661FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F651FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.m */; };
+		531A7F691FC4021B009E8934 /* WJGtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531A7F681FC4021B009E8934 /* WJGtextView.m */; };
 		5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5323ADAE1FA4221200F2E626 /* datareportVC.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
@@ -1160,6 +1162,10 @@
 		531A7F601FBEC751009E8934 /* realparticularsCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realparticularsCell3.h; sourceTree = "<group>"; };
 		531A7F611FBEC751009E8934 /* realparticularsCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realparticularsCell3.m; sourceTree = "<group>"; };
 		531A7F631FC2BA8B009E8934 /* NSString+Extension_NSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension_NSString.h"; sourceTree = "<group>"; };
+		531A7F641FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeLineSpaceAndWordSpace.h"; sourceTree = "<group>"; };
+		531A7F651FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeLineSpaceAndWordSpace.m"; sourceTree = "<group>"; };
+		531A7F671FC4021B009E8934 /* WJGtextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJGtextView.h; sourceTree = "<group>"; };
+		531A7F681FC4021B009E8934 /* WJGtextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJGtextView.m; sourceTree = "<group>"; };
 		5323ADAD1FA4221200F2E626 /* datareportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportVC.h; sourceTree = "<group>"; };
 		5323ADAE1FA4221200F2E626 /* datareportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportVC.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
@@ -3266,6 +3272,8 @@
 				531A7F5B1FBEC0D3009E8934 /* realparticularsCell2.m */,
 				531A7F601FBEC751009E8934 /* realparticularsCell3.h */,
 				531A7F611FBEC751009E8934 /* realparticularsCell3.m */,
+				531A7F671FC4021B009E8934 /* WJGtextView.h */,
+				531A7F681FC4021B009E8934 /* WJGtextView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3840,6 +3848,8 @@
 				1822E4691F9E112F00C92DEA /* UIView+HUD.m */,
 				1856E2581FA0426A00CB2330 /* UIScrollView+Refresh.h */,
 				1856E2591FA0426B00CB2330 /* UIScrollView+Refresh.m */,
+				531A7F641FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.h */,
+				531A7F651FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -4640,6 +4650,7 @@
 				181F86621FB437790090EDEF /* NTESNavigationAnimator.m in Sources */,
 				537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */,
 				181F872B1FB437790090EDEF /* NIMAttributedLabelAttachment.m in Sources */,
+				531A7F691FC4021B009E8934 /* WJGtextView.m in Sources */,
 				181F86B81FB437790090EDEF /* NTESWhiteboardCmdHandler.m in Sources */,
 				181F870F1FB437790090EDEF /* NIMSessionUnknowContentView.m in Sources */,
 				53C3DC8C1FA9B4D300966F47 /* UIView+Extension.m in Sources */,
@@ -4649,6 +4660,7 @@
 				181F86DA1FB437790090EDEF /* NIMLoadProgressView.m in Sources */,
 				539E17301F9E0EF700EA1E2B /* changephoneVC2.m in Sources */,
 				533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */,
+				531A7F661FC3CE19009E8934 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				181F87161FB437790090EDEF /* NIMTeamCardRowItem.m in Sources */,
 				181F86AF1FB437790090EDEF /* NTESSessionJankenponContentView.m in Sources */,
 				539E17211F9DEB8A00EA1E2B /* myinfoVC.m in Sources */,

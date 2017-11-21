@@ -48,9 +48,25 @@
         [self.labC setHidden:YES];
         [self.labD setHidden:YES];
         
+        [self.contentView addSubview:self.textView];
+        [self.textView setHidden:NO];
+        self.textView
+        .sd_layout
+        .leftSpaceToView(self.contentView, 20)
+        .rightSpaceToView(self.contentView, 20)
+        .heightIs(200)
+        .topSpaceToView(self.contentView, 20);
+        
+         [self setupAutoHeightWithBottomView: self.textView bottomMargin:20];
     }
     else
     {
+        [self.textView setHidden:YES];
+        [self.labA setHidden:NO];
+        [self.labB setHidden:NO];
+        [self.labC setHidden:NO];
+        [self.labD setHidden:NO];
+        
         NSArray *arr0 = [array objectAtIndex:0];
         NSArray *arr1 = [array objectAtIndex:1];
         NSArray *arr2 = [array objectAtIndex:2];
@@ -65,6 +81,8 @@
         self.labB.text = [answerb stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
         self.labC.text = [answerc stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
         self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+        
+        [self setupAutoHeightWithBottomView: self.labD bottomMargin:20];
     }
     
 }
@@ -133,7 +151,8 @@
     if(!_textView)
     {
         _textView = [[WJGtextView alloc] init];
-        
+        _textView.customPlaceholder = @"点击开始答题";
+        _textView.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
     }
     return _textView;
 }

@@ -55,7 +55,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
-    [self startCount];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +108,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
             self.pidstr = model.qid;
+            [self startCount];
         }
     } failure:^(NSError *error) {
         

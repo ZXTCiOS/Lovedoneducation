@@ -9,7 +9,7 @@
 #import "realparticularsCell2.h"
 
 @interface realparticularsCell2()
-
+@property (nonatomic,strong) UIButton *submitBtn;
 @end
 
 @implementation realparticularsCell2
@@ -19,12 +19,49 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
+        [self.contentView addSubview:self.submitBtn];
         
     }
     return self;
 }
 
+-(void)setuplayout
+{
+    __weak typeof (self) weakSelf = self;
+    weakSelf.submitBtn
+    .sd_layout
+    .topSpaceToView(weakSelf.contentView, 20)
+    .heightIs(44)
+    .widthIs(160)
+    .centerXEqualToView(weakSelf.contentView);
+    [self setupAutoHeightWithBottomView: weakSelf.submitBtn bottomMargin:20];
+}
+
+
 #pragma mark - getters
+
+-(UIButton *)submitBtn
+{
+    if(!_submitBtn)
+    {
+        _submitBtn = [[UIButton alloc] init];
+        [_submitBtn addTarget:self action:@selector(submitbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_submitBtn setTitle:@"交卷并查看结果" forState:normal];
+
+        [_submitBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
+        
+    }
+    return _submitBtn;
+}
+
+#pragma mark - 实现方法
+
+-(void)submitbtnclick
+{
+    
+}
 
 
 @end

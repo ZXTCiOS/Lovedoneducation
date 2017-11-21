@@ -10,7 +10,7 @@
 #import "realparticularsCell0.h"
 #import "realparticularsCell1.h"
 #import "realparticularsCell2.h"
-#import "realparticularsCell3.h"
+
 #import "smartgroupModel.h"
 
 @interface realCell()<UITableViewDataSource,UITableViewDelegate>
@@ -30,7 +30,7 @@
 static NSString *realcellidentfid0 = @"realcellidentfid0";
 static NSString *realcellidentfid1 = @"realcellidentfid1";
 static NSString *realcellidentfid2 = @"realcellidentfid2";
-static NSString *realcellidentfid3 = @"realcellidentfid3";
+
 
 @implementation realCell
 
@@ -67,15 +67,15 @@ static NSString *realcellidentfid3 = @"realcellidentfid3";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if ([self.copystr isEqualToString:@"2"]) {
-//        return 2;
-//    }
-//    if ([self.copystr isEqualToString:@"1"])
-//    {
-//        return 3;
-//    }
-//    return 0;
-    return 2;
+    if ([self.copystr isEqualToString:@"2"]) {
+        return 2;
+    }
+    if ([self.copystr isEqualToString:@"1"])
+    {
+        return 3;
+    }
+    return 0;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

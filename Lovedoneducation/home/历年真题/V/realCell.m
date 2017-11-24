@@ -75,7 +75,6 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
         return 3;
     }
     return 0;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,12 +94,10 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
             cell = [[realparticularsCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realcellidentfid1];
         }
         [cell setarray:self.answerarr andtype:self.qtype];
-        
-        
+
 //        [cell setdata:self.answerarr];
 //        [cell setanswer:self.answerstr];
 //        cell.delegate = self;
-        
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -110,6 +107,7 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
         if (!cell) {
             cell = [[realparticularsCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realcellidentfid2];
         }
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

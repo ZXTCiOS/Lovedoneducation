@@ -90,9 +90,7 @@
             NSArray *arr = [conarr firstObject];
             NSString *strs = [arr componentsJoinedByString:@" "];
             [arr1 addObject:strs];
-            
-            NSDictionary *dic2 = [conarr objectAtIndex:1];
-            NSArray *urlarr = [dic2 objectForKey:@"big"];
+            NSArray *urlarr = [conarr objectAtIndex:1];
             if (urlarr.count==1) {
                 NSString *url = [urlarr firstObject];
                 [self.realImg sd_setImageWithURL:[NSURL URLWithString:url]];
@@ -100,9 +98,7 @@
                 NSArray *arrayhei = [url componentsSeparatedByString:@"&height="]; //从字符A中分隔成2个元素的数组
                 NSString *result = [arrayhei objectAtIndex:1];
 
-//                NSString *widstr = [arrayhei firstObject];
-//                NSArray *arraywidth = [widstr componentsSeparatedByString:@"?width="];
-//                NSString *widthstr = [arraywidth objectAtIndex:1];
+
                 [weakSelf.realImg setHidden:NO];
                 weakSelf.realImg
                 .sd_layout
@@ -110,7 +106,6 @@
                 .rightSpaceToView(weakSelf.contentView, 20)
                 .topSpaceToView(weakSelf.contentlab, 20)
                 .heightIs([result intValue]);
-//                .widthIs([widthstr intValue]);
                 [self setupAutoHeightWithBottomView: weakSelf.realImg bottomMargin:20];
             }
             else
@@ -131,6 +126,7 @@
                 }
                 else
                 {
+
                     NSString *str = [dataarr componentsJoinedByString:@" "];
                     NSString *strss = [NSString stringWithFormat:@"%@%@",str,@"\n\n"];
                     NSString *strs = [strss stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
@@ -179,17 +175,23 @@
 -(NSString* )datacontentarr:(NSArray *)arr
 {
     NSString *str = @"";
-    int a = 0;
+
     for (int i = 0; i<arr.count; i++) {
-        NSObject *objdic = [arr objectAtIndex:i];
-        if ([objdic isKindOfClass:[NSDictionary class]]) {
-            a = i;
-            str = [NSString stringWithFormat:@"%d",a];
+        
+        NSArray *objdic = [arr objectAtIndex:i];
+        
+        for (int j = 0; j<objdic.count; j++) {
+            NSString *string = [objdic objectAtIndex:j];
+            if([string rangeOfString:@"http://"].location !=NSNotFound)
+            {
+                str = @"1";
+            }
+            else
+            {
+                str = @"0";
+            }
         }
-        else
-        {
-            str = @"1000";
-        }
+        
     }
     return str;
 }

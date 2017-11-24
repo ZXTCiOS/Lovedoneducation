@@ -8,25 +8,23 @@
 
 #import "realparticularsCell1.h"
 #import "WJGtextView.h"
-#import <AssetsLibrary/AssetsLibrary.h>
-#import <AVFoundation/AVFoundation.h>
-#import "MBProgressHUD.h"
-#import <Photos/Photos.h>
-#import "HX_AssetManager.h"
-#import "HX_AddPhotoView.h"
+
 
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
-@interface realparticularsCell1()<HX_AddPhotoViewDelegate>
+@interface realparticularsCell1()
 @property (nonatomic,copy) NSString *typestr;
 
 @property (nonatomic,strong) UILabel *labA;
 @property (nonatomic,strong) UILabel *labB;
 @property (nonatomic,strong) UILabel *labC;
 @property (nonatomic,strong) UILabel *labD;
-
+@property (nonatomic,strong) UIImageView *imgA;
+@property (nonatomic,strong) UIImageView *imgB;
+@property (nonatomic,strong) UIImageView *imgC;
+@property (nonatomic,strong) UIImageView *imgD;
 @property (nonatomic,strong) WJGtextView *textView;
-@property (nonatomic,strong) HX_AddPhotoView *addPhotoView;
+
 @end
 
 @implementation realparticularsCell1
@@ -42,8 +40,13 @@
         [self.contentView addSubview:self.labC];
         [self.contentView addSubview:self.labD];
         
-        [self setuptype1];
-        [self setuptype2];
+        [self.contentView addSubview:self.imgA];
+        [self.contentView addSubview:self.imgB];
+        [self.contentView addSubview:self.imgC];
+        [self.contentView addSubview:self.imgD];
+        
+        [self.contentView addSubview:self.textView];
+
     }
     return self;
 }
@@ -57,53 +60,150 @@
         [self.labB setHidden:YES];
         [self.labC setHidden:YES];
         [self.labD setHidden:YES];
-        
-        [self.contentView addSubview:self.textView];
+
         [self.textView setHidden:NO];
-        [self.addPhotoView setHidden:NO];
+      
         self.textView
         .sd_layout
         .leftSpaceToView(self.contentView, 20)
         .rightSpaceToView(self.contentView, 20)
         .heightIs(200)
         .topSpaceToView(self.contentView, 20);
+
         
-        self.addPhotoView
-        .sd_layout
-        .leftSpaceToView(self.contentView, 20)
-        .rightSpaceToView(self.contentView, 20)
-        .heightIs(80)
-        .topSpaceToView(self.textView, 15);
-        
-         [self setupAutoHeightWithBottomView: self.addPhotoView bottomMargin:20];
+         [self setupAutoHeightWithBottomView: self.textView bottomMargin:20];
     }
     else
     {
-        [self.textView setHidden:YES];
-        [self.addPhotoView setHidden:YES];
-        [self.labA setHidden:NO];
-        [self.labB setHidden:NO];
-        [self.labC setHidden:NO];
-        [self.labD setHidden:NO];
+        if (array.count==4) {
+            [self.textView setHidden:YES];
+            
+            [self.labA setHidden:NO];
+            [self.labB setHidden:NO];
+            [self.labC setHidden:NO];
+            [self.labD setHidden:NO];
+
+            NSArray *arr0 = [array objectAtIndex:0];
+            NSArray *arr1 = [array objectAtIndex:1];
+            NSArray *arr2 = [array objectAtIndex:2];
+            NSArray *arr3 = [array objectAtIndex:3];
+            
+            NSString *intstrA = [self datacontentarr:arr0];
+
+            if ([intstrA isEqualToString:@"1"]) {
+                NSString *answera = [arr0 firstObject];
+                NSString *answerb = [arr1 firstObject];
+                NSString *answerc = [arr2 firstObject];
+                NSString *answerd = [arr3 firstObject];
+                
+                [self.imgA setHidden:NO];
+                [self.imgB setHidden:NO];
+                [self.imgC setHidden:NO];
+                [self.imgD setHidden:NO];
+                
+                self.labA.text = [answera stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+                self.labB.text = [answerb stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+                self.labC.text = [answerc stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+                self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+
+           
+                NSString *imgurlA = [arr0 objectAtIndex:1];
+                NSString *imgurlB = [arr1 objectAtIndex:1];
+                NSString *imgurlC = [arr2 objectAtIndex:1];
+                NSString *imgurlD = [arr3 objectAtIndex:1];
+                
+                [self.imgA sd_setImageWithURL:[NSURL URLWithString:imgurlA]];
+                [self.imgB sd_setImageWithURL:[NSURL URLWithString:imgurlB]];
+                [self.imgC sd_setImageWithURL:[NSURL URLWithString:imgurlC]];
+                [self.imgD sd_setImageWithURL:[NSURL URLWithString:imgurlD]];
+                
+                
+                __weak typeof (self) weakSelf = self;
         
-        NSArray *arr0 = [array objectAtIndex:0];
-        NSArray *arr1 = [array objectAtIndex:1];
-        NSArray *arr2 = [array objectAtIndex:2];
-        NSArray *arr3 = [array objectAtIndex:3];
-        
-        NSString *answera = [arr0 componentsJoinedByString:@" "];
-        NSString *answerb = [arr1 componentsJoinedByString:@" "];
-        NSString *answerc = [arr2 componentsJoinedByString:@" "];
-        NSString *answerd = [arr3 componentsJoinedByString:@" "];
-        
-        self.labA.text = [answera stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
-        self.labB.text = [answerb stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
-        self.labC.text = [answerc stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
-        self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
-        
-        [self setupAutoHeightWithBottomView: self.labD bottomMargin:20];
+                weakSelf.labA
+                .sd_layout
+                .leftSpaceToView(weakSelf.contentView, 20)
+                .rightSpaceToView(weakSelf.contentView, 20)
+                .topSpaceToView(weakSelf.contentView, 20)
+                .heightIs(20);
+                
+                weakSelf.imgA
+                .sd_layout
+                .leftEqualToView(weakSelf.labA)
+                .widthIs(80)
+                .topSpaceToView(weakSelf.labA, 20)
+                .heightIs(50);
+                
+                
+                weakSelf.labB
+                .sd_layout
+                .leftEqualToView(weakSelf.labA)
+                .rightEqualToView(weakSelf.labA)
+                .topSpaceToView(weakSelf.imgA, 20+50)
+                .heightIs(20);
+
+                weakSelf.imgB
+                .sd_layout
+                .leftEqualToView(weakSelf.labB)
+                .widthIs(80)
+                .topSpaceToView(weakSelf.labB, 20)
+                .heightIs(50);
+                
+                weakSelf.labC
+                .sd_layout
+                .leftEqualToView(weakSelf.labB)
+                .rightEqualToView(weakSelf.labB)
+                .topSpaceToView(weakSelf.imgB, 20+50+110)
+                .heightIs(20);
+
+                weakSelf.imgC
+                .sd_layout
+                .leftEqualToView(weakSelf.labA)
+                .widthIs(80)
+                .topSpaceToView(weakSelf.labC, 20)
+                .heightIs(50);
+
+                
+                weakSelf.labD
+                .sd_layout
+                .leftEqualToView(weakSelf.labA)
+                .rightEqualToView(weakSelf.labA)
+                .topSpaceToView(weakSelf.imgC, 20+50+110+110)
+                .autoHeightRatio(0);
+
+                weakSelf.imgD
+                .sd_layout
+                .leftEqualToView(weakSelf.labA)
+                .widthIs(80)
+                .topSpaceToView(weakSelf.labD, 50)
+                .heightIs(50);
+
+                [self setupAutoHeightWithBottomView:weakSelf.labD bottomMargin:20];
+                
+            }
+            else
+            {
+                NSString *answera = [arr0 componentsJoinedByString:@" "];
+                NSString *answerb = [arr1 componentsJoinedByString:@" "];
+                NSString *answerc = [arr2 componentsJoinedByString:@" "];
+                NSString *answerd = [arr3 componentsJoinedByString:@" "];
+                
+                [self.imgA setHidden:YES];
+                [self.imgB setHidden:YES];
+                [self.imgC setHidden:YES];
+                [self.imgD setHidden:YES];
+                
+                self.labA.text = [answera stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+                self.labB.text = [answerb stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+                self.labC.text = [answerc stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+                self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
+                [self setuptype1];
+                //[self setupAutoHeightWithBottomView: self.labD bottomMargin:20];
+            }
+ 
+
+        }
     }
-    
 }
 
 #pragma mark - getters
@@ -164,6 +264,46 @@
     return _labD;
 }
 
+-(UIImageView *)imgA
+{
+    if(!_imgA)
+    {
+        _imgA = [[UIImageView alloc] init];
+        
+    }
+    return _imgA;
+}
+
+-(UIImageView *)imgB
+{
+    if(!_imgB)
+    {
+        _imgB = [[UIImageView alloc] init];
+        
+    }
+    return _imgB;
+}
+
+-(UIImageView *)imgC
+{
+    if(!_imgC)
+    {
+        _imgC = [[UIImageView alloc] init];
+        
+    }
+    return _imgC;
+}
+
+-(UIImageView *)imgD
+{
+    if(!_imgD)
+    {
+        _imgD = [[UIImageView alloc] init];
+        
+    }
+    return _imgD;
+}
+
 
 -(WJGtextView *)textView
 {
@@ -209,108 +349,84 @@
     .rightEqualToView(weakSelf.labA)
     .topSpaceToView(weakSelf.labC, 20)
     .autoHeightRatio(0);
-    
+
     [self setupAutoHeightWithBottomView: weakSelf.labD bottomMargin:20];
 }
 
--(void)setuptype2
+
+-(NSString* )datacontentarr:(NSArray *)arr
 {
-    //CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    //
-    //    // 只选择照片
-    self.addPhotoView = [[HX_AddPhotoView alloc] initWithMaxPhotoNum:3 WithSelectType:SelectPhoto];
+    NSString *str = @"";
     
-    // 每行最大个数  不设置默认为4
-    self.addPhotoView.lineNum = 6;
-    
-    // collectionView 距离顶部的距离  底部与顶部一样  不设置,默认为0
-    self.addPhotoView.margin_Top = 5;
-    
-    // 距离左边的距离  右边与左边一样  不设置,默认为0
-    self.addPhotoView.margin_Left = 10;
-    //
-    // 每个item间隔的距离  如果最小不能小于5   不设置,默认为5
-    self.addPhotoView.lineSpacing = 5;
-    
-    // 录制视频时最大多少秒   默认为60;
-    self.addPhotoView.videoMaximumDuration = 60.f;
-    
-    // 自定义相册的名称 - 不设置默认为自定义相册
-    self.addPhotoView.customName = @"郑莹";
-    self.addPhotoView.delegate = self;
-    self.addPhotoView.backgroundColor = [UIColor whiteColor];
-//    self.addPhotoView.frame = CGRectMake(0, 300, width, 0);
-    [self.contentView addSubview:self.addPhotoView];
-    
-    /**  当前选择的个数  */
-    self.addPhotoView.selectNum = 3;
-    
-    [self.addPhotoView setSelectPhotos:^(NSArray *photos, NSArray *videoFileNames, BOOL iforiginal) {
-        NSLog(@"photo - %@",photos);
+    for (int i = 0; i<arr.count; i++) {
+       
+        NSString *string = [arr objectAtIndex:i];
+        if([string rangeOfString:@"http://"].location !=NSNotFound)
+        {
+            str = @"1";
+        }
+        else
+        {
+            str = @"0";
+        }
         
-        // 选择视频的沙盒文件路径  -  已压缩
-        NSString *videoFileName = videoFileNames.firstObject;
-        NSLog(@"videoFileNames - %@",videoFileName);
+//        NSObject *obj = [arr objectAtIndex:i];
+//        if ([obj isKindOfClass:[NSArray class]])
+//        {
+//            NSArray *objdic = [arr objectAtIndex:i];
+//
+//            for (int j = 0; j<objdic.count; j++) {
+//
+//            }
+//        }
+//        else
+//        {
+//            str = @"0";
+//        }
         
-        [photos enumerateObjectsUsingBlock:^(id asset, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            // ios8.0 以下返回的是ALAsset对象 以上是PHAsset对象
-            if (VERSION < 8.0f) {
-               // ALAsset *oneAsset = (ALAsset *)asset;
-                // 缩略图
-                //            UIImage *image = [UIImage imageWithCGImage:[asset aspectRatioThumbnail]];
-                
-                // 原图
-                //            CGImageRef fullImage = [[asset defaultRepresentation] fullResolutionImage];
-                
-                // url
-                //            NSURL *url = [[asset defaultRepresentation] url];
-            }else {
-                PHAsset *twoAsset = (PHAsset *)asset;
-                
-                CGFloat scale = [UIScreen mainScreen].scale;
-                
-                // 根据输入的大小来控制返回的图片质量
-                CGSize size = CGSizeMake(300 * scale, 300 * scale);
-                [[HX_AssetManager sharedManager] accessToImageAccordingToTheAsset:twoAsset size:size resizeMode:PHImageRequestOptionsResizeModeFast completion:^(UIImage *image, NSDictionary *info) {
-                    
-                    // image为高清图时
-                    if (![info objectForKey:PHImageResultIsDegradedKey]) {
-                        // 高清图
-                        //image;
-                    }
-                }];
-            }
-            
-        }];
-    }];
+    }
+    return str;
 }
 
--(void)setuptype3
-{
-    
-}
+
+
 
 #pragma mark - 实现点击方法
 
 -(void)labelClickA
 {
-    
+    self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    [self.delegate myTabVClickA:self];
 }
 
 -(void)labelClickB
 {
-    
+    self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    [self.delegate myTabVClickB:self];
 }
 
 -(void)labelClickC
 {
-    
+    self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    [self.delegate myTabVClickC:self];
 }
 
 -(void)labelClickD
 {
-    
+    self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+    self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    [self.delegate myTabVClickD:self];
 }
 
 @end

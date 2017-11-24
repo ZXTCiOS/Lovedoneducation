@@ -20,7 +20,7 @@
     if(self)
     {
         [self.contentView addSubview:self.submitBtn];
-        
+        [self setuplayout];
     }
     return self;
 }

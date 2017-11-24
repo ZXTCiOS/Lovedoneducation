@@ -55,7 +55,6 @@ static NSString *realcellidentfid = @"realcellidentfid";
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
-
 }
 
 - (void)didReceiveMemoryWarning {

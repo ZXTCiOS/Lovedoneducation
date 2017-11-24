@@ -9,10 +9,10 @@
 #import "realparticularsCell1.h"
 #import "WJGtextView.h"
 
-
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
 @interface realparticularsCell1()
+
 @property (nonatomic,copy) NSString *typestr;
 
 @property (nonatomic,strong) UILabel *labA;
@@ -25,6 +25,11 @@
 @property (nonatomic,strong) UIImageView *imgD;
 @property (nonatomic,strong) WJGtextView *textView;
 
+@property (nonatomic,strong) UIImageView *img0;
+@property (nonatomic,strong) UIImageView *img1;
+@property (nonatomic,strong) UIImageView *img2;
+@property (nonatomic,strong) UIButton *imgbtn;
+
 @end
 
 @implementation realparticularsCell1
@@ -35,6 +40,7 @@
     if(self)
     {
         self.typestr = @"0";
+
         [self.contentView addSubview:self.labA];
         [self.contentView addSubview:self.labB];
         [self.contentView addSubview:self.labC];
@@ -46,12 +52,17 @@
         [self.contentView addSubview:self.imgD];
         
         [self.contentView addSubview:self.textView];
-
+        [self.contentView addSubview:self.imgbtn];
+        [self.contentView addSubview:self.img0];
+        [self.contentView addSubview:self.img1];
+        [self.contentView addSubview:self.img2];
+        
     }
     return self;
 }
 
--(void)setarray:(NSMutableArray *)array andtype:(NSString *)type
+//-(void)setarray:(NSMutableArray *)array andtype:(NSString *)type
+-(void)setarray:(NSMutableArray *)array andtype:(NSString *)type andimgarr:(NSMutableArray *)imgarr
 {
     if ([type isEqualToString:@"3"]) {
         self.typestr = @"3";
@@ -60,9 +71,13 @@
         [self.labB setHidden:YES];
         [self.labC setHidden:YES];
         [self.labD setHidden:YES];
-
+        
         [self.textView setHidden:NO];
-      
+        [self.imgbtn setHidden:NO];
+        [self.img0 setHidden:NO];
+        [self.img1 setHidden:NO];
+        [self.img2 setHidden:NO];
+        
         self.textView
         .sd_layout
         .leftSpaceToView(self.contentView, 20)
@@ -70,14 +85,65 @@
         .heightIs(200)
         .topSpaceToView(self.contentView, 20);
 
+        if (imgarr.count==0) {
+            self.imgbtn
+            .sd_layout
+            .leftSpaceToView(self.contentView, 20)
+            .topSpaceToView(self.contentView, 250)
+            .widthIs(100)
+            .heightIs(100);
+            [self.img0 setHidden:YES];
+            [self.img1 setHidden:YES];
+            [self.img2 setHidden:YES];
+        }
+        if (imgarr.count==1) {
+            [self.img0 setHidden:NO];
+            [self.img1 setHidden:YES];
+            [self.img2 setHidden:YES];
+            
+            self.img0.image = [imgarr firstObject];
+            
+            self.img0
+            .sd_layout
+            .leftSpaceToView(self.contentView, 20)
+            .topSpaceToView(self.contentView, 250)
+            .widthIs(100)
+            .heightIs(100);
+            
+            self.imgbtn
+            .sd_layout
+            .leftSpaceToView(self.img0, 140)
+            .topSpaceToView(self.contentView, 250)
+            .widthIs(100)
+            .heightIs(100);
+            
+        }
+        if (imgarr.count==2) {
+            [self.img0 setHidden:NO];
+            [self.img1 setHidden:NO];
+            [self.img2 setHidden:YES];
+        }
+        if (imgarr.count==3) {
+            [self.img0 setHidden:NO];
+            [self.img1 setHidden:NO];
+            [self.img2 setHidden:NO];
+            [self.imgbtn setHidden:YES];
+            
+            
+        }
         
-         [self setupAutoHeightWithBottomView: self.textView bottomMargin:20];
+
+        
+         [self setupAutoHeightWithBottomView: self.imgbtn bottomMargin:20];
     }
     else
     {
         if (array.count==4) {
             [self.textView setHidden:YES];
-            
+            [self.imgbtn setHidden:YES];
+            [self.img0 setHidden:YES];
+            [self.img1 setHidden:YES];
+            [self.img2 setHidden:YES];
             [self.labA setHidden:NO];
             [self.labB setHidden:NO];
             [self.labC setHidden:NO];
@@ -317,7 +383,46 @@
 }
 
 
+-(UIButton *)imgbtn
+{
+    if(!_imgbtn)
+    {
+        _imgbtn = [[UIButton alloc] init];
+        [_imgbtn setImage:[UIImage imageNamed:@"paizhao_icon_zhuguanti"] forState:normal];
+        [_imgbtn addTarget:self action:@selector(imgbtnclick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _imgbtn;
+}
 
+-(UIImageView *)img0
+{
+    if(!_img0)
+    {
+        _img0 = [[UIImageView alloc] init];
+        
+    }
+    return _img0;
+}
+
+-(UIImageView *)img1
+{
+    if(!_img1)
+    {
+        _img1 = [[UIImageView alloc] init];
+        
+    }
+    return _img1;
+}
+
+-(UIImageView *)img2
+{
+    if(!_img2)
+    {
+        _img2 = [[UIImageView alloc] init];
+        
+    }
+    return _img2;
+}
 
 -(void)setuptype1
 {
@@ -370,26 +475,10 @@
             str = @"0";
         }
         
-//        NSObject *obj = [arr objectAtIndex:i];
-//        if ([obj isKindOfClass:[NSArray class]])
-//        {
-//            NSArray *objdic = [arr objectAtIndex:i];
-//
-//            for (int j = 0; j<objdic.count; j++) {
-//
-//            }
-//        }
-//        else
-//        {
-//            str = @"0";
-//        }
         
     }
     return str;
 }
-
-
-
 
 #pragma mark - 实现点击方法
 
@@ -428,5 +517,13 @@
     self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
     [self.delegate myTabVClickD:self];
 }
+
+-(void)imgbtnclick
+{
+    [self.delegate myimgbtnclick:self];
+}
+
+
+
 
 @end

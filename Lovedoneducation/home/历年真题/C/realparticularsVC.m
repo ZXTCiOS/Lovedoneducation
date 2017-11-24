@@ -12,8 +12,12 @@
 #import "realparticularsCell1.h"
 #import "realCell.h"
 #import "smartgroupModel.h"
+#import "realpartfinishVC.h"
 
-@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "LDActionSheet.h"
+#import "LDImagePicker.h"
+
+@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,LDActionSheetDelegate,LDImagePickerDelegate>
 {
     dispatch_source_t timer;
 }
@@ -29,6 +33,10 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
+
+@property (nonatomic, strong) LDActionSheet *originSheet;
+@property (nonatomic, strong) LDActionSheet *customSheet;
+@property (nonatomic, strong) NSMutableArray *imgarr;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -41,7 +49,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     self.title = @"真题详情";
     [self prepareLayout];
     [self.view addSubview:self.head];
-
+    self.imgarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.arrayDatasource = [NSMutableArray array];
     
@@ -98,6 +106,8 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 model.qtpath = [dic objectForKey:@"qtpath"];
                 model.successnum = [dic objectForKey:@"successnum"];
                 model.time = [dic objectForKey:@"time"];
+                model.answerimgarr = [NSMutableArray array];
+                
                 [self.dataSource addObject:model];
             }
 //            for (int i = 0; i<self.dataSource.count; i++) {
@@ -157,8 +167,8 @@ static NSString *realcellidentfid = @"realcellidentfid";
     }else{
         cell.copystr = @"2";
     }
+    cell.delegate = self;
     //[cell setarray:self.arrayDatasource[indexPath.item]];
-    //cell.delegate = self;
     [cell setdata:self.dataSource[indexPath.item]];
     return cell;
 }
@@ -187,6 +197,68 @@ static NSString *realcellidentfid = @"realcellidentfid";
     
 }
 
+-(void)queren:(UICollectionViewCell *)cell
+{
+    realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+-(void)imgchoose:(UICollectionViewCell *)cell
+{
+    self.originSheet = [[LDActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄",@"相册", nil];
+    [self.originSheet showInView:self.view];
+}
+
+- (void)actionSheet:(LDActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([actionSheet isEqual:self.customSheet]) {
+        LDImagePicker *imagePicker = [LDImagePicker sharedInstance];
+        imagePicker.delegate = self;
+        [imagePicker showImagePickerWithType:buttonIndex InViewController:self Scale:0.75];
+//        self.height.constant = 200*0.75;
+    }else{
+        LDImagePicker *imagePicker = [LDImagePicker sharedInstance];
+        imagePicker.delegate = self;
+        [imagePicker showOriginalImagePickerWithType:buttonIndex InViewController:self];
+    }
+}
+
+- (void)imagePickerDidCancel:(LDImagePicker *)imagePicker{
+    
+}
+
+- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage{
+//    self.height.constant = editedImage.size.height/editedImage.size.width*200;
+//    self.imgeView.image = editedImage;
+
+    int inter = (int)self.indexPathNow.item;
+    smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+    NSLog(@"model----%@",model);
+    [model.answerimgarr addObject:editedImage];
+    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+    
+}
+
+-(void)myTabVClickA:(UICollectionViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickB:(UICollectionViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickC:(UICollectionViewCell *)cell
+{
+    
+}
+
+-(void)myTabVClickD:(UICollectionViewCell *)cell
+{
+    
+}
 
 /**
  开始倒计时方法

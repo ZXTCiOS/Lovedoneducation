@@ -46,12 +46,9 @@
     {
         _submitBtn = [[UIButton alloc] init];
         [_submitBtn addTarget:self action:@selector(submitbtnclick) forControlEvents:UIControlEventTouchUpInside];
-        
         [_submitBtn setTitle:@"交卷并查看结果" forState:normal];
-
         [_submitBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-        
     }
     return _submitBtn;
 }
@@ -60,7 +57,7 @@
 
 -(void)submitbtnclick
 {
-    
+    [self.delegate querentijiao:self];
 }
 
 

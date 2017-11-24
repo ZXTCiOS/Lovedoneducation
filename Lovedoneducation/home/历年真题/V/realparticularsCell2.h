@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface realparticularsCell2 : UITableViewCell
+@protocol tijiaoVdelegate <NSObject>
 
+-(void)querentijiao:(UITableViewCell *)cell;
+
+@end
+
+@interface realparticularsCell2 : UITableViewCell
+@property(assign,nonatomic)id<tijiaoVdelegate>delegate;
 @end

@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@protocol myTabVdelegate <NSObject>
+
+-(void)myTabVClickA:(UICollectionViewCell *)cell;
+-(void)myTabVClickB:(UICollectionViewCell *)cell;
+-(void)myTabVClickC:(UICollectionViewCell *)cell;
+-(void)myTabVClickD:(UICollectionViewCell *)cell;
+-(void)queren:(UICollectionViewCell *)cell;
+-(void)imgchoose:(UICollectionViewCell *)cell;
+
+@end
+
 @class smartgroupModel;
 @interface realCell : UICollectionViewCell
 @property (nonatomic,copy) NSString *copystr;
 -(void)setdata:(smartgroupModel *)model;
+@property(assign,nonatomic)id<myTabVdelegate>delegate;
 @end

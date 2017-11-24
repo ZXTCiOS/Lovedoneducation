@@ -13,7 +13,7 @@
 
 #import "smartgroupModel.h"
 
-@interface realCell()<UITableViewDataSource,UITableViewDelegate>
+@interface realCell()<UITableViewDataSource,UITableViewDelegate,tijiaoVdelegate,myTabVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic, copy) NSString *allnum;
 @property (nonatomic, copy) NSString *itemstr;
@@ -24,6 +24,7 @@
 @property (nonatomic, copy) NSString *answerstr;
 @property (nonatomic, copy) NSString *qtitle;
 @property (nonatomic, copy) NSString *qtype;
+@property (nonatomic,strong) NSMutableArray *imgarray;
 @end
 
 
@@ -39,6 +40,7 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView addSubview:self.table];
+        self.imgarray = [NSMutableArray array];
         [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);
             make.right.equalTo(self);
@@ -93,12 +95,9 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
         if (!cell) {
             cell = [[realparticularsCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realcellidentfid1];
         }
-        [cell setarray:self.answerarr andtype:self.qtype];
-
-//        [cell setdata:self.answerarr];
-//        [cell setanswer:self.answerstr];
-//        cell.delegate = self;
-        
+        [cell setarray:self.answerarr andtype:self.qtype andimgarr:self.imgarray];
+//        [cell setarray:self.answerarr andtype:self.qtype];
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -107,7 +106,7 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
         if (!cell) {
             cell = [[realparticularsCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realcellidentfid2];
         }
-        
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -130,8 +129,42 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
     self.answerarr = smodel.qanswer;
     self.qtitle =smodel.qtitle;
     self.qtype = model.qtype;
+    self.imgarray = model.answerimgarr;
     [self.table reloadData];
 }
+
+#pragma mark - 协议绑定
+
+-(void)querentijiao:(UITableViewCell *)cell
+{
+    [self.delegate queren:self];
+}
+
+-(void)myTabVClickA:(UICollectionViewCell *)cell
+{
+    [self.delegate myTabVClickA:self];
+}
+
+-(void)myTabVClickB:(UICollectionViewCell *)cell
+{
+    [self.delegate myTabVClickB:self];
+}
+
+-(void)myTabVClickC:(UICollectionViewCell *)cell
+{
+    [self.delegate myTabVClickC:self];
+}
+
+-(void)myTabVClickD:(UICollectionViewCell *)cell
+{
+    [self.delegate myTabVClickD:self];
+}
+
+-(void)myimgbtnclick:(UITableViewCell *)cell
+{
+    [self.delegate imgchoose:self];
+}
+
 
 
 @end

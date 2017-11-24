@@ -232,11 +232,37 @@ static NSString *realcellidentfid = @"realcellidentfid";
 //    self.height.constant = editedImage.size.height/editedImage.size.width*200;
 //    self.imgeView.image = editedImage;
 
-    int inter = (int)self.indexPathNow.item;
-    smartgroupModel *model = [self.dataSource objectAtIndex:inter];
-    NSLog(@"model----%@",model);
-    [model.answerimgarr addObject:editedImage];
-    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+    
+    [self updateimg:editedImage];
+}
+
+-(void)updateimg:(UIImage *)img
+{
+//    UIImage *originImage = img;
+//    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+//    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+//    NSLog(@"encodedImageStr==%@",encodedImageStr);
+//
+//
+//    NSString *file = encodedImageStr;
+//    NSString *type = @"png";
+//    NSDictionary *para = @{@"file":file,@"type":type};
+//
+//    [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
+//        if ([[obj objectForKey:@"code"] intValue]==200) {
+//            NSString *imgurl = [obj objectForKey:@"data"];
+//            NSLog(@"imgurl = %@",imgurl);
+//            int inter = (int)self.indexPathNow.item;
+//            smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+//            NSLog(@"model----%@",model);
+//            [model.answerimgarr addObject:img];
+//            [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+//        }
+//    } failure:^(NSError *error) {
+//
+//    }];
+    
+    [MBProgressHUD showMessage:@"提升" toView:self.view];
     
 }
 

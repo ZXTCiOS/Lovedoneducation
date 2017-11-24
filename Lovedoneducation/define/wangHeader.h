@@ -192,4 +192,11 @@
  */
 #define GET_realQuestionDetail @"/app.php/tool/realQuestionDetail?qcid=%@"
 
+/**
+ 图片上传
+
+ @return 图片上传
+ */
+#define GET_uploadImage @"http://55.irapidtech.net/app.php/tool/uploadImage"
+
 #endif /* wangHeader_h */

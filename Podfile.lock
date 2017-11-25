@@ -57,7 +57,6 @@ PODS:
   - JKCountDownButton (1.1.0)
   - JPush (3.0.6):
     - JCore (~> 1.1.1)
-  - LDImagePicker (1.0.3)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.14)
@@ -88,7 +87,6 @@ DEPENDENCIES:
   - JHUD
   - JKCountDownButton
   - JPush
-  - LDImagePicker
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -115,7 +113,6 @@ SPEC CHECKSUMS:
   JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
   JKCountDownButton: 0141b38a01cb77199184f8c0d9975bf88358216f
   JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
-  LDImagePicker: 92c0d733701c20397932916dbdf6bf54081b4655
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
@@ -131,6 +128,6 @@ SPEC CHECKSUMS:
   ZFDownload: a52f94ebb080833b8a8ceb19a409f2941343fe7f
   ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
 
-PODFILE CHECKSUM: dc9d33669cf88ce90aa04d00cca56f8c3ddc05ab
+PODFILE CHECKSUM: 43d6c188d6cf9450426cf88d8447d465642b5f54
 
 COCOAPODS: 1.4.0.beta.2

@@ -14,10 +14,12 @@
 #import "smartgroupModel.h"
 #import "realpartfinishVC.h"
 
-#import "LDActionSheet.h"
-#import "LDImagePicker.h"
 
-@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,LDActionSheetDelegate,LDImagePickerDelegate>
+#import "TZImagePickerController.h"
+#import "TZAssetModel.h"
+#import "TZImageManager.h"
+
+@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
     dispatch_source_t timer;
 }
@@ -33,9 +35,6 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
-
-@property (nonatomic, strong) LDActionSheet *originSheet;
-@property (nonatomic, strong) LDActionSheet *customSheet;
 @property (nonatomic, strong) NSMutableArray *imgarr;
 @end
 
@@ -110,9 +109,9 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 
                 [self.dataSource addObject:model];
             }
-//            for (int i = 0; i<self.dataSource.count; i++) {
-//                [self.arrayDatasource addObject:@""];
-//            }
+            for (int i = 0; i<self.dataSource.count; i++) {
+                [self.arrayDatasource addObject:@""];
+            }
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
@@ -168,7 +167,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         cell.copystr = @"2";
     }
     cell.delegate = self;
-    //[cell setarray:self.arrayDatasource[indexPath.item]];
+    [cell setarray:self.arrayDatasource[indexPath.item]];
     [cell setdata:self.dataSource[indexPath.item]];
     return cell;
 }
@@ -203,87 +202,81 @@ static NSString *realcellidentfid = @"realcellidentfid";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
-
 -(void)imgchoose:(UICollectionViewCell *)cell
 {
-    self.originSheet = [[LDActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄",@"相册", nil];
-    [self.originSheet showInView:self.view];
-}
+    __weak typeof(self)weakSelf = self;
+    TZImagePickerController *pickerController = [[TZImagePickerController alloc]initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
+    pickerController.naviBgColor = [UIColor greenColor];
+    pickerController.needCircleCrop = YES;
+    pickerController.circleCropRadius = 100;
+    [pickerController setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photo, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        if (photo.count) {
+            
+            UIImage *img = [photo firstObject];
+            UIImage *originImage = img;
+            NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+            NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            NSLog(@"encodedImageStr==%@",encodedImageStr);
+            
+            
+            NSString *file = encodedImageStr;
+            NSString *type = @"png";
+            NSDictionary *para = @{@"file":file,@"type":type};
 
-- (void)actionSheet:(LDActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([actionSheet isEqual:self.customSheet]) {
-        LDImagePicker *imagePicker = [LDImagePicker sharedInstance];
-        imagePicker.delegate = self;
-        [imagePicker showImagePickerWithType:buttonIndex InViewController:self Scale:0.75];
-//        self.height.constant = 200*0.75;
-    }else{
-        LDImagePicker *imagePicker = [LDImagePicker sharedInstance];
-        imagePicker.delegate = self;
-        [imagePicker showOriginalImagePickerWithType:buttonIndex InViewController:self];
-    }
-}
+            
+            [MBProgressHUD showMessage:@"正在上传" toView:self.view];
+            
+            [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
+                [MBProgressHUD hideHUDForView:self.view];
+                
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+ 
+                    NSString *imgurl = [obj objectForKey:@"data"];
+                    NSLog(@"imgurl = %@",imgurl);
+                    int inter = (int)self.indexPathNow.item;
+                    smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+                    NSLog(@"model----%@",model);
+                    [model.answerimgarr addObject:img];
+                    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+                    
+                    [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
+                }
 
-- (void)imagePickerDidCancel:(LDImagePicker *)imagePicker{
-    
-}
+            } failure:^(NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view];
+            }];;
 
-- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage{
-//    self.height.constant = editedImage.size.height/editedImage.size.width*200;
-//    self.imgeView.image = editedImage;
-
-    
-    [self updateimg:editedImage];
-}
-
--(void)updateimg:(UIImage *)img
-{
-//    UIImage *originImage = img;
-//    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
-//    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-//    NSLog(@"encodedImageStr==%@",encodedImageStr);
-//
-//
-//    NSString *file = encodedImageStr;
-//    NSString *type = @"png";
-//    NSDictionary *para = @{@"file":file,@"type":type};
-//
-//    [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
-//        if ([[obj objectForKey:@"code"] intValue]==200) {
-//            NSString *imgurl = [obj objectForKey:@"data"];
-//            NSLog(@"imgurl = %@",imgurl);
-//            int inter = (int)self.indexPathNow.item;
-//            smartgroupModel *model = [self.dataSource objectAtIndex:inter];
-//            NSLog(@"model----%@",model);
-//            [model.answerimgarr addObject:img];
-//            [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
-//        }
-//    } failure:^(NSError *error) {
-//
-//    }];
-    
-    [MBProgressHUD showMessage:@"提升" toView:self.view];
-    
+        }
+    }];
+    [self presentViewController:pickerController animated:YES completion:nil];
 }
 
 -(void)myTabVClickA:(UICollectionViewCell *)cell
 {
-    
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
 }
 
 -(void)myTabVClickB:(UICollectionViewCell *)cell
 {
-    
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
 }
 
 -(void)myTabVClickC:(UICollectionViewCell *)cell
 {
-    
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
 }
 
 -(void)myTabVClickD:(UICollectionViewCell *)cell
 {
-    
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
 }
 
 /**

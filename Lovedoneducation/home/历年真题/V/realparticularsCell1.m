@@ -29,6 +29,7 @@
 @property (nonatomic,strong) UIImageView *img1;
 @property (nonatomic,strong) UIImageView *img2;
 @property (nonatomic,strong) UIButton *imgbtn;
+@property (nonatomic,strong) UIView *lineview;
 
 @end
 
@@ -51,8 +52,10 @@
         [self.contentView addSubview:self.imgC];
         [self.contentView addSubview:self.imgD];
         
+        [self.contentView addSubview:self.lineview];
         [self.contentView addSubview:self.textView];
         [self.contentView addSubview:self.imgbtn];
+        
         [self.contentView addSubview:self.img0];
         [self.contentView addSubview:self.img1];
         [self.contentView addSubview:self.img2];
@@ -61,7 +64,6 @@
     return self;
 }
 
-//-(void)setarray:(NSMutableArray *)array andtype:(NSString *)type
 -(void)setarray:(NSMutableArray *)array andtype:(NSString *)type andimgarr:(NSMutableArray *)imgarr
 {
     if ([type isEqualToString:@"3"]) {
@@ -72,7 +74,9 @@
         [self.labC setHidden:YES];
         [self.labD setHidden:YES];
         
+        
         [self.textView setHidden:NO];
+        [self.lineview setHidden:NO];
         [self.imgbtn setHidden:NO];
         [self.img0 setHidden:NO];
         [self.img1 setHidden:NO];
@@ -84,62 +88,70 @@
         .rightSpaceToView(self.contentView, 20)
         .heightIs(200)
         .topSpaceToView(self.contentView, 20);
-
+        
+        self.lineview
+        .sd_layout
+        .leftSpaceToView(self.contentView, 20)
+        .rightSpaceToView(self.contentView, 20)
+        .heightIs(250)
+        .topSpaceToView(self.contentView, 20);
+        
+        self.imgbtn
+        .sd_layout
+        .leftSpaceToView(self.contentView, 30)
+        .topSpaceToView(self.textView, 20)
+        .widthIs(25)
+        .heightIs(20);
+        
+        [self.img0 setHidden:NO];
+        [self.img1 setHidden:NO];
+        [self.img2 setHidden:NO];
+        
         if (imgarr.count==0) {
-            self.imgbtn
-            .sd_layout
-            .leftSpaceToView(self.contentView, 20)
-            .topSpaceToView(self.contentView, 250)
-            .widthIs(100)
-            .heightIs(100);
-            [self.img0 setHidden:YES];
-            [self.img1 setHidden:YES];
-            [self.img2 setHidden:YES];
+            
         }
         if (imgarr.count==1) {
-            [self.img0 setHidden:NO];
-            [self.img1 setHidden:YES];
-            [self.img2 setHidden:YES];
-            
             self.img0.image = [imgarr firstObject];
-            
-            self.img0
-            .sd_layout
-            .leftSpaceToView(self.contentView, 20)
-            .topSpaceToView(self.contentView, 250)
-            .widthIs(100)
-            .heightIs(100);
-            
-            self.imgbtn
-            .sd_layout
-            .leftSpaceToView(self.img0, 140)
-            .topSpaceToView(self.contentView, 250)
-            .widthIs(100)
-            .heightIs(100);
-            
         }
         if (imgarr.count==2) {
-            [self.img0 setHidden:NO];
-            [self.img1 setHidden:NO];
-            [self.img2 setHidden:YES];
+            self.img0.image = [imgarr firstObject];
+            self.img1.image = [imgarr objectAtIndex:1];
         }
         if (imgarr.count==3) {
-            [self.img0 setHidden:NO];
-            [self.img1 setHidden:NO];
-            [self.img2 setHidden:NO];
-            [self.imgbtn setHidden:YES];
-            
-            
+            self.img0.image = [imgarr firstObject];
+            self.img1.image = [imgarr objectAtIndex:1];
+            self.img2.image = [imgarr lastObject];
         }
         
-
+        self.img0
+        .sd_layout
+        .leftSpaceToView(self.contentView, 20)
+        .topSpaceToView(self.contentView, 280)
+        .widthIs(80)
+        .heightIs(80);
         
-         [self setupAutoHeightWithBottomView: self.imgbtn bottomMargin:20];
+        self.img1
+        .sd_layout
+        .leftSpaceToView(self.img0, 40)
+        .topEqualToView(self.img0)
+        .widthIs(80)
+        .heightIs(80);
+        
+        self.img2
+        .sd_layout
+        .leftSpaceToView(self.img1, 40)
+        .topEqualToView(self.img0)
+        .widthIs(80)
+        .heightIs(80);
+        
+        [self setupAutoHeightWithBottomView: self.img0 bottomMargin:20];
+
     }
     else
     {
         if (array.count==4) {
             [self.textView setHidden:YES];
+            [self.lineview setHidden:YES];
             [self.imgbtn setHidden:YES];
             [self.img0 setHidden:YES];
             [self.img1 setHidden:YES];
@@ -148,7 +160,7 @@
             [self.labB setHidden:NO];
             [self.labC setHidden:NO];
             [self.labD setHidden:NO];
-
+            
             NSArray *arr0 = [array objectAtIndex:0];
             NSArray *arr1 = [array objectAtIndex:1];
             NSArray *arr2 = [array objectAtIndex:2];
@@ -264,7 +276,6 @@
                 self.labC.text = [answerc stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
                 self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
                 [self setuptype1];
-                //[self setupAutoHeightWithBottomView: self.labD bottomMargin:20];
             }
  
 
@@ -382,7 +393,6 @@
     return _textView;
 }
 
-
 -(UIButton *)imgbtn
 {
     if(!_imgbtn)
@@ -394,12 +404,25 @@
     return _imgbtn;
 }
 
+-(UIView *)lineview
+{
+    if(!_lineview)
+    {
+        _lineview = [[UIView alloc] init];
+        _lineview.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
+    }
+    return _lineview;
+}
+
+
+
+
 -(UIImageView *)img0
 {
     if(!_img0)
     {
         _img0 = [[UIImageView alloc] init];
-        
+        _img0.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
     }
     return _img0;
 }
@@ -409,7 +432,7 @@
     if(!_img1)
     {
         _img1 = [[UIImageView alloc] init];
-        
+        _img1.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
     }
     return _img1;
 }
@@ -419,7 +442,7 @@
     if(!_img2)
     {
         _img2 = [[UIImageView alloc] init];
-        
+        _img2.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
     }
     return _img2;
 }
@@ -523,7 +546,42 @@
     [self.delegate myimgbtnclick:self];
 }
 
-
+-(void)setanswer:(NSString *)str
+{
+    if ([str isEqualToString:@"A"]) {
+        self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"B"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"C"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+    else if ([str isEqualToString:@"D"])
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+    }else
+    {
+        self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+        self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+    }
+}
 
 
 @end

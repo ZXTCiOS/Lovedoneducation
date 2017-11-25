@@ -19,5 +19,6 @@
 @end
 @interface realparticularsCell1 : UITableViewCell
 -(void)setarray:(NSMutableArray *)array andtype:(NSString *)type andimgarr:(NSMutableArray *)imgarr;
+-(void)setanswer:(NSString *)str;
 @property(assign,nonatomic)id<myTabVdelegate>delegate;
 @end

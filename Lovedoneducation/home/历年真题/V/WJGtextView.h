@@ -12,4 +12,5 @@
 @property (nonatomic,strong)  UILabel *numberlabel;
 @property (nonatomic, strong) NSString *customPlaceholder;
 @property (nonatomic, strong) UIColor  *customPlaceholderColor;
+
 @end

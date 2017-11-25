@@ -23,5 +23,6 @@
 @interface realCell : UICollectionViewCell
 @property (nonatomic,copy) NSString *copystr;
 -(void)setdata:(smartgroupModel *)model;
+-(void)setarray:(NSString *)str;
 @property(assign,nonatomic)id<myTabVdelegate>delegate;
 @end

@@ -96,7 +96,7 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
             cell = [[realparticularsCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realcellidentfid1];
         }
         [cell setarray:self.answerarr andtype:self.qtype andimgarr:self.imgarray];
-//        [cell setarray:self.answerarr andtype:self.qtype];
+        [cell setanswer:self.answerstr];
         cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -165,6 +165,10 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
     [self.delegate imgchoose:self];
 }
 
+-(void)setarray:(NSString *)str
+{
+    self.answerstr = str;
+}
 
 
 @end

@@ -31,6 +31,7 @@
     return self;
 }
 
+
 - (void)textDidChange{
     
     self.placeholderLabel.hidden = self.hasText;
@@ -44,6 +45,7 @@
     self.placeholderLabel.frame = CGRectMake(5, 8, self.frame.size.width - 10, height);
     
     self.numberlabel.frame = CGRectMake(self.frame.size.width-60, self.frame.size.height-30, 60, 30);
+//    self.changeBtn.frame = CGRectMake(20, self.frame.size.height-30, 25, 20);
 }
 
 -(UILabel *)numberlabel

@@ -79,7 +79,6 @@
     int newint = inter+1;
     NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
     self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
-    
     smartgroupModel *model = [self.dataSource objectAtIndex:inter];
     self.pidstr = model.qid;
 }

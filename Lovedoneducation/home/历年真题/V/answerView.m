@@ -25,19 +25,7 @@
 
 -(void)superlauout
 {
-//    __weak typeof (self) weakSelf = self;
-//    [weakSelf.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(weakSelf);
-//        make.right.equalTo(weakSelf);
-//        make.top.equalTo(weakSelf);
-//        make.height.mas_offset(220);
-//    }];
-//    [weakSelf.changeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(weakSelf).with.offset(20);
-//        make.top.equalTo(weakSelf.textView.mas_bottom).with.offset(5);
-//        make.width.mas_offset(25);
-//        make.height.mas_offset(20);
-//    }];
+
     self.textView.frame = CGRectMake(0, 0, kScreenW, 250);
     self.changeBtn.frame = CGRectMake(20, self.frame.size.height-40, 25, 20);
 }

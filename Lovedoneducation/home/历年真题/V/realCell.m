@@ -170,5 +170,9 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
     self.answerstr = str;
 }
 
+-(void)textstr:(UITableViewCell *)cell andtextstr:(NSString *)str
+{
+    [self.delegate textstr:self andtextstr:str];
+}
 
 @end

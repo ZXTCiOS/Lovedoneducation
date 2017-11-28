@@ -8,10 +8,11 @@
 
 #import "realparticularsCell1.h"
 #import "WJGtextView.h"
+#import "IQUIView+IQKeyboardToolbar.h"
 
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
-@interface realparticularsCell1()
+@interface realparticularsCell1()<UITextViewDelegate>
 
 @property (nonatomic,copy) NSString *typestr;
 
@@ -31,6 +32,7 @@
 @property (nonatomic,strong) UIButton *imgbtn;
 @property (nonatomic,strong) UIView *lineview;
 
+@property (nonatomic,strong) NSString *textstring;
 @end
 
 @implementation realparticularsCell1
@@ -388,7 +390,10 @@
     {
         _textView = [[WJGtextView alloc] init];
         _textView.customPlaceholder = @"点击开始答题";
+        _textView.delegate = self;
+        _textView.tag = 50001;
         _textView.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
+        [_textView addDoneOnKeyboardWithTarget:self action:@selector(startDone)];
     }
     return _textView;
 }
@@ -583,5 +588,10 @@
     }
 }
 
+-(void)startDone
+{
+    NSString *str = self.textView.text;
+    [self.delegate textstr:self andtextstr:str];
+}
 
 @end

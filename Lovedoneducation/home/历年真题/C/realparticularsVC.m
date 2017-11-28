@@ -13,11 +13,13 @@
 #import "realCell.h"
 #import "smartgroupModel.h"
 #import "realpartfinishVC.h"
-
+#import "realpartcardVC.h"
 
 #import "TZImagePickerController.h"
 #import "TZAssetModel.h"
 #import "TZImageManager.h"
+
+
 
 @interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
@@ -36,6 +38,10 @@
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
 @property (nonatomic, strong) NSMutableArray *imgarr;
+
+@property (nonatomic, strong) NSMutableArray *cardtypeArray;
+
+@property (nonatomic,strong) NSMutableArray *xuanzearray;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -48,9 +54,11 @@ static NSString *realcellidentfid = @"realcellidentfid";
     self.title = @"真题详情";
     [self prepareLayout];
     [self.view addSubview:self.head];
+    self.xuanzearray = [NSMutableArray array];
     self.imgarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.arrayDatasource = [NSMutableArray array];
+    self.cardtypeArray = [NSMutableArray array];
     
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
@@ -62,12 +70,14 @@ static NSString *realcellidentfid = @"realcellidentfid";
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - 实现数据
 
@@ -105,18 +115,35 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 model.qtpath = [dic objectForKey:@"qtpath"];
                 model.successnum = [dic objectForKey:@"successnum"];
                 model.time = [dic objectForKey:@"time"];
-                model.answerimgarr = [NSMutableArray array];
                 
+                model.answerimgarr = [NSMutableArray array];
+                NSString *xuanzestr = @"";
+                
+                if ([model.successnum isEqualToString:@"zxtc"]) {
+                    xuanzestr = @"";
+                    [self.xuanzearray addObject:xuanzestr];
+                }
+                else
+                {
+                    xuanzestr = model.qsuccess;
+                    [self.xuanzearray addObject:xuanzestr];
+                }
+                
+            
                 [self.dataSource addObject:model];
             }
+            
             for (int i = 0; i<self.dataSource.count; i++) {
                 [self.arrayDatasource addObject:@""];
+                [self.cardtypeArray addObject:@""];
             }
+            
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
             self.pidstr = model.qid;
             [self startCount];
+            
         }
     } failure:^(NSError *error) {
         
@@ -160,7 +187,6 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     realCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:realcellidentfid forIndexPath:indexPath];
-    
     if (indexPath.row == self.dataSource.count - 1) {
         cell.copystr = @"1";
     }else{
@@ -177,14 +203,12 @@ static NSString *realcellidentfid = @"realcellidentfid";
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
     CGPoint pInView = [self.view convertPoint:self.collectionV.center toView:self.collectionV];
     self.indexPathNow = [self.collectionV indexPathForItemAtPoint:pInView];
     int inter = (int)self.indexPathNow.item;
     int newint = inter+1;
     NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
     self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
-    
     smartgroupModel *model = [self.dataSource objectAtIndex:inter];
     self.pidstr = model.qid;
 }
@@ -193,18 +217,22 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)cardclick
 {
-    
+    realpartcardVC *vc = [[realpartcardVC alloc] init];
+    vc.dataSource = self.cardtypeArray;
+    vc.xuanzearr = self.arrayDatasource;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)queren:(UICollectionViewCell *)cell
 {
+    NSLog(@"选择题array====%@",self.self.arrayDatasource);
     realpartfinishVC *vc = [[realpartfinishVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)imgchoose:(UICollectionViewCell *)cell
 {
-    __weak typeof(self)weakSelf = self;
+    //__weak typeof(self)weakSelf = self;
     TZImagePickerController *pickerController = [[TZImagePickerController alloc]initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
     pickerController.naviBgColor = [UIColor greenColor];
     pickerController.needCircleCrop = YES;
@@ -217,15 +245,13 @@ static NSString *realcellidentfid = @"realcellidentfid";
             NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
             NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
             NSLog(@"encodedImageStr==%@",encodedImageStr);
-            
-            
+
             NSString *file = encodedImageStr;
             NSString *type = @"png";
             NSDictionary *para = @{@"file":file,@"type":type};
 
-            
             [MBProgressHUD showMessage:@"正在上传" toView:self.view];
-            
+
             [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
                 [MBProgressHUD hideHUDForView:self.view];
                 
@@ -233,17 +259,26 @@ static NSString *realcellidentfid = @"realcellidentfid";
  
                     NSString *imgurl = [obj objectForKey:@"data"];
                     NSLog(@"imgurl = %@",imgurl);
+                    [self.imgarr addObject:imgurl];
                     int inter = (int)self.indexPathNow.item;
                     smartgroupModel *model = [self.dataSource objectAtIndex:inter];
                     NSLog(@"model----%@",model);
                     [model.answerimgarr addObject:img];
                     [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
                     
+                    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+                    NSLog(@"333===%ld",index.item);
+                    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+                    
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                 }
-
+                else
+                {
+                    [MBProgressHUD showSuccess:@"上传失败" toView:self.view];
+                }
             } failure:^(NSError *error) {
                 [MBProgressHUD hideHUDForView:self.view];
+                [MBProgressHUD showSuccess:@"上传失败，请检查网络" toView:self.view];
             }];;
 
         }
@@ -255,6 +290,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
 }
 
@@ -262,6 +298,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
 }
 
@@ -269,6 +306,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
 }
 
@@ -276,8 +314,17 @@ static NSString *realcellidentfid = @"realcellidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
 }
+
+-(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+}
+
 
 /**
  开始倒计时方法

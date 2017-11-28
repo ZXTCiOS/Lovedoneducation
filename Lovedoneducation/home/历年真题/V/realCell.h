@@ -16,7 +16,7 @@
 -(void)myTabVClickD:(UICollectionViewCell *)cell;
 -(void)queren:(UICollectionViewCell *)cell;
 -(void)imgchoose:(UICollectionViewCell *)cell;
-
+-(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str;
 @end
 
 @class smartgroupModel;

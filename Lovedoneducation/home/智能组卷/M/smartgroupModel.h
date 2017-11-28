@@ -32,4 +32,5 @@
 @property (nonatomic,copy) NSString *time;
 
 @property (nonatomic,strong) NSMutableArray *answerimgarr;
+
 @end

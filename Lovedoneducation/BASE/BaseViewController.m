@@ -23,12 +23,15 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
 }
 
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

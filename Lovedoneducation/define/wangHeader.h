@@ -14,6 +14,7 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import <IQKeyboardManager.h>
 //屏幕 宽 高
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)

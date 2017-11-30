@@ -198,6 +198,13 @@
 
  @return 图片上传
  */
-#define GET_uploadImage @"http://55.irapidtech.net/app.php/tool/uploadImage"
+#define GET_uploadImage @"/app.php/tool/uploadImage"
 
+
+/**
+ 答案提交
+
+ @return
+ */
+#define POST_practiceing @"/app.php/Questions/practiceing"
 #endif /* wangHeader_h */

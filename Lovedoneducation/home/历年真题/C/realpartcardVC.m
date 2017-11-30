@@ -9,6 +9,7 @@
 #import "realpartcardVC.h"
 #import "realpardcardCell.h"
 #import "realparlcardModel.h"
+#import "realpartfinishVC.h"
 
 @interface realpartcardVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collection;
@@ -143,9 +144,32 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
 
 -(void)submitbtnclick
 {
-    NSLog(@"submit");
-    NSLog(@"array----%@",self.xuanzearr);
-    
+//    NSLog(@"submit");
+//    NSLog(@"array----%@",self.xuanzearr);
+//    NSLog(@"upno-----%@",self.upnoarray);
+//    NSLog(@"upquestion---%@",self.upquestion);
+//
+//
+//    NSString *uid = [userDefault objectForKey:user_uid];
+//    NSString *token = [userDefault objectForKey:user_token];
+//
+//    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":self.practiceType,@"uptimes":self.uptimes,@"upno":self.upno,@"upquestion":self.upquestion,@"upyes":self.upyes,@"uplist":self.uplist};
+//
+//    NSLog(@"dic-----%@",dic);
+//
+//    [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
+//
+//    } failure:^(NSError *error) {
+//
+//    }];
+//
+    realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+    vc.dataArr = self.dataSource;
+    vc.answerarray0 = self.xuanzearr;
+    vc.answerarray1 = self.upnoarray;
+    vc.modeldata = self.modeldata;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 @end

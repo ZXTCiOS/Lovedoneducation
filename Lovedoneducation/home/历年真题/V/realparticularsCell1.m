@@ -592,6 +592,7 @@
 {
     NSString *str = self.textView.text;
     [self.delegate textstr:self andtextstr:str];
+    [self.textView resignFirstResponder];
 }
 
 @end

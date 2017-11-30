@@ -19,7 +19,7 @@
 #import "TZAssetModel.h"
 #import "TZImageManager.h"
 
-
+#import "NSArray+JSON.h"
 
 @interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
@@ -42,6 +42,8 @@
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
 
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
+@property (nonatomic,strong) NSMutableArray *upquestion;//题目id
+@property (nonatomic,strong) NSMutableArray *uplistarr;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -54,12 +56,14 @@ static NSString *realcellidentfid = @"realcellidentfid";
     self.title = @"真题详情";
     [self prepareLayout];
     [self.view addSubview:self.head];
+    self.uplistarr = [NSMutableArray array];
+    self.upquestion = [NSMutableArray array];
     self.xuanzearray = [NSMutableArray array];
     self.imgarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.arrayDatasource = [NSMutableArray array];
     self.cardtypeArray = [NSMutableArray array];
-    
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
         self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
@@ -77,7 +81,6 @@ static NSString *realcellidentfid = @"realcellidentfid";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - 实现数据
 
@@ -107,7 +110,13 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 model.qdes = [NSMutableArray array];
                 model.qdes = [dic objectForKey:@"qdes"];
                 model.qerror = [dic objectForKey:@"qerror"];
-                model.qsuccess = [dic objectForKey:@"qsuccess"];
+                if (![[dic objectForKey:@"qsuccess"] isEqualToString:@"zxtc"]) {
+                    model.qsuccess = [dic objectForKey:@"qsuccess"];
+                }
+                else
+                {
+                    model.qsuccess = @"";
+                }
                 model.qtid = [dic objectForKey:@"qtid"];
                 model.qtgroup = [dic objectForKey:@"qtgroup"];
                 model.qtitle = [dic objectForKey:@"qtitle"];
@@ -115,27 +124,15 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 model.qtpath = [dic objectForKey:@"qtpath"];
                 model.successnum = [dic objectForKey:@"successnum"];
                 model.time = [dic objectForKey:@"time"];
-                
                 model.answerimgarr = [NSMutableArray array];
-                NSString *xuanzestr = @"";
-                
-                if ([model.successnum isEqualToString:@"zxtc"]) {
-                    xuanzestr = @"";
-                    [self.xuanzearray addObject:xuanzestr];
-                }
-                else
-                {
-                    xuanzestr = model.qsuccess;
-                    [self.xuanzearray addObject:xuanzestr];
-                }
-                
-            
+                [self.xuanzearray addObject: model.qsuccess];
+                [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
             }
-            
             for (int i = 0; i<self.dataSource.count; i++) {
                 [self.arrayDatasource addObject:@""];
                 [self.cardtypeArray addObject:@""];
+                [self.uplistarr addObject:@""];
             }
             
             [self.collectionV reloadData];
@@ -217,24 +214,96 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)cardclick
 {
+    NSLog(@"arr-----%@",self.uplistarr);
+    NSMutableArray *arr0 = [NSMutableArray new];
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSObject *obj = [self.uplistarr objectAtIndex:i];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [arr0 addObject:obj];
+        }
+        else
+        {
+            
+        }
+    }
+    NSLog(@"arr0-----%@",arr0);
+    NSString *upliststr = [arr0 toReadableJSONString];
+    NSLog(@"str-----%@",upliststr);
+    //错误答案
+    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+    //题目id
+    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+    //正确答案
+    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+    //时间
+    NSString *uptimes = self.timestr;
+    //类型
+    NSString *practiceType = @"4";
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+    NSLog(@"dic-----%@",dic);
+    
     realpartcardVC *vc = [[realpartcardVC alloc] init];
+    vc.modeldata = self.dataSource;
     vc.dataSource = self.cardtypeArray;
     vc.xuanzearr = self.arrayDatasource;
+    vc.upnoarray = self.xuanzearray;
+//    vc.upquestion = self.upquestion;
+    vc.practiceType = practiceType;
+    vc.uptimes = uptimes;
+    vc.upno = upno;
+    vc.upquestion = upquestion;
+    vc.upyes = upyes;
+    vc.uplist = upliststr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)queren:(UICollectionViewCell *)cell
 {
     NSLog(@"选择题array====%@",self.self.arrayDatasource);
-    realpartfinishVC *vc = [[realpartfinishVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSMutableArray *arr0 = [NSMutableArray new];
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSObject *obj = [self.uplistarr objectAtIndex:i];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [arr0 addObject:obj];
+        }
+        else
+        {
+            
+        }
+    }
+    NSLog(@"arr0-----%@",arr0);
+    NSString *upliststr = [arr0 toReadableJSONString];
+    NSLog(@"str-----%@",upliststr);
+    //错误答案
+    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+    //题目id
+    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+    //正确答案
+    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+    //时间
+    NSString *uptimes = self.timestr;
+    //类型
+    NSString *practiceType = @"4";
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+    NSLog(@"dic-----%@",dic);
+    
+    [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
+        realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)imgchoose:(UICollectionViewCell *)cell
 {
     //__weak typeof(self)weakSelf = self;
     TZImagePickerController *pickerController = [[TZImagePickerController alloc]initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
-    pickerController.naviBgColor = [UIColor greenColor];
+    pickerController.naviBgColor = [UIColor colorWithHexString:@"08D2B2"];
     pickerController.needCircleCrop = YES;
     pickerController.circleCropRadius = 100;
     [pickerController setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photo, NSArray *assets, BOOL isSelectOriginalPhoto) {
@@ -271,6 +340,12 @@ static NSString *realcellidentfid = @"realcellidentfid";
                     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
                     
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
+                    
+                    //uplist数组方法
+                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+                    NSDictionary *imgdic = @{@"img":self.imgarr};
+                    [arr addObject:imgdic];
+                    
                 }
                 else
                 {
@@ -322,9 +397,15 @@ static NSString *realcellidentfid = @"realcellidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
+    smartgroupModel *model = self.dataSource[index.item];
+    NSMutableArray *arr = [NSMutableArray new];
+    NSDictionary *qiddic = @{@"qid":model.qid};
+    NSDictionary *contentdic = @{@"content":str};
+    [arr addObject:qiddic];
+    [arr addObject:contentdic];
+    [self.uplistarr replaceObjectAtIndex:index.item withObject:arr];
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
 }
-
 
 /**
  开始倒计时方法

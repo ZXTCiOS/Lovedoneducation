@@ -69,9 +69,6 @@
     return _realImg;
 }
 
-
-
-
 #pragma mark - 实现方法
 
 -(void)setdata:(NSMutableArray *)conarr andtype:(NSString *)type andtitle:(NSString *)title

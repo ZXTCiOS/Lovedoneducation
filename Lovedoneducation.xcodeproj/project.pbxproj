@@ -345,6 +345,10 @@
 		53359C8A1FCFDC1E0047FAB8 /* finishheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C891FCFDC1E0047FAB8 /* finishheadView.m */; };
 		53359C901FD005330047FAB8 /* realpartanalysisVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C8F1FD005330047FAB8 /* realpartanalysisVC0.m */; };
 		53359C931FD005460047FAB8 /* realpartanalysisVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C921FD005460047FAB8 /* realpartanalysisVC1.m */; };
+		53359C961FD0FB190047FAB8 /* realpartanalysisCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C951FD0FB190047FAB8 /* realpartanalysisCell1.m */; };
+		53359C991FD128340047FAB8 /* realpartanalysisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C981FD128340047FAB8 /* realpartanalysisCell2.m */; };
+		53359C9C1FD14D5B0047FAB8 /* realpartanalysisCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C9B1FD14D5B0047FAB8 /* realpartanalysisCell3.m */; };
+		53359C9F1FD167540047FAB8 /* realanalysisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C9E1FD167540047FAB8 /* realanalysisCell.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
 		533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533FCB391F99A41400A4F6E1 /* changeModel0.m */; };
@@ -1186,6 +1190,14 @@
 		53359C8F1FD005330047FAB8 /* realpartanalysisVC0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisVC0.m; sourceTree = "<group>"; };
 		53359C911FD005460047FAB8 /* realpartanalysisVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realpartanalysisVC1.h; sourceTree = "<group>"; };
 		53359C921FD005460047FAB8 /* realpartanalysisVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisVC1.m; sourceTree = "<group>"; };
+		53359C941FD0FB190047FAB8 /* realpartanalysisCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realpartanalysisCell1.h; sourceTree = "<group>"; };
+		53359C951FD0FB190047FAB8 /* realpartanalysisCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisCell1.m; sourceTree = "<group>"; };
+		53359C971FD128340047FAB8 /* realpartanalysisCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realpartanalysisCell2.h; sourceTree = "<group>"; };
+		53359C981FD128340047FAB8 /* realpartanalysisCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisCell2.m; sourceTree = "<group>"; };
+		53359C9A1FD14D5B0047FAB8 /* realpartanalysisCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realpartanalysisCell3.h; sourceTree = "<group>"; };
+		53359C9B1FD14D5B0047FAB8 /* realpartanalysisCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisCell3.m; sourceTree = "<group>"; };
+		53359C9D1FD167540047FAB8 /* realanalysisCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realanalysisCell.h; sourceTree = "<group>"; };
+		53359C9E1FD167540047FAB8 /* realanalysisCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realanalysisCell.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
 		533ED7651F98BEA800C1C996 /* forgetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetVC.m; sourceTree = "<group>"; };
 		533ED7691F98C16E00C1C996 /* forgetCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetCell0.h; sourceTree = "<group>"; };
@@ -3324,6 +3336,14 @@
 				53359C5B1FCEC3550047FAB8 /* realpartfinishCell.m */,
 				53359C881FCFDC1E0047FAB8 /* finishheadView.h */,
 				53359C891FCFDC1E0047FAB8 /* finishheadView.m */,
+				53359C941FD0FB190047FAB8 /* realpartanalysisCell1.h */,
+				53359C951FD0FB190047FAB8 /* realpartanalysisCell1.m */,
+				53359C971FD128340047FAB8 /* realpartanalysisCell2.h */,
+				53359C981FD128340047FAB8 /* realpartanalysisCell2.m */,
+				53359C9A1FD14D5B0047FAB8 /* realpartanalysisCell3.h */,
+				53359C9B1FD14D5B0047FAB8 /* realpartanalysisCell3.m */,
+				53359C9D1FD167540047FAB8 /* realanalysisCell.h */,
+				53359C9E1FD167540047FAB8 /* realanalysisCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4398,6 +4418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53359C9C1FD14D5B0047FAB8 /* realpartanalysisCell3.m in Sources */,
 				181F86B91FB437790090EDEF /* NTESDocumentShareInfo.m in Sources */,
 				186570AF1FB9873F00FB9E55 /* LiveVideoRecordVC.m in Sources */,
 				53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */,
@@ -4517,6 +4538,7 @@
 				535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */,
 				181F87171FB437790090EDEF /* NIMTeamInfoData.m in Sources */,
 				181F86931FB437790090EDEF /* color.c in Sources */,
+				53359C991FD128340047FAB8 /* realpartanalysisCell2.m in Sources */,
 				531A7F561FBEC000009E8934 /* realparticularsCell0.m in Sources */,
 				181F86A71FB437790090EDEF /* NTESChatroomSegmentedControl.m in Sources */,
 				186570B21FB9875E00FB9E55 /* LievWhiteboardRecoredVC.m in Sources */,
@@ -4601,6 +4623,7 @@
 				5317DE6B1F988F6200D4AE2C /* logupCell3.m in Sources */,
 				181F86901FB437790090EDEF /* NTESSnapchatAttachment.m in Sources */,
 				181F86871FB437790090EDEF /* NTESMeetingRoomSearchViewController.m in Sources */,
+				53359C9F1FD167540047FAB8 /* realanalysisCell.m in Sources */,
 				18283D0A1F9EFD6100111352 /* HomeSortDetailVC.m in Sources */,
 				181F86BA1FB437790090EDEF /* NTESWhiteboardCommand.m in Sources */,
 				533FCB421F99A9D800A4F6E1 /* changeCell0.m in Sources */,
@@ -4772,6 +4795,7 @@
 				53C999B91F973C90006A6570 /* MainNavigationController.m in Sources */,
 				53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */,
 				181F86761FB437790090EDEF /* NTESRegisterViewController.m in Sources */,
+				53359C961FD0FB190047FAB8 /* realpartanalysisCell1.m in Sources */,
 				181F86D81FB437790090EDEF /* NIMBadgeView.m in Sources */,
 				533FCB4F1F9DB38600A4F6E1 /* mineCell0.m in Sources */,
 				181F866E1FB437790090EDEF /* NTESFPSLabel.m in Sources */,

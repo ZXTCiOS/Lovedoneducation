@@ -178,7 +178,9 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
 
 -(void)rightbtnclick
 {
-    
+    realpartanalysisVC1 *vc = [realpartanalysisVC1 new];
+    vc.dataSource = self.modeldata;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

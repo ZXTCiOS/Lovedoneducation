@@ -9,6 +9,9 @@
 #import "realpartanalysisVC0.h"
 #import "realparticularsCell0.h"
 #import "realparticularsCell1.h"
+#import "realpartanalysisCell1.h"
+#import "realpartanalysisCell2.h"
+#import "realpartanalysisCell3.h"
 
 @interface realpartanalysisVC0 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -16,6 +19,9 @@
 
 static NSString *realparticularsCellidentfid0 = @"realparticularsCellidentfid0";
 static NSString *realparticularsCellidentfid1 = @"realparticularsCellidentfid1";
+static NSString *realparticularsCellidentfid2 = @"realparticularsCellidentfid2";
+static NSString *realparticularsCellidentfid3 = @"realparticularsCellidentfid3";
+static NSString *realparticularsCellidentfid4 = @"realparticularsCellidentfid4";
 
 @implementation realpartanalysisVC0
 
@@ -56,7 +62,7 @@ static NSString *realparticularsCellidentfid1 = @"realparticularsCellidentfid1";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,6 +83,33 @@ static NSString *realparticularsCellidentfid1 = @"realparticularsCellidentfid1";
         }
         [cell setarray:self.model.qanswer andtype:self.model.qtype andimgarr:self.model.answerimgarr];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==2) {
+        realpartanalysisCell1 *cell = [tableView dequeueReusableCellWithIdentifier:realparticularsCellidentfid2];
+        if (!cell) {
+            cell = [[realpartanalysisCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realparticularsCellidentfid2];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setdata: self.model.come];
+        return cell;
+    }
+    if (indexPath.row==3) {
+        realpartanalysisCell2 *cell = [tableView dequeueReusableCellWithIdentifier:realparticularsCellidentfid3];
+        if (!cell) {
+            cell = [[realpartanalysisCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realparticularsCellidentfid3];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setdata:self.model.qdes anderrorstr:self.model.qerror andaccuracystr:self.model.accuracy];
+        return cell;
+    }
+    if (indexPath.row==4) {
+        realpartanalysisCell3 *cell = [tableView dequeueReusableCellWithIdentifier:realparticularsCellidentfid4];
+        if (!cell) {
+            cell = [[realpartanalysisCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realparticularsCellidentfid4];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setdatacomestr:self.model.come];
         return cell;
     }
     return nil;

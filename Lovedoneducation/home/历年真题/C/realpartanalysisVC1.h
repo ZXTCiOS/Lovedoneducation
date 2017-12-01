@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface realpartanalysisVC1 : BaseViewController
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,copy) NSString *typestr;
 @end

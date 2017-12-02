@@ -455,7 +455,6 @@
 		53B851A71FB054F700608925 /* BarChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A61FB054F600608925 /* BarChat.m */; };
 		53B851AA1FB0596100608925 /* exerciseweeklyCell7.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851A91FB0596100608925 /* exerciseweeklyCell7.m */; };
 		53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */; };
-		53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */; };
 		53C3DC7A1FA97D4C00966F47 /* exerciseweeklyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */; };
 		53C3DC7D1FA97E4100966F47 /* exerciseweeklyCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7C1FA97E4100966F47 /* exerciseweeklyCell0.m */; };
 		53C3DC801FA9A16800966F47 /* exerciseweeklyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DC7F1FA9A16800966F47 /* exerciseweeklyCell1.m */; };
@@ -1393,8 +1392,6 @@
 		53B851A91FB0596100608925 /* exerciseweeklyCell7.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell7.m; sourceTree = "<group>"; };
 		53B851AF1FB07ABD00608925 /* smartgroupvolumeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartgroupvolumeVC.h; sourceTree = "<group>"; };
 		53B851B01FB07ABD00608925 /* smartgroupvolumeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartgroupvolumeVC.m; sourceTree = "<group>"; };
-		53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quickintelligenceVC.h; sourceTree = "<group>"; };
-		53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quickintelligenceVC.m; sourceTree = "<group>"; };
 		53C3DC781FA97D4C00966F47 /* exerciseweeklyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyVC.h; sourceTree = "<group>"; };
 		53C3DC791FA97D4C00966F47 /* exerciseweeklyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyVC.m; sourceTree = "<group>"; };
 		53C3DC7B1FA97E4100966F47 /* exerciseweeklyCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell0.h; sourceTree = "<group>"; };
@@ -3653,23 +3650,6 @@
 			path = M;
 			sourceTree = "<group>";
 		};
-		53C3DC6D1FA97C6100966F47 /* 快速智能练习 */ = {
-			isa = PBXGroup;
-			children = (
-				53C3DC6E1FA97C6B00966F47 /* C */,
-			);
-			path = "快速智能练习";
-			sourceTree = "<group>";
-		};
-		53C3DC6E1FA97C6B00966F47 /* C */ = {
-			isa = PBXGroup;
-			children = (
-				53C3DC711FA97CBE00966F47 /* quickintelligenceVC.h */,
-				53C3DC721FA97CBE00966F47 /* quickintelligenceVC.m */,
-			);
-			path = C;
-			sourceTree = "<group>";
-		};
 		53C3DC741FA97D1A00966F47 /* 练习周报 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3812,7 +3792,6 @@
 				534B4A241FA1BA1300A68BA7 /* 历年真题 */,
 				534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */,
 				5323ADA91FA421E200F2E626 /* 数据报告 */,
-				53C3DC6D1FA97C6100966F47 /* 快速智能练习 */,
 				53C3DC741FA97D1A00966F47 /* 练习周报 */,
 				534B74831FAAE89E000D265B /* 错题本 */,
 				53B851AB1FB079E200608925 /* 智能组卷 */,
@@ -4689,7 +4668,6 @@
 				181F86AB1FB437790090EDEF /* NTESMeetingActorsView.m in Sources */,
 				181F872E1FB437790090EDEF /* NIMImageCache.m in Sources */,
 				534B4A2D1FA1BEC100A68BA7 /* realquestionCell.m in Sources */,
-				53C3DC731FA97CBE00966F47 /* quickintelligenceVC.m in Sources */,
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				181F865B1FB437790090EDEF /* UIImage+NTES.m in Sources */,
 				181F87211FB437790090EDEF /* NIMTeamAnnouncementListCell.m in Sources */,

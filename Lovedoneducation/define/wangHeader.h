@@ -179,6 +179,14 @@
 
 
 /**
+ 专项练习
+
+ @return
+ */
+#define GET_practice2 @"/app.php/questions/practice/?uid=%@&token=%@&practiceType=%@&qtid=%@"
+
+
+/**
  添加收藏
 
  @return 添加收藏

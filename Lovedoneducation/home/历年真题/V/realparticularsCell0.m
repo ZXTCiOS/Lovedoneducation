@@ -109,7 +109,12 @@
             {
                 
             }
-            
+            if ([intstr isEqualToString:@"2"]) {
+                
+            }
+            if ([intstr isEqualToString:@"3"]) {
+                
+            }
         }
         else
         {
@@ -181,7 +186,8 @@
             NSString *string = [objdic objectAtIndex:j];
             if([string rangeOfString:@"http://"].location !=NSNotFound)
             {
-                str = @"1";
+                NSString *returnstr = [NSString stringWithFormat:@"%d",j];
+                str = returnstr;
             }
             else
             {

@@ -337,18 +337,21 @@
 -(void)zhinengzujuanclick
 {
     smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType0;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //预测试题
 -(void)yuceshiticlick
 {
-    predictexamVC *vc = [[predictexamVC alloc] init];
+    smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //模拟试题
 -(void)monishiticlick
 {
-    simulationtestVC *vc = [[simulationtestVC alloc] init];
+    smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType2;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

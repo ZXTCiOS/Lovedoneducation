@@ -292,7 +292,19 @@ static NSString *realcellidentfid = @"realcellidentfid";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+
+        realpartcardVC *vc = [[realpartcardVC alloc] init];
+        vc.modeldata = self.dataSource;
+        vc.dataSource = self.cardtypeArray;
+        vc.xuanzearr = self.arrayDatasource;
+        vc.upnoarray = self.xuanzearray;
+        //    vc.upquestion = self.upquestion;
+        vc.practiceType = practiceType;
+        vc.uptimes = uptimes;
+        vc.upno = upno;
+        vc.upquestion = upquestion;
+        vc.upyes = upyes;
+        vc.uplist = upliststr;
         [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSError *error) {
         

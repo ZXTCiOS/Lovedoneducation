@@ -116,7 +116,7 @@
     if(!_leftlab)
     {
         _leftlab = [[UILabel alloc] init];
-        _leftlab.frame = CGRectMake(0, 30, kScreenW/2-28, 16);
+        _leftlab.frame = CGRectMake(0, 35, kScreenW/2-28, 16);
         _leftlab.textAlignment = NSTextAlignmentCenter;
         _leftlab.text = @"全站正确率";
         _leftlab.font = [UIFont systemFontOfSize:13];
@@ -130,7 +130,7 @@
     if(!_rightlab)
     {
         _rightlab = [[UILabel alloc] init];
-        _rightlab.frame = CGRectMake(0, 30, kScreenW/2-28, 16);
+        _rightlab.frame = CGRectMake(0, 35, kScreenW/2-28, 16);
         _rightlab.textAlignment = NSTextAlignmentCenter;
         _rightlab.text = @"易错项";
         _rightlab.font = [UIFont systemFontOfSize:13];

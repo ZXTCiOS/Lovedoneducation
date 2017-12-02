@@ -3401,8 +3401,6 @@
 		534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */ = {
 			isa = PBXGroup;
 			children = (
-				534B4A411FA3099900A68BA7 /* M */,
-				534B4A401FA3099800A68BA7 /* V */,
 				534B4A3F1FA3099700A68BA7 /* C */,
 			);
 			path = "选择考试类型";
@@ -3417,20 +3415,6 @@
 				534B4A461FA309BE00A68BA7 /* typeVC1.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		534B4A401FA3099800A68BA7 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		534B4A411FA3099900A68BA7 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		534B74831FAAE89E000D265B /* 错题本 */ = {

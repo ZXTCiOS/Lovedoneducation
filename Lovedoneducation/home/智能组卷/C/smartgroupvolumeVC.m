@@ -7,17 +7,28 @@
 //
 
 #import "smartgroupvolumeVC.h"
-#import "smartgroupCell.h"
-#import "smartgroupModel.h"
-#import "headView.h"
-#import "cardVC.h"
-#import "LYMenu.h"
 
+#import "realparticularsCell0.h"
+#import "realparticularsCell1.h"
+#import "realCell.h"
+#import "smartgroupModel.h"
+#import "realpartfinishVC.h"
+#import "realpartcardVC.h"
+#import "headView.h"
+
+#import "TZImagePickerController.h"
+#import "TZAssetModel.h"
+#import "TZImageManager.h"
+
+#import "NSArray+JSON.h"
+
+
+#import "LYMenu.h"
 // 分享
 #import "ZTVendorManager.h"
 #import "ActionSheetView.h"
 
-@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate>
+@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
     dispatch_source_t timer;
 }
@@ -33,6 +44,13 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
+@property (nonatomic, strong) NSMutableArray *imgarr;
+
+@property (nonatomic, strong) NSMutableArray *cardtypeArray;
+
+@property (nonatomic,strong) NSMutableArray *xuanzearray;
+@property (nonatomic,strong) NSMutableArray *upquestion;//题目id
+@property (nonatomic,strong) NSMutableArray *uplistarr;
 @end
 
 @implementation smartgroupvolumeVC
@@ -41,13 +59,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"智能组卷";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"1e2b3b"];
+    
     [self prepareLayout];
     [self.view addSubview:self.head];
+    self.uplistarr = [NSMutableArray array];
+    self.upquestion = [NSMutableArray array];
+    self.xuanzearray = [NSMutableArray array];
+    self.imgarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.arrayDatasource = [NSMutableArray array];
-
+    self.cardtypeArray = [NSMutableArray array];
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
         self.collectionV.frame = CGRectMake(0, NAVIGATION_HEIGHT+60, kScreenW, kScreenH-NAVIGATION_HEIGHT-60);
@@ -58,7 +80,6 @@
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
-    [self startCount];
 }
 
 -(headView *)head
@@ -89,12 +110,26 @@
 {
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    NSString *practiceType = @"1";
-    //1 智能组卷 2预测试题 3专项智能练习
-    NSString *url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
+    NSString *practiceType = @"";
+    NSString *url = @"";
+    if (self.InActionType == ENUM_ViewController_ActionType0) {
+        practiceType = @"1";
+        //1 智能组卷 2预测试题 3专项智能练习
+        url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
+    }
+    if (self.InActionType == ENUM_ViewController_ActionType1) {
+        practiceType = @"2";
+        //1 智能组卷 2预测试题 3专项智能练习
+        url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
+    }
+    if (self.InActionType == ENUM_ViewController_ActionType2) {
+        practiceType = @"3";
+        url = [NSString stringWithFormat:GET_testPractice,uid,token];
+    }
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSArray *data = [obj objectForKey:@"data"];
+            
             for (int i = 0; i<data.count; i++) {
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
@@ -113,7 +148,13 @@
                 model.qdes = [NSMutableArray array];
                 model.qdes = [dic objectForKey:@"qdes"];
                 model.qerror = [dic objectForKey:@"qerror"];
-                model.qsuccess = [dic objectForKey:@"qsuccess"];
+                if (![[dic objectForKey:@"qsuccess"] isEqualToString:@"zxtc"]) {
+                    model.qsuccess = [dic objectForKey:@"qsuccess"];
+                }
+                else
+                {
+                    model.qsuccess = @"";
+                }
                 model.qtid = [dic objectForKey:@"qtid"];
                 model.qtgroup = [dic objectForKey:@"qtgroup"];
                 model.qtitle = [dic objectForKey:@"qtitle"];
@@ -121,20 +162,27 @@
                 model.qtpath = [dic objectForKey:@"qtpath"];
                 model.successnum = [dic objectForKey:@"successnum"];
                 model.time = [dic objectForKey:@"time"];
+                model.answerimgarr = [NSMutableArray array];
+                [self.xuanzearray addObject: model.qsuccess];
+                [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
             }
             for (int i = 0; i<self.dataSource.count; i++) {
                 [self.arrayDatasource addObject:@""];
+                [self.cardtypeArray addObject:@""];
+                [self.uplistarr addObject:@""];
             }
+            
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
             self.pidstr = model.qid;
+            [self startCount];
             
         }
     } failure:^(NSError *error) {
         
-    }];
+    }];;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -154,7 +202,7 @@
     self.collectionV.dataSource = self;
     self.collectionV.pagingEnabled = YES;
     self.collectionV.bounces = YES;
-    [self.collectionV registerClass:[smartgroupCell class] forCellWithReuseIdentifier:@"ExamCell"];
+    [self.collectionV registerClass:[realCell class] forCellWithReuseIdentifier:@"ExamCell"];
     [self.view addSubview:self.collectionV];
 }
 
@@ -166,7 +214,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    smartgroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
+    realCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExamCell" forIndexPath:indexPath];
     
     if (indexPath.row == self.dataSource.count - 1) {
         cell.copystr = @"1";
@@ -215,39 +263,50 @@
     dispatch_resume(timer);
 }
 
--(void)myTabVClickA:(UICollectionViewCell *)cell
-{
-    NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    NSLog(@"333===%ld",index.item);
-    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
-}
-
--(void)myTabVClickB:(UICollectionViewCell *)cell
-{
-    NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    NSLog(@"333===%ld",index.item);
-    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
-    
-}
-
--(void)myTabVClickC:(UICollectionViewCell *)cell
-{
-    NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    NSLog(@"333===%ld",index.item);
-    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
-}
-
--(void)myTabVClickD:(UICollectionViewCell *)cell
-{
-    NSIndexPath *index = [_collectionV indexPathForCell:cell];
-    NSLog(@"333===%ld",index.item);
-    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
-}
-
 -(void)cardclick
 {
-    cardVC *vc = [[cardVC alloc] init];
-    vc.dataSource = self.arrayDatasource;
+    NSLog(@"arr-----%@",self.uplistarr);
+    NSMutableArray *arr0 = [NSMutableArray new];
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSObject *obj = [self.uplistarr objectAtIndex:i];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [arr0 addObject:obj];
+        }
+        else
+        {
+            
+        }
+    }
+    NSLog(@"arr0-----%@",arr0);
+    NSString *upliststr = [arr0 toReadableJSONString];
+    NSLog(@"str-----%@",upliststr);
+    //错误答案
+    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+    //题目id
+    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+    //正确答案
+    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+    //时间
+    NSString *uptimes = self.timestr;
+    //类型
+    NSString *practiceType = @"4";
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+    NSLog(@"dic-----%@",dic);
+    
+    realpartcardVC *vc = [[realpartcardVC alloc] init];
+    vc.modeldata = self.dataSource;
+    vc.dataSource = self.cardtypeArray;
+    vc.xuanzearr = self.arrayDatasource;
+    vc.upnoarray = self.xuanzearray;
+    //    vc.upquestion = self.upquestion;
+    vc.practiceType = practiceType;
+    vc.uptimes = uptimes;
+    vc.upno = upno;
+    vc.upquestion = upquestion;
+    vc.upyes = upyes;
+    vc.uplist = upliststr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -276,6 +335,168 @@
     }];
     [menu show];
 }
+
+
+-(void)queren:(UICollectionViewCell *)cell
+{
+    NSLog(@"选择题array====%@",self.self.arrayDatasource);
+    NSMutableArray *arr0 = [NSMutableArray new];
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSObject *obj = [self.uplistarr objectAtIndex:i];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [arr0 addObject:obj];
+        }
+        else
+        {
+            
+        }
+    }
+    NSLog(@"arr0-----%@",arr0);
+    NSString *upliststr = [arr0 toReadableJSONString];
+    NSLog(@"str-----%@",upliststr);
+    //错误答案
+    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+    //题目id
+    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+    //正确答案
+    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+    //时间
+    NSString *uptimes = self.timestr;
+    //类型
+    NSString *practiceType = @"4";
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+    NSLog(@"dic-----%@",dic);
+    
+    [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
+        
+        realpartcardVC *vc = [[realpartcardVC alloc] init];
+        vc.modeldata = self.dataSource;
+        vc.dataSource = self.cardtypeArray;
+        vc.xuanzearr = self.arrayDatasource;
+        vc.upnoarray = self.xuanzearray;
+        //    vc.upquestion = self.upquestion;
+        vc.practiceType = practiceType;
+        vc.uptimes = uptimes;
+        vc.upno = upno;
+        vc.upquestion = upquestion;
+        vc.upyes = upyes;
+        vc.uplist = upliststr;
+        [self.navigationController pushViewController:vc animated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)imgchoose:(UICollectionViewCell *)cell
+{
+    //__weak typeof(self)weakSelf = self;
+    TZImagePickerController *pickerController = [[TZImagePickerController alloc]initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
+    pickerController.naviBgColor = [UIColor colorWithHexString:@"08D2B2"];
+    pickerController.needCircleCrop = YES;
+    pickerController.circleCropRadius = 100;
+    [pickerController setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photo, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        if (photo.count) {
+            
+            UIImage *img = [photo firstObject];
+            UIImage *originImage = img;
+            NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+            NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            NSLog(@"encodedImageStr==%@",encodedImageStr);
+            
+            NSString *file = encodedImageStr;
+            NSString *type = @"png";
+            NSDictionary *para = @{@"file":file,@"type":type};
+            
+            [MBProgressHUD showMessage:@"正在上传" toView:self.view];
+            
+            [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
+                [MBProgressHUD hideHUDForView:self.view];
+                
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    
+                    NSString *imgurl = [obj objectForKey:@"data"];
+                    NSLog(@"imgurl = %@",imgurl);
+                    [self.imgarr addObject:imgurl];
+                    int inter = (int)self.indexPathNow.item;
+                    smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+                    NSLog(@"model----%@",model);
+                    [model.answerimgarr addObject:img];
+                    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+                    
+                    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+                    NSLog(@"333===%ld",index.item);
+                    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+                    
+                    [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
+                    
+                    //uplist数组方法
+                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+                    NSDictionary *imgdic = @{@"img":self.imgarr};
+                    [arr addObject:imgdic];
+                    
+                }
+                else
+                {
+                    [MBProgressHUD showSuccess:@"上传失败" toView:self.view];
+                }
+            } failure:^(NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view];
+                [MBProgressHUD showSuccess:@"上传失败，请检查网络" toView:self.view];
+            }];;
+            
+        }
+    }];
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+-(void)myTabVClickA:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
+}
+
+-(void)myTabVClickB:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
+}
+
+-(void)myTabVClickC:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
+}
+
+-(void)myTabVClickD:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
+}
+
+-(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+    smartgroupModel *model = self.dataSource[index.item];
+    NSMutableArray *arr = [NSMutableArray new];
+    NSDictionary *qiddic = @{@"qid":model.qid};
+    NSDictionary *contentdic = @{@"content":str};
+    [arr addObject:qiddic];
+    [arr addObject:contentdic];
+    [self.uplistarr replaceObjectAtIndex:index.item withObject:arr];
+    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+}
+
 
 #pragma mark - 截图发送
 

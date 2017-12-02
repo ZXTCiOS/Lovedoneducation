@@ -207,4 +207,12 @@
  @return
  */
 #define POST_practiceing @"/app.php/Questions/practiceing"
+
+
+/**
+ 模拟试题
+
+ @return
+ */
+#define GET_testPractice @"http://55.irapidtech.net/app.php/Questions/testPractice?uid=%@&token=%@"
 #endif /* wangHeader_h */

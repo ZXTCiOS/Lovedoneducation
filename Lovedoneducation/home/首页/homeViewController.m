@@ -173,8 +173,15 @@
     HomeSortDetailVC *vc = [[HomeSortDetailVC alloc] init];
     vc.child = quetion.child;
     vc.title = quetion.qtname;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    HomeChildModel *childmodel = quetion.child[indexPath.item];
+    if ([childmodel.ischarge isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
+    }
+    else
+    {
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

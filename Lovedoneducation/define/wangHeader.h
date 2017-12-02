@@ -214,5 +214,5 @@
 
  @return
  */
-#define GET_testPractice @"http://55.irapidtech.net/app.php/Questions/testPractice?uid=%@&token=%@"
+#define GET_testPractice @"/app.php/Questions/testPractice?uid=%@&token=%@"
 #endif /* wangHeader_h */

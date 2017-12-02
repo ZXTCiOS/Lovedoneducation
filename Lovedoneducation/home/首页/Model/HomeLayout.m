@@ -22,11 +22,11 @@
     [super prepareLayout];
     
     // banner  height
-    CGFloat banner_H = kScreenW * 7 / 15 + 100;
+  //  CGFloat banner_H = kScreenW * 7 / 15 + 100;
     
     // HomeSortCell height
-    CGFloat cell_H = (kScreenW - 34)/ 2 * 9 / 17 + 16;
-    CGFloat cell_totalH = (self.list.count + 1) / 2 * (cell_H + 20) + 20;
+   // CGFloat cell_H = (kScreenW - 34)/ 2 * 9 / 17 + 16;
+//    CGFloat cell_totalH = (self.list.count + 1) / 2 * (cell_H + 20) + 20;
     
     
     for (HomeQuestionsModel *quetion in self.list) {

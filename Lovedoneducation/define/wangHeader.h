@@ -208,7 +208,6 @@
  */
 #define GET_uploadImage @"/app.php/tool/uploadImage"
 
-
 /**
  答案提交
 
@@ -216,11 +215,24 @@
  */
 #define POST_practiceing @"/app.php/Questions/practiceing"
 
-
 /**
  模拟试题
 
  @return
  */
 #define GET_testPractice @"/app.php/Questions/testPractice?uid=%@&token=%@"
+
+/**
+ 数据报告
+
+ @return
+ */
+#define GET_report @"/app.php/DateReport/report/?uid=%@"
+
+/**
+ 练习周报
+
+ @return 练习周报
+ */
+#define GET_weekdeport @"/app.php/DateReport/weekdeport?uid=%@"
 #endif /* wangHeader_h */

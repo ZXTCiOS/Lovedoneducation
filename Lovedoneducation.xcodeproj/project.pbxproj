@@ -2815,8 +2815,6 @@
 		531A7F3C1FBD66BE009E8934 /* 预测试题 */ = {
 			isa = PBXGroup;
 			children = (
-				531A7F401FBD66DE009E8934 /* M */,
-				531A7F3F1FBD66DD009E8934 /* V */,
 				531A7F3E1FBD66DC009E8934 /* C */,
 			);
 			path = "预测试题";
@@ -2825,8 +2823,6 @@
 		531A7F3D1FBD66C8009E8934 /* 模拟试题 */ = {
 			isa = PBXGroup;
 			children = (
-				531A7F431FBD66E6009E8934 /* M */,
-				531A7F421FBD66E5009E8934 /* V */,
 				531A7F411FBD66E4009E8934 /* C */,
 			);
 			path = "模拟试题";
@@ -2841,20 +2837,6 @@
 			path = C;
 			sourceTree = "<group>";
 		};
-		531A7F3F1FBD66DD009E8934 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		531A7F401FBD66DE009E8934 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
 		531A7F411FBD66E4009E8934 /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -2864,25 +2846,9 @@
 			path = C;
 			sourceTree = "<group>";
 		};
-		531A7F421FBD66E5009E8934 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		531A7F431FBD66E6009E8934 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
 		531A7F4A1FBD6AAE009E8934 /* 收藏题目 */ = {
 			isa = PBXGroup;
 			children = (
-				531A7F4D1FBD6ABC009E8934 /* M */,
-				531A7F4C1FBD6ABB009E8934 /* V */,
 				531A7F4B1FBD6ABA009E8934 /* C */,
 			);
 			path = "收藏题目";
@@ -2895,20 +2861,6 @@
 				531A7F4F1FBD6ADD009E8934 /* collecttopicVC.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		531A7F4C1FBD6ABB009E8934 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		531A7F4D1FBD6ABC009E8934 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		5323ADA91FA421E200F2E626 /* 数据报告 */ = {

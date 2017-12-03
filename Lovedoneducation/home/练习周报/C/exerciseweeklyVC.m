@@ -44,11 +44,23 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
     }
     self.table.tableFooterView = [UIView new];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *url = [NSString stringWithFormat:GET_weekdeport,uid];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getters

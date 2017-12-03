@@ -7,7 +7,6 @@
 //
 
 #import "smartgroupvolumeVC.h"
-
 #import "realparticularsCell0.h"
 #import "realparticularsCell1.h"
 #import "realCell.h"
@@ -15,14 +14,10 @@
 #import "realpartfinishVC.h"
 #import "realpartcardVC.h"
 #import "headView.h"
-
 #import "TZImagePickerController.h"
 #import "TZAssetModel.h"
 #import "TZImageManager.h"
-
 #import "NSArray+JSON.h"
-
-
 #import "LYMenu.h"
 // 分享
 #import "ZTVendorManager.h"
@@ -51,6 +46,8 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
+
+@property (nonatomic,copy) NSString *typestr;
 @end
 
 @implementation smartgroupvolumeVC
@@ -114,16 +111,19 @@
     NSString *url = @"";
     if (self.InActionType == ENUM_ViewController_ActionType0) {
         practiceType = @"1";
+        self.typestr = @"1";
         //1 智能组卷 2预测试题 3专项智能练习
         url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
     }
     if (self.InActionType == ENUM_ViewController_ActionType1) {
         practiceType = @"2";
+        self.typestr = @"2";
         //1 智能组卷 2预测试题 3专项智能练习
         url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
     }
     if (self.InActionType == ENUM_ViewController_ActionType2) {
         practiceType = @"3";
+        self.typestr = @"3";
         url = [NSString stringWithFormat:GET_testPractice,uid,token];
     }
     [DNNetworking getWithURLString:url success:^(id obj) {
@@ -256,7 +256,6 @@
             
             self.timestr = strTime;
             self.head.timelab.text = strTime;
-            
         });
         _timeCount ++;
     });

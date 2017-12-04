@@ -13,9 +13,7 @@
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
 @interface realparticularsCell1()<UITextViewDelegate>
-
 @property (nonatomic,copy) NSString *typestr;
-
 @property (nonatomic,strong) UILabel *labA;
 @property (nonatomic,strong) UILabel *labB;
 @property (nonatomic,strong) UILabel *labC;
@@ -25,13 +23,11 @@
 @property (nonatomic,strong) UIImageView *imgC;
 @property (nonatomic,strong) UIImageView *imgD;
 @property (nonatomic,strong) WJGtextView *textView;
-
 @property (nonatomic,strong) UIImageView *img0;
 @property (nonatomic,strong) UIImageView *img1;
 @property (nonatomic,strong) UIImageView *img2;
 @property (nonatomic,strong) UIButton *imgbtn;
 @property (nonatomic,strong) UIView *lineview;
-
 @property (nonatomic,strong) NSString *textstring;
 @end
 
@@ -279,8 +275,140 @@
                 self.labD.text = [answerd stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];;
                 [self setuptype1];
             }
- 
+        }
+    }
+}
 
+-(void)clickanswer0:(NSString *)answer0 andanswer1:(NSString *)answer1
+{
+    if ([answer0 isEqualToString:@""]) {
+        if ([answer1 isEqualToString:@"A"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"B"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"C"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"D"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        }
+    }
+    if ([answer1 isEqualToString:answer0]) {
+        if ([answer1 isEqualToString:@"A"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"B"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"C"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"D"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        }
+    }
+    else
+    {
+        if ([answer1 isEqualToString:@"A"]&&[answer0 isEqualToString:@"B"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labB.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"A"]&&[answer0 isEqualToString:@"C"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"A"]&&[answer0 isEqualToString:@"D"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"E51919"];
+        }
+        
+        if ([answer1 isEqualToString:@"B"]&&[answer0 isEqualToString:@"A"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"B"]&&[answer0 isEqualToString:@"C"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labC.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"B"]&&[answer0 isEqualToString:@"D"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"E51919"];
+        }
+        
+        if ([answer1 isEqualToString:@"C"]&&[answer0 isEqualToString:@"A"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"C"]&&[answer0 isEqualToString:@"B"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labD.textColor = [UIColor colorWithHexString:@"646464"];
+        }
+        if ([answer1 isEqualToString:@"C"]&&[answer0 isEqualToString:@"D"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"FF9B19"];
+            self.labD.textColor = [UIColor colorWithHexString:@"E51919"];
+        }
+        
+        if ([answer1 isEqualToString:@"D"]&&[answer0 isEqualToString:@"A"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        }
+        if ([answer1 isEqualToString:@"D"]&&[answer0 isEqualToString:@"B"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labC.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
+        }
+        if ([answer1 isEqualToString:@"D"]&&[answer0 isEqualToString:@"C"]) {
+            self.labA.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labB.textColor = [UIColor colorWithHexString:@"646464"];
+            self.labC.textColor = [UIColor colorWithHexString:@"E51919"];
+            self.labD.textColor = [UIColor colorWithHexString:@"FF9B19"];
         }
     }
 }

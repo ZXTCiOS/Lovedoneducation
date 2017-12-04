@@ -83,6 +83,7 @@ static NSString *realparticularsCellidentfid4 = @"realparticularsCellidentfid4";
         }
         [cell setarray:self.model.qanswer andtype:self.model.qtype andimgarr:self.model.answerimgarr];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell clickanswer0:self.answer0[indexPath.row] andanswer1:self.answer1[indexPath.row]];
         return cell;
     }
     if (indexPath.row==2) {

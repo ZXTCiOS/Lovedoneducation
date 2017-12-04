@@ -17,6 +17,8 @@
 @interface realanalysisCell()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) smartgroupModel *model;
+@property (nonatomic,copy) NSString *ans0;
+@property (nonatomic,copy) NSString *ans1;
 @end
 
 static NSString *realpartanalysisCellidentfid00 = @"realpartanalysisCellidentfid00";
@@ -32,7 +34,6 @@ static NSString *realpartanalysisCellidentfid04 = @"realpartanalysisCellidentfid
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView addSubview:self.table];
-//        self.imgarray = [NSMutableArray array];
         [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);
             make.right.equalTo(self);
@@ -81,6 +82,7 @@ static NSString *realpartanalysisCellidentfid04 = @"realpartanalysisCellidentfid
         if (!cell) {
             cell = [[realparticularsCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:realpartanalysisCellidentfid01];
         }
+        [cell clickanswer0:self.ans0 andanswer1:self.ans1];
         [cell setarray:self.model.qanswer andtype:self.model.qtype andimgarr:self.model.answerimgarr];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -122,9 +124,11 @@ static NSString *realpartanalysisCellidentfid04 = @"realpartanalysisCellidentfid
                                    tableView:tableView];
 }
 
--(void)setdata:(smartgroupModel *)model
+-(void)setdata:(smartgroupModel *)model andanswer0:(NSString *)str0 andanswer1:(NSString *)str1
 {
     self.model = model;
+    self.ans0 = str0;
+    self.ans1 = str1;
     [self.table reloadData];
 }
 

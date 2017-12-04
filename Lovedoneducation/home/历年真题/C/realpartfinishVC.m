@@ -173,6 +173,8 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
     model = [self.modeldata objectAtIndex:index];
     realpartanalysisVC0 *vc = [realpartanalysisVC0 new];
     vc.model = model;
+    vc.answer0 = self.answerarray0;
+    vc.answer1 = self.answerarray1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -180,6 +182,8 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
 {
     realpartanalysisVC1 *vc = [realpartanalysisVC1 new];
     vc.dataSource = self.modeldata;
+    vc.answer0 = self.answerarray0;
+    vc.answer1 = self.answerarray1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

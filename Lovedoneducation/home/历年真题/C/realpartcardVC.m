@@ -168,6 +168,7 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
     vc.answerarray0 = self.xuanzearr;
     vc.answerarray1 = self.upnoarray;
     vc.modeldata = self.modeldata;
+    
     [self.navigationController pushViewController:vc animated:YES];
 
 }

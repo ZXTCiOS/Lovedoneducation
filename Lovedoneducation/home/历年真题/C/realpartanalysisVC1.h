@@ -11,4 +11,6 @@
 @interface realpartanalysisVC1 : BaseViewController
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,copy) NSString *typestr;
+@property (nonatomic,strong) NSMutableArray *answer0;
+@property (nonatomic,strong) NSMutableArray *answer1;
 @end

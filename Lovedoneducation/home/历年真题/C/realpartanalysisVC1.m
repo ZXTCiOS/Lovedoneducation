@@ -93,7 +93,8 @@ static NSString *realanalysisCellidentfid = @"realanalysisCellidentfid";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     realanalysisCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:realanalysisCellidentfid forIndexPath:indexPath];
-    [cell setdata:self.dataSource[indexPath.item]];
+    //[cell setdata:self.dataSource[indexPath.item]];
+    [cell setdata:self.dataSource[indexPath.item] andanswer0:self.answer0[indexPath.item] andanswer1:self.answer1[indexPath.item]];
     return cell;
 }
 

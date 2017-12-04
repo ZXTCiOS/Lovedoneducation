@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 @class smartgroupModel;
 @interface realanalysisCell : UICollectionViewCell
--(void)setdata:(smartgroupModel *)model;
-
+//-(void)setdata:(smartgroupModel *)model;
+-(void)setdata:(smartgroupModel *)model andanswer0:(NSString *)str0 andanswer1:(NSString *)str1;
 @end

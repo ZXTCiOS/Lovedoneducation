@@ -10,4 +10,6 @@
 #import "smartgroupModel.h"
 @interface realpartanalysisVC0 : BaseViewController
 @property (nonatomic,strong) smartgroupModel *model;
+@property (nonatomic,strong) NSMutableArray *answer0;
+@property (nonatomic,strong) NSMutableArray *answer1;
 @end

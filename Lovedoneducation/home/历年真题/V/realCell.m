@@ -25,6 +25,7 @@
 @property (nonatomic, copy) NSString *qtitle;
 @property (nonatomic, copy) NSString *qtype;
 @property (nonatomic,strong) NSMutableArray *imgarray;
+@property (nonatomic,copy) NSString *qsuccess;
 @end
 
 
@@ -130,6 +131,8 @@ static NSString *realcellidentfid2 = @"realcellidentfid2";
     self.qtitle =smodel.qtitle;
     self.qtype = model.qtype;
     self.imgarray = model.answerimgarr;
+
+    self.qsuccess = model.qsuccess;
     [self.table reloadData];
 }
 

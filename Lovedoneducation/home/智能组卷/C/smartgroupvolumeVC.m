@@ -55,8 +55,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"智能组卷";
-    
+ 
+    if (self.InActionType==ENUM_ViewController_ActionType0) {
+        self.title = @"智能组卷";
+    }
+    if (self.InActionType==ENUM_ViewController_ActionType1) {
+        self.title = @"预测试题";
+    }
+    if (self.InActionType==ENUM_ViewController_ActionType2) {
+        self.title = @"模拟试题";
+    }
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"646464"];
     [self prepareLayout];
     [self.view addSubview:self.head];
     self.uplistarr = [NSMutableArray array];
@@ -77,6 +87,7 @@
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
+    self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
 }
 
 -(headView *)head
@@ -502,35 +513,16 @@
 
 - (void)screenShot:(UIScrollView *)basetable{
     UIImage* image = nil;
-//    UIGraphicsBeginImageContext(basetable.contentSize);
-//    {
-//        CGPoint savedContentOffset = basetable.contentOffset;
-//        CGRect savedFrame = basetable.frame;
-//        basetable.contentOffset = CGPointZero;
-//
-//        basetable.frame = CGRectMake(0, 0, basetable.contentSize.width, basetable.contentSize.height);
-//        [basetable.layer renderInContext: UIGraphicsGetCurrentContext()];
-//
-//        image = UIGraphicsGetImageFromCurrentImageContext();
-//
-//        basetable.contentOffset = savedContentOffset;
-//        basetable.frame = savedFrame;
-//    }
-//    UIGraphicsEndImageContext();
-//
-    
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UICollectionViewCell *cell = [self.collectionV cellForItemAtIndexPath:self.indexPathNow];
+    UIGraphicsBeginImageContextWithOptions(cell.bounds.size, NO, 0);
+    [cell.layer renderInContext:UIGraphicsGetCurrentContext()];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
     if (image != nil) {
         NSLog(@"截图成功!");
 //    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
-
         NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
         NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
-        
         ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
         [actionsheet setBtnClick:^(NSInteger btnTag) {
             NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);

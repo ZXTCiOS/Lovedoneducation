@@ -29,6 +29,21 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if ([self.typestr isEqualToString:@"1"]) {
+        self.leftLab.text = @"智能组卷";
+    }
+    if ([self.typestr isEqualToString:@"2"]) {
+        self.leftLab.text = @"预测试题";
+    }
+    if ([self.typestr isEqualToString:@"3"]) {
+        self.leftLab.text = @"模拟试题";
+    }
+    if ([self.typestr isEqualToString:@"4"]) {
+        self.leftLab.text = @"历年真题";
+    }
+    if ([self.typestr isEqualToString:@"5"]) {
+        self.leftLab.text = @"专项练习";
+    }
     self.title = @"答题卡";
     [self.view addSubview:self.headView];
     [self prepareLayout];
@@ -69,7 +84,6 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
         _leftLab.frame = CGRectMake(15, 10, kScreenW-30, 40);
         _leftLab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         _leftLab.font = [UIFont systemFontOfSize:15];
-        _leftLab.text = @"历年真题";
     }
     return _leftLab;
 }
@@ -168,9 +182,32 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
     vc.answerarray0 = self.xuanzearr;
     vc.answerarray1 = self.upnoarray;
     vc.modeldata = self.modeldata;
-    
+    vc.typestr = self.typestr;
+    vc.timestr = [self getCurrentTimes];
     [self.navigationController pushViewController:vc animated:YES];
+}
 
+
+-(NSString*)getCurrentTimes{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    //现在时间,你可以输出来看下是什么格式
+    
+    NSDate *datenow = [NSDate date];
+    
+    //----------将nsdate按formatter格式转成nsstring
+    
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    
+    return currentTimeString;
+    
 }
 
 @end

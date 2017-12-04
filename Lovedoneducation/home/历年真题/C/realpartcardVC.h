@@ -10,8 +10,6 @@
 
 @interface realpartcardVC : BaseViewController
 
-
-
 /**
  全部model数据
  */
@@ -68,4 +66,6 @@
  图片和content
  */
 @property (nonatomic,copy) NSString *uplist;
+
+@property (nonatomic,copy) NSString *typestr;
 @end

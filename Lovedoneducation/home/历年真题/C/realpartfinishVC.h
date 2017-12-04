@@ -14,5 +14,6 @@
 @property (nonatomic,strong) NSMutableArray *answerarray1;
 
 @property (nonatomic,strong) NSMutableArray *modeldata;
-
+@property (nonatomic,copy) NSString *typestr;
+@property (nonatomic,copy) NSString *timestr;
 @end

@@ -289,6 +289,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     vc.upquestion = upquestion;
     vc.upyes = upyes;
     vc.uplist = upliststr;
+    vc.typestr = @"5";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -365,6 +366,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
         vc.upquestion = upquestion;
         vc.upyes = upyes;
         vc.uplist = upliststr;
+        vc.typestr = @"5";
         [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSError *error) {
         

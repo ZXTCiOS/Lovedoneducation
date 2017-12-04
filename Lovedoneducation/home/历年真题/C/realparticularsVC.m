@@ -12,13 +12,10 @@
 #import "realparticularsCell1.h"
 #import "realCell.h"
 #import "smartgroupModel.h"
-#import "realpartfinishVC.h"
 #import "realpartcardVC.h"
-
 #import "TZImagePickerController.h"
 #import "TZAssetModel.h"
 #import "TZImageManager.h"
-
 #import "NSArray+JSON.h"
 
 @interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
@@ -38,9 +35,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
 @property (nonatomic, strong) NSMutableArray *imgarr;
-
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
-
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
@@ -256,6 +251,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     vc.upquestion = upquestion;
     vc.upyes = upyes;
     vc.uplist = upliststr;
+    vc.typestr = @"4";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -305,6 +301,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         vc.upquestion = upquestion;
         vc.upyes = upyes;
         vc.uplist = upliststr;
+        vc.typestr = @"4";
         [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSError *error) {
         

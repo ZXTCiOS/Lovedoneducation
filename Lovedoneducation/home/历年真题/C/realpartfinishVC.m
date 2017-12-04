@@ -36,6 +36,27 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
     // Do any additional setup after loading the view.
     self.title = @"练习报告";
     self.interstr = @"";
+    self.headView.timeLab.text = [NSString stringWithFormat:@"%@%@",@"交卷时间: ",self.timestr];
+    if ([self.typestr isEqualToString:@"1"]) {
+       // self.leftLab.text = @"智能组卷";
+        self.headView.nameLab.text = @"练习类型：智能组卷";
+    }
+    if ([self.typestr isEqualToString:@"2"]) {
+        //self.leftLab.text = @"预测试题";
+        self.headView.nameLab.text = @"练习类型：预测试题";
+    }
+    if ([self.typestr isEqualToString:@"3"]) {
+        //self.leftLab.text = @"模拟试题";
+        self.headView.nameLab.text = @"练习类型：模拟试题";
+    }
+    if ([self.typestr isEqualToString:@"4"]) {
+        //self.leftLab.text = @"历年真题";
+        self.headView.nameLab.text = @"练习类型：历年真题";
+    }
+    if ([self.typestr isEqualToString:@"5"]) {
+       // self.leftLab.text = @"专项练习";
+        self.headView.nameLab.text = @"练习类型：专项练习";
+    }
     self.selectarray = [NSMutableArray array];
     for (int i = 0; i<self.dataArr.count; i++) {
         [self.selectarray addObject:@""];
@@ -66,8 +87,7 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
     {
         _headView = [[finishheadView alloc] init];
         _headView.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-        _headView.nameLab.text = @"练习类型：快速智能练习";
-        _headView.timeLab.text = @"交卷时间：2017:11:30";
+
     }
     return _headView;
 }

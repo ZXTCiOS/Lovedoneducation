@@ -306,6 +306,7 @@
     vc.upquestion = upquestion;
     vc.upyes = upyes;
     vc.uplist = upliststr;
+    vc.typestr = self.typestr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

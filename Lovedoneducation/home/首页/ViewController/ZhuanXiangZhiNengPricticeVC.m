@@ -319,7 +319,6 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     [menu show];
 }
 
-
 -(void)queren:(UICollectionViewCell *)cell
 {
     NSLog(@"选择题array====%@",self.self.arrayDatasource);
@@ -486,23 +485,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
 
 - (void)screenShot:(UIScrollView *)basetable{
     UIImage* image = nil;
-    //    UIGraphicsBeginImageContext(basetable.contentSize);
-    //    {
-    //        CGPoint savedContentOffset = basetable.contentOffset;
-    //        CGRect savedFrame = basetable.frame;
-    //        basetable.contentOffset = CGPointZero;
-    //
-    //        basetable.frame = CGRectMake(0, 0, basetable.contentSize.width, basetable.contentSize.height);
-    //        [basetable.layer renderInContext: UIGraphicsGetCurrentContext()];
-    //
-    //        image = UIGraphicsGetImageFromCurrentImageContext();
-    //
-    //        basetable.contentOffset = savedContentOffset;
-    //        basetable.frame = savedFrame;
-    //    }
-    //    UIGraphicsEndImageContext();
-    //
-    
+
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     image = UIGraphicsGetImageFromCurrentImageContext();

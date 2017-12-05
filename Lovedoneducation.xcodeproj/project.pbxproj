@@ -349,6 +349,8 @@
 		53359C991FD128340047FAB8 /* realpartanalysisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C981FD128340047FAB8 /* realpartanalysisCell2.m */; };
 		53359C9C1FD14D5B0047FAB8 /* realpartanalysisCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C9B1FD14D5B0047FAB8 /* realpartanalysisCell3.m */; };
 		53359C9F1FD167540047FAB8 /* realanalysisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53359C9E1FD167540047FAB8 /* realanalysisCell.m */; };
+		53374EA61FD6FC83009045E9 /* essaycardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53374EA51FD6FC83009045E9 /* essaycardVC.m */; };
+		53374EA91FD6FD92009045E9 /* essaytableCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53374EA81FD6FD92009045E9 /* essaytableCell2.m */; };
 		533ED7661F98BEA800C1C996 /* forgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED7651F98BEA800C1C996 /* forgetVC.m */; };
 		533ED76B1F98C16E00C1C996 /* forgetCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ED76A1F98C16E00C1C996 /* forgetCell0.m */; };
 		533FCB3A1F99A41400A4F6E1 /* changeModel0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533FCB391F99A41400A4F6E1 /* changeModel0.m */; };
@@ -1203,6 +1205,10 @@
 		53359C9B1FD14D5B0047FAB8 /* realpartanalysisCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartanalysisCell3.m; sourceTree = "<group>"; };
 		53359C9D1FD167540047FAB8 /* realanalysisCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realanalysisCell.h; sourceTree = "<group>"; };
 		53359C9E1FD167540047FAB8 /* realanalysisCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realanalysisCell.m; sourceTree = "<group>"; };
+		53374EA41FD6FC83009045E9 /* essaycardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaycardVC.h; sourceTree = "<group>"; };
+		53374EA51FD6FC83009045E9 /* essaycardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaycardVC.m; sourceTree = "<group>"; };
+		53374EA71FD6FD92009045E9 /* essaytableCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaytableCell2.h; sourceTree = "<group>"; };
+		53374EA81FD6FD92009045E9 /* essaytableCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaytableCell2.m; sourceTree = "<group>"; };
 		533ED7641F98BEA800C1C996 /* forgetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetVC.h; sourceTree = "<group>"; };
 		533ED7651F98BEA800C1C996 /* forgetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetVC.m; sourceTree = "<group>"; };
 		533ED7691F98C16E00C1C996 /* forgetCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetCell0.h; sourceTree = "<group>"; };
@@ -3998,6 +4004,8 @@
 			children = (
 				53F4CCE61FD649B900BA6F5F /* essayVC.h */,
 				53F4CCE71FD649B900BA6F5F /* essayVC.m */,
+				53374EA41FD6FC83009045E9 /* essaycardVC.h */,
+				53374EA51FD6FC83009045E9 /* essaycardVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -4011,6 +4019,8 @@
 				53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */,
 				53F4CCF21FD6785800BA6F5F /* essaytableCell1.h */,
 				53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */,
+				53374EA71FD6FD92009045E9 /* essaytableCell2.h */,
+				53374EA81FD6FD92009045E9 /* essaytableCell2.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4562,6 +4572,7 @@
 				181F86DC1FB437790090EDEF /* NIMPageView.m in Sources */,
 				181F86A51FB437790090EDEF /* IJKSDLGLView.m in Sources */,
 				537A36981FA81740009E1442 /* datareportCell0.m in Sources */,
+				53374EA91FD6FD92009045E9 /* essaytableCell2.m in Sources */,
 				537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */,
 				539E171A1F9DE1D200EA1E2B /* mineCell2.m in Sources */,
 				181F86F91FB437790090EDEF /* NIMNotificationContentConfig.m in Sources */,
@@ -4591,6 +4602,7 @@
 				181F86841FB437790090EDEF /* NTESChatroomMessageDataProvider.m in Sources */,
 				53C999A71F973C38006A6570 /* liveViewController.m in Sources */,
 				534B4A061FA1AEE400A68BA7 /* ZTVendorManager.m in Sources */,
+				53374EA61FD6FC83009045E9 /* essaycardVC.m in Sources */,
 				181F86C51FB437790090EDEF /* NTESDemoConfig.m in Sources */,
 				181F87391FB437790090EDEF /* NIMIndefiniteAnimatedView.m in Sources */,
 				181F87281FB437790090EDEF /* NIMSpellingCenter.m in Sources */,

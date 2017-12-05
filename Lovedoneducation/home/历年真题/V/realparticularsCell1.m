@@ -28,7 +28,6 @@
 @property (nonatomic,strong) UIImageView *img2;
 @property (nonatomic,strong) UIButton *imgbtn;
 @property (nonatomic,strong) UIView *lineview;
-@property (nonatomic,strong) NSString *textstring;
 @end
 
 @implementation realparticularsCell1
@@ -125,22 +124,22 @@
         .sd_layout
         .leftSpaceToView(self.contentView, 20)
         .topSpaceToView(self.contentView, 280)
-        .widthIs(80)
-        .heightIs(80);
+        .widthIs(80*WIDTH_SCALE)
+        .heightIs(80*WIDTH_SCALE);
         
         self.img1
         .sd_layout
         .leftSpaceToView(self.img0, 40)
         .topEqualToView(self.img0)
-        .widthIs(80)
-        .heightIs(80);
+        .widthIs(80*WIDTH_SCALE)
+        .heightIs(80*WIDTH_SCALE);
         
         self.img2
         .sd_layout
         .leftSpaceToView(self.img1, 40)
         .topEqualToView(self.img0)
-        .widthIs(80)
-        .heightIs(80);
+        .widthIs(80*WIDTH_SCALE)
+        .heightIs(80*WIDTH_SCALE);
         
         [self setupAutoHeightWithBottomView: self.img0 bottomMargin:20];
 

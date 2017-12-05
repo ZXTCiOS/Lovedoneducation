@@ -19,4 +19,7 @@
 @property (nonatomic,copy) NSString *qtid;
 @property (nonatomic,copy) NSString *qtpath;
 @property (nonatomic,copy) NSString *time;
+
+@property (nonatomic,strong) NSMutableArray *answerimgarr;
+@property (nonatomic,copy) NSString *textstr;
 @end

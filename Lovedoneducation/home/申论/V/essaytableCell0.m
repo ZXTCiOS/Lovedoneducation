@@ -11,6 +11,7 @@
 @interface essaytableCell0()
 @property (nonatomic,strong) UILabel *contentlab;
 @property (nonatomic,strong) UILabel *titlelab;
+
 @end
 
 @implementation essaytableCell0
@@ -42,10 +43,10 @@
     .sd_layout
     .leftSpaceToView(weakSelf.contentView, 15)
     .rightSpaceToView(weakSelf.contentView, 15)
-    .topSpaceToView(weakSelf.contentlab, 20)
+    .topSpaceToView(weakSelf.contentlab, 25)
     .autoHeightRatio(0);
     
-    [self setupAutoHeightWithBottomView: weakSelf.contentlab bottomMargin:20];
+    [self setupAutoHeightWithBottomView: weakSelf.titlelab bottomMargin:20];
     
 }
 
@@ -87,6 +88,18 @@
     NSString *contentstr = [arr1 componentsJoinedByString:@" "];
     self.contentlab.text = contentstr;
     self.titlelab.text = title;
+    
+    NSString *str1 = @" ( 主观题 ) ";
+    NSString *str2 = title;
+    NSString *str = [NSString stringWithFormat:@"%@%@",str1,str2];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"323232"]
+                    range:NSMakeRange(str1.length, str2.length)];
+    self.titlelab.attributedText = attrStr;
 }
 
 @end

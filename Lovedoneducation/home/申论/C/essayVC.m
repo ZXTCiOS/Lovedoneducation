@@ -10,8 +10,17 @@
 #import "essayModel.h"
 #import "essayCell.h"
 #import "headView.h"
+#import "TZImagePickerController.h"
+#import "TZAssetModel.h"
+#import "TZImageManager.h"
+#import "NSArray+JSON.h"
+#import "LYMenu.h"
+// 分享
+#import "ZTVendorManager.h"
+#import "ActionSheetView.h"
+#import "essaycardVC.h"
 
-@interface essayVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface essayVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
     dispatch_source_t timer;
 }
@@ -25,6 +34,9 @@
  */
 @property (nonatomic, strong) NSIndexPath *indexPathNow;
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+@property (nonatomic, strong) NSMutableArray *imgarr;
+@property (nonatomic, strong) NSMutableArray *uplistarr;
+@property (nonatomic, strong) NSMutableArray *cardtypeArray;
 @end
 
 static NSString *essayidentfid = @"essayidentfid";
@@ -34,9 +46,12 @@ static NSString *essayidentfid = @"essayidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = [NSString stringWithFormat:@"%@专项联系", self.qtname];
+    self.title = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
     kSetNaviBarColor_50;
+    self.imgarr = [NSMutableArray array];
+    self.uplistarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
+    self.cardtypeArray = [NSMutableArray array];
     [self prepareLayout];
     [self.view addSubview:self.head];
     if (@available(iOS 11.0, *)){
@@ -49,6 +64,7 @@ static NSString *essayidentfid = @"essayidentfid";
         self.collectionV.frame = CGRectMake(0, 60, kScreenW, kScreenH-60);
     }
     [self loaddata];
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
     self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
 }
 
@@ -83,7 +99,10 @@ static NSString *essayidentfid = @"essayidentfid";
                 model.time = [dic objectForKey:@"time"];
                 [self.dataSource addObject:model];
             }
-            
+            for (int j = 0; j<data.count; j++) {
+                [self.cardtypeArray addObject:@""];
+                [self.uplistarr addObject:@""];
+            }
             [self.collectionV reloadData];
             [self startCount];
         }
@@ -127,6 +146,7 @@ static NSString *essayidentfid = @"essayidentfid";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     essayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:essayidentfid forIndexPath:indexPath];
+    cell.delegate = self;
     [cell setdata:self.dataSource[indexPath.item]];
     return cell;
 }
@@ -168,7 +188,89 @@ static NSString *essayidentfid = @"essayidentfid";
 
 -(void)cardclick
 {
+    essaycardVC *vc = [[essaycardVC alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 协议方法
+
+-(void)queren:(UICollectionViewCell *)cell
+{
     
 }
 
+-(void)imgchoose:(UICollectionViewCell *)cell
+{
+    TZImagePickerController *pickerController = [[TZImagePickerController alloc]initWithMaxImagesCount:1 columnNumber:1 delegate:self pushPhotoPickerVc:YES];
+    pickerController.naviBgColor = [UIColor colorWithHexString:@"08D2B2"];
+    pickerController.needCircleCrop = YES;
+    pickerController.circleCropRadius = 100;
+    [pickerController setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photo, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        if (photo.count) {
+            
+            UIImage *img = [photo firstObject];
+            UIImage *originImage = img;
+            NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+            NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            NSLog(@"encodedImageStr==%@",encodedImageStr);
+            
+            NSString *file = encodedImageStr;
+            NSString *type = @"png";
+            NSDictionary *para = @{@"file":file,@"type":type};
+            
+            [MBProgressHUD showMessage:@"正在上传" toView:self.view];
+            
+            [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
+                [MBProgressHUD hideHUDForView:self.view];
+                
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    
+                    NSString *imgurl = [obj objectForKey:@"data"];
+                    NSLog(@"imgurl = %@",imgurl);
+                    [self.imgarr addObject:imgurl];
+                    int inter = (int)self.indexPathNow.item;
+                    essayModel *model = [self.dataSource objectAtIndex:inter];
+                    NSLog(@"model----%@",model);
+                    [model.answerimgarr addObject:img];
+                    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+                    
+                    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+                    NSLog(@"333===%ld",index.item);
+                    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+
+                    [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
+                    
+                    //uplist数组方法
+                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+                    NSDictionary *imgdic = @{@"img":self.imgarr};
+                    [arr addObject:imgdic];
+                    
+                }
+                else
+                {
+                    [MBProgressHUD showSuccess:@"上传失败" toView:self.view];
+                }
+            } failure:^(NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view];
+                [MBProgressHUD showSuccess:@"上传失败，请检查网络" toView:self.view];
+            }];;
+            
+        }
+    }];
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+-(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str
+{
+    NSIndexPath *index = [_collectionV indexPathForCell:cell];
+    NSLog(@"333===%ld",index.item);
+
+    if (str.length!=0) {
+        [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    }
+    essayModel *model = self.dataSource[index.item];
+    model.textstr = str;
+    [self.collectionV reloadData];
+}
 @end

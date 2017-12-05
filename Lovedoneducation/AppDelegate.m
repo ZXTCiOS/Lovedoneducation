@@ -103,7 +103,7 @@
     NSString *token = [userDefault objectForKey:user_imtoken];
     loginData.account = account;
     loginData.token = token;
-    loginData.forcedMode = NO;
+    loginData.forcedMode = YES;
     [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
 }
 

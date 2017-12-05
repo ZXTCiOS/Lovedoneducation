@@ -36,12 +36,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     self.title = @"账号注册";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
-    // tableView 偏移20/64适配
-    if (@available(iOS 11.0, *)) {
-        self.table.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    
     if (@available(iOS 11.0, *)){
         self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
     }

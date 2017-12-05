@@ -89,7 +89,7 @@ static ZFDownloadManager *sharedDownloadManager = nil;
 
 #pragma mark - 创建一个下载任务
 
-- (void)downFileUrl:(NSString *)url filename:(NSString *)name fileimage:(UIImage *)image extention:(id)extention{
+- (void)downFileUrl:(NSString *)url filename:(NSString *)name fileimage:(UIImage *)image extention:(id)extention downtype:(ZFDownloadType) type{
     // 因为是重新下载，则说明肯定该文件已经被下载完，或者有临时文件正在留着，所以检查一下这两个地方，存在则删除掉
     
     _fileInfo = [[ZFFileModel alloc] init];
@@ -97,6 +97,7 @@ static ZFDownloadManager *sharedDownloadManager = nil;
     _fileInfo.fileName = name;
     _fileInfo.fileURL  = url;
     _fileInfo.extention = extention;
+    _fileInfo.downloadtype = type;
     NSDate *myDate = [NSDate date];
     _fileInfo.time = [ZFCommonHelper dateToString:myDate];
     _fileInfo.fileType = [name pathExtension];

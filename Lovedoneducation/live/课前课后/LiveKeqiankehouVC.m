@@ -18,24 +18,83 @@
 @property (nonatomic) UILabel *time;
 @property (nonatomic, strong) UIButton *down;
 
+@property (nonatomic, copy) NSString *FileName;
+@property (nonatomic, copy) NSString *FileURL;
+
+
 @end
 
 @implementation LiveKeqiankehouVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.coursemodel.course = self.model;
+    switch (self.state) {
+        case CourseStateAfter:
+            self.down.enabled = NO; // 获取到下载链接之前 下载按钮 enable = no;
+            break;
+            case CourseStateBefore:
+            self.down.hidden = YES;
+        default:
+            break;
+    }
+    
+    [self networking];
+    [self layoutview];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
+
+
+
+- (void)networking{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *cdid = self.model.cdid;
+    [DNNetworking getWithURLString:get_videourl parameters:@{@"uid": uid, @"token": token, @"cdid": cdid} success:^(id obj) {
+        NSString *code = [obj objectForKey:@"code"];
+        if ([code isEqualToString:@"200"]) {
+            NSDictionary *data = [obj objectForKey:@"data"];
+            NSDictionary *Mezzanine = [data objectForKey:@"Mezzanine"];
+            self.FileName = [Mezzanine objectForKey:@"FileName"];//  ******.mp3/4
+            self.FileURL = [Mezzanine objectForKey:@"FileURL"];
+            self.down.enabled = YES;
+        } else {
+            NSLog(@"...");
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"...");
+    }];
+}
+
+- (void)layoutview{
+    [self bgImg];
+    [self back];
+    [self title_course];
+    [self teacher];
+    [self time];
+    [self down];
 }
 
 - (UIImageView *)bgImg{
-    if (_bgImg) {
-        _bgImg = [[UIImageView alloc] init];
+    if (!_bgImg) {
+        _bgImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenW*2/3)];
         [self.view addSubview:_bgImg];
-        [_bgImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.equalTo(0);
-            make.height.equalTo(_bgImg.mas_width).multipliedBy(2/3.0);
-        }];
-        [_bgImg sd_setImageWithURL:[NSURL URLWithString:self.model.cdimg] placeholderImage:[UIImage imageNamed:@""]];
+        [_bgImg sd_setImageWithURL:[NSURL URLWithString:self.model.cdimg] placeholderImage:[UIImage imageNamed:@"background_image_lianxizhoubao"]];
     }
     return _bgImg;
 }
@@ -44,11 +103,16 @@
     if (!_back) {
         _back = [UIButton buttonWithType:UIButtonTypeSystem];
         [self.view addSubview:_back];
+        _back.tintColor = [UIColor whiteColor];
+        [_back setImage:[UIImage imageNamed:@"back_white_icon_zhiboweikaishi"] forState:UIControlStateNormal];
         [_back mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.bgImg.mas_top).equalTo(33);
-            make.size.equalTo(CGSizeMake(10, 18));
-            make.left.equalTo(12);
+            make.top.equalTo(33);
+            make.size.equalTo(CGSizeMake(30, 18));
+            make.left.equalTo(8);
         }];
+        [_back bk_addEventHandler:^(id sender) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return _back;
 }
@@ -59,10 +123,11 @@
         [self.view addSubview:_title_course];
         [_title_course mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(0);
-            make.centerY.equalTo(self.bgImg.mas_centerY).equalTo(-18);
+            make.top.equalTo((kScreenW *2/3 - 60)/2);
+            make.height.equalTo(23);
         }];
         _title_course.textColor = [UIColor whiteColor];
-        _title_course.font = [UIFont systemFontOfSize:23];
+        _title_course.font = [UIFont systemFontOfSize:24];
         _title_course.text = self.model.cdintro;
         [_title_course sizeToFit];
     }
@@ -75,7 +140,8 @@
         [self.view addSubview:_teacher];
         [_teacher mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(0);
-            make.centerY.equalTo(self.bgImg.mas_centerY).equalTo(12);
+            make.top.equalTo(self.title_course.mas_bottom).equalTo(20);
+            make.height.equalTo(17);
         }];
         _teacher.font = [UIFont systemFontOfSize:18];
         _teacher.textColor = [UIColor whiteColor];
@@ -92,10 +158,11 @@
         [_time mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(50);
             make.right.equalTo(-50);
-            make.top.equalTo(self.bgImg.mas_bottom).equalTo(120);
+            make.top.equalTo(100 + kScreenW *2/3);
         }];
         _time.numberOfLines = 0;
-        _time.font = [UIFont systemFontOfSize:23];
+        _time.font = [UIFont systemFontOfSize:18];
+        _time.textColor = krgb(100, 100, 100);
         NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
         dateformater.dateFormat = @"YYYY年MM月dd日HH:mm分";
         NSDate *date = [NSDate dateWithTimeIntervalSinceNow:[self.model.cdstart_time doubleValue]];
@@ -122,10 +189,8 @@
         }];
         
         // TODO: 判断 button title  下载讲义还是观看视频
-        //ZFDownloadManager *manager = [ZFDownloadManager sharedDownloadManager];
-        
         [_down setTitle:@"下载讲义" forState:UIControlStateNormal];
-        [_down setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_down setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _down.backgroundColor = krgb(8, 210, 178);
         [_down addTarget:self action:@selector(download) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -133,8 +198,22 @@
 }
 
 - (void)download{
+    NSString *fileurl = self.FileURL;
+    NSString *filename = [NSString stringWithFormat:@"%@ - %@", self.model.tname, self.model.cdintro];
     ZFDownloadManager *manager = [ZFDownloadManager sharedDownloadManager];
-    [manager downFileUrl:@"" filename:@"" fileimage:[UIImage imageNamed:@""] extention:self.model];
+    LiveCourseModel *model = [self.coursemodel mutableCopy];
+    /*
+     * 如果是白板+音频, 则额外下载白板文件
+     
+     * self.model.whiteboard   待定...
+     */
+    if (![self.model.whiteboard isEqualToString:@"whiteboard"]) {
+        //self.model.whiteboard = @"whiteboard"; 视频
+        [manager downFileUrl:fileurl filename:filename fileimage:[UIImage imageNamed:@""] extention:model downtype:ZFDownloadTypeMp3];
+        [manager downFileUrl:self.model.whiteboard filename:filename fileimage:[UIImage imageNamed:@""] extention:self.coursemodel downtype:ZFDownloadTypeWhiteboard];
+    } else {
+        [manager downFileUrl:fileurl filename:filename fileimage:[UIImage imageNamed:@""] extention:model downtype:ZFDownloadTypeVideo];
+    }
 }
 
 

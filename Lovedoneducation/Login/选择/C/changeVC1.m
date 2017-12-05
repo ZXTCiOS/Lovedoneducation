@@ -113,10 +113,10 @@ static NSString *changevc1identfid = @"changevc1identfid";
                 NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
                 [defat setObject:token forKey:user_token];
                 [defat setObject:uid forKey:user_uid];
-                NSString *imtoken = [obj objectForKey:@"acctoken"];
+                NSString *imtoken = [dic objectForKey:@"acctoken"];
                 [userDefault setObject:imtoken forKey:user_imtoken];
                 [defat synchronize];
-                
+                [self NIMLogin];
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 MainTabBarController * main = [[MainTabBarController alloc] init];
                 appDelegate.window.rootViewController = main;
@@ -131,5 +131,34 @@ static NSString *changevc1identfid = @"changevc1identfid";
         [MBProgressHUD showSuccess:@"请选择类型" toView:self.view];
     }
 }
+- (void)NIMLogin{
+    NSString *appKey        = NIMKEY;
+    NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
+    option.apnsCername      = @"your APNs cer name";
+    option.pkCername        = @"your pushkit cer name";
+    [[NIMSDK sharedSDK] registerWithOption:option];
+    //[[NIMSDK sharedSDK].loginManager addDelegate:self];
+    NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
+    NSString *account = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_imtoken];
+    loginData.account = account;
+    loginData.token = token;
+    loginData.forcedMode = YES;
+    [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
+}
+
+- (void)onLogin:(NIMLoginStep)step{
+    NSLog(@"%ld", step);
+}
+
+- (void)onAutoLoginFailed:(NSError *)error{
+    NSLog(@"NIM auto login failed.");
+}
+
+- (void)dealloc{
+    //[[NIMSDK sharedSDK].loginManager removeDelegate:self];
+}
+
+
 
 @end

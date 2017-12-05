@@ -177,7 +177,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-26" y="24"/>
+            <point key="canvasLocation" x="79" y="-316"/>
         </view>
     </objects>
     <resources>

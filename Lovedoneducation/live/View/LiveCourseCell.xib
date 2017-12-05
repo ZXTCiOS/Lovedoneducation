@@ -202,7 +202,7 @@
                 <outlet property="timeL" destination="hsp-tF-LpW" id="CfH-9z-GLo"/>
                 <outlet property="titleL" destination="TT5-wI-Q5p" id="Epv-Rg-CTo"/>
             </connections>
-            <point key="canvasLocation" x="-69" y="-21"/>
+            <point key="canvasLocation" x="-196" y="-22"/>
         </tableViewCell>
     </objects>
     <resources>

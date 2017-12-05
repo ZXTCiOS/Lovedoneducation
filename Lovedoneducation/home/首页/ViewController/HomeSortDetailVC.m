@@ -10,6 +10,7 @@
 #import "HomeSort3Cell.h"
 #import "HomeSort3View.h"
 #import "ZhuanXiangZhiNengPricticeVC.h"
+#import "essayVC.h"
 
 @interface HomeSortDetailVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -43,10 +44,19 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
-    vc.qtid = self.child[indexPath.section].child[indexPath.row].qtid;
-    vc.qtname = self.child[indexPath.section].child[indexPath.row].qtname;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.isfufei) {
+        essayVC *vc = [[essayVC alloc] init];
+        vc.qtid = self.child[indexPath.section].child[indexPath.row].qtid;
+        vc.qtname = self.child[indexPath.section].child[indexPath.row].qtname;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
+        vc.qtid = self.child[indexPath.section].child[indexPath.row].qtid;
+        vc.qtname = self.child[indexPath.section].child[indexPath.row].qtname;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

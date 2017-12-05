@@ -30,6 +30,7 @@
 #import "predictexamVC.h"
 #import "simulationtestVC.h"
 #import "collecttopicVC.h"
+#import "essayVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -165,8 +166,19 @@
         ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
         vc.qtid = quetion.qtid;
         vc.qtname = quetion.qtname;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        HomeChildModel *childmodel = quetion.child[indexPath.item];
+        if ([childmodel.ischarge isEqualToString:@"1"]) {
+//            [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
+            essayVC *vc = [essayVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     // 否则跳向二级
@@ -176,12 +188,15 @@
     HomeChildModel *childmodel = quetion.child[indexPath.item];
     if ([childmodel.ischarge isEqualToString:@"1"]) {
         [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
+        vc.isfufei = YES;
+        
     }
     else
     {
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        vc.isfufei = NO;
     }
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

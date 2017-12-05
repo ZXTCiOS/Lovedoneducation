@@ -235,4 +235,11 @@
  @return 练习周报
  */
 #define GET_weekdeport @"/app.php/DateReport/weekdeport?uid=%@"
+
+/**
+ 申论
+
+ @return 申论题目接口
+ */
+#define GET_specialpractice@"/app.php/questions/specialpractice/?uid=%@&token=%@&qtid=%@"
 #endif /* wangHeader_h */

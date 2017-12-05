@@ -497,6 +497,11 @@
 		53E1DD6E1FADA17A009965AF /* coursescacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E1DD6D1FADA17A009965AF /* coursescacheModel.m */; };
 		53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E887411F9EEB8F00CC6909 /* changephoneCell2.m */; };
 		53EE0E961FC7F67C002121D0 /* realpartfinishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE0E951FC7F67C002121D0 /* realpartfinishVC.m */; };
+		53F4CCE81FD649B900BA6F5F /* essayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCE71FD649B900BA6F5F /* essayVC.m */; };
+		53F4CCEB1FD66E1400BA6F5F /* essayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCEA1FD66E1400BA6F5F /* essayModel.m */; };
+		53F4CCEE1FD6726500BA6F5F /* essayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCED1FD6726500BA6F5F /* essayCell.m */; };
+		53F4CCF11FD6784800BA6F5F /* essaytableCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */; };
+		53F4CCF41FD6785800BA6F5F /* essaytableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */; };
 		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
 /* End PBXBuildFile section */
 
@@ -1472,6 +1477,16 @@
 		53E887411F9EEB8F00CC6909 /* changephoneCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = changephoneCell2.m; sourceTree = "<group>"; };
 		53EE0E941FC7F67B002121D0 /* realpartfinishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = realpartfinishVC.h; sourceTree = "<group>"; };
 		53EE0E951FC7F67C002121D0 /* realpartfinishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realpartfinishVC.m; sourceTree = "<group>"; };
+		53F4CCE61FD649B900BA6F5F /* essayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayVC.h; sourceTree = "<group>"; };
+		53F4CCE71FD649B900BA6F5F /* essayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayVC.m; sourceTree = "<group>"; };
+		53F4CCE91FD66E1400BA6F5F /* essayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayModel.h; sourceTree = "<group>"; };
+		53F4CCEA1FD66E1400BA6F5F /* essayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayModel.m; sourceTree = "<group>"; };
+		53F4CCEC1FD6726500BA6F5F /* essayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayCell.h; sourceTree = "<group>"; };
+		53F4CCED1FD6726500BA6F5F /* essayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayCell.m; sourceTree = "<group>"; };
+		53F4CCEF1FD6784800BA6F5F /* essaytableCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaytableCell0.h; sourceTree = "<group>"; };
+		53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaytableCell0.m; sourceTree = "<group>"; };
+		53F4CCF21FD6785800BA6F5F /* essaytableCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaytableCell1.h; sourceTree = "<group>"; };
+		53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaytableCell1.m; sourceTree = "<group>"; };
 		57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovedoneducation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovedoneducation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3743,6 +3758,7 @@
 			isa = PBXGroup;
 			children = (
 				534B4A231FA1BA0700A68BA7 /* 首页 */,
+				53F4CCE21FD6497200BA6F5F /* 申论 */,
 				534B4A311FA1CDAE00A68BA7 /* 信息 */,
 				534B4A241FA1BA1300A68BA7 /* 历年真题 */,
 				534B4A3E1FA3098C00A68BA7 /* 选择考试类型 */,
@@ -3963,6 +3979,47 @@
 			children = (
 				53E1DD6C1FADA17A009965AF /* coursescacheModel.h */,
 				53E1DD6D1FADA17A009965AF /* coursescacheModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53F4CCE21FD6497200BA6F5F /* 申论 */ = {
+			isa = PBXGroup;
+			children = (
+				53F4CCE51FD6498400BA6F5F /* M */,
+				53F4CCE41FD6498200BA6F5F /* V */,
+				53F4CCE31FD6498100BA6F5F /* C */,
+			);
+			path = "申论";
+			sourceTree = "<group>";
+		};
+		53F4CCE31FD6498100BA6F5F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53F4CCE61FD649B900BA6F5F /* essayVC.h */,
+				53F4CCE71FD649B900BA6F5F /* essayVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53F4CCE41FD6498200BA6F5F /* V */ = {
+			isa = PBXGroup;
+			children = (
+				53F4CCEC1FD6726500BA6F5F /* essayCell.h */,
+				53F4CCED1FD6726500BA6F5F /* essayCell.m */,
+				53F4CCEF1FD6784800BA6F5F /* essaytableCell0.h */,
+				53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */,
+				53F4CCF21FD6785800BA6F5F /* essaytableCell1.h */,
+				53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53F4CCE51FD6498400BA6F5F /* M */ = {
+			isa = PBXGroup;
+			children = (
+				53F4CCE91FD66E1400BA6F5F /* essayModel.h */,
+				53F4CCEA1FD66E1400BA6F5F /* essayModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4365,6 +4422,7 @@
 				534B49CB1FA0D75D00A68BA7 /* WTKStarView.m in Sources */,
 				181F86AD1FB437790090EDEF /* NTESChatroomTextContentView.m in Sources */,
 				181F871E1FB437790090EDEF /* NIMTeamMemberListViewController.m in Sources */,
+				53F4CCEE1FD6726500BA6F5F /* essayCell.m in Sources */,
 				18283D151F9F56D700111352 /* HomeMoreView.m in Sources */,
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
 				181F869B1FB437790090EDEF /* renderer_yuv420p.c in Sources */,
@@ -4453,9 +4511,11 @@
 				535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */,
 				18283D101F9F2EC900111352 /* HomeQiandaoView.m in Sources */,
 				181F86F81FB437790090EDEF /* NIMLocationContentConfig.m in Sources */,
+				53F4CCF41FD6785800BA6F5F /* essaytableCell1.m in Sources */,
 				186420691FA1B28E004DF7A4 /* LiveEvaluateVC.m in Sources */,
 				535A35781FB974C500F4EA06 /* cardVC.m in Sources */,
 				1822E4551F9E10A500C92DEA /* HomeSort2Cell.m in Sources */,
+				53F4CCF11FD6784800BA6F5F /* essaytableCell0.m in Sources */,
 				535A357B1FB9792D00F4EA06 /* cardCell.m in Sources */,
 				181F87171FB437790090EDEF /* NIMTeamInfoData.m in Sources */,
 				181F86931FB437790090EDEF /* color.c in Sources */,
@@ -4604,6 +4664,7 @@
 				534B49D81FA1AAF800A68BA7 /* changephoneVC3.m in Sources */,
 				18F2A7C21FA0723500FE25C3 /* LiveCourseDetailVC.m in Sources */,
 				534B4A3D1FA1D40600A68BA7 /* messageModel.m in Sources */,
+				53F4CCE81FD649B900BA6F5F /* essayVC.m in Sources */,
 				53EE0E961FC7F67C002121D0 /* realpartfinishVC.m in Sources */,
 				189D52521FA6FEDF00600947 /* MyCourseViewController.m in Sources */,
 				181F86A91FB437790090EDEF /* NTESGLView.m in Sources */,
@@ -4614,6 +4675,7 @@
 				533FCB481F99DA6800A4F6E1 /* Helper.m in Sources */,
 				181F86951FB437790090EDEF /* rgb.fsh.c in Sources */,
 				181F86EA1FB437790090EDEF /* NIMInputEmoticonTabView.m in Sources */,
+				53F4CCEB1FD66E1400BA6F5F /* essayModel.m in Sources */,
 				181F866F1FB437790090EDEF /* NTESMarginButton.m in Sources */,
 				18528E501FA303810081C543 /* LivePayView.m in Sources */,
 				535EFE2D1FC9B49E00A5DA77 /* ActionButton.m in Sources */,

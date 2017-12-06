@@ -88,7 +88,6 @@
     NSString *contentstr = [arr1 componentsJoinedByString:@" "];
     self.contentlab.text = contentstr;
     self.titlelab.text = title;
-    
     NSString *str1 = @" ( 主观题 ) ";
     NSString *str2 = title;
     NSString *str = [NSString stringWithFormat:@"%@%@",str1,str2];

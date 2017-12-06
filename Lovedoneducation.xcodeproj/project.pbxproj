@@ -436,6 +436,7 @@
 		537A36A11FA85888009E1442 /* datareportCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A01FA85888009E1442 /* datareportCell3.m */; };
 		537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A31FA861C1009E1442 /* datareportCell4.m */; };
 		537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A61FA89C8D009E1442 /* datareportCell5.m */; };
+		537F66931FD7EBCB0028E888 /* essaycardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66921FD7EBCB0028E888 /* essaycardCell.m */; };
 		539527BC1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
@@ -1361,6 +1362,8 @@
 		537A36A31FA861C1009E1442 /* datareportCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell4.m; sourceTree = "<group>"; };
 		537A36A51FA89C8D009E1442 /* datareportCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell5.h; sourceTree = "<group>"; };
 		537A36A61FA89C8D009E1442 /* datareportCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell5.m; sourceTree = "<group>"; };
+		537F66911FD7EBCB0028E888 /* essaycardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaycardCell.h; sourceTree = "<group>"; };
+		537F66921FD7EBCB0028E888 /* essaycardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaycardCell.m; sourceTree = "<group>"; };
 		539527BA1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZYExtension.h"; sourceTree = "<group>"; };
 		539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZYExtension.m"; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
@@ -4021,6 +4024,8 @@
 				53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */,
 				53374EA71FD6FD92009045E9 /* essaytableCell2.h */,
 				53374EA81FD6FD92009045E9 /* essaytableCell2.m */,
+				537F66911FD7EBCB0028E888 /* essaycardCell.h */,
+				537F66921FD7EBCB0028E888 /* essaycardCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4435,6 +4440,7 @@
 				53F4CCEE1FD6726500BA6F5F /* essayCell.m in Sources */,
 				18283D151F9F56D700111352 /* HomeMoreView.m in Sources */,
 				53C999A41F973C24006A6570 /* homeViewController.m in Sources */,
+				537F66931FD7EBCB0028E888 /* essaycardCell.m in Sources */,
 				181F869B1FB437790090EDEF /* renderer_yuv420p.c in Sources */,
 				181F872A1FB437790090EDEF /* NIMAttributedLabel.m in Sources */,
 				181F87241FB437790090EDEF /* NIMTimePickerView.m in Sources */,

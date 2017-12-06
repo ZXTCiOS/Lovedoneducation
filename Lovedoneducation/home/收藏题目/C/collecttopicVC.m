@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"收藏题目";
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +26,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *type = @"2";
+    NSString *url = [NSString stringWithFormat:GET_userquestion,uid,token,type];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
-*/
 
 @end

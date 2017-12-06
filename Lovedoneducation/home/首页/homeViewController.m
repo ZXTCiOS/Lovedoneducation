@@ -75,7 +75,7 @@
     UIBarButtonItem *rightitemMsg = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(rightActionMessage)];
     [rightitemMore setTintColor:krgb(100, 100, 100)];
     
-    
+     
     UIButton *qiandao = [UIButton buttonWithType:UIButtonTypeSystem];
     qiandao.frame = CGRectMake(0, 0, 42, 15);
     qiandao.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -117,6 +117,7 @@
         if ([code isEqualToString:@"200"]) {
             HomeModel *model = [HomeModel parse:obj];
             self.data = model.data;
+            NSDictionary *dic = [obj objectForKey:@"data"];
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.data.isdeport;
             self.title = self.data.user.utest_type;
@@ -142,7 +143,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HomeSortCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     HomeQuestionsModel *quetion = self.data.quetions[indexPath.row];
-    [cell.imgV setImageWithURL:quetion.img.xd_URL placeholder:[UIImage imageNamed:@"background_tixing_shouye"]];
+    [cell.imgV setImageWithURL:quetion.img.xd_URL placeholder:[UIImage  imageNamed:@"background_tixing_shouye"]];
     cell.titleL.text = quetion.qtname;
     cell.titleL.textColor = krgb(50, 50, 50);
     return cell;
@@ -157,6 +158,7 @@
             model.img = quetion.img;
             model.qtid = quetion.qtid;
             model.qtname = quetion.qtname;
+            model.ischarge = quetion.ischarge;
             NSArray *arr = @[model];
             quetion.child = arr;
         }
@@ -166,35 +168,14 @@
         ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
         vc.qtid = quetion.qtid;
         vc.qtname = quetion.qtname;
-        HomeChildModel *childmodel = quetion.child[indexPath.item];
-        if ([childmodel.ischarge isEqualToString:@"1"]) {
-//            [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
-            essayVC *vc = [essayVC new];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else
-        {
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     // 否则跳向二级
     HomeSortDetailVC *vc = [[HomeSortDetailVC alloc] init];
     vc.child = quetion.child;
     vc.title = quetion.qtname;
-    HomeChildModel *childmodel = quetion.child[indexPath.item];
-    if ([childmodel.ischarge isEqualToString:@"1"]) {
-        [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
-        vc.isfufei = YES;
-        
-    }
-    else
-    {
-        vc.isfufei = NO;
-    }
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

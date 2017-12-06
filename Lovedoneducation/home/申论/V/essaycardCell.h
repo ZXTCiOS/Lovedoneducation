@@ -1,5 +1,5 @@
 //
-//  essaytableCell2.h
+//  essaycardCell.h
 //  Lovedoneducation
 //
 //  Created by 王俊钢 on 2017/12/6.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface essaytableCell2 : UITableViewCell
--(void)setnumberstr:(NSString *)numser andpricestr:(NSString *)pricestr;
+@interface essaycardCell : UICollectionViewCell
+-(void)setdata:(NSString *)str andnumitem:(NSString *)itemstr;
 @end

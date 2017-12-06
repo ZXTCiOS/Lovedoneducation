@@ -37,6 +37,8 @@
 @property (nonatomic, strong) NSMutableArray *imgarr;
 @property (nonatomic, strong) NSMutableArray *uplistarr;
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
+
+@property (nonatomic,copy) NSString *pidstr;
 @end
 
 static NSString *essayidentfid = @"essayidentfid";
@@ -53,6 +55,7 @@ static NSString *essayidentfid = @"essayidentfid";
     self.dataSource = [NSMutableArray array];
     self.cardtypeArray = [NSMutableArray array];
     [self prepareLayout];
+    self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.view addSubview:self.head];
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
@@ -72,6 +75,19 @@ static NSString *essayidentfid = @"essayidentfid";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    CGPoint pInView = [self.view convertPoint:self.collectionV.center toView:self.collectionV];
+    self.indexPathNow = [self.collectionV indexPathForItemAtPoint:pInView];
+    int inter = (int)self.indexPathNow.item;
+    int newint = inter+1;
+    NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
+    self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+    essayModel *model = [self.dataSource objectAtIndex:inter];
+    self.pidstr = model.qcid;
+}
+
 
 #pragma mark - 数据源
 
@@ -104,6 +120,9 @@ static NSString *essayidentfid = @"essayidentfid";
                 [self.uplistarr addObject:@""];
             }
             [self.collectionV reloadData];
+            self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+            essayModel *model = [self.dataSource objectAtIndex:0];
+            self.pidstr = model.qcid;
             [self startCount];
         }
     } failure:^(NSError *error) {
@@ -189,7 +208,8 @@ static NSString *essayidentfid = @"essayidentfid";
 -(void)cardclick
 {
     essaycardVC *vc = [[essaycardVC alloc] init];
-    
+    vc.dataSource = self.cardtypeArray;
+    vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

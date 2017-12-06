@@ -41,9 +41,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 @property (nonatomic, copy)   NSString *pidstr;
 @property (nonatomic, strong) NSMutableArray *imgarr;
-
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
-
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
@@ -58,6 +56,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     self.title = [NSString stringWithFormat:@"%@专项联系", self.qtname];
     kSetNaviBarColor_50;
     [self prepareLayout];
+    self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.view addSubview:self.head];
     self.uplistarr = [NSMutableArray array];
     self.upquestion = [NSMutableArray array];

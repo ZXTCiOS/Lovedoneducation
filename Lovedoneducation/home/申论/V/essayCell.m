@@ -15,6 +15,7 @@
 @interface essayCell()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) essayModel *essmodel;
+
 @end
 
 static NSString *essaytableidentfid0 = @"essaytableidentfid0";
@@ -56,7 +57,7 @@ static NSString *essaytableidentfid2 = @"essaytableidentfid2";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,6 +78,15 @@ static NSString *essaytableidentfid2 = @"essaytableidentfid2";
         }
         cell.delegate = self;
         [cell setimgarr:self.essmodel.answerimgarr andtextstr:self.essmodel.textstr];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==2) {
+        essaytableCell2 *cell = [tableView dequeueReusableCellWithIdentifier:essaytableidentfid2];
+        if (!cell) {
+            cell = [[essaytableCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essaytableidentfid2];
+        }
+        [cell setnumberstr:@"1" andpricestr:@"20"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

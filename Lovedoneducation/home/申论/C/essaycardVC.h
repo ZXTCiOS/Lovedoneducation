@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface essaycardVC : BaseViewController
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,copy) NSString *titlestr;
 @end

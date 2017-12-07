@@ -8,16 +8,19 @@
 
 #import "essayCell.h"
 #import "essaytableCell0.h"
-#import "essaytableCell0.h"
+#import "essaytableCell1.h"
+#import "essaytableCell2.h"
 #import "essayModel.h"
 
-@interface essayCell()<UITableViewDataSource,UITableViewDelegate>
+@interface essayCell()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) essayModel *essmodel;
+
 @end
 
 static NSString *essaytableidentfid0 = @"essaytableidentfid0";
 static NSString *essaytableidentfid1 = @"essaytableidentfid1";
+static NSString *essaytableidentfid2 = @"essaytableidentfid2";
 
 @implementation essayCell
 
@@ -54,7 +57,7 @@ static NSString *essaytableidentfid1 = @"essaytableidentfid1";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,6 +68,25 @@ static NSString *essaytableidentfid1 = @"essaytableidentfid1";
             cell = [[essaytableCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essaytableidentfid0];
         }
         [cell setdata:self.essmodel.mqintro andtitle:self.essmodel.mqtitle];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==1) {
+        essaytableCell1 *cell = [tableView dequeueReusableCellWithIdentifier:essaytableidentfid1];
+        if (!cell) {
+            cell = [[essaytableCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essaytableidentfid1];
+        }
+        cell.delegate = self;
+        [cell setimgarr:self.essmodel.answerimgarr andtextstr:self.essmodel.textstr];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==2) {
+        essaytableCell2 *cell = [tableView dequeueReusableCellWithIdentifier:essaytableidentfid2];
+        if (!cell) {
+            cell = [[essaytableCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essaytableidentfid2];
+        }
+        [cell setnumberstr:@"1" andpricestr:@"20"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -84,4 +106,20 @@ static NSString *essaytableidentfid1 = @"essaytableidentfid1";
     [self.table reloadData];
 }
 
+#pragma mark - 协议绑定
+
+-(void)querentijiao:(UITableViewCell *)cell
+{
+    [self.delegate queren:self];
+}
+
+-(void)myimgbtnclick:(UITableViewCell *)cell
+{
+    [self.delegate imgchoose:self];
+}
+
+-(void)textstr:(UITableViewCell *)cell andtextstr:(NSString *)str
+{
+    [self.delegate textstr:self andtextstr:str];
+}
 @end

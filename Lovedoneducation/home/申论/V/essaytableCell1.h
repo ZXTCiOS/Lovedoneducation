@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol myTabVdelegate <NSObject>
+-(void)myimgbtnclick:(UITableViewCell *)cell;
+-(void)textstr:(UITableViewCell *)cell andtextstr:(NSString *)str;
+@end
 @interface essaytableCell1 : UITableViewCell
-
+@property(assign,nonatomic)id<myTabVdelegate>delegate;
+-(void)setimgarr:(NSMutableArray *)array andtextstr:(NSString *)textstr;
 @end

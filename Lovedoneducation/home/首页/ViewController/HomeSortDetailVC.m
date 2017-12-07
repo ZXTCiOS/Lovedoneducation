@@ -44,7 +44,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    if (self.isfufei) {
+    HomeChildModel *model = self.child[indexPath.section];
+    NSString *ischarge = model.ischarge;
+    
+    if ([ischarge isEqualToString:@"1"]) {
         essayVC *vc = [[essayVC alloc] init];
         vc.qtid = self.child[indexPath.section].child[indexPath.row].qtid;
         vc.qtname = self.child[indexPath.section].child[indexPath.row].qtname;
@@ -56,7 +59,9 @@
         vc.qtid = self.child[indexPath.section].child[indexPath.row].qtid;
         vc.qtname = self.child[indexPath.section].child[indexPath.row].qtname;
         [self.navigationController pushViewController:vc animated:YES];
+
     }
+
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

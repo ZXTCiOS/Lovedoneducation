@@ -241,5 +241,12 @@
 
  @return 申论题目接口
  */
-#define GET_specialpractice@"/app.php/questions/specialpractice/?uid=%@&token=%@&qtid=%@"
+#define GET_specialpractice @"/app.php/questions/specialpractice/?uid=%@&token=%@&qtid=%@"
+
+/**
+ 收藏题目
+
+ @return 收藏题目
+ */
+#define GET_userquestion  @"/app.php/user/userquestion?uid=%@&token=%@&type=%@"
 #endif /* wangHeader_h */

@@ -293,4 +293,5 @@ static NSString *essayidentfid = @"essayidentfid";
     model.textstr = str;
     [self.collectionV reloadData];
 }
+
 @end

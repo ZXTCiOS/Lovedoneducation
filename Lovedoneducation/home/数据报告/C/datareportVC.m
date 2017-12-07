@@ -40,6 +40,7 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH);
     }
     self.table.tableFooterView = [UIView new];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,8 +48,19 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - getters
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *url = [NSString stringWithFormat:GET_report,uid];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 
+#pragma mark - getters
 
 -(UITableView *)table
 {
@@ -136,7 +148,7 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         return 90;
     }
     if (indexPath.row==4) {
-        return 475;
+        return 525;
     }
     if (indexPath.row==5) {
         return 120;

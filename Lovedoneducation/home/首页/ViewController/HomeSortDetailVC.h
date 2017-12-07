@@ -11,4 +11,5 @@
 
 @interface HomeSortDetailVC : BaseViewController
 @property (nonatomic, strong) NSArray<HomeChildModel *> *child;
+@property (nonatomic, assign) BOOL isfufei;
 @end

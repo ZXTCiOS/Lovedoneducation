@@ -142,7 +142,7 @@
 
     [self.view addSubview:self.drawView];
     
-    [self.view addSubview:self.controlPannel];
+    //[self.view addSubview:self.controlPannel];
     
     [self.view addSubview:self.colorSelectView];
     [self.drawView addSubview:self.laserView];
@@ -151,8 +151,8 @@
     
     [self.colorSelectView setHidden:YES];
 
-    [self.controlPannel addSubview:self.cancelLineButton];
-    [self.controlPannel addSubview:self.colorSelectButton];
+    //[self.controlPannel addSubview:self.cancelLineButton];
+    //[self.controlPannel addSubview:self.colorSelectButton];
     [self.controlPannel addSubview:self.pageNumLabel];
     [self.pageNumLabel setHidden:YES];
 
@@ -169,7 +169,7 @@
         [self.imgloadLabel setHidden:YES];
     }
     else {
-        [self.controlPannel addSubview:self.hintLabel];
+        //[self.controlPannel addSubview:self.hintLabel];
     }
     
 }
@@ -235,7 +235,8 @@
     self.drawView.height = drawViewHeight;
     
     self.drawView.left = (self.view.width - self.drawView.width) / 2.f;
-    self.drawView.top = self.view.top + (self.view.height - self.controlPannel.height - self.drawView.height) / 2.f;
+    //self.controlPannel.height
+    self.drawView.top = self.view.top + (self.view.height - 20 - self.drawView.height) / 2.f;
     
     self.docView.width = drawViewWidth;
     self.docView.height = drawViewHeight;

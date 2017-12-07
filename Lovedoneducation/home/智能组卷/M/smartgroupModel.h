@@ -31,4 +31,6 @@
 @property (nonatomic,copy) NSString *successnum;
 @property (nonatomic,copy) NSString *time;
 
+@property (nonatomic,strong) NSMutableArray *answerimgarr;
+
 @end

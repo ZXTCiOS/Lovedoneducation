@@ -653,7 +653,7 @@ NTES_FORBID_INTERACTIVE_POP
 - (void)onBack:(id)sender
 {
     NTESMeetingRole *myRole = [[NTESMeetingRolesManager sharedInstance] myRole];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出直播吗？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出直播课堂吗？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
     [alert showAlertWithCompletionHandler:^(NSInteger index) {
         switch (index) {
             case 1:{
@@ -671,7 +671,7 @@ NTES_FORBID_INTERACTIVE_POP
 }
 -(void)onCancelInteraction:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确定退出互动么？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确定退出互动吗？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
     [alert showAlertWithCompletionHandler:^(NSInteger index) {
         switch (index) {
             case 1:{

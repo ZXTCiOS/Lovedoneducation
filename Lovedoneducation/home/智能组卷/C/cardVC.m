@@ -100,7 +100,7 @@ static NSString *cardidentfid1 = @"cardidentfid1";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     cardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cardidentfid0 forIndexPath:indexPath];
-    int intnum = (long)indexPath.item;
+    int intnum = (int)indexPath.item;
     int intnum2 = intnum+1;
     NSString *numstr = [NSString stringWithFormat:@"%d",intnum2];
     [cell setdata:self.dataSource[indexPath.item] andnumitem:numstr];

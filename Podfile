@@ -29,6 +29,7 @@ pod 'DZNEmptyDataSet'
 pod 'JHUD'
 pod 'JKCountDownButton'
 pod 'JPush'
+pod 'TZImagePickerController'
   target 'LovedoneducationTests' do
     inherit! :search_paths
     # Pods for testing

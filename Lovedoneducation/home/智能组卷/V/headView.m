@@ -70,7 +70,6 @@
     return _rightbtn;
 }
 
-
 -(UILabel *)timelab
 {
     if(!_timelab)
@@ -83,10 +82,5 @@
     }
     return _timelab;
 }
-
-
-
-
-
 
 @end

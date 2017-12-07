@@ -55,6 +55,8 @@
         make.right.equalTo(weakSelf.righttextlab);
         make.top.equalTo(weakSelf.righttextlab.mas_bottom).with.offset(10);
     }];
+    
+ 
 }
 
 #pragma mark - getters

@@ -13,6 +13,8 @@
 #import "SDAutoLayout.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import <IQKeyboardManager.h>
 //屏幕 宽 高
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)
@@ -177,10 +179,67 @@
 
 
 /**
+ 专项练习
+
+ @return
+ */
+#define GET_practice2 @"/app.php/questions/practice/?uid=%@&token=%@&practiceType=%@&qtid=%@"
+
+
+/**
  添加收藏
 
  @return 添加收藏
  */
 #define POST_userCollection @"/app.php/user/userCollection"
 
+
+/**
+ 真题详情
+
+ @return 真题详情
+ */
+#define GET_realQuestionDetail @"/app.php/tool/realQuestionDetail?qcid=%@"
+
+/**
+ 图片上传
+
+ @return 图片上传
+ */
+#define GET_uploadImage @"/app.php/tool/uploadImage"
+
+/**
+ 答案提交
+
+ @return
+ */
+#define POST_practiceing @"/app.php/Questions/practiceing"
+
+/**
+ 模拟试题
+
+ @return
+ */
+#define GET_testPractice @"/app.php/Questions/testPractice?uid=%@&token=%@"
+
+/**
+ 数据报告
+
+ @return
+ */
+#define GET_report @"/app.php/DateReport/report/?uid=%@"
+
+/**
+ 练习周报
+
+ @return 练习周报
+ */
+#define GET_weekdeport @"/app.php/DateReport/weekdeport?uid=%@"
+
+/**
+ 申论
+
+ @return 申论题目接口
+ */
+#define GET_specialpractice@"/app.php/questions/specialpractice/?uid=%@&token=%@&qtid=%@"
 #endif /* wangHeader_h */

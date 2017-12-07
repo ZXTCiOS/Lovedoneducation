@@ -9,6 +9,7 @@
 #import "realquestionVC.h"
 #import "realquestionCell.h"
 #import "realquextionModel.h"
+#import "realparticularsVC.h"
 
 @interface realquestionVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -82,7 +83,7 @@ static NSString *requalquestionidentfid = @"requalquestionidentfid";
     return _table;
 }
 
-#pragma mark - getters
+#pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -103,6 +104,14 @@ static NSString *requalquestionidentfid = @"requalquestionidentfid";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 75;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    realparticularsVC *vc = [[realparticularsVC alloc] init];
+    realquextionModel *model = self.dataSource[indexPath.row];
+    vc.qcid = model.qcid;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

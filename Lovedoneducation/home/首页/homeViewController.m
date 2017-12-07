@@ -30,6 +30,7 @@
 #import "predictexamVC.h"
 #import "simulationtestVC.h"
 #import "collecttopicVC.h"
+#import "essayVC.h"
 
 @interface homeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -165,14 +166,35 @@
         ZhuanXiangZhiNengPricticeVC *vc = [[ZhuanXiangZhiNengPricticeVC alloc] init];
         vc.qtid = quetion.qtid;
         vc.qtname = quetion.qtname;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        HomeChildModel *childmodel = quetion.child[indexPath.item];
+        if ([childmodel.ischarge isEqualToString:@"1"]) {
+//            [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
+            essayVC *vc = [essayVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     // 否则跳向二级
     HomeSortDetailVC *vc = [[HomeSortDetailVC alloc] init];
     vc.child = quetion.child;
     vc.title = quetion.qtname;
+    HomeChildModel *childmodel = quetion.child[indexPath.item];
+    if ([childmodel.ischarge isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:@"请先付费" toView:self.view];
+        vc.isfufei = YES;
+        
+    }
+    else
+    {
+        vc.isfufei = NO;
+    }
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -337,18 +359,21 @@
 -(void)zhinengzujuanclick
 {
     smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType0;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //预测试题
 -(void)yuceshiticlick
 {
-    predictexamVC *vc = [[predictexamVC alloc] init];
+    smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //模拟试题
 -(void)monishiticlick
 {
-    simulationtestVC *vc = [[simulationtestVC alloc] init];
+    smartgroupvolumeVC *vc = [[smartgroupvolumeVC alloc] init];
+    vc.InActionType = ENUM_ViewController_ActionType2;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

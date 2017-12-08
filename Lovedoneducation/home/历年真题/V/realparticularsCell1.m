@@ -105,7 +105,9 @@
         [self.img2 setHidden:NO];
         
         if (imgarr.count==0) {
-            
+            self.img0.image = [UIImage imageNamed:@""];
+            self.img1.image = [UIImage imageNamed:@""];
+            self.img2.image = [UIImage imageNamed:@""];
         }
         if (imgarr.count==1) {
             self.img0.image = [imgarr firstObject];
@@ -119,7 +121,6 @@
             self.img1.image = [imgarr objectAtIndex:1];
             self.img2.image = [imgarr lastObject];
         }
-        
         self.img0
         .sd_layout
         .leftSpaceToView(self.contentView, 20)

@@ -70,6 +70,7 @@ static NSString *essayidentfid = @"essayidentfid";
     [self loaddata];
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
     self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +121,19 @@ static NSString *essayidentfid = @"essayidentfid";
             for (int j = 0; j<data.count; j++) {
                 [self.cardtypeArray addObject:@""];
                 [self.uplistarr addObject:@""];
+                
             }
+    
+            for (int k = 0; k<self.dataSource.count; k++) {
+                NSMutableArray *arr = [NSMutableArray new];
+                
+                NSMutableDictionary *contentdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"content"];
+                NSMutableDictionary *imgdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"img"];
+                [arr addObject:contentdic];
+                [arr addObject:imgdic];
+                [self.uplistarr replaceObjectAtIndex:k withObject:arr];
+            }
+            
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             essayModel *model = [self.dataSource objectAtIndex:0];
@@ -130,6 +143,8 @@ static NSString *essayidentfid = @"essayidentfid";
     } failure:^(NSError *error) {
         
     }];;
+    
+
 }
 
 -(headView *)head
@@ -292,23 +307,34 @@ static NSString *essayidentfid = @"essayidentfid";
                     NSString *imgurl = [obj objectForKey:@"data"];
                     NSLog(@"imgurl = %@",imgurl);
                     [self.imgarr addObject:imgurl];
+                    
                     int inter = (int)self.indexPathNow.item;
                     essayModel *model = [self.dataSource objectAtIndex:inter];
                     NSLog(@"model----%@",model);
-                    [model.answerimgarr addObject:img];
-                    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
+                    [model.answerimgarr addObject:imgurl];
                     
+                    [self.collectionV reloadItemsAtIndexPaths:@[self.indexPathNow]];
                     NSIndexPath *index = [_collectionV indexPathForCell:cell];
                     NSLog(@"333===%ld",index.item);
                     [self.cardtypeArray replaceObjectAtIndex:inter withObject:@"1"];
-                    
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-//                    //uplist数组方法
-//                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
-//                    NSDictionary *imgdic = @{@"img":self.imgarr};
-//                    [arr addObject:imgdic];
-                    
+                    //uplist数组方法
+                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+
+                    NSMutableDictionary *imgdic2 = [arr objectAtIndex:1];
+                    NSObject *imgobj = [imgdic2 objectForKey:@"img"];
+                    NSMutableArray *imgarr = [NSMutableArray new];
+                    if ([imgobj isKindOfClass:[NSString class]]) {
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
+                    }
+                    else
+                    {
+                        imgarr = [imgdic2 objectForKey:@"img"];
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
+                    }
                 }
                 else
                 {
@@ -330,10 +356,13 @@ static NSString *essayidentfid = @"essayidentfid";
     NSLog(@"333===%ld",index.item);
     if (str.length!=0) {
         [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+        NSMutableArray *arr = [self.uplistarr objectAtIndex:index.item];
+        NSMutableDictionary *strdic = [arr firstObject];
+        [strdic setValue:str forKey:@"content"];
     }
     else
     {
-        [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@""];
+        
     }
     essayModel *model = self.dataSource[index.item];
     model.textstr = str;

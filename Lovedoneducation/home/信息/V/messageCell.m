@@ -118,7 +118,4 @@
     self.timelab.text = [strisNull timeWithTimeIntervalString:model.time];
 }
 
-
-
-
 @end

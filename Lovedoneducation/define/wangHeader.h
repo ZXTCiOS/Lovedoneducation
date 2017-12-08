@@ -238,7 +238,6 @@
 
 /**
  申论
-
  @return 申论题目接口
  */
 #define GET_specialpractice @"/app.php/questions/specialpractice/?uid=%@&token=%@&qtid=%@"
@@ -252,8 +251,8 @@
 
 /**
  申论下单
-
  @return 申论下单
  */
 #define POST_orderInsert @"/app.php/order/orderInsert"
+
 #endif /* wangHeader_h */

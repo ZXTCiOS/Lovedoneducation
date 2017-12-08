@@ -12,4 +12,7 @@
 @property (nonatomic,copy) NSString *pricestr;
 @property (nonatomic,copy) NSString *numstr;
 @property (nonatomic,copy) NSString *timestr;
+
+@property (nonatomic,copy) NSString *mqid;
+@property (nonatomic,copy) NSString *markintro;
 @end

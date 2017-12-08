@@ -157,17 +157,33 @@
 -(void)setimgarr:(NSMutableArray *)array andtextstr:(NSString *)textstr
 {
     if (array.count==3) {
-        self.img0.image = [array firstObject];
-        self.img1.image = [array objectAtIndex:1];
-        self.img2.image = [array lastObject];
+        NSString *imgurl0 = [array firstObject];
+        NSString *imgurl1 = [array objectAtIndex:1];
+        NSString *imgurl2 = [array objectAtIndex:2];
+        
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgurl0]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgurl1]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgurl2]];;
     }
     if (array.count==2) {
-        self.img0.image = [array firstObject];
-        self.img1.image = [array objectAtIndex:1];
+        NSString *imgurl0 = [array firstObject];
+        NSString *imgurl1 = [array objectAtIndex:1];
+
+        
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgurl0]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgurl1]];
+
     }
     if (array.count==1) {
-        self.img0.image = [array firstObject];
+        NSString *imgurl0 = [array firstObject];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgurl0]];
     }
+    if (array.count==0) {
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:@""]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:@""]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:@""]];
+    }
+
     self.textView.text = textstr;
 }
 

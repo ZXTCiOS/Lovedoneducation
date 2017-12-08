@@ -249,4 +249,11 @@
  @return 收藏题目
  */
 #define GET_userquestion  @"/app.php/user/userquestion?uid=%@&token=%@&type=%@"
+
+/**
+ 申论下单
+
+ @return 申论下单
+ */
+#define POST_orderInsert @"/app.php/order/orderInsert"
 #endif /* wangHeader_h */

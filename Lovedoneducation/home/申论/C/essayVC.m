@@ -19,7 +19,7 @@
 #import "ZTVendorManager.h"
 #import "ActionSheetView.h"
 #import "essaycardVC.h"
-
+#import "essayorderVC.h"
 @interface essayVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
 {
     dispatch_source_t timer;
@@ -39,6 +39,7 @@
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
 
 @property (nonatomic,copy) NSString *pidstr;
+@property (nonatomic,strong) NSMutableArray *pricearray;
 @end
 
 static NSString *essayidentfid = @"essayidentfid";
@@ -54,8 +55,8 @@ static NSString *essayidentfid = @"essayidentfid";
     self.uplistarr = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.cardtypeArray = [NSMutableArray array];
+    self.pricearray = [NSMutableArray array];
     [self prepareLayout];
-    self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.view addSubview:self.head];
     if (@available(iOS 11.0, *)){
         self.head.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, 60);
@@ -113,6 +114,7 @@ static NSString *essayidentfid = @"essayidentfid";
                 model.qtid = [dic objectForKey:@"qtid"];
                 model.qtpath = [dic objectForKey:@"qtpath"];
                 model.time = [dic objectForKey:@"time"];
+                model.answerimgarr = [NSMutableArray array];
                 [self.dataSource addObject:model];
             }
             for (int j = 0; j<data.count; j++) {
@@ -166,6 +168,11 @@ static NSString *essayidentfid = @"essayidentfid";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     essayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:essayidentfid forIndexPath:indexPath];
     cell.delegate = self;
+    if (indexPath.row == self.dataSource.count - 1) {
+        cell.copystr = @"1";
+    }else{
+        cell.copystr = @"2";
+    }
     [cell setdata:self.dataSource[indexPath.item]];
     return cell;
 }
@@ -207,17 +214,52 @@ static NSString *essayidentfid = @"essayidentfid";
 
 -(void)cardclick
 {
+    int numd = 0;
+    NSString *numstr = @"";
+    [self.pricearray removeAllObjects];
+    for (int i = 0; i<self.cardtypeArray.count; i++) {
+        NSString *str = [self.cardtypeArray objectAtIndex:i];
+        essayModel *model = [self.dataSource objectAtIndex:i];
+        if ([str isEqualToString: @"1"]) {
+            NSString *money = model.price;
+            [self.pricearray addObject:money];
+            numd++;
+            numstr = [NSString stringWithFormat:@"%d",numd];
+        }
+    }
+    NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
+    NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
     essaycardVC *vc = [[essaycardVC alloc] init];
     vc.dataSource = self.cardtypeArray;
+    vc.pricestr = sumstr;
+    vc.numstr = numstr;
     vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 协议方法
 
--(void)queren:(UICollectionViewCell *)cell
+-(void)submit:(UICollectionViewCell *)cell
 {
-    
+    int numd = 0;
+    NSString *numstr = @"";
+    [self.pricearray removeAllObjects];
+    for (int i = 0; i<self.cardtypeArray.count; i++) {
+        NSString *str = [self.cardtypeArray objectAtIndex:i];
+        essayModel *model = [self.dataSource objectAtIndex:i];
+        if ([str isEqualToString: @"1"]) {
+            NSString *money = model.price;
+            [self.pricearray addObject:money];
+            numd++;
+            numstr = [NSString stringWithFormat:@"%d",numd];
+        }
+    }
+    NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
+    NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
+    essayorderVC *vc = [[essayorderVC alloc] init];
+    vc.pricestr = sumstr;
+    vc.numstr = numstr;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)imgchoose:(UICollectionViewCell *)cell
@@ -240,6 +282,7 @@ static NSString *essayidentfid = @"essayidentfid";
             NSDictionary *para = @{@"file":file,@"type":type};
             
             [MBProgressHUD showMessage:@"正在上传" toView:self.view];
+
             
             [DNNetworking postWithURLString:GET_uploadImage parameters:para success:^(id obj) {
                 [MBProgressHUD hideHUDForView:self.view];
@@ -257,14 +300,14 @@ static NSString *essayidentfid = @"essayidentfid";
                     
                     NSIndexPath *index = [_collectionV indexPathForCell:cell];
                     NSLog(@"333===%ld",index.item);
-                    [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
-
+                    [self.cardtypeArray replaceObjectAtIndex:inter withObject:@"1"];
+                    
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-                    //uplist数组方法
-                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
-                    NSDictionary *imgdic = @{@"img":self.imgarr};
-                    [arr addObject:imgdic];
+//                    //uplist数组方法
+//                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+//                    NSDictionary *imgdic = @{@"img":self.imgarr};
+//                    [arr addObject:imgdic];
                     
                 }
                 else
@@ -285,9 +328,12 @@ static NSString *essayidentfid = @"essayidentfid";
 {
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
-
     if (str.length!=0) {
         [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
+    }
+    else
+    {
+        [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@""];
     }
     essayModel *model = self.dataSource[index.item];
     model.textstr = str;

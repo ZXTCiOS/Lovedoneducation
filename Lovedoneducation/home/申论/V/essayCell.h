@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol myTabVdelegate <NSObject>
 -(void)queren:(UICollectionViewCell *)cell;
+-(void)submit:(UICollectionViewCell *)cell;
 -(void)imgchoose:(UICollectionViewCell *)cell;
 -(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str;
 @end
@@ -16,4 +17,5 @@
 @interface essayCell : UICollectionViewCell
 -(void)setdata:(essayModel *)model;
 @property(assign,nonatomic)id<myTabVdelegate>delegate;
+@property (nonatomic,  copy)   NSString *copystr;
 @end

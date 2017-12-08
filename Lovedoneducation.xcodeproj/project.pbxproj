@@ -437,6 +437,13 @@
 		537A36A41FA861C1009E1442 /* datareportCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A31FA861C1009E1442 /* datareportCell4.m */; };
 		537A36A71FA89C8D009E1442 /* datareportCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36A61FA89C8D009E1442 /* datareportCell5.m */; };
 		537F66931FD7EBCB0028E888 /* essaycardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66921FD7EBCB0028E888 /* essaycardCell.m */; };
+		537F66961FD92AF30028E888 /* essayorderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66951FD92AF30028E888 /* essayorderVC.m */; };
+		537F66991FD92BDE0028E888 /* essayorderCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66981FD92BDE0028E888 /* essayorderCell0.m */; };
+		537F669C1FD92BF10028E888 /* essayorderCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F669B1FD92BF10028E888 /* essayorderCell1.m */; };
+		537F669F1FD92C040028E888 /* essayorderCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F669E1FD92C040028E888 /* essayorderCell2.m */; };
+		537F66A21FD92C1E0028E888 /* essayorderCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66A11FD92C1E0028E888 /* essayorderCell3.m */; };
+		537F66A51FD92C2D0028E888 /* essayorderCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66A41FD92C2D0028E888 /* essayorderCell4.m */; };
+		537F66A81FD9A7D10028E888 /* chooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66A71FD9A7D10028E888 /* chooseView.m */; };
 		539527BC1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
@@ -1364,6 +1371,20 @@
 		537A36A61FA89C8D009E1442 /* datareportCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell5.m; sourceTree = "<group>"; };
 		537F66911FD7EBCB0028E888 /* essaycardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaycardCell.h; sourceTree = "<group>"; };
 		537F66921FD7EBCB0028E888 /* essaycardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaycardCell.m; sourceTree = "<group>"; };
+		537F66941FD92AF30028E888 /* essayorderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderVC.h; sourceTree = "<group>"; };
+		537F66951FD92AF30028E888 /* essayorderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderVC.m; sourceTree = "<group>"; };
+		537F66971FD92BDE0028E888 /* essayorderCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderCell0.h; sourceTree = "<group>"; };
+		537F66981FD92BDE0028E888 /* essayorderCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderCell0.m; sourceTree = "<group>"; };
+		537F669A1FD92BF10028E888 /* essayorderCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderCell1.h; sourceTree = "<group>"; };
+		537F669B1FD92BF10028E888 /* essayorderCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderCell1.m; sourceTree = "<group>"; };
+		537F669D1FD92C040028E888 /* essayorderCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderCell2.h; sourceTree = "<group>"; };
+		537F669E1FD92C040028E888 /* essayorderCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderCell2.m; sourceTree = "<group>"; };
+		537F66A01FD92C1E0028E888 /* essayorderCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderCell3.h; sourceTree = "<group>"; };
+		537F66A11FD92C1E0028E888 /* essayorderCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderCell3.m; sourceTree = "<group>"; };
+		537F66A31FD92C2D0028E888 /* essayorderCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essayorderCell4.h; sourceTree = "<group>"; };
+		537F66A41FD92C2D0028E888 /* essayorderCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essayorderCell4.m; sourceTree = "<group>"; };
+		537F66A61FD9A7D10028E888 /* chooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chooseView.h; sourceTree = "<group>"; };
+		537F66A71FD9A7D10028E888 /* chooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chooseView.m; sourceTree = "<group>"; };
 		539527BA1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZYExtension.h"; sourceTree = "<group>"; };
 		539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZYExtension.m"; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
@@ -4009,6 +4030,8 @@
 				53F4CCE71FD649B900BA6F5F /* essayVC.m */,
 				53374EA41FD6FC83009045E9 /* essaycardVC.h */,
 				53374EA51FD6FC83009045E9 /* essaycardVC.m */,
+				537F66941FD92AF30028E888 /* essayorderVC.h */,
+				537F66951FD92AF30028E888 /* essayorderVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -4026,6 +4049,18 @@
 				53374EA81FD6FD92009045E9 /* essaytableCell2.m */,
 				537F66911FD7EBCB0028E888 /* essaycardCell.h */,
 				537F66921FD7EBCB0028E888 /* essaycardCell.m */,
+				537F66971FD92BDE0028E888 /* essayorderCell0.h */,
+				537F66981FD92BDE0028E888 /* essayorderCell0.m */,
+				537F669A1FD92BF10028E888 /* essayorderCell1.h */,
+				537F669B1FD92BF10028E888 /* essayorderCell1.m */,
+				537F669D1FD92C040028E888 /* essayorderCell2.h */,
+				537F669E1FD92C040028E888 /* essayorderCell2.m */,
+				537F66A01FD92C1E0028E888 /* essayorderCell3.h */,
+				537F66A11FD92C1E0028E888 /* essayorderCell3.m */,
+				537F66A31FD92C2D0028E888 /* essayorderCell4.h */,
+				537F66A41FD92C2D0028E888 /* essayorderCell4.m */,
+				537F66A61FD9A7D10028E888 /* chooseView.h */,
+				537F66A71FD9A7D10028E888 /* chooseView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4415,6 +4450,7 @@
 				186570AF1FB9873F00FB9E55 /* LiveVideoRecordVC.m in Sources */,
 				53E1DD5D1FAD97B2009965AF /* LiveCourseCell.m in Sources */,
 				53E1DD5C1FAD9787009965AF /* realquextionModel.m in Sources */,
+				537F66991FD92BDE0028E888 /* essayorderCell0.m in Sources */,
 				53E1DD661FADA12A009965AF /* exerciseweeklyModel.m in Sources */,
 				181F87371FB437790090EDEF /* UIImage+NIMMultiFormat.m in Sources */,
 				181F86F21FB437790090EDEF /* NIMUIConfig.m in Sources */,
@@ -4481,6 +4517,7 @@
 				181F86EB1FB437790090EDEF /* NIMInputMoreContainerView.m in Sources */,
 				5323ADAF1FA4221200F2E626 /* datareportVC.m in Sources */,
 				181F87111FB437790090EDEF /* NIMSessionListDefaultConfig.m in Sources */,
+				537F66A51FD92C2D0028E888 /* essayorderCell4.m in Sources */,
 				181F86711FB437790090EDEF /* NTESTextSettingCell.m in Sources */,
 				181F86E81FB437790090EDEF /* NIMInputEmoticonManager.m in Sources */,
 				181F871B1FB437790090EDEF /* NIMNormalTeamCardViewController.m in Sources */,
@@ -4501,6 +4538,8 @@
 				53C999BD1F973C90006A6570 /* MainTabBarButton.m in Sources */,
 				181F866A1FB437790090EDEF /* NTESPageContext.m in Sources */,
 				181F87121FB437790090EDEF /* NIMSessionListViewController.m in Sources */,
+				537F669F1FD92C040028E888 /* essayorderCell2.m in Sources */,
+				537F66961FD92AF30028E888 /* essayorderVC.m in Sources */,
 				534219BA1F9F5A2500F26E61 /* feedbackVC.m in Sources */,
 				1822E45A1F9E10A500C92DEA /* HomeModel.m in Sources */,
 				534B4A441FA309AF00A68BA7 /* typeVC0.m in Sources */,
@@ -4569,6 +4608,7 @@
 				181F87151FB437790090EDEF /* NIMTeamCardOperationItem.m in Sources */,
 				534219B31F9F59A000F26E61 /* coursescacheVC.m in Sources */,
 				181F87041FB437790090EDEF /* NIMTimestampModel.m in Sources */,
+				537F66A21FD92C1E0028E888 /* essayorderCell3.m in Sources */,
 				181F866B1FB437790090EDEF /* NTESCommonTableData.m in Sources */,
 				181F865F1FB437790090EDEF /* UIScrollView+NTESPullToRefresh.m in Sources */,
 				181F86DE1FB437790090EDEF /* NIMGroupedDataCollection.m in Sources */,
@@ -4800,6 +4840,7 @@
 				533FCB4F1F9DB38600A4F6E1 /* mineCell0.m in Sources */,
 				181F866E1FB437790090EDEF /* NTESFPSLabel.m in Sources */,
 				181F86851FB437790090EDEF /* NTESChatroomViewController.m in Sources */,
+				537F66A81FD9A7D10028E888 /* chooseView.m in Sources */,
 				181F86FE1FB437790090EDEF /* NIMDefaultValueMaker.m in Sources */,
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				181F87231FB437790090EDEF /* NIMTeamSwitchTableViewCell.m in Sources */,
@@ -4846,6 +4887,7 @@
 				181F87031FB437790090EDEF /* NIMSessionViewLayoutManager.m in Sources */,
 				181F86631FB437790090EDEF /* NTESNavigationHandler.m in Sources */,
 				181F86E31FB437790090EDEF /* NIMContactSelectTabView.m in Sources */,
+				537F669C1FD92BF10028E888 /* essayorderCell1.m in Sources */,
 				533FCB451F99D7F200A4F6E1 /* changeCell1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

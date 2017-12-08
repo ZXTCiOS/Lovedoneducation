@@ -22,8 +22,8 @@
     if(self)
     {
         [self.contentView addSubview:self.submitbtn];
-        [self.contentView addSubview:self.contentlab];
-        [self.contentView addSubview:self.lab];
+//        [self.contentView addSubview:self.contentlab];
+//        [self.contentView addSubview:self.lab];
         [self setuplayout];
     }
     return self;
@@ -40,48 +40,47 @@
     .centerXEqualToView(weakSelf.contentView)
     .widthIs(200*WIDTH_SCALE);
     
-    weakSelf.contentlab
-    .sd_layout
-    .leftSpaceToView(weakSelf.contentView, 20)
-    .rightSpaceToView(weakSelf.contentView, 20)
-    .topSpaceToView(weakSelf.submitbtn, 20)
-    .autoHeightRatio(0);
- 
-    weakSelf.lab
-    .sd_layout
-    .leftSpaceToView(weakSelf.contentView, 20)
-    .rightSpaceToView(weakSelf.contentView, 20)
-    .topSpaceToView(weakSelf.contentlab, 20)
-    .heightIs(20);
+//    weakSelf.contentlab
+//    .sd_layout
+//    .leftSpaceToView(weakSelf.contentView, 20)
+//    .rightSpaceToView(weakSelf.contentView, 20)
+//    .topSpaceToView(weakSelf.submitbtn, 20)
+//    .autoHeightRatio(0);
+//
+//    weakSelf.lab
+//    .sd_layout
+//    .leftSpaceToView(weakSelf.contentView, 20)
+//    .rightSpaceToView(weakSelf.contentView, 20)
+//    .topSpaceToView(weakSelf.contentlab, 20)
+//    .heightIs(20);
     
-    [self setupAutoHeightWithBottomView: weakSelf.lab bottomMargin:20];
+    [self setupAutoHeightWithBottomView: weakSelf.submitbtn bottomMargin:20];
 }
 
 #pragma mark - getters
 
-
--(UILabel *)contentlab
-{
-    if(!_contentlab)
-    {
-        _contentlab = [[UILabel alloc] init];
-        _contentlab.textAlignment = NSTextAlignmentCenter;
-    }
-    return _contentlab;
-}
-
--(UILabel *)lab
-{
-    if(!_lab)
-    {
-        _lab = [[UILabel alloc] init];
-        _lab.textAlignment = NSTextAlignmentCenter;
-        _lab.text = @"#请耐心等待，我们会在24小时之内给您答案#";
-        _lab.font = [UIFont systemFontOfSize:12];
-        _lab.textColor = [UIColor colorWithHexString:@"909090"];
-    }
-    return _lab;
-}
+//-(UILabel *)contentlab
+//{
+//    if(!_contentlab)
+//    {
+//        _contentlab = [[UILabel alloc] init];
+//        _contentlab.textAlignment = NSTextAlignmentCenter;
+//    }
+//    return _contentlab;
+//}
+//
+//-(UILabel *)lab
+//{
+//    if(!_lab)
+//    {
+//        _lab = [[UILabel alloc] init];
+//        _lab.textAlignment = NSTextAlignmentCenter;
+//        _lab.text = @"#请耐心等待，我们会在24小时之内给您答案#";
+//        _lab.font = [UIFont systemFontOfSize:12];
+//        _lab.textColor = [UIColor colorWithHexString:@"909090"];
+//    }
+//    return _lab;
+//}
 
 -(UIButton *)submitbtn
 {
@@ -153,8 +152,7 @@
 
 -(void)submitbtnclick
 {
-    
+    [self.delegate submitbtn:self];
 }
-
 
 @end

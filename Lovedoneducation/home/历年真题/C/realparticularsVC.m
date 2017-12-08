@@ -293,7 +293,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-
+        
         realpartcardVC *vc = [[realpartcardVC alloc] init];
         vc.modeldata = self.dataSource;
         vc.dataSource = self.cardtypeArray;
@@ -355,11 +355,20 @@ static NSString *realcellidentfid = @"realcellidentfid";
                     
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-                    //uplist数组方法
-                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
-                    NSDictionary *imgdic = @{@"img":self.imgarr};
-                    [arr addObject:imgdic];
                     
+                    NSObject *plistobj = [self.uplistarr objectAtIndex:inter];
+                    if ([plistobj isKindOfClass:[NSString class]]) {
+                        
+                    }
+                    else
+                    {
+                        //uplist数组方法
+                        NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
+                        NSDictionary *imgdic = @{@"img":self.imgarr};
+                        [arr addObject:imgdic];
+                        
+                    }
+
                 }
                 else
                 {

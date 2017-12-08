@@ -12,7 +12,7 @@
 #import "essaytableCell2.h"
 #import "essayModel.h"
 
-@interface essayCell()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate>
+@interface essayCell()<UITableViewDataSource,UITableViewDelegate,myTabVdelegate,mysubmitdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) essayModel *essmodel;
 
@@ -57,7 +57,14 @@ static NSString *essaytableidentfid2 = @"essaytableidentfid2";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if ([self.copystr isEqualToString:@"2"]) {
+        return 2;
+    }
+    if ([self.copystr isEqualToString:@"1"])
+    {
+        return 3;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,6 +94,7 @@ static NSString *essaytableidentfid2 = @"essaytableidentfid2";
             cell = [[essaytableCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essaytableidentfid2];
         }
         [cell setnumberstr:@"1" andpricestr:@"20"];
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -107,6 +115,10 @@ static NSString *essaytableidentfid2 = @"essaytableidentfid2";
 }
 
 #pragma mark - 协议绑定
+-(void)submitbtn:(UITableViewCell *)cell
+{
+    [self.delegate submit:self];
+}
 
 -(void)querentijiao:(UITableViewCell *)cell
 {

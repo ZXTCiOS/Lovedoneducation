@@ -8,6 +8,7 @@
 
 #import "essaycardVC.h"
 #import "essaycardCell.h"
+#import "essayorderVC.h"
 
 @interface essaycardVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collection;
@@ -16,7 +17,8 @@
 @property (nonatomic, strong) UILabel *leftLab;
 @property (nonatomic, strong) UIButton *submitBtn;
 @property (nonatomic, strong) UIView *footView;
-
+@property (nonatomic, strong) UILabel *contentlab;
+@property (nonatomic, strong) UILabel *typelab;
 @end
 
 
@@ -139,6 +141,68 @@ static NSString *essaycardientfid1 = @"essaycardientfid1";
     self.submitBtn.frame = CGRectMake(headerView.frame.size.width/2-110, 30, 220, 44);
     [self.submitBtn addTarget:self action:@selector(submitbtnclick) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:self.submitBtn];
+    
+    
+    self.contentlab = [[UILabel alloc] init];
+    self.typelab = [[UILabel alloc] init];
+    
+    NSString * numser = self.numstr;
+    NSString * pricestr = self.pricestr;
+    NSString *str1 = @"共计";
+    NSString *str2 = numser;
+    NSString *str3 = @"道题目，总计 ¥";
+    NSString *str4 = pricestr;
+    NSString *str5 = @"元";
+    NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@",str1,str2,str3,str4,str5];
+    
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(str1.length, str2.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(str1.length + str2.length, str3.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(str1.length + str2.length+str3.length, str4.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(str1.length + str2.length+str3.length+str4.length, str5.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:14.0f]
+                    range:NSMakeRange(0, str1.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:24.0f]
+                    range:NSMakeRange(str1.length, str2.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:14.0f]
+                    range:NSMakeRange(str1.length + str2.length, str3.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:24.0f]
+                    range:NSMakeRange(str1.length + str2.length+str3.length, str4.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:14.0f]
+                    range:NSMakeRange(str1.length + str2.length+str3.length+str4.length, str5.length)];
+    self.contentlab.attributedText = attrStr;
+    self.typelab.text = @"#请耐心等待，我们会在24小时之内给您答案#";
+    self.typelab.font = [UIFont systemFontOfSize:12];
+    self.typelab.textColor = [UIColor colorWithHexString:@"909090"];
+    
+    self.contentlab.frame = CGRectMake(0, 90, kScreenW-60, 40);
+    self.typelab.frame = CGRectMake(0, 150, kScreenW-60, 20);
+    
+    self.contentlab.textAlignment = NSTextAlignmentCenter;
+    self.typelab.textAlignment = NSTextAlignmentCenter;
+    [headerView addSubview:self.contentlab];
+    [headerView addSubview:self.typelab];
     return headerView;
 }
 
@@ -147,7 +211,22 @@ static NSString *essaycardientfid1 = @"essaycardientfid1";
 -(void)submitbtnclick
 {
     NSLog(@"submit");
+    essayorderVC *vc = [essayorderVC new];
+    vc.numstr = self.numstr;
+    vc.pricestr = self.pricestr;
+    vc.timestr = [self getCurrentTimes];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+-(NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    //现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
+    //----------将nsdate按formatter格式转成nsstring
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
 @end

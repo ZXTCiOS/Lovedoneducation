@@ -1,0 +1,282 @@
+//
+//  essayorderVC.m
+//  Lovedoneducation
+//
+//  Created by 王俊钢 on 2017/12/7.
+//  Copyright © 2017年 wangjungang. All rights reserved.
+//
+
+#import "essayorderVC.h"
+#import "essayorderCell0.h"
+#import "essayorderCell1.h"
+#import "essayorderCell2.h"
+#import "essayorderCell3.h"
+#import "essayorderCell4.h"
+#import "chooseView.h"
+#import "strisNull.h"
+
+@interface essayorderVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) UIView *footView;
+@property (nonatomic,strong) UIButton *submitBtn;
+@property (nonatomic,strong) chooseView *zhifuView;
+@property (nonatomic,strong)UIView *bgView;//半透明背景
+@property (nonatomic,copy) NSString *zhekoumoney;
+@property (nonatomic,copy) NSString *money;
+@end
+
+static NSString *essayorderidentfid0 = @"essayorderidentfid0";
+static NSString *essayorderidentfid1 = @"essayorderidentfid1";
+static NSString *essayorderidentfid2 = @"essayorderidentfid2";
+static NSString *essayorderidentfid3 = @"essayorderidentfid3";
+static NSString *essayorderidentfid4 = @"essayorderidentfid4";
+
+@implementation essayorderVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.title = @"提交订单";
+    
+    [self.view addSubview:self.table];
+    self.table.tableFooterView = self.footView;
+ 
+
+    if (@available(iOS 11.0, *)){
+        self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
+    }
+    else
+    {
+        self.table.frame = CGRectMake(0, 0, kScreenW, kScreenH-0);
+    }
+    [self loaddata];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *url = [NSString stringWithFormat:GET_mineCoupon,uid,token];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *datadic = [obj objectForKey:@"data"];
+            NSDictionary *moneydic = [datadic objectForKey:@"all"];
+            NSString *str1 = [NSString stringWithFormat:@"%@", [moneydic objectForKey:@"price"]];
+            if ([strisNull isNullToString:str1]) {
+                self.zhekoumoney = @"0";
+            }
+            else
+            {
+                self.zhekoumoney = @"0";
+            }
+            float f0 = [self.zhekoumoney floatValue];
+            float f1 = [self.pricestr floatValue];
+            float f2 = f1-f0;
+            self.money = [NSString stringWithFormat:@"%.2f",f2];
+            [self.table reloadData];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)showwindow
+{
+    //1. 取出window
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    //2. 创建背景视图
+    _bgView = [[UIView alloc]init];
+    _bgView.frame = window.bounds;
+    //3. 背景颜色可以用多种方法
+    _bgView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.4];
+    //    _bgView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.6];
+    [window addSubview:_bgView];
+    //4. 把需要展示的控件添加上去
+    
+    self.zhifuView = [[chooseView alloc] init];
+    [window addSubview:self.zhifuView];
+    self.zhifuView.frame = CGRectMake(kScreenW/2-150, kScreenH, 300, 600);
+    [self.zhifuView.clonebtn addTarget:self action:@selector(cloneclick) forControlEvents:UIControlEventTouchUpInside];
+    [self.zhifuView.leftimg addTarget:self action:@selector(weichatclick) forControlEvents:UIControlEventTouchUpInside];
+    [self.zhifuView.rightimg addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
+    //6.给背景添加一个手势，后续方便移除视图
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideAlertView)];
+    [_bgView addGestureRecognizer:tap];
+
+}
+
+#pragma mark - getters
+
+-(UITableView *)table
+{
+    if(!_table)
+    {
+        _table = [[UITableView alloc] init];
+        _table.dataSource = self;
+        _table.delegate = self;
+    }
+    return _table;
+}
+
+-(UIView *)footView
+{
+    if(!_footView)
+    {
+        _footView = [[UIView alloc] init];
+        _footView.frame = CGRectMake(0, 0, kScreenW, 120);
+        _footView.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
+        [_footView addSubview:self.submitBtn];
+    }
+    return _footView;
+}
+
+-(UIButton *)submitBtn
+{
+    if(!_submitBtn)
+    {
+        _submitBtn = [[UIButton alloc] init];
+        _submitBtn.frame = CGRectMake((kScreenW-225)/2, 20, 225, 40);
+        [_submitBtn addTarget:self action:@selector(submitbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [_submitBtn setTitle:@"提交订单" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
+        [_submitBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
+        
+    }
+    return _submitBtn;
+}
+
+#pragma mark -UITableViewDataSource&&UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 4;
+    }
+    if (section==1) {
+        return 1;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            essayorderCell0 *cell = [tableView dequeueReusableCellWithIdentifier:essayorderidentfid0];
+            if (!cell) {
+                cell = [[essayorderCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essayorderidentfid0];
+            }
+            [cell setdatatimestr:self.timestr andnumstr:self.numstr andpricestr:self.pricestr];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+        if (indexPath.row==1) {
+            essayorderCell1 *cell = [tableView dequeueReusableCellWithIdentifier:essayorderidentfid1];
+            if (!cell) {
+                cell = [[essayorderCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essayorderidentfid1];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+        if (indexPath.row==2) {
+            essayorderCell2 *cell = [tableView dequeueReusableCellWithIdentifier:essayorderidentfid2];
+            if (!cell) {
+                cell = [[essayorderCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essayorderidentfid2];
+            }
+            [cell setdata:self.zhekoumoney];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+        if (indexPath.row==3) {
+            essayorderCell3 *cell = [tableView dequeueReusableCellWithIdentifier:essayorderidentfid3];
+            if (!cell) {
+                cell = [[essayorderCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essayorderidentfid3];
+            }
+            [cell setdata:self.money];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+    }
+    if (indexPath.section==1) {
+        if (indexPath.row==0) {
+            essayorderCell4 *cell = [tableView dequeueReusableCellWithIdentifier:essayorderidentfid4];
+            if (!cell) {
+                cell = [[essayorderCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:essayorderidentfid4];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            return 125;
+        }
+        if (indexPath.row==1) {
+            return 80;
+        }
+        if (indexPath.row==2) {
+            return 80;
+        }
+        if (indexPath.row==3) {
+            return 85;
+        }
+    }
+    if (indexPath.section==1) {
+        return 84;
+    }
+    return 0.01f;
+}
+
+-(void)submitbtnclick
+{
+    
+    [self showwindow];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
+        
+    }completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)hideAlertView
+{
+    [self cloneclick];
+}
+-(void)cloneclick
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [_bgView removeFromSuperview];
+        self.zhifuView.transform = CGAffineTransformIdentity;
+    }];
+}
+
+#pragma mark - 支付宝&&微信
+
+-(void)zhifubaoclick
+{
+    
+}
+
+-(void)weichatclick
+{
+    
+}
+
+@end

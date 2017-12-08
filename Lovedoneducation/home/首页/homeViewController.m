@@ -117,7 +117,7 @@
         if ([code isEqualToString:@"200"]) {
             HomeModel *model = [HomeModel parse:obj];
             self.data = model.data;
-            NSDictionary *dic = [obj objectForKey:@"data"];
+            //NSDictionary *dic = [obj objectForKey:@"data"];
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.data.isdeport;
             self.title = self.data.user.utest_type;
@@ -271,7 +271,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         [self.view addSubview:_collectionView];
         if (@available(iOS 11.0, *)) {
-            _collectionView.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT);
+            _collectionView.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT - LL_TabbarHeight);
         } else {
             _collectionView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
         }

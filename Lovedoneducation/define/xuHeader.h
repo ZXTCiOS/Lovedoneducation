@@ -47,7 +47,7 @@ _Pragma("clang diagnostic pop")\
 
 #define NIMKEY @"8210a542cf018de3bb35c11282dbb23c"
 #define user_accid @"test0"
-#define user_imtoken @"b1b87dcdfbd844e2c98f0d00d0f7a634"
+#define user_imtoken @"user_imtoken"
 
 #define TeacherBGImage @""
 
@@ -90,5 +90,13 @@ else\
  * 我的课程
  */
 #define get_wodekecheng @"/app.php/class/userClassList/"
+/**
+ * 获取 video/mp3  url
+ */
+#define get_videourl @"/app.php/class/getlook"
+
+
+
+
 
 #endif /* xuHeader_h */

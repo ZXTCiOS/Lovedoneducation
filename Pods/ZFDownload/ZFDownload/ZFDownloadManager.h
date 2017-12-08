@@ -88,7 +88,12 @@
  */
 - (void)downFileUrl:(NSString*)url
            filename:(NSString*)name
-          fileimage:(UIImage *)image extention:(id)extention;
+          fileimage:(UIImage *)image extention:(id)extention downtype:(ZFDownloadType) type;
+
+
+
+
+
 /** 
  * 开始任务 
  */

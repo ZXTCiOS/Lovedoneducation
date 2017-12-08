@@ -15,6 +15,7 @@
 #import "SVProgressHUD.h"
 #import "NTESMeetingManager.h"
 #import "UIView+Toast.h"
+#import "LiveKeqiankehouVC.h"
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -49,7 +50,15 @@
     self.title = @"课程详情";
     
     if (@available(iOS 11.0, *)){
-        self.greenV.frame = CGRectMake(0, 0, kScreenW, 100);
+        //self.greenV.frame = CGRectMake(0, 0, kScreenW, 100);
+        self.view.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - 64);
+        self.topConstraint.constant = NAVIGATION_HEIGHT;
+        [self.greenV setNeedsLayout];
+        [self.greenV setNeedsDisplay];
+        [self.greenV layoutIfNeeded];
+        [self.view setNeedsLayout];
+        [self.view setNeedsDisplay];
+        [self.view layoutIfNeeded];
     }
     else
     {
@@ -70,10 +79,11 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *data = [NSData dataWithContentsOfURL:self.model.c_intro_img.xd_URL];
         UIImage *image = [UIImage imageWithData:data];
-        UIImageView *imgV = [[UIImageView alloc] init];
-        imgV.image = image;
-        CGSize size = image.size;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *imgV = [[UIImageView alloc] init];
+            imgV.image = image;
+            CGSize size = image.size;
             CGRect frame = self.contentV.frame;
             CGPoint point = CGPointMake(0, 0);
             frame.origin = point;
@@ -130,6 +140,7 @@
         // 上课去
         // TODO:
         NIMChatroom *chatroom = [[NIMChatroom alloc] init];
+        chatroom.roomId = @"19645919";
         
         NIMUser *user  = [[NIMSDK sharedSDK].userManager userInfo:[NIMSDK sharedSDK].loginManager.currentAccount];
         NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
@@ -244,7 +255,7 @@
         CGFloat t1 = [model.cdstart_time doubleValue];
         CGFloat t2 = [model.cdend_time doubleValue];
         cell.keshiL.text = [NSString stringWithFormat:@"%ld", (long)(t2-t1)/3600];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     LiveTeacherModel *model = self.model.teacher[indexPath.row];
@@ -271,8 +282,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag == 100) return;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (tableView.tag == 100) {
+        LiveKeqiankehouVC *vc = [[LiveKeqiankehouVC alloc] init];
+        LiveCourseListModel *model = self.datalist[indexPath.row];
+        vc.state = model.isstart;
+        vc.model = model;
+        vc.coursemodel = self.model;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
     LiveTeacherInfoVC *vc = [[LiveTeacherInfoVC alloc] init];
     vc.model = self.model.teacher[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];

@@ -17,7 +17,7 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 
 
-@interface LoginVC ()<UITextFieldDelegate>
+@interface LoginVC ()<UITextFieldDelegate, NIMLoginManagerDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
 @property (nonatomic,strong) UITextField *phoneText;
 @property (nonatomic,strong) UITextField *passwordText;
@@ -292,9 +292,10 @@
             NSString *uid = [dic objectForKey:@"uid"];
             [userDefault setObject:token forKey:user_token];
             [userDefault setObject:uid forKey:user_uid];
-            NSString *imtoken = [obj objectForKey:@"acctoken"];
+            NSString *imtoken = [dic objectForKey:@"acctoken"];
             [userDefault setObject:imtoken forKey:user_imtoken];
             [userDefault synchronize];
+            [self NIMLogin];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];
             appDelegate.window.rootViewController = main;
@@ -309,6 +310,35 @@
         
     }];;
     
+}
+
+
+- (void)NIMLogin{
+    NSString *appKey        = NIMKEY;
+    NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
+    option.apnsCername      = @"your APNs cer name";
+    option.pkCername        = @"your pushkit cer name";
+    [[NIMSDK sharedSDK] registerWithOption:option];
+    [[NIMSDK sharedSDK].loginManager addDelegate:self];
+    NIMAutoLoginData *loginData = [[NIMAutoLoginData alloc] init];
+    NSString *account = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_imtoken];
+    loginData.account = account;
+    loginData.token = token;
+    loginData.forcedMode = YES;
+    [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
+}
+
+- (void)onLogin:(NIMLoginStep)step{
+    NSLog(@"%ld", step);
+}
+
+- (void)onAutoLoginFailed:(NSError *)error{
+    NSLog(@"NIM auto login failed.");
+}
+
+- (void)dealloc{
+    [[NIMSDK sharedSDK].loginManager removeDelegate:self];
 }
 
 -(void)forgetbtnclick

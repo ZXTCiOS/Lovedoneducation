@@ -30,6 +30,13 @@ typedef NS_ENUM(NSInteger,ZFDownLoadState) {
     ZFStopDownload      //停止下载
 };
 
+typedef NS_ENUM(NSUInteger, ZFDownloadType) {
+    ZFDownloadTypeVideo,
+    ZFDownloadTypeMp3,
+    ZFDownloadTypeWhiteboard
+};
+
+
 @interface ZFFileModel : NSObject
 
 /** 文件名 */
@@ -65,5 +72,6 @@ typedef NS_ENUM(NSInteger,ZFDownLoadState) {
 
 @property (nonatomic, strong) id extention;
 
+@property (nonatomic, assign) ZFDownloadType downloadtype;
 
 @end

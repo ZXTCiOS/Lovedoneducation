@@ -53,7 +53,8 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = [NSString stringWithFormat:@"%@专项联系", self.qtname];
+    self.title = [NSString stringWithFormat:@"%@专项练习", self.qtname];
+    
     kSetNaviBarColor_50;
     [self prepareLayout];
     self.indexPathNow = [NSIndexPath indexPathForItem:0 inSection:0];

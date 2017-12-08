@@ -12,7 +12,7 @@
 
 @interface LiveKeqiankehouVC : UIViewController
 
-@property (nonatomic, assign) CourseState *state;
+@property (nonatomic, assign) CourseState state;
 @property (nonatomic, strong) LiveCourseListModel *model;
 @property (nonatomic, strong) LiveCourseModel *coursemodel;
 

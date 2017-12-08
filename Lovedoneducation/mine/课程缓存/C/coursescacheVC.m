@@ -9,10 +9,13 @@
 #import "coursescacheVC.h"
 #import "coursescacheCell.h"
 #import <ZFDownloadManager.h>
+#import "LiveModel.h"
+
 @interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, ZFDownloadDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) ZFDownloadManager *downloadManager;
+@property (nonatomic, strong) NSMutableArray *whiteboardlist;
 
 @end
 
@@ -26,6 +29,7 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     self.title = @"课程缓存";
     [self.view addSubview:self.table];
     self.dataSource = [NSMutableArray array];
+    self.whiteboardlist = [NSMutableArray array];
     if (@available(iOS 11.0, *)){
         self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
     }
@@ -38,8 +42,23 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     
     
     self.downloadManager = [ZFDownloadManager sharedDownloadManager];
-    [self.dataSource addObjectsFromArray:self.downloadManager.downinglist];
-    [self.dataSource addObjectsFromArray:self.downloadManager.finishedlist];
+    //[self.dataSource addObjectsFromArray:self.downloadManager.downinglist];
+    //[self.dataSource addObjectsFromArray:self.downloadManager.finishedlist];
+    
+    for (ZFFileModel *model in self.downloadManager.downinglist) {
+        if (model.downloadtype == ZFDownloadTypeWhiteboard) {
+            [self.dataSource addObject:model];
+        } else {
+            [self.whiteboardlist addObject:model];
+        }
+    }
+    for (ZFFileModel *model in self.downloadManager.finishedlist) {
+        if (model.downloadtype == ZFDownloadTypeWhiteboard) {
+            [self.dataSource addObject:model];
+        } else {
+            [self.whiteboardlist addObject:model];
+        }
+    }
     
 }
 
@@ -77,6 +96,10 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     if (!cell) {
         cell = [[coursescacheCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:coursecacheidentfid];
     }
+    ZFFileModel *model = self.dataSource[indexPath.row];
+    LiveCourseModel *course = model.extention;
+    
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.progressV.progress = 0.5;
     return cell;

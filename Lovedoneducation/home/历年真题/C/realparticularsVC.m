@@ -128,13 +128,25 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 [self.xuanzearray addObject: model.qsuccess];
                 [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
+                
+                //[self.uplistarr addObject:@""];
+                
+                if ([model.qtype isEqualToString:@"3"]) {
+                    NSMutableArray *arr = [NSMutableArray new];
+                    NSMutableDictionary *qiddic = [NSMutableDictionary dictionaryWithObject:model.qid forKey:@"qid"];
+                    NSMutableDictionary *contentdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"content"];
+                    NSMutableDictionary *imgdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"img"];
+                    [arr addObject:qiddic];
+                    [arr addObject:contentdic];
+                    [arr addObject:imgdic];
+                    [self.uplistarr addObject:arr];
+                }
+
             }
             for (int i = 0; i<self.dataSource.count; i++) {
                 [self.arrayDatasource addObject:@""];
                 [self.cardtypeArray addObject:@""];
-                [self.uplistarr addObject:@""];
             }
-            
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             smartgroupModel *model = [self.dataSource objectAtIndex:0];
@@ -249,7 +261,6 @@ static NSString *realcellidentfid = @"realcellidentfid";
     vc.dataSource = self.cardtypeArray;
     vc.xuanzearr = self.arrayDatasource;
     vc.upnoarray = self.xuanzearray;
-//    vc.upquestion = self.upquestion;
     vc.practiceType = practiceType;
     vc.uptimes = uptimes;
     vc.upno = upno;
@@ -356,19 +367,31 @@ static NSString *realcellidentfid = @"realcellidentfid";
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
                     
-                    NSObject *plistobj = [self.uplistarr objectAtIndex:inter];
-                    if ([plistobj isKindOfClass:[NSString class]]) {
-                        
+                    int k = 0;
+                    for (int i = 0; i<self.uplistarr.count; i++) {
+                        NSArray *arr = [self.uplistarr objectAtIndex:i];
+                        NSDictionary *qiddic = [arr firstObject];
+                        NSString *qidstr = [qiddic objectForKey:@"qid"];
+                        if ([qidstr isEqualToString:model.qid]) {
+                            k = i;
+                            break;
+                        }
+                    }
+                    
+                    NSMutableArray *arr2 = [self.uplistarr objectAtIndex:k];
+                    NSMutableDictionary *imgdic2 = [arr2 objectAtIndex:2];
+                    NSObject *imgobj = [imgdic2 objectForKey:@"img"];
+                    NSMutableArray *imgarr = [NSMutableArray new];
+                    if ([imgobj isKindOfClass:[NSString class]]) {
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
                     }
                     else
                     {
-                        //uplist数组方法
-                        NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
-                        NSDictionary *imgdic = @{@"img":self.imgarr};
-                        [arr addObject:imgdic];
-                        
+                        imgarr = [imgdic2 objectForKey:@"img"];
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
                     }
-
                 }
                 else
                 {
@@ -421,12 +444,19 @@ static NSString *realcellidentfid = @"realcellidentfid";
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
     smartgroupModel *model = self.dataSource[index.item];
-    NSMutableArray *arr = [NSMutableArray new];
-    NSDictionary *qiddic = @{@"qid":model.qid};
-    NSDictionary *contentdic = @{@"content":str};
-    [arr addObject:qiddic];
-    [arr addObject:contentdic];
-    [self.uplistarr replaceObjectAtIndex:index.item withObject:arr];
+    int k = 0;
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSArray *arr = [self.uplistarr objectAtIndex:i];
+        NSDictionary *qiddic = [arr firstObject];
+        NSString *qidstr = [qiddic objectForKey:@"qid"];
+        if ([qidstr isEqualToString:model.qid]) {
+            k = i;
+            break;
+        }
+    }
+    NSMutableArray *arr2 = [self.uplistarr objectAtIndex:k];
+    NSMutableDictionary *contentdic = [arr2 objectAtIndex:1];
+    [contentdic setValue:str forKey:@"content"];
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
 }
 
@@ -485,7 +515,8 @@ static NSString *realcellidentfid = @"realcellidentfid";
     }];
     [menu show];
 }
-#pragma mark - 截图发送
+
+#pragma mark - 截图分享
 
 - (void)screenShot:(UIScrollView *)basetable{
     UIImage* image = nil;

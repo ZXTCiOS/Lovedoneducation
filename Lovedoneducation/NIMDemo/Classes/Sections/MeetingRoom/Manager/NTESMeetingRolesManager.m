@@ -71,6 +71,7 @@
 
 - (NTESMeetingRole *)role:(NSString *)user
 {
+    
     return [_meetingRoles objectForKey:user];
 }
 
@@ -86,7 +87,7 @@
 - (NTESMeetingRole *)myRole
 {
     NSString *myUid = [[NIMSDK sharedSDK].loginManager currentAccount];
-    
+    NSLog(@"");
     return [self role:myUid];
 
 }

@@ -16,6 +16,7 @@
 #import "NTESMeetingManager.h"
 #import "UIView+Toast.h"
 #import "LiveKeqiankehouVC.h"
+#import "NTESMeetingRolesManager.h"
 
 @interface LiveCourseDetailVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -140,8 +141,8 @@
         // 上课去
         // TODO:
         NIMChatroom *chatroom = [[NIMChatroom alloc] init];
-        chatroom.roomId = @"19645919";
-        
+        chatroom.roomId = @"19760136";//19760136  //19743991
+        /*
         NIMUser *user  = [[NIMSDK sharedSDK].userManager userInfo:[NIMSDK sharedSDK].loginManager.currentAccount];
         NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
         request.roomId = chatroom.roomId;
@@ -149,24 +150,46 @@
         request.roomAvatar = user.userInfo.avatarUrl;
         [SVProgressHUD show];
         __weak typeof(self) wself = self;
-        [[[NIMSDK sharedSDK] chatroomManager] enterChatroom:request
-                                                 completion:^(NSError *error,NIMChatroom *chatroom,NIMChatroomMember *me) {
-                                                     [SVProgressHUD dismiss];
-                                                     if (error == nil)
-                                                     {
-                                                         [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:chatroom.roomId];
+        [[[NIMSDK sharedSDK] chatroomManager] enterChatroom:request completion:^(NSError *error,NIMChatroom *chatroom,NIMChatroomMember *me) {
+            [SVProgressHUD dismiss];
+             if (error == nil)
+             {
+                 [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:chatroom.roomId];
                                                          
-                                                         NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
-                                                         [self.navigationController pushViewController:vc animated:YES];
-                                                     }
-                                                     else
-                                                     {
-                                                         NSString *toast = [NSString stringWithFormat:@"进入失败 code:%zd",error.code];
-                                                         [wself.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
-                                                         DDLogError(@"enter room %@ failed %@",chatroom.roomId,error);
-                                                     }
+                 NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
+                 [self.navigationController pushViewController:vc animated:YES];
+             }
+             else
+             {
+                 NSString *toast = [NSString stringWithFormat:@"进入失败 code:%zd",error.code];
+                 [wself.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
+                 DDLogError(@"enter room %@ failed %@",chatroom.roomId,error);
+             }
                                                      
-                                                 }];
+        }];*/
+        
+        
+        __weak typeof(self) wself = self;
+        NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+        request.roomId = @"19743991";
+        [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
+        [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
+            [SVProgressHUD dismiss];
+            if (!error) {
+                [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:request.roomId];
+                [[NTESMeetingRolesManager sharedInstance] startNewMeeting:me withChatroom:chatroom newCreated:NO];
+                UINavigationController *nav = wself.navigationController;
+                NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
+                [nav pushViewController:vc animated:YES];
+                NSMutableArray *vcs = [nav.viewControllers mutableCopy];
+                [vcs removeObject:self];
+                nav.viewControllers = vcs;
+            }else {
+                [self.view makeToast:@"进入房间失败，请确认ID是否正确" duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
+        
+        
         
         
         

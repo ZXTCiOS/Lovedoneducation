@@ -262,4 +262,12 @@
  */
 #define POST_orderInsert @"/app.php/order/orderInsert"
 
+
+/**
+ 消息详情
+
+ @return 消息详情
+ */
+#define GET_messageDetail @"/app.php/user/messageDetail?uid=%@&token=%@&questionid=%@&type=%@"
+
 #endif /* wangHeader_h */

@@ -443,6 +443,7 @@
 		537F66B01FDBBBEC0028E888 /* collecttopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66AF1FDBBBEC0028E888 /* collecttopicModel.m */; };
 		537F66B31FDBC4E20028E888 /* collecttopicparticularsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B21FDBC4E20028E888 /* collecttopicparticularsVC.m */; };
 		537F66B61FDBCEB70028E888 /* collecttopicparticularsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */; };
+		537F66B91FDBE1680028E888 /* messagedetalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B81FDBE1680028E888 /* messagedetalVC.m */; };
 		539527BC1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
@@ -1382,6 +1383,8 @@
 		537F66B21FDBC4E20028E888 /* collecttopicparticularsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicparticularsVC.m; sourceTree = "<group>"; };
 		537F66B41FDBCEB70028E888 /* collecttopicparticularsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = collecttopicparticularsCell.h; sourceTree = "<group>"; };
 		537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicparticularsCell.m; sourceTree = "<group>"; };
+		537F66B71FDBE1680028E888 /* messagedetalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalVC.h; sourceTree = "<group>"; };
+		537F66B81FDBE1680028E888 /* messagedetalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalVC.m; sourceTree = "<group>"; };
 		539527BA1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZYExtension.h"; sourceTree = "<group>"; };
 		539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZYExtension.m"; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
@@ -3340,6 +3343,8 @@
 			children = (
 				534B4A351FA1CDCD00A68BA7 /* messageVC.h */,
 				534B4A361FA1CDCD00A68BA7 /* messageVC.m */,
+				537F66B71FDBE1680028E888 /* messagedetalVC.h */,
+				537F66B81FDBE1680028E888 /* messagedetalVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -4767,6 +4772,7 @@
 				53C3DCAB1FAACD1100966F47 /* ZYProGressView.m in Sources */,
 				53C999BB1F973C90006A6570 /* UIColor+HexColor.m in Sources */,
 				181F86E21FB437790090EDEF /* NIMContactSelectConfig.m in Sources */,
+				537F66B91FDBE1680028E888 /* messagedetalVC.m in Sources */,
 				181F87351FB437790090EDEF /* NSData+NIMImageContentType.m in Sources */,
 				181F86791FB437790090EDEF /* NTESChatroomConfig.m in Sources */,
 				5317DE561F975F5400D4AE2C /* LogupVC.m in Sources */,

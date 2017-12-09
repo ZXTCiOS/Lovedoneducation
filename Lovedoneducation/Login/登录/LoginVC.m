@@ -351,6 +351,13 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        NSString *uname = model.openid;
+        NSDictionary *dic = @{@"uname":uname};
+        [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
     }];
 }
 
@@ -358,6 +365,14 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        NSDictionary *dicid = model.originalResponse;
+        NSString *uname = [dicid objectForKey:@"unionid"];
+        NSDictionary *dic = @{@"uname":uname};
+        [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
     }];
 }
 

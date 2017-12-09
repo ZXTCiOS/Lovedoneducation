@@ -53,10 +53,12 @@ static NSString *messageidentfid = @"messageidentfid";
                 messageModel *model = [[messageModel alloc] init];
                 NSDictionary *dic = [dataarr objectAtIndex:i];
                 model.messageid = [dic objectForKey:@"messageid"];
-                model.uid = [dic objectForKey:@"uid"];
-                model.messagetitle = [dic objectForKey:@"messagetitle"];
                 model.messageintro = [dic objectForKey:@"messageintro"];
+                model.messagetitle = [dic objectForKey:@"messagetitle"];
+                model.questionid = [dic objectForKey:@"questionid"];
                 model.time = [dic objectForKey:@"time"];
+                model.type = [dic objectForKey:@"type"];
+                model.uid = [dic objectForKey:@"uid"];
                 [self.dataSource addObject:model];
             }
             [self.table reloadData];

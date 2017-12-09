@@ -106,11 +106,10 @@ NTES_FORBID_INTERACTIVE_POP
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent
-                                                animated:NO];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.chatroomViewController.delegate = self;
     [self.currentChildViewController beginAppearanceTransition:YES animated:animated];
-    
     self.actorsView.isFullScreen = NO;
 }
 
@@ -121,8 +120,8 @@ NTES_FORBID_INTERACTIVE_POP
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
-                                                animated:NO];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.chatroomViewController.delegate = nil; //避免view不再顶层仍受到键盘回调，导致改变状态栏样式。
     [self.currentChildViewController beginAppearanceTransition:NO animated:animated];
     [self revertInputView];

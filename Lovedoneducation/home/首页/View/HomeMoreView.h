@@ -12,6 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIControl *linianzhenti;
 @property (weak, nonatomic) IBOutlet UIControl *cuotiben;
 @property (weak, nonatomic) IBOutlet UIControl *shoucangtimu;
-@property (weak, nonatomic) IBOutlet UIControl *lianxizhoubao;
 
 @end

@@ -250,6 +250,13 @@
 #define GET_userquestion  @"/app.php/user/userquestion?uid=%@&token=%@&type=%@"
 
 /**
+ 收藏详情
+
+ @return
+ */
+#define GET_userQuestionDetail @"/app.php/user/userQuestionDetail?uid=%@&token=%@&uqid=%@"
+
+/**
  申论下单
  @return 申论下单
  */

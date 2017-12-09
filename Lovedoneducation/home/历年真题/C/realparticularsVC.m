@@ -86,12 +86,10 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)loaddata
 {
-    self.qcid = @"1";
     NSString *url = [NSString stringWithFormat:GET_realQuestionDetail,self.qcid];
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSArray *data = [obj objectForKey:@"data"];
-            
             for (int i = 0; i<data.count; i++) {
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
@@ -129,7 +127,6 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
                 
-                //[self.uplistarr addObject:@""];
                 
                 if ([model.qtype isEqualToString:@"3"]) {
                     NSMutableArray *arr = [NSMutableArray new];
@@ -366,7 +363,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
                     
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-                    
+                    //uplist数组方法
                     int k = 0;
                     for (int i = 0; i<self.uplistarr.count; i++) {
                         NSArray *arr = [self.uplistarr objectAtIndex:i];

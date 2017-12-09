@@ -140,7 +140,6 @@
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSArray *data = [obj objectForKey:@"data"];
-            
             for (int i = 0; i<data.count; i++) {
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
@@ -177,12 +176,25 @@
                 [self.xuanzearray addObject: model.qsuccess];
                 [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
+                
+                if ([model.qtype isEqualToString:@"3"]) {
+                    NSMutableArray *arr = [NSMutableArray new];
+                    NSMutableDictionary *qiddic = [NSMutableDictionary dictionaryWithObject:model.qid forKey:@"qid"];
+                    NSMutableDictionary *contentdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"content"];
+                    NSMutableDictionary *imgdic = [NSMutableDictionary dictionaryWithObject:@"" forKey:@"img"];
+                    [arr addObject:qiddic];
+                    [arr addObject:contentdic];
+                    [arr addObject:imgdic];
+                    [self.uplistarr addObject:arr];
+                }
+                
             }
             for (int i = 0; i<self.dataSource.count; i++) {
                 [self.arrayDatasource addObject:@""];
                 [self.cardtypeArray addObject:@""];
-                [self.uplistarr addObject:@""];
+
             }
+            
             
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
@@ -442,10 +454,32 @@
                     
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-                    //uplist数组方法
-                    NSMutableArray *arr = [self.uplistarr objectAtIndex:inter];
-                    NSDictionary *imgdic = @{@"img":self.imgarr};
-                    [arr addObject:imgdic];
+                    //uplist方法
+                    int k = 0;
+                    for (int i = 0; i<self.uplistarr.count; i++) {
+                        NSArray *arr = [self.uplistarr objectAtIndex:i];
+                        NSDictionary *qiddic = [arr firstObject];
+                        NSString *qidstr = [qiddic objectForKey:@"qid"];
+                        if ([qidstr isEqualToString:model.qid]) {
+                            k = i;
+                            break;
+                        }
+                    }
+                    
+                    NSMutableArray *arr2 = [self.uplistarr objectAtIndex:k];
+                    NSMutableDictionary *imgdic2 = [arr2 objectAtIndex:2];
+                    NSObject *imgobj = [imgdic2 objectForKey:@"img"];
+                    NSMutableArray *imgarr = [NSMutableArray new];
+                    if ([imgobj isKindOfClass:[NSString class]]) {
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
+                    }
+                    else
+                    {
+                        imgarr = [imgdic2 objectForKey:@"img"];
+                        [imgarr addObject:imgurl];
+                        [imgdic2 setValue:imgarr forKey:@"img"];
+                    }
                     
                 }
                 else
@@ -499,12 +533,19 @@
     NSIndexPath *index = [_collectionV indexPathForCell:cell];
     NSLog(@"333===%ld",index.item);
     smartgroupModel *model = self.dataSource[index.item];
-    NSMutableArray *arr = [NSMutableArray new];
-    NSDictionary *qiddic = @{@"qid":model.qid};
-    NSDictionary *contentdic = @{@"content":str};
-    [arr addObject:qiddic];
-    [arr addObject:contentdic];
-    [self.uplistarr replaceObjectAtIndex:index.item withObject:arr];
+    int k = 0;
+    for (int i = 0; i<self.uplistarr.count; i++) {
+        NSArray *arr = [self.uplistarr objectAtIndex:i];
+        NSDictionary *qiddic = [arr firstObject];
+        NSString *qidstr = [qiddic objectForKey:@"qid"];
+        if ([qidstr isEqualToString:model.qid]) {
+            k = i;
+            break;
+        }
+    }
+    NSMutableArray *arr2 = [self.uplistarr objectAtIndex:k];
+    NSMutableDictionary *contentdic = [arr2 objectAtIndex:1];
+    [contentdic setValue:str forKey:@"content"];
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
 }
 

@@ -66,11 +66,12 @@
         
     }else
     {
-        self.setBtn.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
-        self.setBtn.layer.borderColor = [UIColor whiteColor].CGColor;
-        [self.setBtn setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
+        self.setBtn.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
+        self.setBtn.layer.borderColor = [UIColor colorWithHexString:@"E5E5E5"].CGColor;
+        [self.setBtn setTitleColor:[UIColor colorWithHexString:@"323232"] forState:normal];
     }
     [self.setBtn setTitle:itemstr forState:normal];
 }
+
 
 @end

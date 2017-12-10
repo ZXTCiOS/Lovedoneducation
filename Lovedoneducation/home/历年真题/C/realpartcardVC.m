@@ -158,33 +158,48 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
 
 -(void)submitbtnclick
 {
-//    NSLog(@"submit");
-//    NSLog(@"array----%@",self.xuanzearr);
-//    NSLog(@"upno-----%@",self.upnoarray);
-//    NSLog(@"upquestion---%@",self.upquestion);
-//
-//
-//    NSString *uid = [userDefault objectForKey:user_uid];
-//    NSString *token = [userDefault objectForKey:user_token];
-//
-//    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":self.practiceType,@"uptimes":self.uptimes,@"upno":self.upno,@"upquestion":self.upquestion,@"upyes":self.upyes,@"uplist":self.uplist};
-//
-//    NSLog(@"dic-----%@",dic);
-//
-//    [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-//
-//    } failure:^(NSError *error) {
-//
-//    }];
-//
-    realpartfinishVC *vc = [[realpartfinishVC alloc] init];
-    vc.dataArr = self.dataSource;
-    vc.answerarray0 = self.xuanzearr;
-    vc.answerarray1 = self.upnoarray;
-    vc.modeldata = self.modeldata;
-    vc.typestr = self.typestr;
-    vc.timestr = [self getCurrentTimes];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSLog(@"submit");
+    NSLog(@"array----%@",self.xuanzearr);
+    NSLog(@"upno-----%@",self.upnoarray);
+    NSLog(@"upquestion---%@",self.upquestion);
+
+    
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+
+    if ([self.typestr isEqualToString:@"1"]) {
+        self.practiceType = @"1";
+    }
+    if ([self.typestr isEqualToString:@"2"]) {
+        self.practiceType = @"2";
+    }
+    if ([self.typestr isEqualToString:@"5"]) {
+        self.practiceType = @"3";
+    }
+    if ([self.typestr isEqualToString:@"3"]) {
+        self.practiceType = @"4";
+    }
+    if ([self.typestr isEqualToString:@"4"]) {
+        self.practiceType = @"4";
+    }
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":self.practiceType,@"uptimes":self.uptimes,@"upno":self.upno,@"upquestion":self.upquestion,@"upyes":self.upyes,@"uplist":self.uplist};
+
+    NSLog(@"dic-----%@",dic);
+    
+    [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
+        realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+        vc.dataArr = self.dataSource;
+        vc.answerarray0 = self.xuanzearr;
+        vc.answerarray1 = self.upnoarray;
+        vc.modeldata = self.modeldata;
+        vc.typestr = self.typestr;
+        vc.timestr = [self getCurrentTimes];
+        [self.navigationController pushViewController:vc animated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
+
+
 }
 
 

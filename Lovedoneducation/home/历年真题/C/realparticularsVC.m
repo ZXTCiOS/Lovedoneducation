@@ -42,6 +42,8 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
+
+@property (nonatomic,assign) BOOL isclick;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -53,6 +55,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     // Do any additional setup after loading the view.
     self.title = @"真题详情";
     [self prepareLayout];
+    self.isclick = NO;
     [self.view addSubview:self.head];
     self.uplistarr = [NSMutableArray array];
     self.upquestion = [NSMutableArray array];
@@ -126,7 +129,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 [self.xuanzearray addObject: model.qsuccess];
                 [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
-                
+                self.isclick = YES;
                 
                 if ([model.qtype isEqualToString:@"3"]) {
                     NSMutableArray *arr = [NSMutableArray new];
@@ -223,49 +226,51 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)cardclick
 {
-    NSLog(@"arr-----%@",self.uplistarr);
-    NSMutableArray *arr0 = [NSMutableArray new];
-    for (int i = 0; i<self.uplistarr.count; i++) {
-        NSObject *obj = [self.uplistarr objectAtIndex:i];
-        if ([obj isKindOfClass:[NSArray class]]) {
-            [arr0 addObject:obj];
+    if (self.isclick) {
+        NSLog(@"arr-----%@",self.uplistarr);
+        NSMutableArray *arr0 = [NSMutableArray new];
+        for (int i = 0; i<self.uplistarr.count; i++) {
+            NSObject *obj = [self.uplistarr objectAtIndex:i];
+            if ([obj isKindOfClass:[NSArray class]]) {
+                [arr0 addObject:obj];
+            }
+            else
+            {
+                
+            }
         }
-        else
-        {
-            
-        }
+        NSLog(@"arr0-----%@",arr0);
+        NSString *upliststr = [arr0 toReadableJSONString];
+        NSLog(@"str-----%@",upliststr);
+        //错误答案
+        NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+        //题目id
+        NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+        //正确答案
+        NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+        //时间
+        NSString *uptimes = self.timestr;
+        //类型
+        NSString *practiceType = @"4";
+        NSString *uid = [userDefault objectForKey:user_uid];
+        NSString *token = [userDefault objectForKey:user_token];
+        NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+        NSLog(@"dic-----%@",dic);
+        
+        realpartcardVC *vc = [[realpartcardVC alloc] init];
+        vc.modeldata = self.dataSource;
+        vc.dataSource = self.cardtypeArray;
+        vc.xuanzearr = self.arrayDatasource;
+        vc.upnoarray = self.xuanzearray;
+        vc.practiceType = practiceType;
+        vc.uptimes = uptimes;
+        vc.upno = upno;
+        vc.upquestion = upquestion;
+        vc.upyes = upyes;
+        vc.uplist = upliststr;
+        vc.typestr = @"4";
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
-    NSLog(@"str-----%@",upliststr);
-    //错误答案
-    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
-    //题目id
-    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
-    //正确答案
-    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
-    //时间
-    NSString *uptimes = self.timestr;
-    //类型
-    NSString *practiceType = @"4";
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
-    NSLog(@"dic-----%@",dic);
-    
-    realpartcardVC *vc = [[realpartcardVC alloc] init];
-    vc.modeldata = self.dataSource;
-    vc.dataSource = self.cardtypeArray;
-    vc.xuanzearr = self.arrayDatasource;
-    vc.upnoarray = self.xuanzearray;
-    vc.practiceType = practiceType;
-    vc.uptimes = uptimes;
-    vc.upno = upno;
-    vc.upquestion = upquestion;
-    vc.upyes = upyes;
-    vc.uplist = upliststr;
-    vc.typestr = @"4";
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)queren:(UICollectionViewCell *)cell

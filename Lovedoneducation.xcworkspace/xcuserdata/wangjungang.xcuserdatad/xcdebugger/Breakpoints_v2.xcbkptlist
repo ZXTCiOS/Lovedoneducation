@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lovedoneducation/home/&#x4fe1;&#x606f;/C/messagedetalVC.m"
-            timestampString = "534591140.559269"
+            timestampString = "534595399.756346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-loaddata"
             landmarkType = "7">
             <Locations>
@@ -36,11 +36,11 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangjungang/Desktop/%E7%88%B1%E5%94%90%E6%95%99%E8%82%B2/Lovedoneducation/Lovedoneducation/home/%E4%BF%A1%E6%81%AF/C/messagedetalVC.m"
-                  timestampString = "534591140.683458"
+                  timestampString = "534595400.012032"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
@@ -51,11 +51,11 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangjungang/Desktop/%E7%88%B1%E5%94%90%E6%95%99%E8%82%B2/Lovedoneducation/Lovedoneducation/home/%E4%BF%A1%E6%81%AF/C/messagedetalVC.m"
-                  timestampString = "534591140.686693"
+                  timestampString = "534595400.013887"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lovedoneducation/home/&#x4fe1;&#x606f;/C/messagedetalVC.m"
-            timestampString = "534591140.559388"
+            timestampString = "534595399.756426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-loaddata"
             landmarkType = "7">
          </BreakpointContent>

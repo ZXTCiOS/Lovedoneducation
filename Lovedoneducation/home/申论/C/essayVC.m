@@ -37,9 +37,9 @@
 @property (nonatomic, strong) NSMutableArray *imgarr;
 @property (nonatomic, strong) NSMutableArray *uplistarr;
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
-
 @property (nonatomic,copy) NSString *pidstr;
 @property (nonatomic,strong) NSMutableArray *pricearray;
+@property (nonatomic,assign) BOOL isclick;
 @end
 
 static NSString *essayidentfid = @"essayidentfid";
@@ -49,6 +49,7 @@ static NSString *essayidentfid = @"essayidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.isclick = NO;
     self.title = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
     kSetNaviBarColor_50;
     self.imgarr = [NSMutableArray array];
@@ -133,7 +134,7 @@ static NSString *essayidentfid = @"essayidentfid";
                 [arr addObject:imgdic];
                 [self.uplistarr replaceObjectAtIndex:k withObject:arr];
             }
-            
+            self.isclick = YES;
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             essayModel *model = [self.dataSource objectAtIndex:0];
@@ -229,27 +230,29 @@ static NSString *essayidentfid = @"essayidentfid";
 
 -(void)cardclick
 {
-    int numd = 0;
-    NSString *numstr = @"";
-    [self.pricearray removeAllObjects];
-    for (int i = 0; i<self.cardtypeArray.count; i++) {
-        NSString *str = [self.cardtypeArray objectAtIndex:i];
-        essayModel *model = [self.dataSource objectAtIndex:i];
-        if ([str isEqualToString: @"1"]) {
-            NSString *money = model.price;
-            [self.pricearray addObject:money];
-            numd++;
-            numstr = [NSString stringWithFormat:@"%d",numd];
+    if (self.isclick) {
+        int numd = 0;
+        NSString *numstr = @"";
+        [self.pricearray removeAllObjects];
+        for (int i = 0; i<self.cardtypeArray.count; i++) {
+            NSString *str = [self.cardtypeArray objectAtIndex:i];
+            essayModel *model = [self.dataSource objectAtIndex:i];
+            if ([str isEqualToString: @"1"]) {
+                NSString *money = model.price;
+                [self.pricearray addObject:money];
+                numd++;
+                numstr = [NSString stringWithFormat:@"%d",numd];
+            }
         }
+        NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
+        NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
+        essaycardVC *vc = [[essaycardVC alloc] init];
+        vc.dataSource = self.cardtypeArray;
+        vc.pricestr = sumstr;
+        vc.numstr = numstr;
+        vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
-    NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
-    essaycardVC *vc = [[essaycardVC alloc] init];
-    vc.dataSource = self.cardtypeArray;
-    vc.pricestr = sumstr;
-    vc.numstr = numstr;
-    vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 协议方法
@@ -274,6 +277,7 @@ static NSString *essayidentfid = @"essayidentfid";
     essayorderVC *vc = [[essayorderVC alloc] init];
     vc.pricestr = sumstr;
     vc.numstr = numstr;
+    vc.timestr = [self getCurrentTimes];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -369,4 +373,15 @@ static NSString *essayidentfid = @"essayidentfid";
     [self.collectionV reloadData];
 }
 
+-(NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    //现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
+    //----------将nsdate按formatter格式转成nsstring
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
 @end

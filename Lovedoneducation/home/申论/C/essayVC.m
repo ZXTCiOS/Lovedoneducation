@@ -57,6 +57,8 @@ static NSString *essayidentfid = @"essayidentfid";
     self.dataSource = [NSMutableArray array];
     self.cardtypeArray = [NSMutableArray array];
     self.pricearray = [NSMutableArray array];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"646464"];
     [self prepareLayout];
     [self.view addSubview:self.head];
     if (@available(iOS 11.0, *)){
@@ -383,5 +385,102 @@ static NSString *essayidentfid = @"essayidentfid";
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     NSLog(@"currentTimeString =  %@",currentTimeString);
     return currentTimeString;
+}
+
+-(void)rightAction
+{
+    LYMenu * menu = [[LYMenu alloc]initWithTitles:@[@"收藏本题",@"分享本题"] images:@[@"shoucangtimu_icon_gengduo",@"fenxiang_icon"] menuType:LYMenuTypeRight buttonAction:^(NSInteger buttonIndex) {
+        NSLog(@"RightMenu INDEX %d",(int)buttonIndex);
+        if (buttonIndex==0) {
+            NSLog(@"收藏本题");
+            NSLog(@"pid------%@",self.pidstr);
+            NSString *uid = [userDefault objectForKey:user_uid];
+            NSString *token = [userDefault objectForKey:user_token];
+            NSDictionary *dic = @{@"uid":uid,@"token":token,@"qid":self.pidstr};
+            [DNNetworking postWithURLString:POST_userCollection parameters:dic success:^(id obj) {
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+        if (buttonIndex==1) {
+            NSLog(@"分享本题");
+            [self screenShot:self.collectionV];
+        }
+    }];
+    [menu show];
+}
+
+#pragma mark - 截图发送
+
+- (void)screenShot:(UIScrollView *)basetable{
+    UIImage* image = nil;
+    
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    if (image != nil) {
+        NSLog(@"截图成功!");
+        //    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+        
+        NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+        NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+        
+        ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
+        [actionsheet setBtnClick:^(NSInteger btnTag) {
+            NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+            if (btnTag==0) {
+                
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                // model.shareimage = [UIImage imageNamed:@"shuliangguanxi_image_shouye"];
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+                
+            }
+            if (btnTag==1) {
+                
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+                
+            }
+            if (btnTag==2) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+            }
+        }];
+        [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+        
+    }
+}
+
+-(void)fenxiangblock
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *type = @"2";
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
+    [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 @end

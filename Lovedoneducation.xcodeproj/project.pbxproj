@@ -444,6 +444,7 @@
 		537F66B31FDBC4E20028E888 /* collecttopicparticularsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B21FDBC4E20028E888 /* collecttopicparticularsVC.m */; };
 		537F66B61FDBCEB70028E888 /* collecttopicparticularsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */; };
 		537F66B91FDBE1680028E888 /* messagedetalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B81FDBE1680028E888 /* messagedetalVC.m */; };
+		537F66BB1FDD4B1E0028E888 /* port.json in Resources */ = {isa = PBXBuildFile; fileRef = 537F66BA1FDD4B1E0028E888 /* port.json */; };
 		539527BC1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
@@ -1385,6 +1386,7 @@
 		537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicparticularsCell.m; sourceTree = "<group>"; };
 		537F66B71FDBE1680028E888 /* messagedetalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalVC.h; sourceTree = "<group>"; };
 		537F66B81FDBE1680028E888 /* messagedetalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalVC.m; sourceTree = "<group>"; };
+		537F66BA1FDD4B1E0028E888 /* port.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = port.json; sourceTree = "<group>"; };
 		539527BA1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZYExtension.h"; sourceTree = "<group>"; };
 		539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZYExtension.m"; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
@@ -3952,6 +3954,7 @@
 			children = (
 				53E1DD691FADA14B009965AF /* datareportModel.h */,
 				53E1DD681FADA14B009965AF /* datareportModel.m */,
+				537F66BA1FDD4B1E0028E888 /* port.json */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4197,6 +4200,7 @@
 				181F87291FB437790090EDEF /* Info.plist in Resources */,
 				534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */,
 				181F86CA1FB437790090EDEF /* NTESLogViewController.xib in Resources */,
+				537F66BB1FDD4B1E0028E888 /* port.json in Resources */,
 				181F82A11FB429600090EDEF /* NIMKitResouce.bundle in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
 				181F86771FB437790090EDEF /* NTESRegisterViewController.xib in Resources */,

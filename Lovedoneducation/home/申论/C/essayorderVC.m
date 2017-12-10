@@ -6,6 +6,7 @@
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
+#import "ZTVendorManagerConfig.h"
 #import "essayorderVC.h"
 #import "essayorderCell0.h"
 #import "essayorderCell1.h"
@@ -14,6 +15,7 @@
 #import "essayorderCell4.h"
 #import "chooseView.h"
 #import "strisNull.h"
+#import "ZTVendorManager.h"
 
 @interface essayorderVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -23,6 +25,7 @@
 @property (nonatomic,strong)UIView *bgView;//半透明背景
 @property (nonatomic,copy) NSString *zhekoumoney;
 @property (nonatomic,copy) NSString *money;
+@property (nonatomic, strong) ZTVendorPayManager *payManager;
 @end
 
 static NSString *essayorderidentfid0 = @"essayorderidentfid0";
@@ -37,7 +40,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"提交订单";
-    
+    self.payManager = [[ZTVendorPayManager alloc]init];
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
  
@@ -271,12 +274,69 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 
 -(void)zhifubaoclick
 {
-    
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *price = @"1";
+    NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
+    [DNNetworking getWithURLString:url success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *str = [dic objectForKey:@"str"];
+            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
+            model.aliPayOrderString = str;
+            [self.payManager payOrderWith:0 orderModel:model payResultBlock:^(BOOL success,NSError *error) {
+                if (success) {
+                    NSLog(@"支付成功");
+                }else{
+                    NSLog(@"%@",error);
+                }
+            }];
+        }
+      
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)weichatclick
 {
-    
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *price = @"1";
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"price":price};
+    [DNNetworking postWithURLString:POST_WEIXINZHIFU parameters:dic success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *appid = [dic objectForKey:@"appid"];
+            NSString *noncestr = [dic objectForKey:@"noncestr"];
+            NSString *out_trade_no = [dic objectForKey:@"out_trade_no"];
+            NSString *package = [dic objectForKey:@"package"];
+            NSString *partnerid = [dic objectForKey:@"partnerid"];
+            NSString *prepayid = [dic objectForKey:@"prepayid"];
+            NSString *sign = [dic objectForKey:@"sign"];
+            NSString *timestamp = [dic objectForKey:@"timestamp"];
+            
+            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
+            model.timeStamp = [timestamp intValue];
+            
+            model.partnerId = partnerid;
+            model.prepayId = prepayid;
+            model.package = package;
+            model.nonceStr = noncestr;
+            model.sign = sign;
+            model.appid = appid;
+            [self.payManager payOrderWith:1 orderModel:model payResultBlock:^(BOOL success, NSError *error) {
+                if (success) {
+                    NSLog(@"支付成功");
+                }else{
+                    NSLog(@"%@",error);
+                }
+                
+            }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

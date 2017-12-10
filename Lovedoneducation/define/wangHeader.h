@@ -270,4 +270,24 @@
  */
 #define GET_messageDetail @"/app.php/user/messageDetail?uid=%@&token=%@&questionid=%@&type=%@"
 
+
+/**
+ 微信支付
+
+ @return 微信支付
+ */
+#define POST_WEIXINZHIFU @"/app.php/Wxpay/orderUnified"
+
+/**
+ 微信关闭订单
+
+ @return 微信关闭订单
+ */
+#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose"
+/**
+ 支付宝支付
+
+ @return 支付宝支付
+ */
+#define GET_ZHIFUBAO @"/app.php/AliPay/sendString?uid=%@&token=%@&price=%@"
 #endif /* wangHeader_h */

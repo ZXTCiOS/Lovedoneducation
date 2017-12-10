@@ -76,8 +76,14 @@ const NSNotificationName kAlipayResultNotification = @"kAlipayResultNotification
             NSError *error = nil;
             BOOL success = response.errCode == WXSuccess;
             if (!success) {
-                NSDictionary *userInfo = @{@"errorInfo": response.errStr};
-                error = [[NSError alloc]initWithDomain:NSCocoaErrorDomain code:response.errCode userInfo:userInfo];
+                if ([strisNull isNullToString:response.errStr]) {
+                    
+                }
+                else
+                {
+                    NSDictionary *userInfo = @{@"errorInfo": response.errStr};
+                    error = [[NSError alloc]initWithDomain:NSCocoaErrorDomain code:response.errCode userInfo:userInfo];
+                }
             }
             !handler ?: handler (success,error);
         };

@@ -166,7 +166,6 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
     self.leftBtn.frame = CGRectMake(30, 20, kScreenW/2-80, 40);
     self.rightBtn.frame = CGRectMake(kScreenW/2+30, 20, kScreenW/2-80, 40);
     self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    
     [headerView addSubview:self.leftBtn];
     [headerView addSubview:self.rightBtn];
     return headerView;

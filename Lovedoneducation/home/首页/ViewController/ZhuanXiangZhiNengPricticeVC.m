@@ -544,7 +544,9 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
                 model.shareimage = image;
                 // model.shareimage = [UIImage imageNamed:@"shuliangguanxi_image_shouye"];
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
                 
             }
@@ -553,7 +555,9 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
                 ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
                 model.shareimage = image;
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
     
             }
@@ -561,7 +565,9 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
                 ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
                 model.shareimage = image;
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
             }
         }];
@@ -570,6 +576,18 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     }
 }
 
+-(void)fenxiangblock
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *type = @"2";
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
+    [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 @end
 

@@ -246,6 +246,7 @@ CGFloat calendar_height = 230;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LiveMyCourseModel *model;
+    return;
     if (self.state == MyCourseStateAll) {
         model = self.datalist[indexPath.row];
     } else {

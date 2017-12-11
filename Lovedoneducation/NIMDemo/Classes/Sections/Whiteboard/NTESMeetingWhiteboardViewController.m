@@ -117,13 +117,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NIMSDK sharedSDK].loginManager addDelegate:self];
-    NTESMeetingRole *role = [NTESMeetingRolesManager sharedInstance].myRole;
-    _isManager = YES;//[NTESMeetingRolesManager sharedInstance].myRole.isManager;
+    //NTESMeetingRole *role = [NTESMeetingRolesManager sharedInstance].myRole;
+    _isManager = [NTESMeetingRolesManager sharedInstance].myRole.isManager;
     [[NTESMeetingRTSManager sharedInstance] setDelegate:self];
     
     NSError *error;
     if (_isManager) {
-        NTESMeetingRTSManager *rts = [NTESMeetingRTSManager sharedInstance];
+        //NTESMeetingRTSManager *rts = [NTESMeetingRTSManager sharedInstance];
         error = [[NTESMeetingRTSManager sharedInstance] reserveConference:_name];
     }
     else {

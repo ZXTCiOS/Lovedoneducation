@@ -98,8 +98,6 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     }
     ZFFileModel *model = self.dataSource[indexPath.row];
     LiveCourseModel *course = model.extention;
-    
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.progressV.progress = 0.5;
     return cell;

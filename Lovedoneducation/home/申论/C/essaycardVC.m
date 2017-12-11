@@ -215,6 +215,7 @@ static NSString *essaycardientfid1 = @"essaycardientfid1";
     vc.numstr = self.numstr;
     vc.pricestr = self.pricestr;
     vc.timestr = [self getCurrentTimes];
+    vc.para = self.para;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -60,4 +60,48 @@
     NSString *currentDateStr = [dateFormatter stringFromDate: detaildate];
     return currentDateStr;
 }
+
+
+/**
+ 字典转json字符串
+
+ @param dictionary 字典
+ @return json字符串
+ */
++ (NSString *)dictionaryToJSONString:(NSDictionary *)dictionary
+
+{
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //    NSString *jsonTemp = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    //    NSString *jsonResult = [jsonTemp stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return jsonString;
+}
+
+
+/**
+ 数组转json
+
+ @param array 数组
+ @return json字符串
+ */
++ (NSString *)arrayToJSONString:(NSArray *)array
+
+{
+    
+    NSError *error = nil;
+    //    NSMutableArray *muArray = [NSMutableArray array];
+    //    for (NSString *userId in array) {
+    //        [muArray addObject:[NSString stringWithFormat:@"\"%@\"", userId]];
+    //    }
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //    NSString *jsonTemp = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    //    NSString *jsonResult = [jsonTemp stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //    NSLog(@"json array is: %@", jsonResult);
+    return jsonString;
+}
+
 @end

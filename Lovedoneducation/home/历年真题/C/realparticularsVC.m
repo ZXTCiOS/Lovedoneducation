@@ -240,7 +240,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
             }
         }
         NSLog(@"arr0-----%@",arr0);
-        NSString *upliststr = [arr0 toReadableJSONString];
+        NSString *upliststr = [strisNull arrayToJSONString:arr0];
         NSLog(@"str-----%@",upliststr);
         //错误答案
         NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -288,7 +288,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         }
     }
     NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
+    NSString *upliststr = [strisNull arrayToJSONString:arr0];
     NSLog(@"str-----%@",upliststr);
     //错误答案
     NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];

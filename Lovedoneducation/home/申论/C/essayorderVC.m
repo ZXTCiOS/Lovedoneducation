@@ -75,7 +75,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             }
             else
             {
-                self.zhekoumoney = @"0";
+                self.zhekoumoney = str1;
             }
             float f0 = [self.zhekoumoney floatValue];
             float f1 = [self.pricestr floatValue];
@@ -247,9 +247,10 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 
 -(void)submitbtnclick
 {
+    [self tijiaodanan];
     
     [self showwindow];
-
+    
     [UIView animateWithDuration:0.3 animations:^{
         self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
         
@@ -333,6 +334,32 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
                 }
                 
             }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)tijiaodanan
+{
+    NSString *couponprice = self.zhekoumoney;
+    [self.para setValue:couponprice forKey:@"couponprice"];
+    [self.para setValue:@"2" forKey:@"type"];
+    [DNNetworking postWithURLString:POST_orderInsert parameters:self.para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            /*
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *c_id = [dic objectForKey:@"c_id"];
+            NSString *classcoupon = [dic objectForKey:@"classcoupon"];
+            NSString *couponprice = [dic objectForKey:@"couponprice"];
+            NSString *orderprice = [dic objectForKey:@"orderprice"];
+            NSString *ordersn = [dic objectForKey:@"ordersn"];
+            NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
+            NSString *ordertype = [dic objectForKey:@"ordertype"];
+            NSString *time = [dic objectForKey:@"time"];
+            NSString *ucid = [dic objectForKey:@"ucid"];
+             */
+            [MBProgressHUD showSuccess:@"提交成功" toView:self.table];
         }
     } failure:^(NSError *error) {
         

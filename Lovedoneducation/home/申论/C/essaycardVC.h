@@ -13,4 +13,5 @@
 @property (nonatomic,copy) NSString *titlestr;
 @property (nonatomic,copy) NSString *pricestr;
 @property (nonatomic,copy) NSString *numstr;
+@property (nonatomic,strong) NSMutableDictionary *para;
 @end

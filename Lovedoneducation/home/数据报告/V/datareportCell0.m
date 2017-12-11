@@ -107,14 +107,19 @@
         _timelab = [[UILabel alloc] init];
         _timelab.textAlignment = NSTextAlignmentCenter;
         _timelab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-        _timelab.text = @"练习时间:2017.07.14-2017.07.21";
+
         _timelab.font = [UIFont systemFontOfSize:15];
     }
     return _timelab;
 }
 
-
-
-
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *scoreranking = [dic objectForKey:@"scoreranking"];
+    self.fenshuLab.text = scoreranking;
+    NSString *start = [dic objectForKey:@"start"];
+    NSString *end = [dic objectForKey:@"end"];
+    self.timelab.text = [NSString stringWithFormat:@"%@%@%@%@",@"练习时间 : ",start,@"--",end];
+}
 
 @end

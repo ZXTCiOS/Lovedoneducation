@@ -33,7 +33,7 @@
     __weak typeof (self) weakSelf = self;
     [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(20);
-        make.right.equalTo(weakSelf).with.offset(20);
+        make.right.equalTo(weakSelf).with.offset(-20);
         make.top.equalTo(weakSelf).with.offset(30);
     }];
     [weakSelf.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -72,6 +72,10 @@
 }
 
 
+-(void)setdata:(NSDictionary *)dic
+{
+    
+}
 
 
 @end

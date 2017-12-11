@@ -134,4 +134,10 @@
     return _percentlab;
 }
 
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *userpnum = [dic objectForKey:@"userpnum"];
+    self.numberlab.text = userpnum;
+}
+
 @end

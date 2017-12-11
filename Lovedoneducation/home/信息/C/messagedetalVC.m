@@ -1,23 +1,23 @@
 //
-//  predictexamVC.m
+//  messagedetalVC.m
 //  Lovedoneducation
 //
-//  Created by 王俊钢 on 2017/11/16.
+//  Created by 王俊钢 on 2017/12/9.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "predictexamVC.h"
+#import "messagedetalVC.h"
 
-@interface predictexamVC ()
+@interface messagedetalVC ()
 
 @end
 
-@implementation predictexamVC
+@implementation messagedetalVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"详情";
     // Do any additional setup after loading the view.
-    self.title = @"预测试题";
     [self loaddata];
 }
 
@@ -30,14 +30,12 @@
 {
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    NSString *practiceType = @"2";
-    //1 智能组卷 2预测试题 3专项智能练习
-    NSString *url = [NSString stringWithFormat:GET_practice,uid,token,practiceType];
+    NSString *url = [NSString stringWithFormat:GET_messageDetail,uid,token,self.questionid,self.type];
     [DNNetworking getWithURLString:url success:^(id obj) {
         
     } failure:^(NSError *error) {
         
-    }];;
+    }];
 }
 
 @end

@@ -42,6 +42,8 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
+
+@property (nonatomic,assign) BOOL isclick;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -53,6 +55,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     // Do any additional setup after loading the view.
     self.title = @"真题详情";
     [self prepareLayout];
+    self.isclick = NO;
     [self.view addSubview:self.head];
     self.uplistarr = [NSMutableArray array];
     self.upquestion = [NSMutableArray array];
@@ -86,12 +89,10 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)loaddata
 {
-    self.qcid = @"1";
     NSString *url = [NSString stringWithFormat:GET_realQuestionDetail,self.qcid];
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSArray *data = [obj objectForKey:@"data"];
-            
             for (int i = 0; i<data.count; i++) {
                 NSDictionary *dic = [data objectAtIndex:i];
                 smartgroupModel *model = [[smartgroupModel alloc] init];
@@ -128,8 +129,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 [self.xuanzearray addObject: model.qsuccess];
                 [self.upquestion addObject:model.qid];
                 [self.dataSource addObject:model];
-                
-                //[self.uplistarr addObject:@""];
+                self.isclick = YES;
                 
                 if ([model.qtype isEqualToString:@"3"]) {
                     NSMutableArray *arr = [NSMutableArray new];
@@ -226,49 +226,51 @@ static NSString *realcellidentfid = @"realcellidentfid";
 
 -(void)cardclick
 {
-    NSLog(@"arr-----%@",self.uplistarr);
-    NSMutableArray *arr0 = [NSMutableArray new];
-    for (int i = 0; i<self.uplistarr.count; i++) {
-        NSObject *obj = [self.uplistarr objectAtIndex:i];
-        if ([obj isKindOfClass:[NSArray class]]) {
-            [arr0 addObject:obj];
+    if (self.isclick) {
+        NSLog(@"arr-----%@",self.uplistarr);
+        NSMutableArray *arr0 = [NSMutableArray new];
+        for (int i = 0; i<self.uplistarr.count; i++) {
+            NSObject *obj = [self.uplistarr objectAtIndex:i];
+            if ([obj isKindOfClass:[NSArray class]]) {
+                [arr0 addObject:obj];
+            }
+            else
+            {
+                
+            }
         }
-        else
-        {
-            
-        }
+        NSLog(@"arr0-----%@",arr0);
+        NSString *upliststr = [arr0 toReadableJSONString];
+        NSLog(@"str-----%@",upliststr);
+        //错误答案
+        NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
+        //题目id
+        NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
+        //正确答案
+        NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
+        //时间
+        NSString *uptimes = self.timestr;
+        //类型
+        NSString *practiceType = @"4";
+        NSString *uid = [userDefault objectForKey:user_uid];
+        NSString *token = [userDefault objectForKey:user_token];
+        NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
+        NSLog(@"dic-----%@",dic);
+        
+        realpartcardVC *vc = [[realpartcardVC alloc] init];
+        vc.modeldata = self.dataSource;
+        vc.dataSource = self.cardtypeArray;
+        vc.xuanzearr = self.arrayDatasource;
+        vc.upnoarray = self.xuanzearray;
+        vc.practiceType = practiceType;
+        vc.uptimes = uptimes;
+        vc.upno = upno;
+        vc.upquestion = upquestion;
+        vc.upyes = upyes;
+        vc.uplist = upliststr;
+        vc.typestr = @"4";
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
-    NSLog(@"str-----%@",upliststr);
-    //错误答案
-    NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
-    //题目id
-    NSString *upquestion = [self.upquestion componentsJoinedByString:@","];
-    //正确答案
-    NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
-    //时间
-    NSString *uptimes = self.timestr;
-    //类型
-    NSString *practiceType = @"4";
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":practiceType,@"uptimes":uptimes,@"upno":upno,@"upquestion":upquestion,@"upyes":upyes,@"uplist":upliststr};
-    NSLog(@"dic-----%@",dic);
-    
-    realpartcardVC *vc = [[realpartcardVC alloc] init];
-    vc.modeldata = self.dataSource;
-    vc.dataSource = self.cardtypeArray;
-    vc.xuanzearr = self.arrayDatasource;
-    vc.upnoarray = self.xuanzearray;
-    vc.practiceType = practiceType;
-    vc.uptimes = uptimes;
-    vc.upno = upno;
-    vc.upquestion = upquestion;
-    vc.upyes = upyes;
-    vc.uplist = upliststr;
-    vc.typestr = @"4";
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)queren:(UICollectionViewCell *)cell
@@ -366,7 +368,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
                     
                     [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
                     
-                    
+                    //uplist数组方法
                     int k = 0;
                     for (int i = 0; i<self.uplistarr.count; i++) {
                         NSArray *arr = [self.uplistarr objectAtIndex:i];
@@ -539,7 +541,9 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 model.shareimage = image;
                 // model.shareimage = [UIImage imageNamed:@"shuliangguanxi_image_shouye"];
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
                 
             }
@@ -548,7 +552,9 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
                 model.shareimage = image;
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
                 
             }
@@ -556,13 +562,28 @@ static NSString *realcellidentfid = @"realcellidentfid";
                 ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
                 model.shareimage = image;
                 [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
-                    
+                    if (success) {
+                        [self fenxiangblock];
+                    }
                 }];
             }
         }];
         [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
         
     }
+}
+
+-(void)fenxiangblock
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *type = @"2";
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
+    [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

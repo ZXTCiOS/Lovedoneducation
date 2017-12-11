@@ -250,9 +250,44 @@
 #define GET_userquestion  @"/app.php/user/userquestion?uid=%@&token=%@&type=%@"
 
 /**
+ 收藏详情
+
+ @return
+ */
+#define GET_userQuestionDetail @"/app.php/user/userQuestionDetail?uid=%@&token=%@&uqid=%@"
+
+/**
  申论下单
  @return 申论下单
  */
 #define POST_orderInsert @"/app.php/order/orderInsert"
 
+
+/**
+ 消息详情
+
+ @return 消息详情
+ */
+#define GET_messageDetail @"/app.php/user/messageDetail?uid=%@&token=%@&questionid=%@&type=%@"
+
+
+/**
+ 微信支付
+
+ @return 微信支付
+ */
+#define POST_WEIXINZHIFU @"/app.php/Wxpay/orderUnified"
+
+/**
+ 微信关闭订单
+
+ @return 微信关闭订单
+ */
+#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose"
+/**
+ 支付宝支付
+
+ @return 支付宝支付
+ */
+#define GET_ZHIFUBAO @"/app.php/AliPay/sendString?uid=%@&token=%@&price=%@"
 #endif /* wangHeader_h */

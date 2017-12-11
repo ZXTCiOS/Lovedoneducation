@@ -64,7 +64,7 @@
     if(!_leftlab)
     {
         _leftlab = [[UILabel alloc] init];
-        _leftlab.text = @"99.2";
+//        _leftlab.text = @"99.2";
         _leftlab.textAlignment = NSTextAlignmentCenter;
         _leftlab.textColor = [UIColor colorWithHexString:@"08D2B2"];
         _leftlab.font = [UIFont systemFontOfSize:20];
@@ -113,7 +113,23 @@
     return _proportionlab;
 }
 
-
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *maxranking = [dic objectForKey:@"maxranking"];
+    self.leftlab.text = maxranking;
+    
+    
+    
+//    NSString *str = [NSString stringWithFormat:@"%@%@",str1,str2];
+//    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+//    [attrStr addAttribute:NSForegroundColorAttributeName
+//                    value:[UIColor colorWithHexString:@"FF9B19"]
+//                    range:NSMakeRange(0, str1.length)];
+//    [attrStr addAttribute:NSForegroundColorAttributeName
+//                    value:[UIColor colorWithHexString:@"323232"]
+//                    range:NSMakeRange(str1.length, str2.length)];
+    
+}
 
 
 

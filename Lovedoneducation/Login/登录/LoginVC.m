@@ -15,7 +15,7 @@
 #import "WXApi.h"
 #import "UMSocialQQHandler.h"
 #import <TencentOpenAPI/QQApiInterface.h>
-
+#import "JHUD.h"
 
 @interface LoginVC ()<UITextFieldDelegate, NIMLoginManagerDelegate>
 @property (nonatomic,strong) UIImageView *logoImg;
@@ -30,6 +30,7 @@
 @property (nonatomic,strong) UIView *line0;
 @property (nonatomic,strong) UIView *line1;
 @property (nonatomic,strong) ZTVendorPayManager *payManager;
+@property (nonatomic,strong) JHUD *hudView;
 @end
 
 @implementation LoginVC
@@ -52,6 +53,8 @@
     [self layout];
     self.payManager = [[ZTVendorPayManager alloc]init];
     [self xianshi];
+    _hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+    _hudView.messageLabel.text = @"正在登录";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -283,6 +286,10 @@
     {
         pwd = self.passwordText.text;
     }
+    
+    //show
+    [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
+    
     NSString *password = [MD5Tool MD5ForUpper32Bate:pwd];
     NSDictionary *dic = @{@"uname":phone,@"upwd":password};
     [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
@@ -296,18 +303,27 @@
             [userDefault setObject:imtoken forKey:user_imtoken];
             [userDefault synchronize];
             [self NIMLogin];
+            //hide
+            [_hudView hide];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];
             appDelegate.window.rootViewController = main;
         }
         if ([[obj objectForKey:@"code"] isEqualToString:@"006"]) {
+            //hide
+            [_hudView hide];
             [MBProgressHUD showSuccess:@"账号或密码不一致" toView:self.view];
         }
         if ([[obj objectForKey:@"code"] isEqualToString:@"005"]) {
+            //hide
+            [_hudView hide];
             [MBProgressHUD showSuccess:@"手机号不存在" toView:self.view];
         }
+        //hide
+        [_hudView hide];
     } failure:^(NSError *error) {
-        
+        //hide
+        [_hudView hide];
     }];;
     
 }
@@ -351,6 +367,33 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        NSString *uname = model.openid;
+        NSDictionary *dic = @{@"uname":uname};
+        //show
+        [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
+        [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==200) {
+                NSDictionary *dic = [obj objectForKey:@"data"];
+                NSString *token = [dic objectForKey:@"token"];
+                NSString *uid = [dic objectForKey:@"uid"];
+                [userDefault setObject:token forKey:user_token];
+                [userDefault setObject:uid forKey:user_uid];
+                NSString *imtoken = [dic objectForKey:@"acctoken"];
+                [userDefault setObject:imtoken forKey:user_imtoken];
+                [userDefault synchronize];
+                [self NIMLogin];
+                //hide
+                [_hudView hide];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                MainTabBarController * main = [[MainTabBarController alloc] init];
+                appDelegate.window.rootViewController = main;
+            }
+            //hide
+            [_hudView hide];
+        } failure:^(NSError *error) {
+            //hide
+            [_hudView hide];
+        }];
     }];
 }
 
@@ -358,6 +401,34 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        NSDictionary *dicid = model.originalResponse;
+        NSString *uname = [dicid objectForKey:@"unionid"];
+        NSDictionary *dic = @{@"uname":uname};
+        //show
+        [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
+        [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==200) {
+                NSDictionary *dic = [obj objectForKey:@"data"];
+                NSString *token = [dic objectForKey:@"token"];
+                NSString *uid = [dic objectForKey:@"uid"];
+                [userDefault setObject:token forKey:user_token];
+                [userDefault setObject:uid forKey:user_uid];
+                NSString *imtoken = [dic objectForKey:@"acctoken"];
+                [userDefault setObject:imtoken forKey:user_imtoken];
+                [userDefault synchronize];
+                [self NIMLogin];
+                //hide
+                [_hudView hide];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                MainTabBarController * main = [[MainTabBarController alloc] init];
+                appDelegate.window.rootViewController = main;
+            }
+            //hide
+            [_hudView hide];
+        } failure:^(NSError *error) {
+            //hide
+            [_hudView hide];
+        }];
     }];
 }
 

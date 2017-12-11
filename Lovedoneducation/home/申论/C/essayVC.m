@@ -37,9 +37,9 @@
 @property (nonatomic, strong) NSMutableArray *imgarr;
 @property (nonatomic, strong) NSMutableArray *uplistarr;
 @property (nonatomic, strong) NSMutableArray *cardtypeArray;
-
 @property (nonatomic,copy) NSString *pidstr;
 @property (nonatomic,strong) NSMutableArray *pricearray;
+@property (nonatomic,assign) BOOL isclick;
 @end
 
 static NSString *essayidentfid = @"essayidentfid";
@@ -49,6 +49,7 @@ static NSString *essayidentfid = @"essayidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.isclick = NO;
     self.title = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
     kSetNaviBarColor_50;
     self.imgarr = [NSMutableArray array];
@@ -56,6 +57,8 @@ static NSString *essayidentfid = @"essayidentfid";
     self.dataSource = [NSMutableArray array];
     self.cardtypeArray = [NSMutableArray array];
     self.pricearray = [NSMutableArray array];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"646464"];
     [self prepareLayout];
     [self.view addSubview:self.head];
     if (@available(iOS 11.0, *)){
@@ -133,7 +136,7 @@ static NSString *essayidentfid = @"essayidentfid";
                 [arr addObject:imgdic];
                 [self.uplistarr replaceObjectAtIndex:k withObject:arr];
             }
-            
+            self.isclick = YES;
             [self.collectionV reloadData];
             self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
             essayModel *model = [self.dataSource objectAtIndex:0];
@@ -229,27 +232,29 @@ static NSString *essayidentfid = @"essayidentfid";
 
 -(void)cardclick
 {
-    int numd = 0;
-    NSString *numstr = @"";
-    [self.pricearray removeAllObjects];
-    for (int i = 0; i<self.cardtypeArray.count; i++) {
-        NSString *str = [self.cardtypeArray objectAtIndex:i];
-        essayModel *model = [self.dataSource objectAtIndex:i];
-        if ([str isEqualToString: @"1"]) {
-            NSString *money = model.price;
-            [self.pricearray addObject:money];
-            numd++;
-            numstr = [NSString stringWithFormat:@"%d",numd];
+    if (self.isclick) {
+        int numd = 0;
+        NSString *numstr = @"";
+        [self.pricearray removeAllObjects];
+        for (int i = 0; i<self.cardtypeArray.count; i++) {
+            NSString *str = [self.cardtypeArray objectAtIndex:i];
+            essayModel *model = [self.dataSource objectAtIndex:i];
+            if ([str isEqualToString: @"1"]) {
+                NSString *money = model.price;
+                [self.pricearray addObject:money];
+                numd++;
+                numstr = [NSString stringWithFormat:@"%d",numd];
+            }
         }
+        NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
+        NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
+        essaycardVC *vc = [[essaycardVC alloc] init];
+        vc.dataSource = self.cardtypeArray;
+        vc.pricestr = sumstr;
+        vc.numstr = numstr;
+        vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    NSNumber *sum = [self.pricearray valueForKeyPath:@"@sum.floatValue"];
-    NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
-    essaycardVC *vc = [[essaycardVC alloc] init];
-    vc.dataSource = self.cardtypeArray;
-    vc.pricestr = sumstr;
-    vc.numstr = numstr;
-    vc.titlestr = [NSString stringWithFormat:@"%@专项联系%@", self.qtname,@"(需付费)"];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 协议方法
@@ -274,6 +279,7 @@ static NSString *essayidentfid = @"essayidentfid";
     essayorderVC *vc = [[essayorderVC alloc] init];
     vc.pricestr = sumstr;
     vc.numstr = numstr;
+    vc.timestr = [self getCurrentTimes];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -369,4 +375,112 @@ static NSString *essayidentfid = @"essayidentfid";
     [self.collectionV reloadData];
 }
 
+-(NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    //现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
+    //----------将nsdate按formatter格式转成nsstring
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
+
+-(void)rightAction
+{
+    LYMenu * menu = [[LYMenu alloc]initWithTitles:@[@"收藏本题",@"分享本题"] images:@[@"shoucangtimu_icon_gengduo",@"fenxiang_icon"] menuType:LYMenuTypeRight buttonAction:^(NSInteger buttonIndex) {
+        NSLog(@"RightMenu INDEX %d",(int)buttonIndex);
+        if (buttonIndex==0) {
+            NSLog(@"收藏本题");
+            NSLog(@"pid------%@",self.pidstr);
+            NSString *uid = [userDefault objectForKey:user_uid];
+            NSString *token = [userDefault objectForKey:user_token];
+            NSDictionary *dic = @{@"uid":uid,@"token":token,@"qid":self.pidstr};
+            [DNNetworking postWithURLString:POST_userCollection parameters:dic success:^(id obj) {
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+        if (buttonIndex==1) {
+            NSLog(@"分享本题");
+            [self screenShot:self.collectionV];
+        }
+    }];
+    [menu show];
+}
+
+#pragma mark - 截图发送
+
+- (void)screenShot:(UIScrollView *)basetable{
+    UIImage* image = nil;
+    
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    if (image != nil) {
+        NSLog(@"截图成功!");
+        //    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+        
+        NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+        NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+        
+        ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
+        [actionsheet setBtnClick:^(NSInteger btnTag) {
+            NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+            if (btnTag==0) {
+                
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                // model.shareimage = [UIImage imageNamed:@"shuliangguanxi_image_shouye"];
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+                
+            }
+            if (btnTag==1) {
+                
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+                
+            }
+            if (btnTag==2) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    if (success) {
+                        [self fenxiangblock];
+                    }
+                }];
+            }
+        }];
+        [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+        
+    }
+}
+
+-(void)fenxiangblock
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *type = @"2";
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
+    [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

@@ -256,6 +256,10 @@
     return _datalab2;
 }
 
+-(void)setdata:(NSDictionary *)dic
+{
+    
+}
 
 
 

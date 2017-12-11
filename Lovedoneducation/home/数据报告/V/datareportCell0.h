@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface datareportCell0 : UITableViewCell
-
+-(void)setdata:(NSDictionary *)dic;
 @end

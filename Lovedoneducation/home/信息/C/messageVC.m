@@ -9,6 +9,7 @@
 #import "messageVC.h"
 #import "messageCell.h"
 #import "messageModel.h"
+#import "messagedetalVC.h"
 
 @interface messageVC ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -53,10 +54,12 @@ static NSString *messageidentfid = @"messageidentfid";
                 messageModel *model = [[messageModel alloc] init];
                 NSDictionary *dic = [dataarr objectAtIndex:i];
                 model.messageid = [dic objectForKey:@"messageid"];
-                model.uid = [dic objectForKey:@"uid"];
-                model.messagetitle = [dic objectForKey:@"messagetitle"];
                 model.messageintro = [dic objectForKey:@"messageintro"];
+                model.messagetitle = [dic objectForKey:@"messagetitle"];
+                model.questionid = [dic objectForKey:@"questionid"];
                 model.time = [dic objectForKey:@"time"];
+                model.type = [dic objectForKey:@"type"];
+                model.uid = [dic objectForKey:@"uid"];
                 [self.dataSource addObject:model];
             }
             [self.table reloadData];
@@ -109,6 +112,17 @@ static NSString *messageidentfid = @"messageidentfid";
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIImage imageNamed:@"huancun_icon_kechengwuhuancun"];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    messageModel *model = self.dataSource[indexPath.row];
+    if ([model.type isEqualToString:@"1"]||[model.type isEqualToString:@"2"]) {
+        messagedetalVC *vc = [messagedetalVC new];
+        vc.questionid = model.questionid;
+        vc.type = model.type;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

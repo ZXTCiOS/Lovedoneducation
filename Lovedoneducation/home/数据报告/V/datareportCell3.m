@@ -114,4 +114,9 @@
     return _rightlab;
 }
 
+-(void)setdata:(NSDictionary *)dic
+{
+    
+}
+
 @end

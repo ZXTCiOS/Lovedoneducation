@@ -17,18 +17,13 @@
 // viewcontroller
 #import "HomeSortDetailVC.h"
 #import "ZhuanXiangZhiNengPricticeVC.h"
-
 //
 #import "realquestionVC.h"
 #import "typeVC0.h"
-
 #import "messageVC.h"
 #import "datareportVC.h"
 #import "exerciseweeklyVC.h"
-#import "wrongtopicVC.h"
 #import "smartgroupvolumeVC.h"
-#import "predictexamVC.h"
-#import "simulationtestVC.h"
 #import "collecttopicVC.h"
 #import "essayVC.h"
 
@@ -292,7 +287,7 @@
         [_moreV.linianzhenti addTarget:self action:@selector(linianzhenticlick) forControlEvents:UIControlEventTouchUpInside];
         [_moreV.cuotiben addTarget:self action:@selector(cuotibenclick) forControlEvents:UIControlEventTouchUpInside];
         [_moreV.shoucangtimu addTarget:self action:@selector(shoucangtimuclick) forControlEvents:UIControlEventTouchUpInside];
-        [_moreV.lianxizhoubao addTarget:self action:@selector(lianxizhoubaoclick) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return _moreV;
 }
@@ -307,17 +302,11 @@
 
 -(void)cuotibenclick
 {
-    wrongtopicVC *vc = [[wrongtopicVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
--(void)shoucangtimuclick
-{
     collecttopicVC *vc = [[collecttopicVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)lianxizhoubaoclick
+-(void)shoucangtimuclick
 {
     exerciseweeklyVC *vc = [[exerciseweeklyVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];

@@ -96,8 +96,9 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     if (!cell) {
         cell = [[coursescacheCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:coursecacheidentfid];
     }
-    ZFFileModel *model = self.dataSource[indexPath.row];
-    LiveCourseModel *course = model.extention;
+    
+    //ZFFileModel *model = self.dataSource[indexPath.row];
+    //LiveCourseModel *course = model.extention;
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

@@ -20,7 +20,7 @@
 
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
-
+#import "NTESService.h"
 #import "ZTVendorManager.h"
 
 @interface AppDelegate ()<JPUSHRegisterDelegate, NIMLoginManagerDelegate>
@@ -104,6 +104,7 @@
     loginData.account = account;
     loginData.token = token;
     loginData.forcedMode = YES;
+    [[NTESServiceManager sharedManager] start];
     [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
 }
 

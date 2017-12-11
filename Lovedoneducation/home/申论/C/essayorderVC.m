@@ -248,15 +248,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 -(void)submitbtnclick
 {
     [self tijiaodanan];
-    
-    [self showwindow];
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
-        
-    }completion:^(BOOL finished) {
-        
-    }];
+
 }
 
 -(void)hideAlertView
@@ -277,7 +269,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 {
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    NSString *price = @"1";
+    NSString *price = self.money;
     NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
@@ -303,7 +295,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 {
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    NSString *price = @"1";
+    NSString *price = self.money;
     NSDictionary *dic = @{@"uid":uid,@"token":token,@"price":price};
     [DNNetworking postWithURLString:POST_WEIXINZHIFU parameters:dic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
@@ -342,7 +334,17 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 
 -(void)tijiaodanan
 {
-    NSString *couponprice = self.zhekoumoney;
+    NSString *couponprice = @"";
+    CGFloat f1 = [self.zhekoumoney floatValue];
+    CGFloat f2 = [self.pricestr floatValue];
+    if (f1>=f2) {
+        couponprice = self.pricestr;
+    }
+    else
+    {
+        couponprice = self.zhekoumoney;
+    }
+    
     [self.para setValue:couponprice forKey:@"couponprice"];
     [self.para setValue:@"2" forKey:@"type"];
     [DNNetworking postWithURLString:POST_orderInsert parameters:self.para success:^(id obj) {
@@ -359,11 +361,40 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             NSString *time = [dic objectForKey:@"time"];
             NSString *ucid = [dic objectForKey:@"ucid"];
              */
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
+            NSLog(@"价格----%@",ordertotalprice);
             [MBProgressHUD showSuccess:@"提交成功" toView:self.table];
+            [self showwindow];
+            [UIView animateWithDuration:0.3 animations:^{
+                self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
+            }completion:^(BOOL finished) {
+                
+            }];
         }
     } failure:^(NSError *error) {
         
     }];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==1) {
+        return 20;
+    }
+    else
+    {
+        return 0.01f;
+    }
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section==1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 20)];
+        view.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
+        return view;
+    }
+    return nil;
+}
 @end

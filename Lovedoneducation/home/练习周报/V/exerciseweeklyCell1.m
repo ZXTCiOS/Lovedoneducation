@@ -82,15 +82,17 @@
     {
         _rightlab = [[UILabel alloc] init];
         _rightlab.textAlignment = NSTextAlignmentRight;
-        _rightlab.text = @"60";
+        //_rightlab.text = @"60";
         _rightlab.textColor = [UIColor colorWithHexString:@"08D2B2"];
         _rightlab.font = [UIFont systemFontOfSize:30];
     }
     return _rightlab;
 }
 
-
-
-
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *up = [NSString stringWithFormat:@"%@",[dic objectForKey:@"up"]];
+    self.rightlab.text = up;
+}
 
 @end

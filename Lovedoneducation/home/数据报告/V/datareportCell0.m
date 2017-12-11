@@ -42,13 +42,18 @@
         make.right.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf);
     }];
-
     [weakSelf.fenshuLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf);
-        make.top.equalTo(weakSelf).with.offset(26);
-        make.width.mas_offset(135);
-        make.height.mas_offset(135);
+        make.left.equalTo(weakSelf).with.offset(50);
+        make.right.equalTo(weakSelf).with.offset(-50);
+        make.top.equalTo(weakSelf.bgimg).with.offset(65*WIDTH_SCALE);
+        make.height.mas_offset(45);
     }];
+//    [weakSelf.fenshuLab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(weakSelf);
+//        make.top.equalTo(weakSelf).with.offset(26);
+//        make.width.mas_offset(135);
+//        make.height.mas_offset(135);
+//    }];
     [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf).with.offset(-15);
@@ -81,7 +86,6 @@
         _fenshuLab.textColor = [UIColor whiteColor];
         _fenshuLab.font = [UIFont systemFontOfSize:60];
         _fenshuLab.textAlignment = NSTextAlignmentCenter;
-        _fenshuLab.text = @"98";
     }
     return _fenshuLab;
 }
@@ -115,8 +119,9 @@
 
 -(void)setdata:(NSDictionary *)dic
 {
-    NSString *scoreranking = [dic objectForKey:@"scoreranking"];
-    self.fenshuLab.text = scoreranking;
+    NSString *score = [dic objectForKey:@"score"];
+    int scoreint = [score intValue];
+    self.fenshuLab.text = [NSString stringWithFormat:@"%d",scoreint];
     NSString *start = [dic objectForKey:@"start"];
     NSString *end = [dic objectForKey:@"end"];
     self.timelab.text = [NSString stringWithFormat:@"%@%@%@%@",@"练习时间 : ",start,@"--",end];

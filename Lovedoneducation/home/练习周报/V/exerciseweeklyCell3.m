@@ -11,7 +11,8 @@
 @interface exerciseweeklyCell3()
 @property (nonatomic,strong) UIView *bgview;
 @property (nonatomic,strong) UILabel *lab0;
-
+@property (nonatomic,strong) NSMutableArray *namearray;
+@property (nonatomic,strong) NSMutableArray *baifenbiarray;
 @end
 
 @implementation exerciseweeklyCell3
@@ -21,10 +22,13 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
+        self.namearray = [NSMutableArray array];
+        self.baifenbiarray = [NSMutableArray array];
         [self.contentView addSubview:self.bgview];
         [self.contentView addSubview:self.lab0];
         [self setuplayout];
-        [self getview];
+        
+        //  [self getview];
     }
     return self;
 }
@@ -68,9 +72,9 @@
     return _lab0;
 }
 
--(void)getview
+-(void)getviewnamearr:(NSMutableArray *)namearr andbaifenbi:(NSMutableArray *)baifenbi
 {
-    for (int i = 0; i<6; i++) {
+    for (int i = 0; i<namearr.count; i++) {
         UILabel *leftnamelab = [[UILabel alloc] init];
         [self.contentView addSubview:leftnamelab];
         leftnamelab.sd_layout
@@ -78,22 +82,25 @@
         .heightIs(30)
         .leftSpaceToView(self.contentView, 20)
         .widthIs(100);
-        leftnamelab.text = @"111";
+        leftnamelab.text = [namearr objectAtIndex:i];
         leftnamelab.font = [UIFont systemFontOfSize:15];
         leftnamelab.textColor = [UIColor colorWithHexString:@"323232"];
         
         
         UILabel *rightlab = [[UILabel alloc] init];
-        rightlab.text = @"43%";
+        NSString *str = [NSString stringWithFormat:@"%@%@",[baifenbi objectAtIndex:i],@"%"];
+        rightlab.text = str;
         rightlab.textAlignment = NSTextAlignmentRight;
         rightlab.textColor = [UIColor colorWithHexString:@"FF9B10"];
         rightlab.font = [UIFont systemFontOfSize:18];
         [self.contentView addSubview:rightlab];
         rightlab.sd_layout.topEqualToView(leftnamelab).rightSpaceToView(self.contentView, 20).widthIs(50).heightIs(20);
         
-        
         ZYProGressView*  progress = [[ZYProGressView alloc]initWithFrame:CGRectMake(50, 100, 200, 2)];
-        progress.progressValue = @"0.7";
+        float f1 = [[baifenbi objectAtIndex:i] floatValue];
+        float f2 = f1/100;
+        NSString *prostr = [NSString stringWithFormat:@"%f",f2];
+        progress.progressValue = prostr;
         [self.contentView addSubview:progress];
         progress.bottomColor = [UIColor whiteColor];
         progress.progressColor = [UIColor colorWithHexString:@"FF9B10"];
@@ -106,6 +113,25 @@
         
         [self setupAutoHeightWithBottomView:leftnamelab bottomMargin:20];
         
+    }
+}
+
+-(void)setdata:(NSDictionary *)dic
+{
+    NSArray *arr = [dic objectForKey:@"questionlist"];
+    if (arr.count==0) {
+        
+    }
+    else
+    {
+        for (int i = 0; i<arr.count; i++) {
+            NSDictionary *dic = [arr objectAtIndex:i];
+            NSString *name = [dic objectForKey:@"name"];
+            NSString *baifenbi = [dic objectForKey:@"baifenbi"];
+            [self.namearray addObject:name];
+            [self.baifenbiarray addObject:baifenbi];
+        }
+        [self getviewnamearr:self.namearray andbaifenbi:self.baifenbiarray];
     }
 }
 

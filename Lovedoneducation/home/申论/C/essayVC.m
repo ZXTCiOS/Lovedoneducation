@@ -260,8 +260,6 @@ static NSString *essayidentfid = @"essayidentfid";
         
         NSString *uid = [userDefault objectForKey:user_uid];
         NSString *token = [userDefault objectForKey:user_token];
-        essayModel *emodel = [self.dataSource firstObject];
-        NSString *c_id = emodel.qcid;
         NSString * markintro = [strisNull arrayToJSONString:array];
         NSMutableArray *idarr = [NSMutableArray array];
         for (int i = 0; i<self.dataSource.count; i++) {
@@ -281,7 +279,7 @@ static NSString *essayidentfid = @"essayidentfid";
         [paradic setValue:token forKey:@"token"];
         [paradic setValue:mqid forKey:@"mqid"];
         [paradic setValue:markintro forKey:@"markintro"];
-        [paradic setValue:c_id forKey:@"c_id"];
+
         
         essaycardVC *vc = [[essaycardVC alloc] init];
         vc.dataSource = self.cardtypeArray;
@@ -325,8 +323,7 @@ static NSString *essayidentfid = @"essayidentfid";
     NSString *sumstr = [NSString stringWithFormat:@"%@",sum];
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
-    essayModel *emodel = [self.dataSource firstObject];
-    NSString *c_id = emodel.qcid;
+
     NSString * markintro = [strisNull arrayToJSONString:array];
     NSMutableArray *idarr = [NSMutableArray array];
     for (int i = 0; i<self.dataSource.count; i++) {
@@ -346,7 +343,6 @@ static NSString *essayidentfid = @"essayidentfid";
     [paradic setValue:token forKey:@"token"];
     [paradic setValue:mqid forKey:@"mqid"];
     [paradic setValue:markintro forKey:@"markintro"];
-    [paradic setValue:c_id forKey:@"c_id"];
     essayorderVC *vc = [[essayorderVC alloc] init];
     vc.pricestr = sumstr;
     vc.numstr = numstr;

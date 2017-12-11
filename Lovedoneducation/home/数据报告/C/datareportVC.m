@@ -17,6 +17,7 @@
 @interface datareportVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSDictionary *objdic;
+@property (nonatomic,assign) BOOL isshow;
 @end
 
 static NSString *datareportidentfid0 = @"datareportidentfid0";
@@ -32,6 +33,7 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"数据报告";
+    self.isshow = NO;
     [self.view addSubview:self.table];
     self.objdic = [NSDictionary dictionary];
     if (@available(iOS 11.0, *)){
@@ -53,28 +55,17 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
 -(void)loaddata
 {
     NSString *uid = [userDefault objectForKey:user_uid];
+    uid = @"2";
     NSString *url = [NSString stringWithFormat:GET_report,uid];
     [DNNetworking getWithURLString:url success:^(id obj) {
-        
-        NSError *error;
-        // 获取文件路径
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"port" ofType:@"json"];
-        // 根据文件路径读取数据
-        NSData *jdata = [[NSData alloc] initWithContentsOfFile:filePath];
-        // 格式化成json数据
-        id jsonObject = [NSJSONSerialization JSONObjectWithData:jdata options:kNilOptions error:&error];
-        NSLog(@"obj----%@",jsonObject);
-        obj=jsonObject;
         if ([[obj objectForKey:@"code"] intValue]==200) {
             self.objdic = [obj objectForKey:@"data"];
+            self.isshow = YES;
             [self.table reloadData];
         }
-        
     } failure:^(NSError *error) {
-
+        
     }];
-
-    
 }
 
 
@@ -106,7 +97,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid0];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -115,7 +108,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid1];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -124,7 +119,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid2];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -133,7 +130,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid3];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -142,7 +141,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid4];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -151,7 +152,9 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
         if (!cell) {
             cell = [[datareportCell5 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datareportidentfid5];
         }
-        [cell setdata:self.objdic];
+        if (self.isshow) {
+            [cell setdata:self.objdic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

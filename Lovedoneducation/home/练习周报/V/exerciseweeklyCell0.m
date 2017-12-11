@@ -41,13 +41,20 @@
         make.bottom.equalTo(weakSelf);
     }];
     
+//    [weakSelf.fenshulab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(weakSelf);
+//        make.top.equalTo(weakSelf).with.offset(28);
+//        make.width.mas_offset(135);
+//        make.height.mas_offset(135);
+//    }];
+//
     [weakSelf.fenshulab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf);
-        make.top.equalTo(weakSelf).with.offset(28);
-        make.width.mas_offset(135);
-        make.height.mas_offset(135);
+        make.left.equalTo(weakSelf).with.offset(50);
+        make.right.equalTo(weakSelf).with.offset(-50);
+        make.top.equalTo(weakSelf.bgimg).with.offset(65*WIDTH_SCALE);
+        make.height.mas_offset(45);
     }];
-    
+
     [weakSelf.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf).with.offset(-15);
@@ -82,7 +89,6 @@
         _fenshulab.textColor = [UIColor colorWithHexString:@"08D2B2"];
         _fenshulab.font = [UIFont systemFontOfSize:60];
         _fenshulab.textAlignment = NSTextAlignmentCenter;
-        _fenshulab.text = @"98";
     }
     return _fenshulab;
 }
@@ -107,12 +113,20 @@
         _timelab = [[UILabel alloc] init];
         _timelab.textAlignment = NSTextAlignmentCenter;
         _timelab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-        _timelab.text = @"练习时间:2017.07.14-2017.07.21";
+        //_timelab.text = @"练习时间:2017.07.14-2017.07.21";
         _timelab.font = [UIFont systemFontOfSize:15];
     }
     return _timelab;
 }
 
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *yuce =  [NSString stringWithFormat:@"%@",[dic objectForKey:@"yuce"]];
+    self.fenshulab.text = yuce;
+    NSString *stilltime = [dic objectForKey:@"stilltime"];
+    self.timelab.text = [NSString stringWithFormat:@"%@%@",@"练习时间:",stilltime];
+    
+}
 
 
 

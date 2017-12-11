@@ -45,7 +45,7 @@
     }];
     [weakSelf.pricelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf);
-        make.right.equalTo(weakSelf.rightimg.mas_left).with.offset(-30);
+        make.right.equalTo(weakSelf.rightimg.mas_left).with.offset(-20);
         make.width.mas_offset(100*WIDTH_SCALE);
     }];
 }

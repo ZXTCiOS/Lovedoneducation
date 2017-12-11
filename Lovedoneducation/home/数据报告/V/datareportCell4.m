@@ -22,6 +22,9 @@
 @property (nonatomic,strong) UILabel *datalab0;
 @property (nonatomic,strong) UILabel *datalab1;
 @property (nonatomic,strong) UILabel *datalab2;
+
+@property (nonatomic,strong) NSMutableArray *upscorearray;
+@property (nonatomic,strong) NSMutableArray *strarr;
 @end
 
 @implementation datareportCell4
@@ -41,7 +44,7 @@
         [self.contentView addSubview:self.datalab0];
         [self.contentView addSubview:self.datalab1];
         [self.contentView addSubview:self.datalab2];
-        [self redrawLineChart];
+        
         [self setuplayout];
     }
     return self;
@@ -112,12 +115,14 @@
 #pragma mark - private
 - (void) redrawLineChart {
     YZLineChartModel *lineChart1 = [[YZLineChartModel alloc] init];
-    lineChart1.data = @[@10, @20,@30,@40,@50,@60,@70];
+    //lineChart1.data = @[@10, @20,@30,@40,@50,@60,@70];
+    lineChart1.data = self.upscorearray;
     lineChart1.lineColor = [UIColor colorWithHexString:@"08D2B2"];
-    [self.lineChartView reDrawLineChartWithDimensionData:@[@"周一", @"周二", @"周三",@"周四",@"周五",@"周六",@"周日"] chartData: @[lineChart1]];
+    [self.lineChartView reDrawLineChartWithDimensionData:self.strarr  chartData: @[lineChart1]];
 }
 
 #pragma mark - get/set method
+
 - (UIView *)lineChartView
 {
     if (_lineChartView == nil) {
@@ -176,16 +181,11 @@
     return _rightlab;
 }
 
-
-
 -(UILabel *)textlab0
 {
     if(!_textlab0)
     {
         _textlab0 = [[UILabel alloc] init];
-        _textlab0.text = @"6天";
-        _textlab0.font = [UIFont systemFontOfSize:30];
-        _textlab0.textColor = [UIColor colorWithHexString:@"08D2B2"];
         _textlab0.textAlignment = NSTextAlignmentCenter;
     }
     return _textlab0;
@@ -258,25 +258,73 @@
 
 -(void)setdata:(NSDictionary *)dic
 {
+    self.strarr = [NSMutableArray array];
+    self.upscorearray = [NSMutableArray array];
+    NSArray *arr = [dic objectForKey:@"userList"];
+    for (int i = 0; i<arr.count ; i++) {
+        NSDictionary *dic = [arr objectAtIndex:i];
+        NSString *upscore = [dic objectForKey:@"upscore"];
+        NSInteger numu = [upscore integerValue];
+        NSNumber *num = @(numu);
+        [self.upscorearray addObject:num];
+        [self.strarr addObject:@""];
+    }
+    [self redrawLineChart];
+    
+    NSString *practicedays = [dic objectForKey:@"practicedays"];
+    NSString *str1 = @"天";
+    NSString *str = [NSString stringWithFormat:@"%@%@",practicedays,str1];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"08D2B2"]
+                    range:NSMakeRange(0, practicedays.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(practicedays.length, str1.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:30.0f]
+                    range:NSMakeRange(0, practicedays.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:13.0f]
+                    range:NSMakeRange(practicedays.length, str1.length)];
+    self.textlab0.attributedText = attrStr;
+    
+    NSString *minute = [dic objectForKey:@"minute"];
+    NSString *str2 = @"分钟";
+    NSString *newstr = [NSString stringWithFormat:@"%@%@",minute,str2];
+    NSMutableAttributedString *newattrStr = [[NSMutableAttributedString alloc] initWithString:newstr];
+    [newattrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"08D2B2"]
+                    range:NSMakeRange(0, minute.length)];
+    [newattrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(minute.length, str2.length)];
+    [newattrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:30.0f]
+                    range:NSMakeRange(0, minute.length)];
+    [newattrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:13.0f]
+                    range:NSMakeRange(minute.length, str2.length)];
+    self.textlab1.attributedText = newattrStr;
+    
+    NSString *practicenum = [dic objectForKey:@"practicenum"];
+    NSString *str3 = @"次";
+    NSString *neewstr = [NSString stringWithFormat:@"%@%@",practicenum,str3];
+    NSMutableAttributedString *neewattrStr = [[NSMutableAttributedString alloc] initWithString:neewstr];
+    [neewattrStr addAttribute:NSForegroundColorAttributeName
+                       value:[UIColor colorWithHexString:@"08D2B2"]
+                       range:NSMakeRange(0, practicenum.length)];
+    [neewattrStr addAttribute:NSForegroundColorAttributeName
+                       value:[UIColor colorWithHexString:@"646464"]
+                       range:NSMakeRange(practicenum.length, str3.length)];
+    [neewattrStr addAttribute:NSFontAttributeName
+                       value:[UIFont systemFontOfSize:30.0f]
+                       range:NSMakeRange(0, practicenum.length)];
+    [neewattrStr addAttribute:NSFontAttributeName
+                       value:[UIFont systemFontOfSize:13.0f]
+                       range:NSMakeRange(practicenum.length, str3.length)];
+    self.textlab2.attributedText = neewattrStr;
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

@@ -42,7 +42,6 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
-
 @property (nonatomic,assign) BOOL isclick;
 @end
 
@@ -306,21 +305,23 @@ static NSString *realcellidentfid = @"realcellidentfid";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        
-        realpartcardVC *vc = [[realpartcardVC alloc] init];
-        vc.modeldata = self.dataSource;
-        vc.dataSource = self.cardtypeArray;
-        vc.xuanzearr = self.arrayDatasource;
-        vc.upnoarray = self.xuanzearray;
-        //    vc.upquestion = self.upquestion;
-        vc.practiceType = practiceType;
-        vc.uptimes = uptimes;
-        vc.upno = upno;
-        vc.upquestion = upquestion;
-        vc.upyes = upyes;
-        vc.uplist = upliststr;
-        vc.typestr = @"4";
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            realpartcardVC *vc = [[realpartcardVC alloc] init];
+            vc.modeldata = self.dataSource;
+            vc.dataSource = self.cardtypeArray;
+            vc.xuanzearr = self.arrayDatasource;
+            vc.upnoarray = self.xuanzearray;
+            //    vc.upquestion = self.upquestion;
+            vc.practiceType = practiceType;
+            vc.uptimes = uptimes;
+            vc.upno = upno;
+            vc.upquestion = upquestion;
+            vc.upyes = upyes;
+            vc.uplist = upliststr;
+            vc.typestr = @"4";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     } failure:^(NSError *error) {
         
     }];

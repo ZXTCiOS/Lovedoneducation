@@ -54,4 +54,9 @@
     }
     
 }
+
+-(void)setdata:(NSDictionary *)dic
+{
+    
+}
 @end

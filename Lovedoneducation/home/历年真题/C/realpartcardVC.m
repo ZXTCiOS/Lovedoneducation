@@ -187,19 +187,20 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        realpartfinishVC *vc = [[realpartfinishVC alloc] init];
-        vc.dataArr = self.dataSource;
-        vc.answerarray0 = self.xuanzearr;
-        vc.answerarray1 = self.upnoarray;
-        vc.modeldata = self.modeldata;
-        vc.typestr = self.typestr;
-        vc.timestr = [self getCurrentTimes];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            [MBProgressHUD showSuccess:@"提交成功" toView:self.collection];
+            realpartfinishVC *vc = [[realpartfinishVC alloc] init];
+            vc.dataArr = self.dataSource;
+            vc.answerarray0 = self.xuanzearr;
+            vc.answerarray1 = self.upnoarray;
+            vc.modeldata = self.modeldata;
+            vc.typestr = self.typestr;
+            vc.timestr = [self getCurrentTimes];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     } failure:^(NSError *error) {
         
     }];
-
-
 }
 
 

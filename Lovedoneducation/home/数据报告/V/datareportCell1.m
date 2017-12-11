@@ -79,10 +79,6 @@
     {
         _rightlab = [[UILabel alloc] init];
         _rightlab.textAlignment = NSTextAlignmentCenter;
-        _rightlab.textColor = [UIColor orangeColor];
-        _rightlab.text = @"123/13457";
-        _rightlab.font = [UIFont fontWithName:@"SanFranciscoDisplay-Medium" size:20];
-//        _rightlab.font = [UIFont systemFontOfSize:20];
     }
     return _rightlab;
 }
@@ -117,18 +113,24 @@
 {
     NSString *maxranking = [dic objectForKey:@"maxranking"];
     self.leftlab.text = maxranking;
-    
-    
-    
-//    NSString *str = [NSString stringWithFormat:@"%@%@",str1,str2];
-//    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
-//    [attrStr addAttribute:NSForegroundColorAttributeName
-//                    value:[UIColor colorWithHexString:@"FF9B19"]
-//                    range:NSMakeRange(0, str1.length)];
-//    [attrStr addAttribute:NSForegroundColorAttributeName
-//                    value:[UIColor colorWithHexString:@"323232"]
-//                    range:NSMakeRange(str1.length, str2.length)];
-    
+    NSString *scoreranking = [dic objectForKey:@"scoreranking"];
+    NSString *users = [dic objectForKey:@"users"];
+    NSString *str1 = [NSString stringWithFormat:@"%@%@",scoreranking,@"/"];
+    NSString *str = [NSString stringWithFormat:@"%@%@",str1,users];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"909090"]
+                    range:NSMakeRange(str1.length, users.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:20.0f]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:16.0f]
+                    range:NSMakeRange(str1.length, users.length)];
+    self.rightlab.attributedText = attrStr;
 }
 
 

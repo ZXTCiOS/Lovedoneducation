@@ -290,4 +290,12 @@
  @return 支付宝支付
  */
 #define GET_ZHIFUBAO @"/app.php/AliPay/sendString?uid=%@&token=%@&price=%@"
+
+
+/**
+ 下单成功回调
+
+ @return
+ */
+#define GET_successOrder @"/app.php/order/successOrder?uid=%@&toke=%@&orderid=%@"
 #endif /* wangHeader_h */

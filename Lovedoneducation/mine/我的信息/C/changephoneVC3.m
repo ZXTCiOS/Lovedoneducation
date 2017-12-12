@@ -147,7 +147,8 @@ static NSString *changephone3identfid2 = @"changephone3identfid2";
     }
     else
     {
-        self.ischoose = YES;
+        //self.ischoose = YES;
+        [MBProgressHUD showSuccess:@"验证码不正确" toView:self.view];
     }
     if (self.ischoose) {
         

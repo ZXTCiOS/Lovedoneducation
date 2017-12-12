@@ -149,7 +149,8 @@ static NSString *changephoneidentfid2 = @"changephoneidentfdi2";
     }
     else
     {
-        self.ischoose = YES;
+        //self.ischoose = YES;
+        [MBProgressHUD showSuccess:@"验证码不正确" toView:self.view];
     }
     if (self.ischoose) {
         changephoneVC2 *vc = [[changephoneVC2 alloc] init];

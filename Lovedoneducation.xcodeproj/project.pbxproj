@@ -444,7 +444,6 @@
 		537F66B31FDBC4E20028E888 /* collecttopicparticularsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B21FDBC4E20028E888 /* collecttopicparticularsVC.m */; };
 		537F66B61FDBCEB70028E888 /* collecttopicparticularsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */; };
 		537F66B91FDBE1680028E888 /* messagedetalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B81FDBE1680028E888 /* messagedetalVC.m */; };
-		537F66BB1FDD4B1E0028E888 /* port.json in Resources */ = {isa = PBXBuildFile; fileRef = 537F66BA1FDD4B1E0028E888 /* port.json */; };
 		537F66BE1FDE37140028E888 /* messagedetalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66BD1FDE37140028E888 /* messagedetalModel.m */; };
 		537F66C11FDE39C50028E888 /* messagedetalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C01FDE39C50028E888 /* messagedetalCell.m */; };
 		537F66C41FDE4F730028E888 /* mdetalCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C31FDE4F730028E888 /* mdetalCell0.m */; };
@@ -1391,7 +1390,6 @@
 		537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicparticularsCell.m; sourceTree = "<group>"; };
 		537F66B71FDBE1680028E888 /* messagedetalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalVC.h; sourceTree = "<group>"; };
 		537F66B81FDBE1680028E888 /* messagedetalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalVC.m; sourceTree = "<group>"; };
-		537F66BA1FDD4B1E0028E888 /* port.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = port.json; sourceTree = "<group>"; };
 		537F66BC1FDE37140028E888 /* messagedetalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalModel.h; sourceTree = "<group>"; };
 		537F66BD1FDE37140028E888 /* messagedetalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalModel.m; sourceTree = "<group>"; };
 		537F66BF1FDE39C50028E888 /* messagedetalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalCell.h; sourceTree = "<group>"; };
@@ -3979,7 +3977,6 @@
 			children = (
 				53E1DD691FADA14B009965AF /* datareportModel.h */,
 				53E1DD681FADA14B009965AF /* datareportModel.m */,
-				537F66BA1FDD4B1E0028E888 /* port.json */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4225,7 +4222,6 @@
 				181F87291FB437790090EDEF /* Info.plist in Resources */,
 				534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */,
 				181F86CA1FB437790090EDEF /* NTESLogViewController.xib in Resources */,
-				537F66BB1FDD4B1E0028E888 /* port.json in Resources */,
 				181F82A11FB429600090EDEF /* NIMKitResouce.bundle in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
 				181F86771FB437790090EDEF /* NTESRegisterViewController.xib in Resources */,

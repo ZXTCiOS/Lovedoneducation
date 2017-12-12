@@ -127,7 +127,7 @@
         for (int i = 0; i<arr.count; i++) {
             NSDictionary *dic = [arr objectAtIndex:i];
             NSString *name = [dic objectForKey:@"name"];
-            NSString *baifenbi = [dic objectForKey:@"baifenbi"];
+            NSString *baifenbi = [dic objectForKey:@"zhenquelv"];
             [self.namearray addObject:name];
             [self.baifenbiarray addObject:baifenbi];
         }

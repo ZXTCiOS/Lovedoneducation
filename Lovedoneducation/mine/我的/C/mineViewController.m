@@ -125,7 +125,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         return 1;
     }
     if (section==1) {
-        return 9;
+        return 8;
     }
     return 0;
 }
@@ -175,25 +175,8 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
+  
         if (indexPath.row==3) {
-            mineCell2 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid4];
-            if (!cell) {
-                cell = [[mineCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid4];
-            }
-            [cell.mainSwitch setOn:YES];
-            if ([cell.mainSwitch isOn]){
-                NSLog(@"The switch is on.");
-            } else {
-                NSLog(@"The switch is off.");
-            }
-            
-            [cell.mainSwitch addTarget:self
-                                action:@selector(switchIsChanged:)
-                      forControlEvents:UIControlEventValueChanged];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-        if (indexPath.row==4) {
             mineCell1 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid5];
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid5];
@@ -204,7 +187,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
-        if (indexPath.row==5) {
+        if (indexPath.row==4) {
             mineCell1 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid6];
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid6];
@@ -215,7 +198,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
-        if (indexPath.row==6) {
+        if (indexPath.row==5) {
             mineCell1 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid7];
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid7];
@@ -226,7 +209,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
-        if (indexPath.row==7) {
+        if (indexPath.row==6) {
             mineCell1 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid8];
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid8];
@@ -236,7 +219,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
-        if (indexPath.row==8) {
+        if (indexPath.row==7) {
             mineCell1 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid9];
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid9];
@@ -300,20 +283,20 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             vc.InActionType = ENUM_ViewController_ActionTypePush;
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row==4) {
+        if (indexPath.row==3) {
             //课程缓存
             coursescacheVC *vc = [[coursescacheVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row==5) {
+        if (indexPath.row==4) {
             feedbackVC *vc = [[feedbackVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row==6) {
+        if (indexPath.row==5) {
             rankingVC *vc = [[rankingVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row==8) {
+        if (indexPath.row==7) {
             aboutVC *vc = [[aboutVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }

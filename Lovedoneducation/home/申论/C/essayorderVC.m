@@ -26,6 +26,9 @@
 @property (nonatomic,copy) NSString *zhekoumoney;
 @property (nonatomic,copy) NSString *money;
 @property (nonatomic, strong) ZTVendorPayManager *payManager;
+
+@property (nonatomic,copy) NSString *orderid;
+@property (nonatomic,copy)  NSString *out_trade_no ;
 @end
 
 static NSString *essayorderidentfid0 = @"essayorderidentfid0";
@@ -296,13 +299,14 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
     NSString *price = self.money;
+
     NSDictionary *dic = @{@"uid":uid,@"token":token,@"price":price};
     [DNNetworking postWithURLString:POST_WEIXINZHIFU parameters:dic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             NSString *appid = [dic objectForKey:@"appid"];
             NSString *noncestr = [dic objectForKey:@"noncestr"];
-            NSString *out_trade_no = [dic objectForKey:@"out_trade_no"];
+            self.out_trade_no = [dic objectForKey:@"out_trade_no"];
             NSString *package = [dic objectForKey:@"package"];
             NSString *partnerid = [dic objectForKey:@"partnerid"];
             NSString *prepayid = [dic objectForKey:@"prepayid"];
@@ -321,8 +325,22 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             [self.payManager payOrderWith:1 orderModel:model payResultBlock:^(BOOL success, NSError *error) {
                 if (success) {
                     NSLog(@"支付成功");
+                    NSString *uid = [userDefault objectForKey:user_uid];
+                    NSString *token = [userDefault objectForKey:user_token];
+                    NSString *url = [NSString stringWithFormat:GET_successOrder,uid,token,self.orderid];
+                    [DNNetworking getWithURLString:url success:^(id obj) {
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
                 }else{
                     NSLog(@"%@",error);
+                    NSString *url = [NSString stringWithFormat:GET_WEIXINCLONE,self.out_trade_no];
+                    [DNNetworking getWithURLString:url success:^(id obj) {
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
                 }
                 
             }];
@@ -361,7 +379,9 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             NSString *time = [dic objectForKey:@"time"];
             NSString *ucid = [dic objectForKey:@"ucid"];
              */
+            
             NSDictionary *dic = [obj objectForKey:@"data"];
+            self.orderid = [dic objectForKey:@"orderid"];
             NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
             NSLog(@"价格----%@",ordertotalprice);
             [MBProgressHUD showSuccess:@"提交成功" toView:self.table];

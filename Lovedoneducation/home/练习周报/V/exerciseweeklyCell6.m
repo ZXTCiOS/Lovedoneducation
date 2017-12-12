@@ -15,6 +15,8 @@
 @property (nonatomic,strong) BarChat *chartView;
 @property (nonatomic,strong) UILabel *lab1;
 @property (nonatomic,strong) UIView *colorview;
+@property (nonatomic,strong) NSMutableArray *baifenbiarray;
+@property (nonatomic,strong) NSMutableArray *namearray;
 @end
 
 @implementation exerciseweeklyCell6
@@ -24,12 +26,14 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
+        self.baifenbiarray = [NSMutableArray array];
+        self.namearray = [NSMutableArray array];
         [self.contentView addSubview:self.bgview];
         [self.contentView addSubview:self.lab0];
         [self.contentView addSubview:self.lab1];
         [self.contentView addSubview:self.colorview];
         [self.contentView addSubview:self.chartView];
-        [self getdata];
+       // [self getdata];
         [self setuplayout];
     }
     return self;
@@ -122,9 +126,6 @@
     return _colorview ;
 }
 
-
-
-
 -(BarChat *)chartView
 {
     if(!_chartView)
@@ -137,13 +138,31 @@
 
 -(void)getdata
 {
-    _chartView.xValues = @[@"申论",@"测评",@"3",@"4",@"5",@"6",@"7"];
-    
-    _chartView.yValues = @[@1,@2,@4,@5,@7,@8,@10];
+    //_chartView.xValues = @[@"申论",@"测评",@"3",@"4",@"5",@"6",@"7"];
+    _chartView.xValues = self.namearray;
+    //_chartView.yValues = @[@1,@2,@4,@5,@7,@8,@10];
+    _chartView.yValues = self.baifenbiarray;
 }
 
 -(void)setdata:(NSDictionary *)dic
 {
-    
+    NSArray *arr = [dic objectForKey:@"questionlist"];
+    if (arr.count==0) {
+        
+    }
+    else
+    {
+        for (int i = 0; i<arr.count; i++) {
+            NSDictionary *dic = [arr objectAtIndex:i];
+            NSString *name = [dic objectForKey:@"name"];
+            NSString *baifenbi = [NSString stringWithFormat:@"%@",[dic objectForKey:@"baifenbi"]];
+            [self.namearray addObject:name];
+            // 字符串转为NSInteger类型
+            NSInteger num = [baifenbi integerValue];
+            NSNumber * nums = @(num);
+            [self.baifenbiarray addObject:nums];
+        }
+        [self getdata];
+    }
 }
 @end

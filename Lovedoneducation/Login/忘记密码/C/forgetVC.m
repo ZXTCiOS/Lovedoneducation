@@ -183,7 +183,7 @@ static NSString *forgetidentfid4 = @"forgetidentfid4";
 
 -(void)myTabVClick:(UITableViewCell *)cell
 {
-    UITextField *text1 = [self.table viewWithTag:302];
+    UITextField *text1 = [self.table viewWithTag:301];
     NSString *phone = @"";
     if (text1.text.length==0) {
         phone = @"";
@@ -245,26 +245,38 @@ static NSString *forgetidentfid4 = @"forgetidentfid4";
         password1 = text3.text;
     }
     
-    if ([self.verifycode isEqualToString:value]&&self.verifycode.length!=0) {
-        self.ischoose = YES;
-    }else
+    if (self.verifycode.length!=0) {
+        if ([self.verifycode isEqualToString:value]) {
+            self.ischoose = YES;
+        }
+        else
+        {
+             [MBProgressHUD showSuccess:@"验证码错误" toView:self.view];
+        }
+    }
+    else
     {
-        self.ischoose = YES;
+         [MBProgressHUD showSuccess:@"请输入验证码" toView:self.view];
     }
-    if ([password1 isEqualToString:password0]&&password0.length!=0) {
-        NSString *str = password0;
-        NSString *uphone = phone;
-        NSString *upwd = [MD5Tool MD5ForLower32Bate:str];
-        NSDictionary *para = @{@"uname":uphone,@"upwd":upwd};
-        [DNNetworking postWithURLString:POST_forget parameters:para success:^(id obj) {
-            if ([[obj objectForKey:@"code"] intValue]==200) {
-                [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-        } failure:^(NSError *error) {
-            
-        }];
+    
+    //验证码正确
+    if (self.ischoose) {
+        if ([password1 isEqualToString:password0]&&password0.length!=0) {
+            NSString *str = password0;
+            NSString *uphone = phone;
+            NSString *upwd = [MD5Tool MD5ForLower32Bate:str];
+            NSDictionary *para = @{@"uname":uphone,@"upwd":upwd};
+            [DNNetworking postWithURLString:POST_forget parameters:para success:^(id obj) {
+                if ([[obj objectForKey:@"code"] intValue]==200) {
+                    [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+        }
     }
+    
 }
 
 @end

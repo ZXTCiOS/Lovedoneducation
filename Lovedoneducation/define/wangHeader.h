@@ -283,7 +283,7 @@
 
  @return 微信关闭订单
  */
-#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose"
+#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose?GET_WEIXINCLONE=%@"
 /**
  支付宝支付
 

@@ -166,7 +166,14 @@ static NSString *forgetidentfid4 = @"forgetidentfid4";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50*HEIGHT_SCALE;
+    if (indexPath.row==0) {
+        return 50*HEIGHT_SCALE;
+    }
+    else
+    {
+        return 60*HEIGHT_SCALE;
+    }
+    return 60*HEIGHT_SCALE;
 }
 
 -(void)tabletap

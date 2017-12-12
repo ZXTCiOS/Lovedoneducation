@@ -55,7 +55,6 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
 -(void)loaddata
 {
     NSString *uid = [userDefault objectForKey:user_uid];
-    uid = @"2";
     NSString *url = [NSString stringWithFormat:GET_report,uid];
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {

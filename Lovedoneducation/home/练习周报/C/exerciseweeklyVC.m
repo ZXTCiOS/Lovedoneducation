@@ -60,7 +60,6 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
 {
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *url = [NSString stringWithFormat:GET_weekdeport,uid];
-    uid = @"2";
     [DNNetworking getWithURLString:url success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             self.dic = [obj objectForKey:@"data"];

@@ -43,6 +43,7 @@
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
 @property (nonatomic,assign) BOOL isclick;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -248,7 +249,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         //正确答案
         NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
         //时间
-        NSString *uptimes = self.timestr;
+        NSString *uptimes = self.counttime;
         //类型
         NSString *practiceType = @"4";
         NSString *uid = [userDefault objectForKey:user_uid];
@@ -296,7 +297,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -489,6 +490,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
             
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }

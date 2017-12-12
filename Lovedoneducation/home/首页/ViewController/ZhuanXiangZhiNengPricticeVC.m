@@ -45,6 +45,7 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
@@ -250,6 +251,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
             
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }
@@ -278,7 +280,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -352,7 +354,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];

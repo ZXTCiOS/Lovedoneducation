@@ -46,6 +46,7 @@
 @property (nonatomic,strong) NSMutableArray *uplistarr;
 @property (nonatomic,copy) NSString *typestr;
 @property (nonatomic,assign) BOOL isclick;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 @implementation smartgroupvolumeVC
@@ -279,6 +280,7 @@
             self.head.timelab.text = strTime;
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }
@@ -308,7 +310,7 @@
         //正确答案
         NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
         //时间
-        NSString *uptimes = self.timestr;
+        NSString *uptimes = self.counttime;
         //类型
         NSString *practiceType = @"4";
         NSString *uid = [userDefault objectForKey:user_uid];
@@ -384,7 +386,7 @@
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"";
     if ([self.typestr isEqualToString:@"1"]) {

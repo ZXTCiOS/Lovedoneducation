@@ -61,14 +61,21 @@ static NSString *messagedetalidentfid = @"messagedetalidentfid";
 
                 NSArray *data = [obj objectForKey:@"data"];
                 for (int i = 0; i<data.count; i++) {
-                    NSDictionary *dic = [data objectAtIndex:i];
-                    messagedetalModel *model = [messagedetalModel new];
-                    model.qid = [dic objectForKey:@"qid"];
-                    model.content = [dic objectForKey:@"content"];
-                    model.questionintro = [NSMutableArray array];
-                    model.questionintro = [dic objectForKey:@"questionintro"];
-                    model.des = [dic objectForKey:@"des"];
-                    [self.dataSource addObject:model];
+                    NSObject *demoobj = [data objectAtIndex:i];
+                    if ([demoobj isKindOfClass:[NSDictionary class]]) {
+                        NSDictionary *dic = [data objectAtIndex:i];
+                        messagedetalModel *model = [messagedetalModel new];
+                        model.qid = [dic objectForKey:@"qid"];
+                        model.content = [dic objectForKey:@"content"];
+                        model.questionintro = [NSMutableArray array];
+                        model.questionintro = [dic objectForKey:@"questionintro"];
+                        model.des = [dic objectForKey:@"des"];
+                        [self.dataSource addObject:model];
+                    }
+                    else
+                    {
+                        
+                    }
                 }
                 [self.collectionV reloadData];
                 self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",@"1",@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];

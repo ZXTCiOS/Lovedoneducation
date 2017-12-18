@@ -53,7 +53,7 @@
 
 #define LL_ViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 
-
+#define user_denglufangsi @"user_denglufangsi"
 
 #define BASE_URL   @"http://55.irapidtech.net"
 

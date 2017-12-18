@@ -104,7 +104,14 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
     }
     else
     {
-        return 3;
+        NSString *str = [userDefault objectForKey:user_denglufangsi];
+        if ([str isEqualToString:@"2"]) {
+            return 1;
+        }
+        else
+        {
+            return 3;
+        }
     }
 }
 
@@ -180,7 +187,7 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [userDefault removeObjectForKey:user_uid];
         [userDefault removeObjectForKey:user_token];
-        
+        [userDefault removeObjectForKey:user_denglufangsi];
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         startVC *vc = [[startVC alloc] init];
         MainNavigationController *nav = [[MainNavigationController alloc] init];

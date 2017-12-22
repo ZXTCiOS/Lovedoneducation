@@ -211,8 +211,8 @@ static NSString *changepassidentfid4 = @"changepassidentfid4";
     }
     else
     {
-#warning mess
-        self.ischoose = YES;
+        [MBProgressHUD showSuccess:@"验证码不正确" toView:self.view];
+        //self.ischoose = YES;
     }
     NSString *password0 = @"";
     NSString *password1 = @"";

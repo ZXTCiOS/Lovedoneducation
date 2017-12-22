@@ -27,7 +27,7 @@
         [self.contentView addSubview:self.lab0];
         [self.contentView addSubview:self.lab1];
         [self setuplayout];
-        [self getdata];
+
     }
     return self;
 }
@@ -119,10 +119,10 @@
 
 
 
--(void)getdata
+-(void)getdataleft:(NSString *)left andright:(NSString *)right
 {
-    NSString *leftstr = @"138题";
-    NSString *rightstr = @"158题";
+    NSString *leftstr = left;
+    NSString *rightstr = right;
     
     NSMutableAttributedString *attrleftstr = [[NSMutableAttributedString alloc] initWithString:leftstr];
     [attrleftstr addAttribute:NSFontAttributeName
@@ -156,5 +156,21 @@
     self.rightlab.attributedText = attrrightstr;
 }
 
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *str1 = [dic objectForKey:@"userpractic"];
+    NSString *userpractic = @"";
+    if ([strisNull isNullToString:str1]) {
+        userpractic = @"0";
+    }
+    else
+    {
+        userpractic = str1;
+    }
+    NSString *allpractice = [dic objectForKey:@"allpractice"];
+    NSString *left = [NSString stringWithFormat:@"%@%@",userpractic,@"题"];
+    NSString *right = [NSString stringWithFormat:@"%@%@",allpractice,@"题"];
+    [self getdataleft:left andright:right];
+}
 
 @end

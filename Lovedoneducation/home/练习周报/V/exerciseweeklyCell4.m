@@ -117,7 +117,7 @@
         _numberlab.textAlignment = NSTextAlignmentCenter;
         _numberlab.font = [UIFont systemFontOfSize:60];
         _numberlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-        _numberlab.text = @"1.7";
+        //_numberlab.text = @"1.7";
     }
     return _numberlab;
 }
@@ -130,9 +130,14 @@
         _contentlab.textAlignment = NSTextAlignmentCenter;
         _contentlab.font = [UIFont systemFontOfSize:18];
         _contentlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-        _contentlab.text = @"全站平均11题";
+        //_contentlab.text = @"全站平均11题";
     }
     return _contentlab;
 }
-
+-(void)setdata:(NSDictionary *)dic
+{
+    NSString *userminuteplay = [NSString stringWithFormat:@"%@",[dic objectForKey:@"userminuteplay"]];
+    self.numberlab.text = userminuteplay;
+    self.contentlab.text = [NSString stringWithFormat:@"%@%@%@",@"全站平均",userminuteplay,@"题"];
+}
 @end

@@ -42,8 +42,8 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
-
 @property (nonatomic,assign) BOOL isclick;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 static NSString *realcellidentfid = @"realcellidentfid";
@@ -240,7 +240,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
             }
         }
         NSLog(@"arr0-----%@",arr0);
-        NSString *upliststr = [arr0 toReadableJSONString];
+        NSString *upliststr = [strisNull arrayToJSONString:arr0];
         NSLog(@"str-----%@",upliststr);
         //错误答案
         NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -249,7 +249,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         //正确答案
         NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
         //时间
-        NSString *uptimes = self.timestr;
+        NSString *uptimes = self.counttime;
         //类型
         NSString *practiceType = @"4";
         NSString *uid = [userDefault objectForKey:user_uid];
@@ -288,7 +288,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
         }
     }
     NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
+    NSString *upliststr = [strisNull arrayToJSONString:arr0];
     NSLog(@"str-----%@",upliststr);
     //错误答案
     NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -297,7 +297,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -306,21 +306,23 @@ static NSString *realcellidentfid = @"realcellidentfid";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        
-        realpartcardVC *vc = [[realpartcardVC alloc] init];
-        vc.modeldata = self.dataSource;
-        vc.dataSource = self.cardtypeArray;
-        vc.xuanzearr = self.arrayDatasource;
-        vc.upnoarray = self.xuanzearray;
-        //    vc.upquestion = self.upquestion;
-        vc.practiceType = practiceType;
-        vc.uptimes = uptimes;
-        vc.upno = upno;
-        vc.upquestion = upquestion;
-        vc.upyes = upyes;
-        vc.uplist = upliststr;
-        vc.typestr = @"4";
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            realpartcardVC *vc = [[realpartcardVC alloc] init];
+            vc.modeldata = self.dataSource;
+            vc.dataSource = self.cardtypeArray;
+            vc.xuanzearr = self.arrayDatasource;
+            vc.upnoarray = self.xuanzearray;
+            //    vc.upquestion = self.upquestion;
+            vc.practiceType = practiceType;
+            vc.uptimes = uptimes;
+            vc.upno = upno;
+            vc.upquestion = upquestion;
+            vc.upyes = upyes;
+            vc.uplist = upliststr;
+            vc.typestr = @"4";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     } failure:^(NSError *error) {
         
     }];
@@ -488,6 +490,7 @@ static NSString *realcellidentfid = @"realcellidentfid";
             
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }

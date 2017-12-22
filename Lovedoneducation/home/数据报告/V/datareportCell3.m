@@ -94,7 +94,7 @@
     {
         _righttextlab = [[UILabel alloc] init];
         _righttextlab.textAlignment = NSTextAlignmentCenter;
-        _righttextlab.text = @"188288/1212131";
+//        _righttextlab.text = @"188288/1212131";
         _righttextlab.font = [UIFont systemFontOfSize:20];
         _righttextlab.textColor = [UIColor colorWithHexString:@"FF9B19"];
     }
@@ -116,7 +116,25 @@
 
 -(void)setdata:(NSDictionary *)dic
 {
+    NSString *users = [dic objectForKey:@"users"];
+    NSString *questionranking = [dic objectForKey:@"questionranking"];
+    NSString *str1 = [NSString stringWithFormat:@"%@%@",questionranking,@"/"];
     
+    NSString *str = [NSString stringWithFormat:@"%@%@",str1,users];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"909090"]
+                    range:NSMakeRange(str1.length, users.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:20.0f]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:16.0f]
+                    range:NSMakeRange(str1.length, users.length)];
+    self.righttextlab.attributedText = attrStr;
 }
 
 @end

@@ -455,7 +455,11 @@
 		537F66B31FDBC4E20028E888 /* collecttopicparticularsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B21FDBC4E20028E888 /* collecttopicparticularsVC.m */; };
 		537F66B61FDBCEB70028E888 /* collecttopicparticularsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */; };
 		537F66B91FDBE1680028E888 /* messagedetalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66B81FDBE1680028E888 /* messagedetalVC.m */; };
-		537F66BB1FDD4B1E0028E888 /* port.json in Resources */ = {isa = PBXBuildFile; fileRef = 537F66BA1FDD4B1E0028E888 /* port.json */; };
+		537F66BE1FDE37140028E888 /* messagedetalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66BD1FDE37140028E888 /* messagedetalModel.m */; };
+		537F66C11FDE39C50028E888 /* messagedetalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C01FDE39C50028E888 /* messagedetalCell.m */; };
+		537F66C41FDE4F730028E888 /* mdetalCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C31FDE4F730028E888 /* mdetalCell0.m */; };
+		537F66C71FDE4F9E0028E888 /* mdetalCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C61FDE4F9E0028E888 /* mdetalCell1.m */; };
+		537F66CA1FDE4FA80028E888 /* mdetalCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F66C91FDE4FA80028E888 /* mdetalCell2.m */; };
 		539527BC1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */; };
 		53963AAC1FA05F56009AEFCA /* RMDashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAB1FA05F56009AEFCA /* RMDashLineView.m */; };
 		53963AAF1FA060F5009AEFCA /* coursescacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53963AAE1FA060F5009AEFCA /* coursescacheCell.m */; };
@@ -1414,7 +1418,16 @@
 		537F66B51FDBCEB70028E888 /* collecttopicparticularsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = collecttopicparticularsCell.m; sourceTree = "<group>"; };
 		537F66B71FDBE1680028E888 /* messagedetalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalVC.h; sourceTree = "<group>"; };
 		537F66B81FDBE1680028E888 /* messagedetalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalVC.m; sourceTree = "<group>"; };
-		537F66BA1FDD4B1E0028E888 /* port.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = port.json; sourceTree = "<group>"; };
+		537F66BC1FDE37140028E888 /* messagedetalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalModel.h; sourceTree = "<group>"; };
+		537F66BD1FDE37140028E888 /* messagedetalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalModel.m; sourceTree = "<group>"; };
+		537F66BF1FDE39C50028E888 /* messagedetalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messagedetalCell.h; sourceTree = "<group>"; };
+		537F66C01FDE39C50028E888 /* messagedetalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messagedetalCell.m; sourceTree = "<group>"; };
+		537F66C21FDE4F730028E888 /* mdetalCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mdetalCell0.h; sourceTree = "<group>"; };
+		537F66C31FDE4F730028E888 /* mdetalCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mdetalCell0.m; sourceTree = "<group>"; };
+		537F66C51FDE4F9E0028E888 /* mdetalCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mdetalCell1.h; sourceTree = "<group>"; };
+		537F66C61FDE4F9E0028E888 /* mdetalCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mdetalCell1.m; sourceTree = "<group>"; };
+		537F66C81FDE4FA80028E888 /* mdetalCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mdetalCell2.h; sourceTree = "<group>"; };
+		537F66C91FDE4FA80028E888 /* mdetalCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mdetalCell2.m; sourceTree = "<group>"; };
 		539527BA1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZYExtension.h"; sourceTree = "<group>"; };
 		539527BB1FD56DC300A92EAE /* UIBarButtonItem+ZYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZYExtension.m"; sourceTree = "<group>"; };
 		53963AAA1FA05F56009AEFCA /* RMDashLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMDashLineView.h; sourceTree = "<group>"; };
@@ -3416,6 +3429,14 @@
 			children = (
 				534B4A381FA1CE4F00A68BA7 /* messageCell.h */,
 				534B4A391FA1CE4F00A68BA7 /* messageCell.m */,
+				537F66BF1FDE39C50028E888 /* messagedetalCell.h */,
+				537F66C01FDE39C50028E888 /* messagedetalCell.m */,
+				537F66C21FDE4F730028E888 /* mdetalCell0.h */,
+				537F66C31FDE4F730028E888 /* mdetalCell0.m */,
+				537F66C51FDE4F9E0028E888 /* mdetalCell1.h */,
+				537F66C61FDE4F9E0028E888 /* mdetalCell1.m */,
+				537F66C81FDE4FA80028E888 /* mdetalCell2.h */,
+				537F66C91FDE4FA80028E888 /* mdetalCell2.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3425,6 +3446,8 @@
 			children = (
 				534B4A3B1FA1D40600A68BA7 /* messageModel.h */,
 				534B4A3C1FA1D40600A68BA7 /* messageModel.m */,
+				537F66BC1FDE37140028E888 /* messagedetalModel.h */,
+				537F66BD1FDE37140028E888 /* messagedetalModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4015,7 +4038,6 @@
 			children = (
 				53E1DD691FADA14B009965AF /* datareportModel.h */,
 				53E1DD681FADA14B009965AF /* datareportModel.m */,
-				537F66BA1FDD4B1E0028E888 /* port.json */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4264,7 +4286,6 @@
 				181F87291FB437790090EDEF /* Info.plist in Resources */,
 				534B49C91FA0D75D00A68BA7 /* w_star_white@2x.png in Resources */,
 				181F86CA1FB437790090EDEF /* NTESLogViewController.xib in Resources */,
-				537F66BB1FDD4B1E0028E888 /* port.json in Resources */,
 				181F82A11FB429600090EDEF /* NIMKitResouce.bundle in Resources */,
 				1822E4541F9E10A500C92DEA /* HomeBannerView.xib in Resources */,
 				181F86771FB437790090EDEF /* NTESRegisterViewController.xib in Resources */,
@@ -4704,6 +4725,7 @@
 				186420831FA1D302004DF7A4 /* LiveOrderCell.m in Sources */,
 				535A35901FBC340300F4EA06 /* cardModel.m in Sources */,
 				535EFE5E1FCBFA1700A5DA77 /* realparlcardModel.m in Sources */,
+				537F66BE1FDE37140028E888 /* messagedetalModel.m in Sources */,
 				531A7F501FBD6ADD009E8934 /* collecttopicVC.m in Sources */,
 				181F865C1FB437790090EDEF /* UIImage+NTESColor.m in Sources */,
 				181F867F1FB437790090EDEF /* NTESMeetingNetCallManager.m in Sources */,
@@ -4778,6 +4800,7 @@
 				5317DE591F97610300D4AE2C /* startVC.m in Sources */,
 				181F865B1FB437790090EDEF /* UIImage+NTES.m in Sources */,
 				181F87211FB437790090EDEF /* NIMTeamAnnouncementListCell.m in Sources */,
+				537F66C11FDE39C50028E888 /* messagedetalCell.m in Sources */,
 				18283D0D1F9F093800111352 /* ZhuanXiangZhiNengPricticeVC.m in Sources */,
 				537F66B31FDBC4E20028E888 /* collecttopicparticularsVC.m in Sources */,
 				53B851A71FB054F700608925 /* BarChat.m in Sources */,
@@ -4831,6 +4854,7 @@
 				534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */,
 				181F86F41FB437790090EDEF /* NIMBaseSessionContentConfig.m in Sources */,
 				181F86CC1FB437790090EDEF /* NTESSessionUtil.m in Sources */,
+				537F66CA1FDE4FA80028E888 /* mdetalCell2.m in Sources */,
 				181F86ED1FB437790090EDEF /* NIMInputToolBar.m in Sources */,
 				53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
@@ -4838,6 +4862,7 @@
 				181F871F1FB437790090EDEF /* NIMAdvancedTeamMemberCell.m in Sources */,
 				181F870D1FB437790090EDEF /* NIMSessionNotificationContentView.m in Sources */,
 				535BE2BC1FB446FB00A6E89E /* headView.m in Sources */,
+				537F66C41FDE4F730028E888 /* mdetalCell0.m in Sources */,
 				5317DE651F985F7300D4AE2C /* logupCell1.m in Sources */,
 				181F86E41FB437790090EDEF /* NIMContactSelectViewController.m in Sources */,
 				181F871D1FB437790090EDEF /* NIMTeamMemberCardViewController.m in Sources */,
@@ -4870,6 +4895,7 @@
 				181F86851FB437790090EDEF /* NTESChatroomViewController.m in Sources */,
 				537F66A81FD9A7D10028E888 /* chooseView.m in Sources */,
 				181F86FE1FB437790090EDEF /* NIMDefaultValueMaker.m in Sources */,
+				537F66C71FDE4F9E0028E888 /* mdetalCell1.m in Sources */,
 				53E887421F9EEB8F00CC6909 /* changephoneCell2.m in Sources */,
 				181F87231FB437790090EDEF /* NIMTeamSwitchTableViewCell.m in Sources */,
 				189D53C91FA7418700600947 /* FSCalendarDelegationFactory.m in Sources */,

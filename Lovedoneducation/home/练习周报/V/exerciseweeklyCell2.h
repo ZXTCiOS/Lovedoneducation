@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface exerciseweeklyCell2 : UITableViewCell
-
+-(void)setdata:(NSDictionary *)dic;
 @end

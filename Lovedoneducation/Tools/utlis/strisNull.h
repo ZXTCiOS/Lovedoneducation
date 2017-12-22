@@ -12,4 +12,14 @@
 + (BOOL )isNullToString:(id)string;
 +(NSString *)getNowTimeTimestamp;
 + (NSString *)timeWithTimeIntervalString:(NSString *)timeString;
+
+
++(NSString *)dictionaryToJSONString:(NSDictionary *)dictionary;
+/**
+ 数组转json
+ 
+ @param array 数组
+ @return json字符串
+ */
++ (NSString *)arrayToJSONString:(NSArray *)array;
 @end

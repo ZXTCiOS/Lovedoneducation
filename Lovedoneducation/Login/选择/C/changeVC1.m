@@ -115,6 +115,7 @@ static NSString *changevc1identfid = @"changevc1identfid";
                 [defat setObject:uid forKey:user_uid];
                 NSString *imtoken = [dic objectForKey:@"acctoken"];
                 [userDefault setObject:imtoken forKey:user_imtoken];
+                [userDefault setObject:@"1" forKey:user_denglufangsi];
                 [defat synchronize];
                 [self NIMLogin];
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

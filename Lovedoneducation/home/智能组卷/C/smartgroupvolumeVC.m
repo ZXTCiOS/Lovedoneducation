@@ -46,6 +46,7 @@
 @property (nonatomic,strong) NSMutableArray *uplistarr;
 @property (nonatomic,copy) NSString *typestr;
 @property (nonatomic,assign) BOOL isclick;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 @implementation smartgroupvolumeVC
@@ -279,6 +280,7 @@
             self.head.timelab.text = strTime;
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }
@@ -299,7 +301,7 @@
             }
         }
         NSLog(@"arr0-----%@",arr0);
-        NSString *upliststr = [arr0 toReadableJSONString];
+        NSString *upliststr = [strisNull arrayToJSONString:arr0];
         NSLog(@"str-----%@",upliststr);
         //错误答案
         NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -308,7 +310,7 @@
         //正确答案
         NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
         //时间
-        NSString *uptimes = self.timestr;
+        NSString *uptimes = self.counttime;
         //类型
         NSString *practiceType = @"4";
         NSString *uid = [userDefault objectForKey:user_uid];
@@ -375,7 +377,7 @@
         }
     }
     NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
+    NSString *upliststr = [strisNull arrayToJSONString:arr0];
     NSLog(@"str-----%@",upliststr);
     //错误答案
     NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -384,7 +386,7 @@
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"";
     if ([self.typestr isEqualToString:@"1"]) {
@@ -405,20 +407,21 @@
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        
-        realpartcardVC *vc = [[realpartcardVC alloc] init];
-        vc.modeldata = self.dataSource;
-        vc.dataSource = self.cardtypeArray;
-        vc.xuanzearr = self.arrayDatasource;
-        vc.upnoarray = self.xuanzearray;
-        //    vc.upquestion = self.upquestion;
-        vc.practiceType = practiceType;
-        vc.uptimes = uptimes;
-        vc.upno = upno;
-        vc.upquestion = upquestion;
-        vc.upyes = upyes;
-        vc.uplist = upliststr;
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            realpartcardVC *vc = [[realpartcardVC alloc] init];
+            vc.modeldata = self.dataSource;
+            vc.dataSource = self.cardtypeArray;
+            vc.xuanzearr = self.arrayDatasource;
+            vc.upnoarray = self.xuanzearray;
+            vc.practiceType = practiceType;
+            vc.uptimes = uptimes;
+            vc.upno = upno;
+            vc.upquestion = upquestion;
+            vc.upyes = upyes;
+            vc.uplist = upliststr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     } failure:^(NSError *error) {
         
     }];

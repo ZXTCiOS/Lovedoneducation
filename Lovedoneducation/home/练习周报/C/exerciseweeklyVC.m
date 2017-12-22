@@ -18,6 +18,8 @@
 
 @interface exerciseweeklyVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSDictionary *dic;
+@property (nonatomic,assign) BOOL isshow;
 @end
 
 static NSString *exercisidentfid0 = @"exercisidentfid0";
@@ -35,6 +37,8 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"练习周报";
+    self.dic = [NSDictionary dictionary];
+    self.isshow = NO;
     [self.view addSubview:self.table];
     if (@available(iOS 11.0, *)){
         self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
@@ -57,7 +61,11 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *url = [NSString stringWithFormat:GET_weekdeport,uid];
     [DNNetworking getWithURLString:url success:^(id obj) {
-        
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            self.dic = [obj objectForKey:@"data"];
+            self.isshow = YES;
+            [self.table reloadData];
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -90,6 +98,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         if (!cell) {
             cell = [[exerciseweeklyCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid0];
         }
+        if (self.isshow) {
+            [cell setdata:self.dic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -97,6 +108,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         exerciseweeklyCell1 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid1];
         if (!cell) {
             cell = [[exerciseweeklyCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid1];
+        }
+        if (self.isshow) {
+            [cell setdata:self.dic];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -106,6 +120,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         if (!cell) {
             cell = [[exerciseweeklyCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid2];
         }
+        if (self.isshow) {
+            [cell setdata:self.dic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -113,6 +130,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         exerciseweeklyCell3 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid3];
         if (!cell) {
             cell = [[exerciseweeklyCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid3];
+        }
+        if (self.isshow) {
+            [cell setdata:self.dic];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -122,6 +142,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         if (!cell) {
             cell = [[exerciseweeklyCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid4];
         }
+        if (self.isshow) {
+            [cell setdata:self.dic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -129,6 +152,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         exerciseweeklyCell5 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid5];
         if (!cell) {
             cell = [[exerciseweeklyCell5 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid5];
+        }
+        if (self.isshow) {
+            [cell setdata:self.dic];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -138,6 +164,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         if (!cell) {
             cell = [[exerciseweeklyCell6 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid6];
         }
+        if (self.isshow) {
+            [cell setdata:self.dic];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -145,6 +174,9 @@ static NSString *exercisidentfid7 = @"exercisidentfid7";
         exerciseweeklyCell7 *cell = [tableView dequeueReusableCellWithIdentifier:exercisidentfid7];
         if (!cell) {
             cell = [[exerciseweeklyCell7 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exercisidentfid7];
+        }
+        if (self.isshow) {
+            [cell setdata:self.dic];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

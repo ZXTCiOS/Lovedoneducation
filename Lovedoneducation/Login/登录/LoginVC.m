@@ -300,6 +300,7 @@
             [userDefault setObject:token forKey:user_token];
             [userDefault setObject:uid forKey:user_uid];
             NSString *imtoken = [dic objectForKey:@"acctoken"];
+            [userDefault setObject:@"1" forKey:user_denglufangsi];
             [userDefault setObject:imtoken forKey:user_imtoken];
             [userDefault synchronize];
             [self NIMLogin];
@@ -380,6 +381,7 @@
                 [userDefault setObject:uid forKey:user_uid];
                 NSString *imtoken = [dic objectForKey:@"acctoken"];
                 [userDefault setObject:imtoken forKey:user_imtoken];
+                [userDefault setObject:@"2" forKey:user_denglufangsi];
                 [userDefault synchronize];
                 [self NIMLogin];
                 //hide
@@ -415,6 +417,7 @@
                 [userDefault setObject:uid forKey:user_uid];
                 NSString *imtoken = [dic objectForKey:@"acctoken"];
                 [userDefault setObject:imtoken forKey:user_imtoken];
+                [userDefault setObject:@"2" forKey:user_denglufangsi];
                 [userDefault synchronize];
                 [self NIMLogin];
                 //hide

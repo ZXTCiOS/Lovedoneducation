@@ -45,6 +45,7 @@
 @property (nonatomic,strong) NSMutableArray *xuanzearray;
 @property (nonatomic,strong) NSMutableArray *upquestion;//题目id
 @property (nonatomic,strong) NSMutableArray *uplistarr;
+@property (nonatomic,copy) NSString *counttime;
 @end
 
 static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
@@ -250,6 +251,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
             
         });
         _timeCount ++;
+        self.counttime = [NSString stringWithFormat:@"%d",_timeCount];
     });
     dispatch_resume(timer);
 }
@@ -269,7 +271,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
         }
     }
     NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
+    NSString *upliststr = [strisNull arrayToJSONString:arr0];
     NSLog(@"str-----%@",upliststr);
     //错误答案
     NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -278,7 +280,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -343,7 +345,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
         }
     }
     NSLog(@"arr0-----%@",arr0);
-    NSString *upliststr = [arr0 toReadableJSONString];
+    NSString *upliststr = [strisNull arrayToJSONString:arr0];
     NSLog(@"str-----%@",upliststr);
     //错误答案
     NSString *upno = [self.arrayDatasource componentsJoinedByString:@","];
@@ -352,7 +354,7 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     //正确答案
     NSString *upyes = [self.xuanzearray componentsJoinedByString:@","];
     //时间
-    NSString *uptimes = self.timestr;
+    NSString *uptimes = self.counttime;
     //类型
     NSString *practiceType = @"4";
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -361,21 +363,22 @@ static NSString *zhuanxiangidentfid = @"zhuanxiangidentfid";
     NSLog(@"dic-----%@",dic);
     
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
-        
-        realpartcardVC *vc = [[realpartcardVC alloc] init];
-        vc.modeldata = self.dataSource;
-        vc.dataSource = self.cardtypeArray;
-        vc.xuanzearr = self.arrayDatasource;
-        vc.upnoarray = self.xuanzearray;
-        //    vc.upquestion = self.upquestion;
-        vc.practiceType = practiceType;
-        vc.uptimes = uptimes;
-        vc.upno = upno;
-        vc.upquestion = upquestion;
-        vc.upyes = upyes;
-        vc.uplist = upliststr;
-        vc.typestr = @"5";
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            realpartcardVC *vc = [[realpartcardVC alloc] init];
+            vc.modeldata = self.dataSource;
+            vc.dataSource = self.cardtypeArray;
+            vc.xuanzearr = self.arrayDatasource;
+            vc.upnoarray = self.xuanzearray;
+            vc.practiceType = practiceType;
+            vc.uptimes = uptimes;
+            vc.upno = upno;
+            vc.upquestion = upquestion;
+            vc.upyes = upyes;
+            vc.uplist = upliststr;
+            vc.typestr = @"5";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     } failure:^(NSError *error) {
         
     }];

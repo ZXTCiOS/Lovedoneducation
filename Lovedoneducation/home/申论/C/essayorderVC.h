@@ -15,4 +15,6 @@
 
 @property (nonatomic,copy) NSString *mqid;
 @property (nonatomic,copy) NSString *markintro;
+
+@property (nonatomic,strong) NSMutableDictionary *para;
 @end

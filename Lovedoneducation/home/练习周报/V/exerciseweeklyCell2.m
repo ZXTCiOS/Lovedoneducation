@@ -20,6 +20,8 @@
 @property (nonatomic,strong) UILabel *rightlab;
 @property (nonatomic,strong) UILabel *lefttextlab;
 @property (nonatomic,strong) UILabel *righttextlab;
+@property (nonatomic,strong) NSMutableArray *weeklist;
+
 @end
 
 @implementation exerciseweeklyCell2
@@ -38,7 +40,7 @@
         [self.contentView addSubview:self.rightlab];
         [self.contentView addSubview:self.lefttextlab];
         [self.contentView addSubview:self.righttextlab];
-        [self redrawLineChart];
+
         [self setuplayout];
     }
     return self;
@@ -149,10 +151,9 @@
     if(!_lefttextlab)
     {
         _lefttextlab = [[UILabel alloc] init];
-        _lefttextlab.text = @"56名";
         _lefttextlab.font = [UIFont systemFontOfSize:30];
         _lefttextlab.textAlignment = NSTextAlignmentCenter;
-        _lefttextlab.textColor = [UIColor colorWithHexString:@"08D2B2"];
+//        _lefttextlab.textColor = [UIColor colorWithHexString:@"08D2B2"];
     }
     return _lefttextlab;
 }
@@ -164,7 +165,7 @@
         _righttextlab = [[UILabel alloc] init];
         _righttextlab.textColor = [UIColor colorWithHexString:@"FF9B19"];
         _righttextlab.textAlignment = NSTextAlignmentCenter;
-        _righttextlab.text = @"232113/703345";
+       
         _righttextlab.font = [UIFont systemFontOfSize:30];
     }
     return _righttextlab;
@@ -201,7 +202,8 @@
 #pragma mark - private
 - (void) redrawLineChart {
     YZLineChartModel *lineChart1 = [[YZLineChartModel alloc] init];
-    lineChart1.data = @[@10, @20,@30,@40,@50,@60,@70];
+    //lineChart1.data = @[@10, @20,@30,@40,@50,@60,@70];
+    lineChart1.data = self.weeklist;
     lineChart1.lineColor = [UIColor colorWithHexString:@"08D2B2"];
     [self.lineChartView reDrawLineChartWithDimensionData:@[@"周一", @"周二", @"周三",@"周四",@"周五",@"周六",@"周日"] chartData: @[lineChart1]];
  
@@ -230,6 +232,64 @@
     [self redrawLineChart];
 }
 
-
+-(void)setdata:(NSDictionary *)dic
+{
+    self.weeklist = [NSMutableArray array];
+    NSArray *arr = [dic objectForKey:@"weeklist"];
+    if (arr.count!=0) {
+        self.weeklist = [dic objectForKey:@"weeklist"];
+        [self redrawLineChart];
+    }
+    NSString *rankingup = [NSString stringWithFormat:@"%@",[dic objectForKey:@"rankingup"]];
+    NSString *str1 = @"名";
+    NSString *str = [NSString stringWithFormat:@"%@%@",rankingup,str1];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"08D2B2"]
+                    range:NSMakeRange(0, rankingup.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(rankingup.length, str1.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:30.0f]
+                    range:NSMakeRange(0, rankingup.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:13.0f]
+                    range:NSMakeRange(rankingup.length, str1.length)];
+    self.lefttextlab.attributedText = attrStr;
+    
+    NSString *ranking = @"";
+    NSString *alluser = @"";
+    if (![strisNull isNullToString:[dic objectForKey:@"ranking"]]) {
+         ranking = [dic objectForKey:@"ranking"];
+    }
+    else
+    {
+        ranking = @"0";
+    }
+    if (![strisNull isNullToString:[dic objectForKey:@"alluser"]]) {
+        alluser = [dic objectForKey:@"alluser"];
+    }
+    else
+    {
+        alluser = @"0";
+    }
+    NSString *str2 = [NSString stringWithFormat:@"%@%@",ranking,@"/"];
+    NSString *newstr = [NSString stringWithFormat:@"%@%@",str2,alluser];
+    NSMutableAttributedString *newattrStr = [[NSMutableAttributedString alloc] initWithString:newstr];
+    [newattrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"08D2B2"]
+                    range:NSMakeRange(0, str2.length)];
+    [newattrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(str2.length, alluser.length)];
+    [newattrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:30.0f]
+                    range:NSMakeRange(0, str2.length)];
+    [newattrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:13.0f]
+                    range:NSMakeRange(str2.length, alluser.length)];
+    self.righttextlab.attributedText = newattrStr;
+}
 
 @end

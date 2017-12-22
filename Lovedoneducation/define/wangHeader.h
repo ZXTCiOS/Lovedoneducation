@@ -53,7 +53,7 @@
 
 #define LL_ViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 
-
+#define user_denglufangsi @"user_denglufangsi"
 
 #define BASE_URL   @"http://55.irapidtech.net"
 
@@ -283,11 +283,19 @@
 
  @return 微信关闭订单
  */
-#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose"
+#define GET_WEIXINCLONE @"/app.php/Wxpay/orderclose?GET_WEIXINCLONE=%@"
 /**
  支付宝支付
 
  @return 支付宝支付
  */
-#define GET_ZHIFUBAO @"/app.php/AliPay/sendString?uid=%@&token=%@&price=%@"
+#define POST_ZHIFUBAO @"/app.php/AliPay/sendString"
+
+
+/**
+ 下单成功回调
+
+ @return
+ */
+#define GET_successOrder @"/app.php/order/successOrder?uid=%@&toke=%@&orderid=%@"
 #endif /* wangHeader_h */

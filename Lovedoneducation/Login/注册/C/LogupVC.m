@@ -58,7 +58,6 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     [self.navigationController.navigationBar setHidden:NO];
 }
 
-
 #pragma mark - getters
 
 -(UITableView *)table
@@ -242,9 +241,7 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     if (text2.text.length==0||self.verifycode!=text2.text) {
         valuestr = @"";
         
-#warning 标记验证码 -- 003 等待修改
-        
-        valuetype = YES;
+        //valuetype = YES;
         [MBProgressHUD showSuccess:@"请输入正确的验证码" toView:self.view];
     }
     else
@@ -283,7 +280,6 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
         vc.upwd = password;
         vc.uphone = phonestr;
         [self.navigationController pushViewController:vc animated:YES];
-
     }
 }
 
@@ -305,10 +301,12 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.verifycode = [dic objectForKey:@"verifycode"];
         }
+        if ([[obj objectForKey:@"code"] intValue]==002) {
+            [MBProgressHUD showSuccess:@"账号已经存在" toView:self.view];
+        }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
-    
 }
 
 -(void)tabletap

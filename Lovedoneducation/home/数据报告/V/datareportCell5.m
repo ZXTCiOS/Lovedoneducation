@@ -24,6 +24,8 @@
         [self.contentView addSubview:self.timelab];
         [self.contentView addSubview:self.contentlab];
         [self setuplayout];
+        NSString *time = [self getCurrentTimes];
+        self.timelab.text = [NSString stringWithFormat:@"%@%@",@"生成时间：",time];
     }
     return self;
 }
@@ -50,7 +52,8 @@
     if(!_timelab)
     {
         _timelab = [[UILabel alloc] init];
-        _timelab.text = @"生成时间：2017.09.04 14:44";
+        //_timelab.text = @"生成时间：2017.09.04 14:44";
+     
         _timelab.textColor = [UIColor colorWithHexString:@"646464"];
         _timelab.textAlignment = NSTextAlignmentCenter;
         _timelab.font = [UIFont systemFontOfSize:12];
@@ -71,6 +74,17 @@
     return _contentlab;
 }
 
+-(NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    //现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
+    //----------将nsdate按formatter格式转成nsstring
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
 
 -(void)setdata:(NSDictionary *)dic
 {

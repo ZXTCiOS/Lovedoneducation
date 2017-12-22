@@ -112,7 +112,6 @@
     {
         _numberlab = [[UILabel alloc] init];
         _numberlab.textAlignment = NSTextAlignmentCenter;
-        _numberlab.text = @"15道";
         _numberlab.font = [UIFont fontWithName:@"SanFranciscoDisplay" size:44];
         _numberlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         _numberlab.font = [UIFont systemFontOfSize:42];
@@ -126,7 +125,6 @@
     {
         _percentlab = [[UILabel alloc] init];
         _percentlab.textAlignment = NSTextAlignmentCenter;
-        _percentlab.text = @"40%";
         _percentlab.font = [UIFont fontWithName:@"SanFranciscoDisplay" size:44];
         _percentlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         _percentlab.font = [UIFont systemFontOfSize:42];
@@ -138,6 +136,9 @@
 {
     NSString *userpnum = [dic objectForKey:@"userpnum"];
     self.numberlab.text = userpnum;
+    NSString *score = [dic objectForKey:@"score"];
+    int scoreint = [score intValue];
+    self.percentlab.text = [NSString stringWithFormat:@"%d%@",scoreint,@"%"];
 }
 
 @end

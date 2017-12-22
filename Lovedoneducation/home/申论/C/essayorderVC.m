@@ -29,6 +29,7 @@
 
 @property (nonatomic,copy) NSString *orderid;
 @property (nonatomic,copy)  NSString *out_trade_no ;
+@property (nonatomic,copy) NSString *ordersn;
 @end
 
 static NSString *essayorderidentfid0 = @"essayorderidentfid0";
@@ -273,8 +274,11 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
     NSString *price = self.money;
-    NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
-    [DNNetworking getWithURLString:url success:^(id obj) {
+    
+    //NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
+    
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"ordersn":self.ordersn};
+    [DNNetworking postWithURLString:POST_ZHIFUBAO parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             NSString *str = [dic objectForKey:@"str"];
@@ -288,7 +292,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
                 }
             }];
         }
-      
+
     } failure:^(NSError *error) {
         
     }];
@@ -382,6 +386,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.orderid = [dic objectForKey:@"orderid"];
+            self.ordersn = [dic objectForKey:@"ordersn"];
             NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
             NSLog(@"价格----%@",ordertotalprice);
             [MBProgressHUD showSuccess:@"提交成功" toView:self.table];

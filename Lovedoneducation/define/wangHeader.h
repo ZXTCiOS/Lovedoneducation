@@ -289,7 +289,7 @@
 
  @return 支付宝支付
  */
-#define GET_ZHIFUBAO @"/app.php/AliPay/sendString?uid=%@&token=%@&price=%@"
+#define POST_ZHIFUBAO @"/app.php/AliPay/sendString"
 
 
 /**

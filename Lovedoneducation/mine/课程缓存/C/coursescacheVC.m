@@ -10,8 +10,10 @@
 #import "coursescacheCell.h"
 #import <ZFDownloadManager.h>
 #import "LiveModel.h"
+#import "LievWhiteboardRecoredVC.h"
 
-@interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, ZFDownloadDelegate>
+
+@interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, ZFDownloadDelegate, DZNEmptyDataSetSource>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) ZFDownloadManager *downloadManager;
@@ -67,6 +69,18 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark empty datasource
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    return [UIImage imageNamed:@"huancun_icon_kechengwuhuancun"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    NSString *string = @"您还没有缓存课程";
+    UIFont *font = [UIFont systemFontOfSize:16];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
+    return str;
+}
 
 
 #pragma mark - getters
@@ -78,6 +92,7 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
         _table = [[UITableView alloc] init];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.emptyDataSetSource = self;
     }
     return _table;
 }
@@ -133,6 +148,21 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
         [self.dataSource removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    LievWhiteboardRecoredVC *vc = [[LievWhiteboardRecoredVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (BOOL)shouldAutorotate{
+    return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 

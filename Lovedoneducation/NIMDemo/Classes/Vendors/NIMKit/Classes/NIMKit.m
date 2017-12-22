@@ -109,8 +109,7 @@ NSString *const NIMKitChatroomMembersKey              = @"NIMKitChatroomMembersK
 
 }
 
-- (NIMKitInfo *)infoByUser:(NSString *)userId
-               withMessage:(NIMMessage *)message
+- (NIMKitInfo *)infoByUser:(NSString *)userId withMessage:(NIMMessage *)message
 {
     NSAssert([userId isEqualToString:message.from], @"user id should be same with message from");
     

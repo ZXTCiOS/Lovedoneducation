@@ -11,7 +11,7 @@
 #import "LiveCourseCell.h"
 #import "LiveCourseDetailVC.h"
 #import "MyCourseViewController.h"
-
+#import "typeVC0.h"
 
 @interface liveViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -34,13 +34,14 @@
 - (void)configNaviBar{
     //self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.title = [userDefault objectForKey:user_type];
-    UIBarButtonItem *leftItemChange = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"kechengxuanze_icon_nav"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftActionChange)];
+    UIBarButtonItem *leftItemChange = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"kechengxuanze_icon_nav"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftActionChange1)];
     self.navigationItem.leftBarButtonItem = leftItemChange;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
 }
 
-- (void)leftActionChange{
-    
+- (void)leftActionChange1{
+    typeVC0 *vc = [[typeVC0 alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tableheaderView{

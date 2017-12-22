@@ -18,6 +18,7 @@
 #import "NIMAttributedLabel.h"
 #import "UIImage+NIM.h"
 #import "NIMSessionUnknowContentView.h"
+#import "NTESDataManager.h"
 
 @interface NIMMessageCell()<NIMPlayAudioUIDelegate,NIMMessageContentViewDelegate>{
     UILongPressGestureRecognizer *_longPressGesture;
@@ -106,7 +107,7 @@
 - (void)refresh{
     [self addContentViewIfNotExist];
     [self addUserCustomViews];
-    
+    //BOOL showAvatarAndNickname = YES;
     if ([self needShowAvatar])
     {
         [_headImageView setAvatarByMessage:self.model.message];
@@ -114,8 +115,11 @@
 
     if([self needShowNickName])
     {
-        NSString *nick = [NIMKitUtil showNick:self.model.message.from inMessage:self.model.message];
-        [self.nameLabel setText:nick];
+        
+        //NSString *nick = [NIMKitUtil showNick:self.model.message.from inMessage:self.model.message];
+        NSString *from = [[NTESDataManager sharedInstance] infoByUser:self.model.message.from withMessage:self.model.message].showName;
+        
+        [self.nameLabel setText:from];
     }
     [_nameLabel setHidden:![self needShowNickName]];
     [_bubbleView refresh:self.model];

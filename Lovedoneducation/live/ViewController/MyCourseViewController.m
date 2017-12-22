@@ -12,6 +12,7 @@
 #import "FSCalendar.h"
 #import "LiveCourseDetailVC.h"
 
+
 typedef NS_ENUM(NSUInteger, MyCourseState) {
     MyCourseStateAll,
     MyCourseStateCalendar,
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSUInteger, MyCourseState) {
 
 CGFloat calendar_height = 230;
 
-@interface MyCourseViewController ()<UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate>
+@interface MyCourseViewController ()<UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong) UITableView  *tableView;
 @property (nonatomic, strong) NSArray<LiveMyCourseModel *> *datalist;
@@ -114,6 +115,17 @@ CGFloat calendar_height = 230;
     }];
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    return [UIImage imageNamed:@"wukecheng_icon"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    NSString *string = @"您还没有购买课程";
+    UIFont *font = [UIFont systemFontOfSize:16];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
+    return str;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -174,57 +186,55 @@ CGFloat calendar_height = 230;
 #pragma mark table view delegate , datasourse
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
     if (self.state == MyCourseStateAll) return self.datalist.count ? 1 : 0;
     return self.calendarList ? 1: 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
     if (self.state == MyCourseStateAll) return self.datalist.count;
     return self.calendarList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    LiveMyCourseModel *model;
-//    if (self.state == MyCourseStateAll) {
-//        model = self.datalist[indexPath.row];
-//    } else {
-//        model = self.calendarList[indexPath.row];
-//    }
+    LiveMyCourseModel *model;
+    if (self.state == MyCourseStateAll) {
+        model = self.datalist[indexPath.row];
+    } else {
+        model = self.calendarList[indexPath.row];
+    }
     LiveCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LiveCourseCell class]) forIndexPath:indexPath];
-//    cell.titleL.text = model.classs.c_name;
-//    cell.introL.text = model.classs.c_intro;
-//    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
-//    dateformater.dateFormat = @"yyyy.MM.dd";
-//    NSTimeInterval start = model.classs.c_start_time;
-//    NSTimeInterval end = model.classs.c_end_time;
-//    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:start];
-//    NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:end];
-//    NSString *startTime = [dateformater stringFromDate:startDate];
-//    NSString *endTime = [dateformater stringFromDate:endDate];
-//    cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
-//    cell.count.hidden = YES;//.text = model.c_pay_num;
-//    cell.priceL.hidden = YES;//.text = [NSString stringWithFormat:@"¥%@", model.c_price];
-//    cell.teacher1.hidden = YES;
-//    cell.teacher2.hidden = YES;
-//    cell.teacher3.hidden = YES;
-//    for (int i = 0; i < model.teacher.count; i++) {
-//        LiveTeacherModel *teacher = model.teacher[i];
-//        if (i == 0) {
-//            [cell.teacher1Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
-//            cell.teacher1Name.text = teacher.tname;
-//            cell.teacher1.hidden = NO;
-//        } else if (i == 1) {
-//            [cell.teacher2Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
-//            cell.teacher2Name.text = teacher.tname;
-//            cell.teacher2.hidden = NO;
-//        } else {
-//            [cell.teacher3Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
-//            cell.teacher3Name.text = teacher.tname;
-//            cell.teacher3.hidden = NO;
-//        }
-//    }
+    cell.titleL.text = model.classs.c_name;
+    cell.introL.text = model.classs.c_intro;
+    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
+    dateformater.dateFormat = @"yyyy.MM.dd";
+    NSTimeInterval start = model.classs.c_start_time;
+    NSTimeInterval end = model.classs.c_end_time;
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:start];
+    NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:end];
+    NSString *startTime = [dateformater stringFromDate:startDate];
+    NSString *endTime = [dateformater stringFromDate:endDate];
+    cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
+    cell.count.hidden = YES;//.text = model.c_pay_num;
+    cell.priceL.hidden = YES;//.text = [NSString stringWithFormat:@"¥%@", model.c_price];
+    cell.teacher1.hidden = YES;
+    cell.teacher2.hidden = YES;
+    cell.teacher3.hidden = YES;
+    for (int i = 0; i < model.teacher.count; i++) {
+        LiveTeacherModel *teacher = model.teacher[i];
+        if (i == 0) {
+            [cell.teacher1Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
+            cell.teacher1Name.text = teacher.tname;
+            cell.teacher1.hidden = NO;
+        } else if (i == 1) {
+            [cell.teacher2Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
+            cell.teacher2Name.text = teacher.tname;
+            cell.teacher2.hidden = NO;
+        } else {
+            [cell.teacher3Img setImageWithURL:teacher.tpic.xd_URL placeholder:[UIImage imageNamed:@"touxiang_image_zhiboshouye"]];
+            cell.teacher3Name.text = teacher.tname;
+            cell.teacher3.hidden = NO;
+        }
+    }
     
     return cell;
 }
@@ -246,7 +256,6 @@ CGFloat calendar_height = 230;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LiveMyCourseModel *model;
-    return;
     if (self.state == MyCourseStateAll) {
         model = self.datalist[indexPath.row];
     } else {
@@ -269,6 +278,7 @@ CGFloat calendar_height = 230;
         }
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.emptyDataSetSource = self;
         [self.view addSubview:_tableView];
         _tableView.tableFooterView = [UIView new];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -285,7 +295,7 @@ CGFloat calendar_height = 230;
         [_calendar selectDate:[NSDate dateWithTimeIntervalSinceNow:0] scrollToDate:YES];
         [self.view addSubview:_calendar];
         _calendar.appearance.todaySelectionColor = krgb(8, 210, 178);
-        _calendar.appearance.todayColor = [UIColor whiteColor];
+        _calendar.appearance.todayColor = [UIColor redColor];
         _calendar.appearance.headerTitleColor = krgb(8, 210, 178);
         _calendar.appearance.weekdayTextColor = krgb(8, 210, 178);
         

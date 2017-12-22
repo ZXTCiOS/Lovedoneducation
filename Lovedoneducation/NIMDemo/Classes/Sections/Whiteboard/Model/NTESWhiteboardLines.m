@@ -23,7 +23,7 @@
 {
     if (self = [super init]) {
         _allLines = [[NSMutableDictionary alloc] init];
-        
+        _isdrag = NO;
     }
     return self;
 }
@@ -91,6 +91,9 @@
 
 - (BOOL)hasUpdate
 {
+    if (_isdrag) {
+        return NO;
+    }
     return _hasUpdate;
 }
 

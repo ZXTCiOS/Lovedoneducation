@@ -55,7 +55,8 @@
 
 #define user_denglufangsi @"user_denglufangsi"
 
-#define BASE_URL   @"http://55.irapidtech.net"
+//#define BASE_URL   @"http://55.irapidtech.net"
+#define BASE_URL  @"http://app.aitangedu.com"
 
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"
@@ -297,5 +298,5 @@
 
  @return
  */
-#define GET_successOrder @"/app.php/order/successOrder?uid=%@&toke=%@&orderid=%@"
+#define POST_successOrder @"/app.php/order/successOrder?uid=%@&toke=%@&orderid=%@"
 #endif /* wangHeader_h */

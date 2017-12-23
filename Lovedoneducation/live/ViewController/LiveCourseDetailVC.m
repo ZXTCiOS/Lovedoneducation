@@ -140,38 +140,9 @@
     if ([self.model.isbuy isEqualToString:@"1"]) {  // 1. 已买
         // 上课去
         // TODO:
-        NIMChatroom *chatroom = [[NIMChatroom alloc] init];
-        chatroom.roomId = @"19760136";//19760136  //19743991
-        /*
-        NIMUser *user  = [[NIMSDK sharedSDK].userManager userInfo:[NIMSDK sharedSDK].loginManager.currentAccount];
-        NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-        request.roomId = chatroom.roomId;
-        request.roomNickname = user.userInfo.nickName;
-        request.roomAvatar = user.userInfo.avatarUrl;
-        [SVProgressHUD show];
-        __weak typeof(self) wself = self;
-        [[[NIMSDK sharedSDK] chatroomManager] enterChatroom:request completion:^(NSError *error,NIMChatroom *chatroom,NIMChatroomMember *me) {
-            [SVProgressHUD dismiss];
-             if (error == nil)
-             {
-                 [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:chatroom.roomId];
-                                                         
-                 NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
-                 [self.navigationController pushViewController:vc animated:YES];
-             }
-             else
-             {
-                 NSString *toast = [NSString stringWithFormat:@"进入失败 code:%zd",error.code];
-                 [wself.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
-                 DDLogError(@"enter room %@ failed %@",chatroom.roomId,error);
-             }
-                                                     
-        }];*/
-        
-        
         __weak typeof(self) wself = self;
         NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-        request.roomId = @"19743991";
+        request.roomId = @"19760136";//19645919  19743991
         [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
         [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
             [SVProgressHUD dismiss];
@@ -188,10 +159,6 @@
                 [self.view makeToast:@"进入房间失败，请确认ID是否正确" duration:2.0 position:CSToastPositionCenter];
             }
         }];
-        
-        
-        
-        
         
     }else{
         LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];

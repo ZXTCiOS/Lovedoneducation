@@ -64,6 +64,7 @@
     mainTabBar.frame = self.tabBar.bounds;
     mainTabBar.delegate = self;
     [self.tabBar addSubview:mainTabBar];
+    mainTabBar.tintColor = krgb(8, 210, 178);
     _mainTabBar = mainTabBar;
 }
 
@@ -92,6 +93,7 @@
     childVc.tabBarItem.image = [UIImage imageNamed:imageName];
     childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImageName];
     childVc.tabBarItem.title = title;
+    
     [self.mainTabBar addTabBarButtonWithTabBarItem:childVc.tabBarItem];
     [self addChildViewController:nav];
 }

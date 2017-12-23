@@ -12,6 +12,8 @@
 
 @interface NTESWhiteboardLines : NSObject<NTESWhiteboardDrawViewDataSource>
 
+@property (nonatomic, assign) BOOL isdrag;
+
 - (void)addPoint:(NTESWhiteboardPoint *)point uid:(NSString *)uid;
 
 - (void)cancelLastLine:(NSString *)uid;

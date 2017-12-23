@@ -22,8 +22,7 @@
 // THE SOFTWARE.
 
 #import "ZFPlayerView.h"
-#import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MediaPlayer.h>
+
 #import "UIView+CustomControlView.h"
 #import "ZFPlayer.h"
 
@@ -42,7 +41,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 @interface ZFPlayerView () <UIGestureRecognizerDelegate,UIAlertViewDelegate>
 
 /** 播放属性 */
-@property (nonatomic, strong) AVPlayer               *player;
+
 @property (nonatomic, strong) AVPlayerItem           *playerItem;
 @property (nonatomic, strong) AVURLAsset             *urlAsset;
 @property (nonatomic, strong) AVAssetImageGenerator  *imageGenerator;
@@ -111,7 +110,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 @property (nonatomic, strong) UIPanGestureRecognizer *shrinkPanGesture;
 
-@property (nonatomic, strong) UIView                 *controlView;
+
 @property (nonatomic, strong) ZFPlayerModel          *playerModel;
 @property (nonatomic, assign) NSInteger              seekTime;
 @property (nonatomic, strong) NSURL                  *videoURL;
@@ -444,7 +443,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 - (void)createTimer {
     __weak typeof(self) weakSelf = self;
-    self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time){
+    self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(0.05, 1000) queue:nil usingBlock:^(CMTime time){
         AVPlayerItem *currentItem = weakSelf.playerItem;
         NSArray *loadedRanges = currentItem.seekableTimeRanges;
         if (loadedRanges.count > 0 && currentItem.duration.timescale != 0) {
@@ -452,6 +451,11 @@ typedef NS_ENUM(NSInteger, PanDirection){
             CGFloat totalTime     = (CGFloat)currentItem.duration.value / currentItem.duration.timescale;
             CGFloat value         = CMTimeGetSeconds([currentItem currentTime]) / totalTime;
             [weakSelf.controlView zf_playerCurrentTime:currentTime totalTime:totalTime sliderValue:value];
+            
+            double time_ms = CMTimeGetSeconds([currentItem currentTime]);
+            
+            [weakSelf.delegate blockPer50ms:time_ms * 1000];
+            
         }
     }];
 }
@@ -1069,9 +1073,13 @@ typedef NS_ENUM(NSInteger, PanDirection){
             [weakSelf.controlView zf_playerActivity:NO];
             // 视频跳转回调
             if (completionHandler) { completionHandler(finished); }
-            [weakSelf.player play];
+            //[weakSelf.player play];
             weakSelf.seekTime = 0;
             weakSelf.isDragged = NO;
+            if ([_delegate respondsToSelector:@selector(playerSeekToTime:)]) {
+                [_delegate playerSeekToTime:dragedCMTime];
+            }
+            
             // 结束滑动
             [weakSelf.controlView zf_playerDraggedEnd];
             if (!weakSelf.playerItem.isPlaybackLikelyToKeepUp && !weakSelf.isLocalVideo) { weakSelf.state = ZFPlayerStateBuffering; }
@@ -1461,13 +1469,11 @@ typedef NS_ENUM(NSInteger, PanDirection){
     if (ZFPlayerShared.isLockScreen) {
         [self unLockTheScreen];
     } else {
-        if (!self.isFullScreen) {
+        
             // player加到控制器上，只有一个player时候
-            [self pause];
-            if ([self.delegate respondsToSelector:@selector(zf_playerBackAction)]) { [self.delegate zf_playerBackAction]; }
-        } else {
-            [self interfaceOrientation:UIInterfaceOrientationPortrait];
-        }
+        [self pause];
+        if ([self.delegate respondsToSelector:@selector(zf_playerBackAction)]) { [self.delegate zf_playerBackAction]; }
+        
     }
 }
 

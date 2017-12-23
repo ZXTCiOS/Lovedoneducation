@@ -26,6 +26,8 @@
 #import "ZFPlayerControlView.h"
 #import "ZFPlayerModel.h"
 #import "ZFPlayerControlViewDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @protocol ZFPlayerDelegate <NSObject>
 @optional
@@ -37,6 +39,10 @@
 - (void)zf_playerControlViewWillShow:(UIView *)controlView isFullscreen:(BOOL)fullscreen;
 /** 控制层即将隐藏 */
 - (void)zf_playerControlViewWillHidden:(UIView *)controlView isFullscreen:(BOOL)fullscreen;
+
+- (void)playerSeekToTime:(CMTime) time;
+
+- (void)blockPer50ms:(NSInteger) time;
 
 @end
 
@@ -57,7 +63,8 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
 };
 
 @interface ZFPlayerView : UIView <ZFPlayerControlViewDelagate>
-
+@property (nonatomic, strong) UIView                 *controlView;
+@property (nonatomic, strong) AVPlayer               *player;
 /** 设置playerLayer的填充模式 */
 @property (nonatomic, assign) ZFPlayerLayerGravity    playerLayerGravity;
 /** 是否有下载功能(默认是关闭) */

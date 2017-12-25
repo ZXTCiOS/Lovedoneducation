@@ -20,7 +20,7 @@
 #import "ActionSheetView.h"
 #import "essaycardVC.h"
 #import "essayorderVC.h"
-@interface essayVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
+@interface essayVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 {
     dispatch_source_t timer;
 }
@@ -171,6 +171,8 @@ static NSString *essayidentfid = @"essayidentfid";
     self.collectionV.dataSource = self;
     self.collectionV.pagingEnabled = YES;
     self.collectionV.bounces = YES;
+    self.collectionV.emptyDataSetSource = self;
+    self.collectionV.emptyDataSetDelegate = self;
     [self.collectionV registerClass:[essayCell class] forCellWithReuseIdentifier:essayidentfid];
     [self.view addSubview:self.collectionV];
 }
@@ -542,4 +544,14 @@ static NSString *essayidentfid = @"essayidentfid";
         
     }];
 }
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *title = @"该分类暂时没有题目";
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+                                 };
+    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+}
+
 @end

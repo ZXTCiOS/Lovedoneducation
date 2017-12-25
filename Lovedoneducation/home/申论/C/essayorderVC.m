@@ -438,40 +438,6 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             
         }
     }
-    
-//    [self.para setValue:couponprice forKey:@"couponprice"];
-//    [self.para setValue:@"2" forKey:@"type"];
-//    [DNNetworking postWithURLString:POST_orderInsert parameters:self.para success:^(id obj) {
-//        if ([[obj objectForKey:@"code"] intValue]==200) {
-//            /*
-//            NSDictionary *dic = [obj objectForKey:@"data"];
-//            NSString *c_id = [dic objectForKey:@"c_id"];
-//            NSString *classcoupon = [dic objectForKey:@"classcoupon"];
-//            NSString *couponprice = [dic objectForKey:@"couponprice"];
-//            NSString *orderprice = [dic objectForKey:@"orderprice"];
-//            NSString *ordersn = [dic objectForKey:@"ordersn"];
-//            NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
-//            NSString *ordertype = [dic objectForKey:@"ordertype"];
-//            NSString *time = [dic objectForKey:@"time"];
-//            NSString *ucid = [dic objectForKey:@"ucid"];
-//             */
-//
-//            NSDictionary *dic = [obj objectForKey:@"data"];
-//            self.orderid = [dic objectForKey:@"orderid"];
-//            self.ordersn = [dic objectForKey:@"ordersn"];
-//            NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
-//            NSLog(@"价格----%@",ordertotalprice);
-//            [MBProgressHUD showSuccess:@"提交成功" toView:self.table];
-//            [self showwindow];
-//            [UIView animateWithDuration:0.3 animations:^{
-//                self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
-//            }completion:^(BOOL finished) {
-//
-//            }];
-//        }
-//    } failure:^(NSError *error) {
-//
-//    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

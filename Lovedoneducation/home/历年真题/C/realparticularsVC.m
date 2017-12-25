@@ -21,7 +21,7 @@
 // 分享
 #import "ZTVendorManager.h"
 #import "ActionSheetView.h"
-@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
+@interface realparticularsVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 {
     dispatch_source_t timer;
 }
@@ -183,6 +183,8 @@ static NSString *realcellidentfid = @"realcellidentfid";
     self.collectionV.dataSource = self;
     self.collectionV.pagingEnabled = YES;
     self.collectionV.bounces = YES;
+    self.collectionV.emptyDataSetSource = self;
+    self.collectionV.emptyDataSetDelegate = self;
     [self.collectionV registerClass:[realCell class] forCellWithReuseIdentifier:realcellidentfid];
     [self.view addSubview:self.collectionV];
 }
@@ -589,4 +591,12 @@ static NSString *realcellidentfid = @"realcellidentfid";
     }];
 }
 
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *title = @"该分类暂时没有题目";
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+                                 };
+    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+}
 @end

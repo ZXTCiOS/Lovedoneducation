@@ -197,12 +197,12 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
             vc.typestr = self.typestr;
             vc.timestr = [self getCurrentTimes];
             [self.navigationController pushViewController:vc animated:YES];
+            [MBProgressHUD showSuccess:@"提交成功" toView:self.view];
         }
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
-
 
 -(NSString*)getCurrentTimes{
     

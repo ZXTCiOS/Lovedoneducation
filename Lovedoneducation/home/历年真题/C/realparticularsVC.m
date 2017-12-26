@@ -323,10 +323,11 @@ static NSString *realcellidentfid = @"realcellidentfid";
             vc.uplist = upliststr;
             vc.typestr = @"4";
             [self.navigationController pushViewController:vc animated:YES];
+            [MBProgressHUD showSuccess:@"提交成功" toView:self.view];
         }
-
-    } failure:^(NSError *error) {
         
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 

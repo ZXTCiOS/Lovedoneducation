@@ -325,6 +325,7 @@
     } failure:^(NSError *error) {
         //hide
         [_hudView hide];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];;
     
 }
@@ -395,6 +396,7 @@
         } failure:^(NSError *error) {
             //hide
             [_hudView hide];
+             [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }];
 }
@@ -431,6 +433,7 @@
         } failure:^(NSError *error) {
             //hide
             [_hudView hide];
+             [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }];
 }

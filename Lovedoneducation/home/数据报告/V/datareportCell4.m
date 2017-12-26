@@ -118,7 +118,8 @@
     //lineChart1.data = @[@10, @20,@30,@40,@50,@60,@70];
     lineChart1.data = self.upscorearray;
     lineChart1.lineColor = [UIColor colorWithHexString:@"08D2B2"];
-    [self.lineChartView reDrawLineChartWithDimensionData:self.strarr  chartData: @[lineChart1]];
+       [self.lineChartView reDrawLineChartWithDimensionData:@[@"周一", @"周二", @"周三",@"周四",@"周五",@"周六",@"周日"] chartData: @[lineChart1]];
+   // [self.lineChartView reDrawLineChartWithDimensionData:self.strarr  chartData: @[lineChart1]];
 }
 
 #pragma mark - get/set method
@@ -289,7 +290,14 @@
                     range:NSMakeRange(practicedays.length, str1.length)];
     self.textlab0.attributedText = attrStr;
     
-    NSString *minute = [dic objectForKey:@"minute"];
+    NSString *minute = @"";
+    if ([[dic objectForKey:@"minute"]isEqualToString:@"zxtc"]) {
+        minute = @"0";
+    }
+    else
+    {
+        minute = [dic objectForKey:@"minute"];
+    }
     NSString *str2 = @"分钟";
     NSString *newstr = [NSString stringWithFormat:@"%@%@",minute,str2];
     NSMutableAttributedString *newattrStr = [[NSMutableAttributedString alloc] initWithString:newstr];

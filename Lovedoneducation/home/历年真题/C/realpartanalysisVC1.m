@@ -212,7 +212,7 @@ static NSString *realanalysisCellidentfid = @"realanalysisCellidentfid";
     NSString *type = @"2";
     NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
     [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
-        
+        [MBProgressHUD showSuccess:@"分享成功" toView:self.view];
     } failure:^(NSError *error) {
         
     }];

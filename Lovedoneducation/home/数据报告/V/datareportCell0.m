@@ -111,7 +111,7 @@
         _timelab = [[UILabel alloc] init];
         _timelab.textAlignment = NSTextAlignmentCenter;
         _timelab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
-
+        
         _timelab.font = [UIFont systemFontOfSize:15];
     }
     return _timelab;

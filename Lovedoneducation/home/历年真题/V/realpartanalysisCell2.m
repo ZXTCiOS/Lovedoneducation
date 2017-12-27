@@ -187,8 +187,14 @@
     {
         self.errorlab.text = errorstr;
     }
+    if ([accuracystr isEqualToString:@""]) {
+          self.accuracylab.text = [NSString stringWithFormat:@"%@%@",@"0",@"%"];
+    }
+    else
+    {
+          self.accuracylab.text = [NSString stringWithFormat:@"%@%@",accuracystr,@"%"];
+    }
     
-    self.accuracylab.text = [NSString stringWithFormat:@"%@%@",accuracystr,@"%"];
     NSMutableArray *arr0 = [NSMutableArray new];
     NSMutableArray *arr1 = [NSMutableArray new];
     

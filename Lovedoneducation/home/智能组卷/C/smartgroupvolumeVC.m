@@ -23,7 +23,7 @@
 #import "ZTVendorManager.h"
 #import "ActionSheetView.h"
 
-@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate>
+@interface smartgroupvolumeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,myTabVdelegate,TZImagePickerControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 {
     dispatch_source_t timer;
 }
@@ -202,6 +202,10 @@
             [self startCount];
             
         }
+        else
+        {
+            [MBProgressHUD showSuccess:@"该分类暂时没有题目" toView:self.view];
+        }
     } failure:^(NSError *error) {
         
     }];;
@@ -224,6 +228,8 @@
     self.collectionV.dataSource = self;
     self.collectionV.pagingEnabled = YES;
     self.collectionV.bounces = YES;
+    self.collectionV.emptyDataSetSource = self;
+    self.collectionV.emptyDataSetDelegate = self;
     [self.collectionV registerClass:[realCell class] forCellWithReuseIdentifier:@"ExamCell"];
     [self.view addSubview:self.collectionV];
 }
@@ -614,5 +620,13 @@
     }
 }
 
+//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+//    NSString *title = @"该分类暂时没有题目";
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+//                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+//                                 };
+//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+//}
 
 @end

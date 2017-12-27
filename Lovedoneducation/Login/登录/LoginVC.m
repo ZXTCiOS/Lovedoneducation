@@ -292,6 +292,7 @@
     
     NSString *password = [MD5Tool MD5ForUpper32Bate:pwd];
     NSDictionary *dic = @{@"uname":phone,@"upwd":password};
+    
     [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
@@ -325,6 +326,7 @@
     } failure:^(NSError *error) {
         //hide
         [_hudView hide];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];;
     
 }
@@ -395,6 +397,7 @@
         } failure:^(NSError *error) {
             //hide
             [_hudView hide];
+             [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }];
 }
@@ -431,6 +434,7 @@
         } failure:^(NSError *error) {
             //hide
             [_hudView hide];
+             [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }];
 }

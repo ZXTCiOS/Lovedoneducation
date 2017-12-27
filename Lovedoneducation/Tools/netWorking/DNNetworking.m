@@ -185,6 +185,7 @@ static NSString *privateNetworkBaseUrl = BASE_URL;
         session = [AFHTTPSessionManager manager];
     }
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
     [session POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (data) {
             [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"video/x-sgi-movie"];

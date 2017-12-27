@@ -162,7 +162,6 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
     NSLog(@"array----%@",self.xuanzearr);
     NSLog(@"upno-----%@",self.upnoarray);
     NSLog(@"upquestion---%@",self.upquestion);
-
     
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
@@ -183,9 +182,7 @@ static NSString *realpardcardientfid1 = @"realpardcardientfid1";
         self.practiceType = @"4";
     }
     NSDictionary *dic = @{@"uid":uid,@"token":token,@"practiceType":self.practiceType,@"uptimes":self.uptimes,@"upno":self.upno,@"upquestion":self.upquestion,@"upyes":self.upyes,@"uplist":self.uplist};
-
     NSLog(@"dic-----%@",dic);
-    
     [DNNetworking postWithURLString:POST_practiceing parameters:dic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             [MBProgressHUD showSuccess:@"提交成功" toView:self.collection];

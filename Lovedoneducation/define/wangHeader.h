@@ -88,7 +88,7 @@
 /**
  登录
  */
-#define POST_LOGIN @"http://app.aitangedu.com/app.php/login/login"
+#define POST_LOGIN @"/app.php/login/login"
 
 /**
  我的代金劵

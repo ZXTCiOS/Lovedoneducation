@@ -48,11 +48,15 @@
     [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
     self.view.backgroundColor = [UIColor whiteColor];
     [self playerInit];  // .mp3
-    [self configInit];
+    if (!self.isMP4){
+        [self configInit];
+        
+    }
     // 解压文件
-    [self unGZip];      // .gz
+    if (!self.isMP4) {
+        [self unGZip];      // .gz
+    }
     self.location = 0;
-
 }
 
 - (void)configInit{
@@ -72,32 +76,48 @@
     CGFloat width = kScreenW;
     CGFloat height = kScreenH;
     CGRect frame;
-    frame = CGRectMake((width - (height *4 / 3.0))/2.0, 0, height *4 / 3.0, height);
+    //(width - (height *4 / 3.0))/2.0
+    frame = CGRectMake(0, 0, height *4 / 3.0, height);
     self.wbView.frame = frame;
     self.docView.frame = frame;
 }
 
 - (void)unGZip{
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"1079554861-193781928176385" ofType:@".gz"];
+    //NSArray *arr = [self.wbPath componentsSeparatedByString:@"."];
+    NSString *filepath;
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *toPath = [documentPath stringByAppendingString:@"/down"];
-    [[NVHTarGzip sharedInstance] unGzipFileAtPath:filepath toPath:toPath completion:^(NSError *error)
-     {
-         NSLog(@"%@", error);
-         NSData *data = [NSData dataWithContentsOfFile:toPath];
-         self.data = data;
-         [self.playerView play];
-         
-     }];
+    NSString *name = self.titlename;
+    NSString *toPath = [documentPath stringByAppendingString:name];
+    filepath = [documentPath stringByAppendingPathComponent:self.wbPath];
+    if([[NSFileManager defaultManager] fileExistsAtPath:toPath]){
+        NSData *data = [NSData dataWithContentsOfFile:toPath];
+        self.data = data;
+        [self.playerView play];
+    } else {
+        [[NVHTarGzip sharedInstance] unGzipFileAtPath:filepath toPath:toPath completion:^(NSError *error)
+         {
+             NSLog(@"%@", error);
+             NSData *data = [NSData dataWithContentsOfFile:toPath];
+             self.data = data;
+             [self.playerView play];
+         }];
+    }
+    
 }
 
 - (void)playerInit{
     ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
     ZFPlayerModel *model = [[ZFPlayerModel alloc] init];
     model.fatherView = self.view;
-    model.title = @"国考面试班";
+    model.title = self.titlename;
     // 获取本地 url
-    NSString *videoFilePath = [[NSBundle mainBundle] pathForResource:@"陈奕迅 - 稳稳的幸福" ofType:@"mp3"];
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *videoFilePath = [documentPath stringByAppendingPathComponent:self.audioPath];
+    
+    NSArray *arr = [self.audioPath componentsSeparatedByString:@"."];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:arr.firstObject ofType:arr.lastObject];
+    NSData *data = [NSData dataWithContentsOfFile:videoFilePath];
     model.videoURL = [NSURL fileURLWithPath:videoFilePath];
     model.placeholderImage = [UIImage imageNamed:@""];
     [self.playerView playerControlView:controlView playerModel:model];
@@ -418,7 +438,6 @@
         _drawView.backgroundColor = [UIColor whiteColor];
         _drawView.layer.borderWidth = 1;
         _drawView.layer.borderColor = UIColorFromRGB(0xd7dade).CGColor;
-        //[self.playerView insertSubview:_drawView belowSubview:self.playerView.controlView];
         _drawView.dataSource = _lines;
     }
     return _drawView;

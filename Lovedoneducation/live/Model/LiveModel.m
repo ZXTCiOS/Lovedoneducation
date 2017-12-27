@@ -27,6 +27,12 @@
 
 @implementation LiveMyCourseModel
 
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
+    return @{
+             @"classs": @"class"
+             };
+}
+
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
     return @{
              @"teacher": [LiveTeacherModel class],

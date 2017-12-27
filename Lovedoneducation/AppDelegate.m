@@ -23,8 +23,11 @@
 #import "NTESService.h"
 #import "ZTVendorManager.h"
 
-@interface AppDelegate ()<JPUSHRegisterDelegate, NIMLoginManagerDelegate>
+#import "DatabaseQueueShare.h"
+#import "ZB_NetWorkShare.h"
 
+@interface AppDelegate ()<JPUSHRegisterDelegate, NIMLoginManagerDelegate>
+@property (nonatomic, assign) UIBackgroundTaskIdentifier backtaskIdentifier;
 @end
 
 @implementation AppDelegate
@@ -87,6 +90,7 @@
     
     // 登录云信 IM
     [self NIMLogin];
+    [DBQueueShare updateDBVersion];
     
     return YES;
 }
@@ -109,11 +113,11 @@
 }
 
 - (void)onLogin:(NIMLoginStep)step{
-    NSLog(@"%ld", step);
+    //NSLog(@"%ld", step);
 }
 
 - (void)onAutoLoginFailed:(NSError *)error{
-    NSLog(@"NIM auto login failed.");
+    //NSLog(@"NIM auto login failed.");
 }
 
 
@@ -277,6 +281,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    _backtaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^(void){
+        if (_backtaskIdentifier!=UIBackgroundTaskInvalid) {
+            //            [[UIApplication sharedApplication] endBackgroundTask:_backtaskIdentifier];
+            //            _backtaskIdentifier = UIBackgroundTaskInvalid;
+        }
+    }];
 }
 
 
@@ -286,6 +296,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [application cancelAllLocalNotifications];
 }
 
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler{
+    [[ZB_NetWorkShare ZB_NetWorkShare] addCompletionHandle:completionHandler forSession:identifier];
+}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -302,6 +315,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     nav.viewControllers = @[vc];
     self.window.rootViewController = nav;
 }
+
 
 
 

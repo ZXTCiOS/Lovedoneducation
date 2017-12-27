@@ -7,8 +7,9 @@
 //
 
 #import "LiveKeqiankehouVC.h"
-#import <ZFDownloadManager.h>
-
+//#import <ZFDownloadManager.h>
+#import "HTTPSessionShare.h"
+#import "FileModel.h"
 @interface LiveKeqiankehouVC ()
 
 @property (nonatomic) UIImageView *bgImg;
@@ -18,7 +19,7 @@
 @property (nonatomic) UILabel *time;
 @property (nonatomic, strong) UIButton *down;
 
-@property (nonatomic, copy) NSString *FileName;
+@property (nonatomic, copy) NSString *wbURL;
 @property (nonatomic, copy) NSString *FileURL;
 
 
@@ -38,7 +39,7 @@
         default:
             break;
     }
-    
+    //self.down.hidden = NO;
     [self networking];
     [self layoutview];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -69,9 +70,9 @@
         NSString *code = [obj objectForKey:@"code"];
         if ([code isEqualToString:@"200"]) {
             NSDictionary *data = [obj objectForKey:@"data"];
-            NSDictionary *Mezzanine = [data objectForKey:@"Mezzanine"];
-            self.FileName = [Mezzanine objectForKey:@"FileName"];//  ******.mp3/4
-            self.FileURL = [Mezzanine objectForKey:@"FileURL"];
+            //NSDictionary *Mezzanine = [data objectForKey:@"Mezzanine"];
+            self.wbURL = [data objectForKey:@"whiteboard"]; // gz
+            self.FileURL = [data objectForKey:@"video"];    ////  ******.mp3/4
             self.down.enabled = YES;
         } else {
             NSLog(@"...");
@@ -199,21 +200,52 @@
 
 - (void)download{
     NSString *fileurl = self.FileURL;
-    NSString *filename = [NSString stringWithFormat:@"%@ - %@", self.model.tname, self.model.cdintro];
-    ZFDownloadManager *manager = [ZFDownloadManager sharedDownloadManager];
-    LiveCourseModel *model = [self.coursemodel mutableCopy];
-    /*
-     * 如果是白板+音频, 则额外下载白板文件
-     
-     * self.model.whiteboard   待定...
-     */
-    if (![self.model.whiteboard isEqualToString:@"whiteboard"]) {
-        //self.model.whiteboard = @"whiteboard"; 视频
-        [manager downFileUrl:fileurl filename:filename fileimage:[UIImage imageNamed:@""] extention:model downtype:ZFDownloadTypeMp3];
-        [manager downFileUrl:self.model.whiteboard filename:filename fileimage:[UIImage imageNamed:@""] extention:self.coursemodel downtype:ZFDownloadTypeWhiteboard];
-    } else {
-        [manager downFileUrl:fileurl filename:filename fileimage:[UIImage imageNamed:@""] extention:model downtype:ZFDownloadTypeVideo];
+    NSString *filename = [NSString stringWithFormat:@"%@-%@", self.model.tname, self.model.cdintro];
+    //ZFDownloadManager *manager = [ZFDownloadManager sharedDownloadManager];
+    LiveCourseModel *model = self.coursemodel;      // 大课 model
+    LiveCourseListModel *courseModel = self.model;  // 小课 model
+    LiveTeacherModel *teacherModel;
+    NSString *teacherID = courseModel.tid;
+    for (LiveTeacherModel *teacher in model.teacher) {
+        if ([teacher.tid isEqualToString:teacherID]) {
+            teacherModel = teacher;
+        }
     }
+    
+    NSMutableArray *arrM = [NSMutableArray array];
+    if (![self.wbURL isEqualToString:@"whiteboard"]) {
+        FileModel *fileModel = [[FileModel alloc] init];
+        fileModel.fileName = [filename stringByAppendingString:@".aac"];
+        fileModel.fileUrl = fileurl;
+        fileModel.teacherName = teacherModel.tname;
+        fileModel.teacherIntro = teacherModel.tsimple;
+        fileModel.courseIntro = courseModel.cdintro;
+        fileModel.courseTime = courseModel.cdstart_time;
+        fileModel.tpic = teacherModel.tpic;
+        [arrM addObject:fileModel];
+        
+        FileModel *fileModel1 = [[FileModel alloc] init];
+        fileModel1.fileName = [filename stringByAppendingString:@".gz"];
+        fileModel1.fileUrl = self.wbURL;
+        fileModel1.teacherName = teacherModel.tname;
+        fileModel1.teacherIntro = teacherModel.tsimple;
+        fileModel1.courseIntro = courseModel.cdintro;
+        fileModel1.courseTime = courseModel.cdstart_time;
+        fileModel1.tpic = teacherModel.tpic;
+        [arrM addObject:fileModel1];
+    } else {
+        FileModel *fileModel = [[FileModel alloc] init];
+        fileModel.fileName = [filename stringByAppendingString:@".mp4"];
+        fileModel.fileUrl = fileurl;
+        fileModel.teacherName = teacherModel.tname;
+        fileModel.teacherIntro = teacherModel.tsimple;
+        fileModel.courseIntro = courseModel.cdintro;
+        fileModel.courseTime = courseModel.cdstart_time;
+        fileModel.tpic = teacherModel.tpic;
+        [arrM addObject:fileModel];
+    }
+    [HttpShare downloadFileWithFileModelArray:arrM];
+    
 }
 
 

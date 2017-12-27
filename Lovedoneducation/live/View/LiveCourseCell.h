@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *teacher3Img;
 @property (weak, nonatomic) IBOutlet UILabel *teacher3Name;
 
+@property (weak, nonatomic) IBOutlet UILabel *yiyou;
+@property (weak, nonatomic) IBOutlet UILabel *ren;
 
 
 

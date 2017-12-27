@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface LievWhiteboardRecoredVC : UIViewController
+
+@property (nonatomic, copy) NSString *audioPath;
+@property (nonatomic, copy) NSString *wbPath;
+@property (nonatomic, assign) BOOL isMP4;
+@property (nonatomic, copy) NSString *titlename;
 
 @end

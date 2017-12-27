@@ -89,7 +89,15 @@ static ZFDownloadManager *sharedDownloadManager = nil;
 
 #pragma mark - 创建一个下载任务
 
-- (void)downFileUrl:(NSString *)url filename:(NSString *)name fileimage:(UIImage *)image extention:(id)extention downtype:(ZFDownloadType) type{
+- (void)downFileUrl:(NSString*)url
+           filename:(NSString*)name
+          fileimage:(NSString *)image
+          extention:(id)extention
+           downtype:(ZFDownloadType) type
+        teacherName:(NSString *) teacherName
+       teacherIntro:(NSString *) teacherIntro
+         courseTime:(NSString *) courseTime
+        courseIntro:(NSString *) courseIntro{
     // 因为是重新下载，则说明肯定该文件已经被下载完，或者有临时文件正在留着，所以检查一下这两个地方，存在则删除掉
     
     _fileInfo = [[ZFFileModel alloc] init];
@@ -100,12 +108,32 @@ static ZFDownloadManager *sharedDownloadManager = nil;
     _fileInfo.downloadtype = type;
     NSDate *myDate = [NSDate date];
     _fileInfo.time = [ZFCommonHelper dateToString:myDate];
-    _fileInfo.fileType = [name pathExtension];
-    
+    //_fileInfo.fileType = [name pathExtension];
+    NSString *filetype;
+    switch (type) {
+        case ZFDownloadTypeMp3:
+            filetype = @"aac";
+            break;
+            case ZFDownloadTypeVideo:
+            filetype = @"mp4";
+            break;
+            case ZFDownloadTypeWhiteboard:
+            filetype = @"gz";
+            break;
+        default:
+            break;
+    }
+    _fileInfo.fileType = filetype;
+    _fileInfo.teacherName = teacherName;
+    _fileInfo.teacherIntro = teacherIntro;
+    _fileInfo.courseTime = courseTime;
+    _fileInfo.courseIntro = courseIntro;
     _fileInfo.fileimage = image;
     _fileInfo.downloadState = ZFDownloading;
     _fileInfo.error = NO;
     _fileInfo.tempPath = TEMP_PATH(name);
+    NSString *filePath = FILE_PATH(name);
+    NSLog(@"%@", filePath);
     if ([ZFCommonHelper isExistFile:FILE_PATH(name)]) { // 已经下载过一次
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"该文件已下载，是否重新下载？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -144,7 +172,7 @@ static ZFDownloadManager *sharedDownloadManager = nil;
 
 - (void)downFileUrl:(NSString *)url
            filename:(NSString *)name
-          fileimage:(UIImage *)image
+          fileimage:(UIImage  *)image
 {
     // 因为是重新下载，则说明肯定该文件已经被下载完，或者有临时文件正在留着，所以检查一下这两个地方，存在则删除掉
     
@@ -157,7 +185,7 @@ static ZFDownloadManager *sharedDownloadManager = nil;
     _fileInfo.time = [ZFCommonHelper dateToString:myDate];
     _fileInfo.fileType = [name pathExtension];
     
-    _fileInfo.fileimage = image;
+    //_fileInfo.fileimage = image;
     _fileInfo.downloadState = ZFDownloading;
     _fileInfo.error = NO;
     _fileInfo.tempPath = TEMP_PATH(name);
@@ -255,13 +283,19 @@ static ZFDownloadManager *sharedDownloadManager = nil;
 
 - (void)saveDownloadFile:(ZFFileModel*)fileinfo
 {
-    NSData *imagedata = UIImagePNGRepresentation(fileinfo.fileimage);
+    //NSData *imagedata = UIImagePNGRepresentation(fileinfo.fileimage);
     NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileName,@"filename",
                              fileinfo.fileURL,@"fileurl",
                              fileinfo.time,@"time",
                              fileinfo.fileSize,@"filesize",
                              fileinfo.fileReceivedSize,@"filerecievesize",
-                             imagedata,@"fileimage",nil];
+                             fileinfo.fileimage,@"fileimage",
+                             fileinfo.teacherName, @"teacherName",
+                             fileinfo.teacherIntro, @"teacherIntro",
+                             fileinfo.courseTime, @"courseTime",
+                             fileinfo.courseIntro, @"courseIntro",
+                             
+                             nil];
     
     NSString *plistPath = [fileinfo.tempPath stringByAppendingPathExtension:@"plist"];
     if (![filedic writeToFile:plistPath atomically:YES]) {
@@ -511,14 +545,32 @@ static ZFDownloadManager *sharedDownloadManager = nil;
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     ZFFileModel *file = [[ZFFileModel alloc]init];
     file.fileName = [dic objectForKey:@"filename"];
-    file.fileType = [file.fileName pathExtension ];
+    //file.fileType = [file.fileName pathExtension ];
     file.fileURL = [dic objectForKey:@"fileurl"];
     file.fileSize = [dic objectForKey:@"filesize"];
     file.fileReceivedSize = [dic objectForKey:@"filerecievesize"];
     
+    file.teacherName = [dic objectForKey:@"teacherName"];
+    file.teacherIntro = [dic objectForKey:@"teacherIntro"];
+    file.courseTime = [dic objectForKey:@"courseIntro"];
+    file.courseIntro = [dic objectForKey:@"courseIntro"];
+    file.downloadtype = [[dic objectForKey:@"downloadType"] integerValue];
+    switch (file.downloadtype) {
+        case ZFDownloadTypeMp3:
+            file.fileType = @"aac";
+            break;
+        case ZFDownloadTypeVideo:
+            file.fileType = @"mp4";
+            break;
+        case ZFDownloadTypeWhiteboard:
+            file.fileType = @"gz";
+            break;
+        default:
+            break;
+    }
     file.tempPath = TEMP_PATH(file.fileName);
     file.time = [dic objectForKey:@"time"];
-    file.fileimage = [UIImage imageWithData:[dic objectForKey:@"fileimage"]];
+    file.fileimage = file.fileimage;
     file.downloadState = ZFStopDownload;
     file.error = NO;
     
@@ -559,10 +611,30 @@ static ZFDownloadManager *sharedDownloadManager = nil;
         for (NSDictionary *dic in finishArr) {
             ZFFileModel *file = [[ZFFileModel alloc]init];
             file.fileName = [dic objectForKey:@"filename"];
+            file.downloadtype = [[dic objectForKey:@"downloadType"] integerValue];
+            switch (file.downloadtype) {
+                case ZFDownloadTypeMp3:
+                    file.fileType = @"aac";
+                    break;
+                case ZFDownloadTypeVideo:
+                    file.fileType = @"mp4";
+                    break;
+                case ZFDownloadTypeWhiteboard:
+                    file.fileType = @"gz";
+                    break;
+                default:
+                    break;
+            }
             file.fileType = [file.fileName pathExtension];
             file.fileSize = [dic objectForKey:@"filesize"];
             file.time = [dic objectForKey:@"time"];
-            file.fileimage = [UIImage imageWithData:[dic objectForKey:@"fileimage"]];
+            file.fileimage = file.fileimage;
+            
+            file.teacherName = [dic objectForKey:@"teacherName"];
+            file.teacherIntro = [dic objectForKey:@"teacherIntro"];
+            file.courseTime = [dic objectForKey:@"courseIntro"];
+            file.courseIntro = [dic objectForKey:@"courseIntro"];
+            
             [_finishedlist addObject:file];
         }
     }
@@ -575,11 +647,22 @@ static ZFDownloadManager *sharedDownloadManager = nil;
     NSMutableArray *finishedinfo = [[NSMutableArray alloc] init];
     
     for (ZFFileModel *fileinfo in _finishedlist) {
-        NSData *imagedata = UIImagePNGRepresentation(fileinfo.fileimage);
-        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys: fileinfo.fileName,@"filename",
-                                 fileinfo.time,@"time",
-                                 fileinfo.fileSize,@"filesize",
-                                 imagedata,@"fileimage", nil];
+        //NSData *imagedata = UIImagePNGRepresentation(fileinfo.fileimage);
+//        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys: fileinfo.fileName,@"filename",
+//                                 fileinfo.time,@"time",
+//                                 fileinfo.fileSize,@"filesize",
+//                                 imagedata,@"fileimage", nil];
+        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileName,@"filename",
+         fileinfo.fileURL,@"fileurl",
+         fileinfo.time,@"time",
+         fileinfo.fileSize,@"filesize",
+         fileinfo.fileReceivedSize,@"filerecievesize",
+         fileinfo.fileimage,@"fileimage",
+         fileinfo.teacherName, @"teacherName",
+         fileinfo.teacherIntro, @"teacherIntro",
+         fileinfo.courseTime, @"courseTime",
+         fileinfo.courseIntro, @"courseIntro", @(fileinfo.downloadtype), @"downloadType",
+         nil];
         [finishedinfo addObject:filedic];
     }
     
@@ -643,7 +726,7 @@ static ZFDownloadManager *sharedDownloadManager = nil;
 - (void)request:(ZFHttpRequest *)request didReceiveBytes:(long long)bytes
 {
     ZFFileModel *fileInfo = [request.userInfo objectForKey:@"File"];
-    NSLog(@"%@,%lld",fileInfo.fileReceivedSize,bytes);
+    NSLog(@"did receive bytes: %@,%lld",fileInfo.fileReceivedSize,bytes);
     if (fileInfo.isFirstReceived) {
         fileInfo.isFirstReceived = NO;
         fileInfo.fileReceivedSize = [NSString stringWithFormat:@"%lld",bytes];

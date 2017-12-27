@@ -96,6 +96,14 @@
     });
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if ([self.model.isbuy isEqualToString:@"1"]) {
+        [self.buyBtn setTitle:@"进入课程" forState:UIControlStateNormal];
+    }
+    
+}
+
 - (void)netWorking{
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
@@ -139,10 +147,10 @@
 - (IBAction)buyNow:(id)sender {
     if ([self.model.isbuy isEqualToString:@"1"]) {  // 1. 已买
         // 上课去
-        // TODO:
+        
         __weak typeof(self) wself = self;
         NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-        request.roomId = @"19760136";//19645919  19743991
+        request.roomId = @"19645919";//19645919  19743991
         [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
         [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
             [SVProgressHUD dismiss];
@@ -163,6 +171,7 @@
     }else{
         LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];
         vc.model = self.model;
+        vc.vc = self;
         [self.navigationController pushViewController:vc animated:YES];
     }
     

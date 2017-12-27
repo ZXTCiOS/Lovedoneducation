@@ -142,6 +142,10 @@ static NSString *essayidentfid = @"essayidentfid";
             self.pidstr = model.qcid;
             [self startCount];
         }
+        else
+        {
+            [MBProgressHUD showSuccess:@"该分类暂时没有题目" toView:self.view];
+        }
     } failure:^(NSError *error) {
         
     }];;
@@ -539,19 +543,19 @@ static NSString *essayidentfid = @"essayidentfid";
     NSString *type = @"2";
     NSDictionary *dic = @{@"uid":uid,@"token":token,@"type":type};
     [DNNetworking postWithURLString:post_qiandao_fenxiang_pinglun parameters:dic success:^(id obj) {
-        
+        [MBProgressHUD showSuccess:@"分享成功" toView:self.view];
     } failure:^(NSError *error) {
         
     }];
 }
 
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *title = @"该分类暂时没有题目";
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
-                                 };
-    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
-}
+//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+//    NSString *title = @"该分类暂时没有题目";
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+//                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+//                                 };
+//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+//}
 
 @end

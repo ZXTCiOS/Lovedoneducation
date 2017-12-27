@@ -70,7 +70,7 @@
         _lefttextlab.textAlignment = NSTextAlignmentCenter;
         _lefttextlab.font = [UIFont systemFontOfSize:20];
         _lefttextlab.textColor = [UIColor colorWithHexString:@"08D2B2"];
-        _lefttextlab.text = @"475633";
+        _lefttextlab.text = @"";
     }
     return _lefttextlab;
 }

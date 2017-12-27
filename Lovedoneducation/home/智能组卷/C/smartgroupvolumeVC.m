@@ -202,6 +202,10 @@
             [self startCount];
             
         }
+        else
+        {
+            [MBProgressHUD showSuccess:@"该分类暂时没有题目" toView:self.view];
+        }
     } failure:^(NSError *error) {
         
     }];;
@@ -616,13 +620,13 @@
     }
 }
 
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *title = @"该分类暂时没有题目";
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
-                                 };
-    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
-}
+//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+//    NSString *title = @"该分类暂时没有题目";
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
+//                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
+//                                 };
+//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+//}
 
 @end

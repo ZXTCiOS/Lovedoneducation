@@ -62,12 +62,14 @@ static NSString *datareportidentfid5 = @"datareportidentfid5";
             self.isshow = YES;
             [self.table reloadData];
         }
+        else
+        {
+            [MBProgressHUD showSuccess:@"暂时没有数据" toView:self.view];
+        }
     } failure:^(NSError *error) {
         
     }];
 }
-
-
 
 #pragma mark - getters
 

@@ -194,7 +194,7 @@
     {
           self.accuracylab.text = [NSString stringWithFormat:@"%@%@",accuracystr,@"%"];
     }
-  
+    
     NSMutableArray *arr0 = [NSMutableArray new];
     NSMutableArray *arr1 = [NSMutableArray new];
     

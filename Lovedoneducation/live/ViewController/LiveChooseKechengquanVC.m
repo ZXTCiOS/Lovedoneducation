@@ -29,7 +29,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"课程券";
-    self.isshow = NO;
+    self.isshow = YES;
     //self.dataSource = [NSMutableArray new];
     self.moneydic = [NSDictionary new];
     [self.view addSubview:self.table];
@@ -43,7 +43,6 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
     }
     self.selectArr = [NSMutableArray array];
     for (int i = 0; i< self.dataSource.count; i++) {
-        
         [self.selectArr addObject:@"0"];
     }
     
@@ -138,13 +137,17 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     NSString *state = self.selectArr[indexPath.row];
     if ([state isEqualToString:@"1"]) {
         state = @"0";
     } else {
         state = @"1";
+    }
+    [self.selectArr removeAllObjects];
+    for (int i = 0; i < self.dataSource.count; i++) {
+        [self.selectArr addObject:@"0"];
     }
     [self.selectArr removeObjectAtIndex:indexPath.row];
     [self.selectArr insertObject:state atIndex:indexPath.row];
@@ -183,7 +186,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 120;
+        return 160;
     }
     return 0.01f;
 }
@@ -193,17 +196,30 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         return nil;
     }
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 120)];
-    view.backgroundColor = [UIColor lightGrayColor];
+    view.backgroundColor = krgb(246, 246, 246);
     self.quedingBtn = [[UIButton alloc] init];
     [view addSubview:self.quedingBtn];
+    [self.quedingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(0);
+        make.size.equalTo(CGSizeMake(220, 44));
+    }];
     [self.quedingBtn setTitle:@"确定" forState: UIControlStateNormal];
     [self.quedingBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.quedingBtn.backgroundColor = krgb(8, 210, 178);
     [self.quedingBtn bk_addEventHandler:^(id sender) {
         for (int i = 0; i < self.selectArr.count; i++) {
+            
             if ([self.selectArr[i] isEqualToString:@"1"]) {
                 self.submitvc.kechengquan = self.dataSource[i].ucprice;
+                self.submitvc.kechengquanid = self.dataSource[i].ucid;
                 [self.navigationController popViewControllerAnimated:YES];
+                return;
+            } else {
+                if (i == self.selectArr.count - 1) {
+                    self.submitvc.kechengquan = @"0";
+                    self.submitvc.kechengquanid = @"0";
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
             }
         }
     } forControlEvents:UIControlEventTouchUpInside];

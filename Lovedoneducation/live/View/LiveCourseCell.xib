@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -190,6 +190,7 @@
                 <outlet property="count" destination="Rac-K7-2xX" id="a8Z-ZC-QEx"/>
                 <outlet property="introL" destination="Otz-36-FT2" id="veo-th-jtf"/>
                 <outlet property="priceL" destination="wEv-ac-Vop" id="cHe-fy-LMT"/>
+                <outlet property="ren" destination="BRv-KU-U4V" id="b5N-k7-Ow2"/>
                 <outlet property="teacher1" destination="GAV-lg-cdv" id="9cC-lv-yX4"/>
                 <outlet property="teacher1Img" destination="pc3-U9-OMt" id="68w-Wg-sw4"/>
                 <outlet property="teacher1Name" destination="8WC-ed-zQy" id="soA-qo-baq"/>
@@ -201,8 +202,9 @@
                 <outlet property="teacher3Name" destination="zoM-eX-pby" id="2SQ-rb-bBX"/>
                 <outlet property="timeL" destination="hsp-tF-LpW" id="CfH-9z-GLo"/>
                 <outlet property="titleL" destination="TT5-wI-Q5p" id="Epv-Rg-CTo"/>
+                <outlet property="yiyou" destination="bjz-OU-2UX" id="eVV-GO-Nbu"/>
             </connections>
-            <point key="canvasLocation" x="-196" y="-22"/>
+            <point key="canvasLocation" x="-391" y="-48"/>
         </tableViewCell>
     </objects>
     <resources>

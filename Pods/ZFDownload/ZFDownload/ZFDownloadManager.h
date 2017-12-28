@@ -85,10 +85,24 @@
           fileimage:(UIImage *)image;
 /**
  * 下载视频时候调用(带自定义扩展)
+ * @para url : 下载地址
+ * @para filename :
+ * @para fileimage : 教师头像
+ * @para type : 下载类型, MP3, MP4, gz
+ * @para teacherName : 教师名称
+ * @para teacherIntro: 教师简介
+ * @para courseTime : 上课时间
+ * @para courseIntro: 课程简介
  */
 - (void)downFileUrl:(NSString*)url
            filename:(NSString*)name
-          fileimage:(UIImage *)image extention:(id)extention downtype:(ZFDownloadType) type;
+          fileimage:(NSString *)image
+          extention:(id)extention
+           downtype:(ZFDownloadType) type
+        teacherName:(NSString *) teacherName
+       teacherIntro:(NSString *) teacherIntro
+         courseTime:(NSString *) courseTime
+        courseIntro:(NSString *) courseIntro;
 
 
 

@@ -116,11 +116,18 @@ CGFloat calendar_height = 230;
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    
     return [UIImage imageNamed:@"wukecheng_icon"];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
     NSString *string = @"您还没有购买课程";
+    if (self.state == MyCourseStateAll) {
+        string = @"您还没有购买课程";
+    } else {
+        string = @"今天没有课程哦";
+    }
+    
     UIFont *font = [UIFont systemFontOfSize:16];
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
     return str;
@@ -186,8 +193,7 @@ CGFloat calendar_height = 230;
 #pragma mark table view delegate , datasourse
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.state == MyCourseStateAll) return self.datalist.count ? 1 : 0;
-    return self.calendarList ? 1: 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -214,7 +220,9 @@ CGFloat calendar_height = 230;
     NSString *startTime = [dateformater stringFromDate:startDate];
     NSString *endTime = [dateformater stringFromDate:endDate];
     cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
-    cell.count.hidden = YES;//.text = model.c_pay_num;
+    cell.count.hidden = YES;
+    cell.yiyou.hidden = YES;
+    cell.ren.hidden = YES;
     cell.priceL.hidden = YES;//.text = [NSString stringWithFormat:@"¥%@", model.c_price];
     cell.teacher1.hidden = YES;
     cell.teacher2.hidden = YES;
@@ -262,6 +270,7 @@ CGFloat calendar_height = 230;
         model = self.calendarList[indexPath.row];
     }
     LiveCourseModel *m = model.classs;
+    m.isbuy = @"1";
     m.teacher = model.teacher;
     LiveCourseDetailVC *vc = [[LiveCourseDetailVC alloc] init];
     vc.model = m;
@@ -315,7 +324,7 @@ CGFloat calendar_height = 230;
 
 - (NSArray<LiveMyCourseModel *> *)calendarList{
     if (!_calendarList) {
-        _datalist = [NSMutableArray<LiveMyCourseModel *> array];
+        _calendarList = [NSMutableArray<LiveMyCourseModel *> array];
     }
     return _calendarList;
 }

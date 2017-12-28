@@ -43,6 +43,19 @@ _Pragma("clang diagnostic pop")\
 
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define RootDocumentPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+#define RootTemp NSTemporaryDirectory()
+#define RootCache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
+#define MCAplicationWillTerminate @"MCAplicationWillTerminate"
+
+#import "FileManageShare.h"
+#import "FMDB.h"
+
+#define HttpShare [HTTPSessionShare httpSessionShare]
+#define DBQueueShare [DatabaseQueueShare databaseQueueShare]
+
+
+
 
 
 #define NIMKEY @"8210a542cf018de3bb35c11282dbb23c"
@@ -96,6 +109,7 @@ else\
 #define get_videourl @"/app.php/class/getlook"
 
 
+#define post_ordersucess @"/app.php/order/successOrder"
 
 
 

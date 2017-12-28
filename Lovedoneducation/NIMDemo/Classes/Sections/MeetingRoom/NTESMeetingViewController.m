@@ -323,7 +323,7 @@ NTES_FORBID_INTERACTIVE_POP
 #pragma mark - NTESMeetingNetCallManagerDelegate
 - (void)onJoinMeetingFailed:(NSString *)name error:(NSError *)error
 {
-    [self.view.window makeToast:@"无法加入视频，退出房间" duration:3.0 position:CSToastPositionCenter];
+    [self.view.window makeToast:@"直播课还没开始，退出房间" duration:3.0 position:CSToastPositionCenter];
 
     if ([[[NTESMeetingRolesManager sharedInstance] myRole] isManager]) {
         [self requestCloseChatRoom];

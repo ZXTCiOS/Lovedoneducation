@@ -13,12 +13,21 @@
 #import "securitesModel.h"
 #import "LiveCourseDetailVC.h"
 #import "LiveChooseKechengquanVC.h"
+#import "strisNull.h"
+#import "ZTVendorManager.h"
 
 @interface LiveSubmitOrderVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, copy) NSString *money;  // 可用代金券金额
+@property (nonatomic, copy) NSString *money;  // 代金券总额
+@property (nonatomic, assign) CGFloat daijinquan; //  使用代金券金额
 @property (nonatomic, strong) LivePayView *payV;
+@property (nonatomic, strong) ZTVendorPayManager *payManager;
+@property (nonatomic,copy)  NSString *out_trade_no;
+@property (nonatomic, copy) NSString *orderid;
+@property (nonatomic, copy) NSString *ordersn;
+@property (nonatomic, copy) NSString *orderPrice;
+
 @end
 
 @implementation LiveSubmitOrderVC
@@ -46,6 +55,12 @@
     self.money = @"0";
     [self loaddata];
     self.title = @"提交订单";
+    self.payManager = [[ZTVendorPayManager alloc] init];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,16 +183,34 @@
         cell.kechengquanNum.text = [NSString stringWithFormat:@"¥%@", self.kechengquan];
         cell.hideL.hidden = YES;
     }
-    CGFloat cashdiyong = 0;
+    
+    CGFloat kechengquan = [self.kechengquan floatValue];
+    CGFloat price = [self.model.c_price floatValue];
+    CGFloat cashdiyong = [self.money floatValue];
+    
+    
+    
     if (cell.cashDiyongBtn.tag == 200) {  // 200 yong,   100 buyong;
-        cashdiyong = [self.money doubleValue];
+        CGFloat leftmoney = price - kechengquan;
+        if (leftmoney < 0) {
+            cashdiyong = 0;
+        } else {
+            if (leftmoney < cashdiyong) {
+                cashdiyong = leftmoney;
+            }
+        }
+        cell.diyongquanNum.text = [NSString stringWithFormat:@"¥%.0f", cashdiyong];
+    } else {
+        cashdiyong = 0;
+        cell.diyongquanNum.text = [NSString stringWithFormat:@"¥%@", self.money];
     }
     CGFloat count = [self.model.c_price doubleValue] - [self.kechengquan doubleValue] - cashdiyong;
     if (count < 0) {
         count = 0.00;
     }
+    self.daijinquan = cashdiyong;
     cell.money.text = [NSString stringWithFormat:@"¥%.2f", count];
-    cell.diyongquanNum.text = [NSString stringWithFormat:@"¥%@", self.money];
+    self.orderPrice = cell.money.text;
     return cell;
 }
 
@@ -188,11 +221,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    /*
     if (indexPath.row == 0) {
         LiveCourseDetailVC *vc = [[LiveCourseDetailVC alloc] init];
         vc.model = self.model;
         [self.navigationController pushViewController:vc animated:YES];
-    }
+    }*/
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -210,25 +244,59 @@
     submit.backgroundColor = krgb(8, 210, 178);
     [submit bk_addEventHandler:^(id sender) {
         // 提交
-        // TODO: 支付  提交功能完善 1. 服务器请求支付, 2. 弹出手机支付 view, 3. 发起手机支付
+        // done: 支付  提交功能完善 1. 服务器请求支付, 2. 弹出手机支付 view, 3. 发起手机支付
         //self.kechengquan   所选课程券金额
+        //self.kechengquanid // id
         //self.money  可用代金券金额
         //self.model.c_price  商品金额
+        NSString *uid = [userDefault objectForKey:user_uid];
+        NSString *token = [userDefault objectForKey:user_token];
         
-        
-        
-        
-        
-        // 2. 弹出 选择 view
-        if (!self.payV) {
-            self.payV = [[NSBundle mainBundle] loadNibNamed:@"LIvePayView" owner:nil options:nil].firstObject;
-            self.payV.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT);
-            [self.payV.weixin addTarget:self action:@selector(weixinPay) forControlEvents:UIControlEventTouchUpInside];
-            [self.payV.zhifubao addTarget:self action:@selector(aliPay) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:self.payV];
+        NSMutableDictionary *dic =[[NSMutableDictionary alloc] initWithDictionary: @{@"uid": uid, @"token": token,@"ucid": self.kechengquanid ? self.kechengquanid : @"0", @"c_id": self.model.c_id, @"type": @"1"}];
+        if ([self.kechengquan isEqualToString:@"0"]) {
+            [dic removeObjectForKey:@"ucid"];
         }
-        self.payV.hidden = NO;
+        if (self.daijinquan) {
+            [dic setObject:@(self.daijinquan) forKey:@"couponprice"];
+        }
         
+        [DNNetworking postWithURLString:POST_orderInsert parameters:dic success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==200) {
+                
+                NSDictionary *dic = [obj objectForKey:@"data"];
+                self.orderid = [dic objectForKey:@"orderid"];
+                self.ordersn = [dic objectForKey:@"ordersn"];
+                NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
+                NSLog(@"价格----%@",ordertotalprice);
+                self.orderPrice = ordertotalprice;
+                if ([self.orderPrice floatValue] == 0) {
+                    NSString *uid = [userDefault objectForKey:user_uid];
+                    NSString *token = [userDefault objectForKey:user_token];
+                    [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid} success:^(id obj) {
+                        NSString *code = [obj objectForKey:@"code"];
+                        if ([code isEqualToString:@"200"]) {
+                            [self.view showWarning:@"购买成功"];
+                            self.vc.model.isbuy = @"1";
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }
+                    } failure:^(NSError *error) {
+                        [self.view showWarning:@"服务器错误, 请稍后再试"];
+                    }];
+                    
+                } else {
+                    //[MBProgressHUD showSuccess:@"提交成功" toView:self.table];
+                    //[self showwindow];
+                    [UIView animateWithDuration:0.3 animations:^{
+                        self.payV.alpha = 1;
+                        self.payV.hidden = NO;
+                    }completion:^(BOOL finished) {
+                        
+                    }];
+                }
+            }
+        } failure:^(NSError *error) {
+            
+        }];
         
     } forControlEvents:UIControlEventTouchUpInside];
     return view;
@@ -238,7 +306,60 @@
  */
 - (void)weixinPay{
     // TODO: 微信支付
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *price = self.orderPrice;
     
+    NSDictionary *dic = @{@"uid":uid,@"token":token,@"price":price};
+    [DNNetworking postWithURLString:POST_WEIXINZHIFU parameters:dic success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *appid = [dic objectForKey:@"appid"];
+            NSString *noncestr = [dic objectForKey:@"noncestr"];
+            self.out_trade_no = [dic objectForKey:@"out_trade_no"];
+            NSString *package = [dic objectForKey:@"package"];
+            NSString *partnerid = [dic objectForKey:@"partnerid"];
+            NSString *prepayid = [dic objectForKey:@"prepayid"];
+            NSString *sign = [dic objectForKey:@"sign"];
+            NSString *timestamp = [dic objectForKey:@"timestamp"];
+            
+            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
+            model.timeStamp = [timestamp intValue];
+            
+            model.partnerId = partnerid;
+            model.prepayId = prepayid;
+            model.package = package;
+            model.nonceStr = noncestr;
+            model.sign = sign;
+            model.appid = appid;
+            [self.payManager payOrderWith:1 orderModel:model payResultBlock:^(BOOL success, NSError *error) {
+                if (success) {
+                    NSLog(@"支付成功");
+                    NSString *uid = [userDefault objectForKey:user_uid];
+                    NSString *token = [userDefault objectForKey:user_token];
+                    [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid} success:^(id obj) {
+                        NSString *code = [obj objectForKey:@"code"];
+                        if ([code isEqualToString:@"200"]) {
+                            [self.view showWarning:@"购买成功"];
+                        }
+                    } failure:^(NSError *error) {
+                        [self.view showWarning:@"服务器错误, 请稍后再试"];
+                    }];
+                }else{
+                    NSLog(@"%@",error);
+                    NSString *url = [NSString stringWithFormat:GET_WEIXINCLONE,self.out_trade_no];
+                    [DNNetworking getWithURLString:url success:^(id obj) {
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
+                }
+                
+            }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
     
     
     self.payV.hidden = YES;
@@ -248,7 +369,38 @@
  */
 - (void)aliPay{
     // TODO: 支付宝支付
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *price = self.orderPrice;
     
+    //NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
+    
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"ordersn":self.ordersn};
+    [DNNetworking postWithURLString:POST_ZHIFUBAO parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==200) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *str = [dic objectForKey:@"str"];
+            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
+            model.aliPayOrderString = str;
+            [self.payManager payOrderWith:0 orderModel:model payResultBlock:^(BOOL success,NSError *error) {
+                if (success) {
+                    [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid} success:^(id obj) {
+                        NSString *code = [obj objectForKey:@"code"];
+                        if ([code isEqualToString:@"200"]) {
+                            [self.view showWarning:@"购买成功"];
+                        }
+                    } failure:^(NSError *error) {
+                        [self.view showWarning:@"服务器错误, 请稍后再试"];
+                    }];
+                }else{
+                    NSLog(@"%@",error);
+                }
+            }];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
     
     self.payV.hidden = YES;
@@ -268,6 +420,20 @@
     return 130;
 }
 
+
+- (LivePayView *)payV{
+    if (!_payV) {
+        
+            _payV = [[NSBundle mainBundle] loadNibNamed:@"LIvePayView" owner:nil options:nil].firstObject;
+            _payV.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - NAVIGATION_HEIGHT);
+            [_payV.weixin addTarget:self action:@selector(weixinPay) forControlEvents:UIControlEventTouchUpInside];
+            [_payV.zhifubao addTarget:self action:@selector(aliPay) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:_payV];
+        _payV.alpha = 0;
+        _payV.hidden = YES;
+    }
+    return _payV;
+}
 
 
 @end

@@ -15,9 +15,6 @@
 #import "HTTPSessionShare.h"
 
 
-
-
-
 @interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, DZNEmptyDataSetSource, HTTPSessionShareDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -46,10 +43,10 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     }
     self.table.tableFooterView = [UIView new];
     
-    
+    [HttpShare startAllTask];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"开始下载" forState:UIControlStateNormal];
+    [btn setTitle:@"删除全部" forState:UIControlStateNormal];
     [btn setTintColor:krgb(8, 210, 178)];
     btn.frame = CGRectMake(0, 0, 60, 18);
     [btn bk_addEventHandler:^(id sender) {

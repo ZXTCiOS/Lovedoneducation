@@ -264,7 +264,6 @@
 		18283D121F9F2EDE00111352 /* HomeQiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D111F9F2EDE00111352 /* HomeQiandaoView.xib */; };
 		18283D151F9F56D700111352 /* HomeMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18283D141F9F56D700111352 /* HomeMoreView.m */; };
 		18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18283D161F9F56E600111352 /* HomeMoreView.xib */; };
-		18380E3E1FECD69F00FFDCDA /* 1079554861-193781928176385.gz in Resources */ = {isa = PBXBuildFile; fileRef = 18380E3D1FECD69F00FFDCDA /* 1079554861-193781928176385.gz */; };
 		18528E4D1FA2D9D60081C543 /* LiveChooseKechengquanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */; };
 		18528E501FA303810081C543 /* LivePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18528E4F1FA303810081C543 /* LivePayView.m */; };
 		18528E521FA3038E0081C543 /* LIvePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18528E511FA3038E0081C543 /* LIvePayView.xib */; };
@@ -277,7 +276,6 @@
 		185C04C41FA998D200571E67 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04C31FA998D200571E67 /* AudioToolbox.framework */; };
 		185C04C61FA998DD00571E67 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04C51FA998DC00571E67 /* VideoToolbox.framework */; };
 		185C04C81FA998F600571E67 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 185C04C71FA998F600571E67 /* libsqlite3.0.tbd */; };
-		186393011FEB67EC001B79F5 /* 陈奕迅 - 稳稳的幸福.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 186393001FEB67EB001B79F5 /* 陈奕迅 - 稳稳的幸福.mp3 */; };
 		186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420601FA1817E004DF7A4 /* LiveTeacherInfoVC.m */; };
 		186420651FA1855B004DF7A4 /* TeacherHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186420631FA1855B004DF7A4 /* TeacherHistoryCell.m */; };
 		186420661FA1855B004DF7A4 /* TeacherHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186420641FA1855B004DF7A4 /* TeacherHistoryCell.xib */; };
@@ -1084,7 +1082,6 @@
 		18283D131F9F56D700111352 /* HomeMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMoreView.h; sourceTree = "<group>"; };
 		18283D141F9F56D700111352 /* HomeMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMoreView.m; sourceTree = "<group>"; };
 		18283D161F9F56E600111352 /* HomeMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMoreView.xib; sourceTree = "<group>"; };
-		18380E3D1FECD69F00FFDCDA /* 1079554861-193781928176385.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "1079554861-193781928176385.gz"; sourceTree = "<group>"; };
 		18528E4B1FA2D9D60081C543 /* LiveChooseKechengquanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChooseKechengquanVC.h; sourceTree = "<group>"; };
 		18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChooseKechengquanVC.m; sourceTree = "<group>"; };
 		18528E4E1FA303810081C543 /* LivePayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePayView.h; sourceTree = "<group>"; };
@@ -1103,7 +1100,6 @@
 		185C04C31FA998D200571E67 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		185C04C51FA998DC00571E67 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		185C04C71FA998F600571E67 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		186393001FEB67EB001B79F5 /* 陈奕迅 - 稳稳的幸福.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 稳稳的幸福.mp3"; sourceTree = "<group>"; };
 		1864205F1FA1817E004DF7A4 /* LiveTeacherInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveTeacherInfoVC.h; sourceTree = "<group>"; };
 		186420601FA1817E004DF7A4 /* LiveTeacherInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveTeacherInfoVC.m; sourceTree = "<group>"; };
 		186420621FA1855B004DF7A4 /* TeacherHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherHistoryCell.h; sourceTree = "<group>"; };
@@ -2782,8 +2778,6 @@
 		186570AA1FB9870200FB9E55 /* 回放 */ = {
 			isa = PBXGroup;
 			children = (
-				18380E3D1FECD69F00FFDCDA /* 1079554861-193781928176385.gz */,
-				186393001FEB67EB001B79F5 /* 陈奕迅 - 稳稳的幸福.mp3 */,
 				186570AB1FB9870200FB9E55 /* 白板音频回放 */,
 			);
 			path = "回放";
@@ -4419,14 +4413,12 @@
 				181F82A21FB429600090EDEF /* Settings.bundle in Resources */,
 				189D53D11FA7418700600947 /* Info.plist in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
-				18380E3E1FECD69F00FFDCDA /* 1079554861-193781928176385.gz in Resources */,
 				181F86731FB437790090EDEF /* NTESEnterRoomViewController.xib in Resources */,
 				18F2A7C31FA0723500FE25C3 /* LiveCourseDetailVC.xib in Resources */,
 				186420661FA1855B004DF7A4 /* TeacherHistoryCell.xib in Resources */,
 				53C9995C1F9739D9006A6570 /* Main.storyboard in Resources */,
 				1864206E1FA1B637004DF7A4 /* LiveEvalutateCell.xib in Resources */,
 				534B49C61FA0D75D00A68BA7 /* w_star_red@2x.png in Resources */,
-				186393011FEB67EC001B79F5 /* 陈奕迅 - 稳稳的幸福.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

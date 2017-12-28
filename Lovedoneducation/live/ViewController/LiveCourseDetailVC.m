@@ -147,26 +147,46 @@
 - (IBAction)buyNow:(id)sender {
     if ([self.model.isbuy isEqualToString:@"1"]) {  // 1. 已买
         // 上课去
-        
-        __weak typeof(self) wself = self;
-        NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-        request.roomId = @"19645919";//19645919  19743991
-        [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
-        [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
-            [SVProgressHUD dismiss];
-            if (!error) {
-                [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:request.roomId];
-                [[NTESMeetingRolesManager sharedInstance] startNewMeeting:me withChatroom:chatroom newCreated:NO];
-                UINavigationController *nav = wself.navigationController;
-                NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
-                [nav pushViewController:vc animated:YES];
-                NSMutableArray *vcs = [nav.viewControllers mutableCopy];
-                [vcs removeObject:self];
-                nav.viewControllers = vcs;
-            }else {
-                [self.view makeToast:@"进入房间失败，请确认ID是否正确" duration:2.0 position:CSToastPositionCenter];
+        NSString *roomid;
+        for (LiveCourseListModel *model in self.datalist) {
+            if (model.isstart){
+                for (LiveTeacherModel *teacher in self.model.teacher) {
+                    if ([model.tid isEqualToString:teacher.tid]) {
+                        roomid = teacher.roomid;
+                    }
+                }
             }
-        }];
+        }
+        if (roomid) {
+            __weak typeof(self) wself = self;
+            NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+            request.roomId = roomid;//@"19645919";//19645919  19743991
+            [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
+            [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
+                [SVProgressHUD dismiss];
+                if (!error) {
+                    [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:request.roomId];
+                    [[NTESMeetingRolesManager sharedInstance] startNewMeeting:me withChatroom:chatroom newCreated:NO];
+                    UINavigationController *nav = wself.navigationController;
+                    NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
+                    [nav pushViewController:vc animated:YES];
+                    NSMutableArray *vcs = [nav.viewControllers mutableCopy];
+                    [vcs removeObject:self];
+                    nav.viewControllers = vcs;
+                }else {
+                    [self.view makeToast:@"进入房间失败，请确认ID是否正确" duration:2.0 position:CSToastPositionCenter];
+                }
+            }];
+        } else {
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"当前没有课程直播" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:0 handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertC addAction:act];
+            [self.navigationController presentViewController:alertC animated:YES completion:nil];
+        }
+        
+        
         
     }else{
         LiveSubmitOrderVC *vc = [[LiveSubmitOrderVC alloc] init];

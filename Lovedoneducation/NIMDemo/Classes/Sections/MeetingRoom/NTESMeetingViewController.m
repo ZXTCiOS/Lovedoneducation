@@ -376,7 +376,7 @@ NTES_FORBID_INTERACTIVE_POP
 - (void)meetingActorBeenEnabled
 {
     if (!self.actorSelectView) {
-        _isRemainStdNav = YES;
+        _isRemainStdNav = NO;
         self.actorSelectView = [[NTESActorSelectView alloc] initWithFrame:self.view.bounds];
         self.actorSelectView.delegate = self;
         [self.actorSelectView setUserInteractionEnabled:YES];

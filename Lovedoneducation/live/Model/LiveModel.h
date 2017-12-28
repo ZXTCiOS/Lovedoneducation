@@ -69,6 +69,7 @@ typedef NS_ENUM(NSUInteger, CourseState) {
 @property (nonatomic, copy) NSString *tintro;
 @property (nonatomic, copy) NSString *tsimple;
 @property (nonatomic, copy) NSString *tscore;
+@property (nonatomic, copy) NSString *roomid;
 
 @end
 

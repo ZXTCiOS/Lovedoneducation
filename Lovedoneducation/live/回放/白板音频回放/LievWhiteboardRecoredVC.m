@@ -84,17 +84,19 @@
 
 - (void)unGZip{
     //NSArray *arr = [self.wbPath componentsSeparatedByString:@"."];
-    NSString *filepath;
+    
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *filep = [cachePath stringByAppendingString:@"/miaocai/common/cache/downloadFile"];
+    NSString *videoFilePath = [filep stringByAppendingPathComponent:self.audioPath];
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     NSString *name = self.titlename;
     NSString *toPath = [documentPath stringByAppendingString:name];
-    filepath = [documentPath stringByAppendingPathComponent:self.wbPath];
     if([[NSFileManager defaultManager] fileExistsAtPath:toPath]){
         NSData *data = [NSData dataWithContentsOfFile:toPath];
         self.data = data;
         [self.playerView play];
     } else {
-        [[NVHTarGzip sharedInstance] unGzipFileAtPath:filepath toPath:toPath completion:^(NSError *error)
+        [[NVHTarGzip sharedInstance] unGzipFileAtPath:videoFilePath toPath:toPath completion:^(NSError *error)
          {
              NSLog(@"%@", error);
              NSData *data = [NSData dataWithContentsOfFile:toPath];
@@ -111,13 +113,9 @@
     model.fatherView = self.view;
     model.title = self.titlename;
     // 获取本地 url
-    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *videoFilePath = [documentPath stringByAppendingPathComponent:self.audioPath];
-    
-    NSArray *arr = [self.audioPath componentsSeparatedByString:@"."];
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:arr.firstObject ofType:arr.lastObject];
-    NSData *data = [NSData dataWithContentsOfFile:videoFilePath];
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *filep = [cachePath stringByAppendingString:@"/miaocai/common/cache/downloadFile"];
+    NSString *videoFilePath = [filep stringByAppendingPathComponent:self.audioPath];
     model.videoURL = [NSURL fileURLWithPath:videoFilePath];
     model.placeholderImage = [UIImage imageNamed:@""];
     [self.playerView playerControlView:controlView playerModel:model];

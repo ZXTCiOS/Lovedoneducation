@@ -10,6 +10,8 @@
 //#import <ZFDownloadManager.h>
 #import "HTTPSessionShare.h"
 #import "FileModel.h"
+#import "NSObject+FileDBManager.h"
+
 @interface LiveKeqiankehouVC ()
 
 @property (nonatomic) UIImageView *bgImg;
@@ -58,6 +60,35 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    
+    
+    
+    
+    
+}
+
+- (NSString *)panduanstate{
+    
+    FileModel *model = [NSObject getFileModeWithFilUrl:self.FileURL];
+    if (model) {
+        switch (model.fileState) {
+            case FileDownloaded:
+                return @"1";
+                break;
+            case FileDownloading:
+                return @"2";
+                break;
+            case FileStopDownload:
+                return @"3";
+                break;
+            case FileWillDownload:
+                return @"4";
+                break;
+            default:
+                break;
+        }
+    }
+    return @"0";
 }
 
 
@@ -74,6 +105,22 @@
             self.wbURL = [data objectForKey:@"whiteboard"]; // gz
             self.FileURL = [data objectForKey:@"video"];    ////  ******.mp3/4
             self.down.enabled = YES;
+            NSString *str = [self panduanstate];
+            if ([str isEqualToString:@"1"]) {
+                [self.down setTitle:@"讲义已下载" forState:UIControlStateNormal];
+                self.down.enabled = NO;
+            }if ([str isEqualToString:@"2"]) {
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
+            }if ([str isEqualToString:@"3"]) {
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
+            }if ([str isEqualToString:@"4"]) {
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
+            }
+            
+            
         } else {
             NSLog(@"...");
         }

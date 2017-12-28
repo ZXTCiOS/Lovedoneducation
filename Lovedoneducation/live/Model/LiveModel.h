@@ -110,7 +110,7 @@ typedef NS_ENUM(NSUInteger, CourseState) {
 @property (nonatomic, copy) NSString *comment;
 @property (nonatomic, copy) NSString *score;
 @property (nonatomic, copy) NSString *father;
-
+@property (nonatomic, copy) NSString *isstart;
 @end
 
 

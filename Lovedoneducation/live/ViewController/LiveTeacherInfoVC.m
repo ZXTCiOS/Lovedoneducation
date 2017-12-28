@@ -40,11 +40,14 @@
         NSString *code = [obj objectForKey:@"code"];
         if ([code isEqualToString:@"200"]) {
             self.datalist = [LiveCourseHistoryModel parse:[obj objectForKey:@"data"]];
+            
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
         [self.view showWarning:@"服务器错误"];
     }];
+    
+
 }
 
 #pragma mark - tableView  Delegate && dataSourse

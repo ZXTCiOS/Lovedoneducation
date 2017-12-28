@@ -298,5 +298,12 @@
 
  @return
  */
-#define POST_successOrder @"/app.php/order/successOrder?uid=%@&toke=%@&orderid=%@"
+#define POST_successOrder @"/app.php/order/successOrder?uid=%@&token=%@&orderid=%@"
+
+/**
+ 评论
+
+ @return pinglun
+ */
+#define POST_COMMENT @"/app.php/user/commit"
 #endif /* wangHeader_h */

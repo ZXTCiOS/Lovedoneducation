@@ -9,11 +9,13 @@
 #import "LiveEvaluateVC.h"
 #import "TeacherHistoryCell.h"
 #import "LiveEvalutateCell.h"
+#import "fivestarVC.h"
 
 @interface LiveEvaluateVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray<LiveEvaluateModel *> *datalist;
 @property (nonatomic, strong) NSString *count;
+@property (nonatomic,copy) NSString *iscomment;
 @end
 
 @implementation LiveEvaluateVC
@@ -41,6 +43,9 @@
             NSDictionary *data = [obj objectForKey:@"data"];
             self.datalist = [LiveEvaluateModel parse:[data objectForKey:@"comment"]];
             self.count = [NSString stringWithFormat: @"%@",  [data objectForKey:@"num"]];
+            
+            
+            self.iscomment = [data objectForKey:@"iscomment"];
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
@@ -121,6 +126,19 @@
     [view addSubview:label];
     label.textColor = krgb(50, 50, 50);
     label.text = @"最新评论";
+    
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:@"写评论" forState:normal];
+    [btn setTitleColor:krgb(50, 50, 50) forState:normal];
+    btn.frame = CGRectMake(kScreenW-100, 30, 80, 20);
+    [btn addTarget:self action:@selector(submitlclick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:btn];
+    
+    UIImageView *img = [[UIImageView alloc] init];
+    img.image = [UIImage imageNamed:@"pinglun_icon_pinglun"];
+    img.frame = CGRectMake(kScreenW-110, 30, 20, 20);
+    [view addSubview:img];
+    
     return view;
 }
 
@@ -160,6 +178,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)submitlclick
+{
+    if ([self.iscomment isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:@"您已经评论过了" toView:self.view];
+    }
+    else
+    {
+        fivestarVC *vc = [fivestarVC new];
+        vc.tid = self.model.tid;
+        vc.cdid = self.model.cdid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 
+}
 
 @end

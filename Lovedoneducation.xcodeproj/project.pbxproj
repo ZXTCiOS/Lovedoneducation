@@ -528,6 +528,7 @@
 		53F4CCEE1FD6726500BA6F5F /* essayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCED1FD6726500BA6F5F /* essayCell.m */; };
 		53F4CCF11FD6784800BA6F5F /* essaytableCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */; };
 		53F4CCF41FD6785800BA6F5F /* essaytableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */; };
+		53F768981FF3B9AA00D3E4FB /* fivestarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F768971FF3B9AA00D3E4FB /* fivestarVC.m */; };
 		623F44B831009BD123A2D882 /* libPods-LovedoneducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF4640C3FDC9155777CF457 /* libPods-LovedoneducationTests.a */; };
 /* End PBXBuildFile section */
 
@@ -1560,6 +1561,8 @@
 		53F4CCF01FD6784800BA6F5F /* essaytableCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaytableCell0.m; sourceTree = "<group>"; };
 		53F4CCF21FD6785800BA6F5F /* essaytableCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = essaytableCell1.h; sourceTree = "<group>"; };
 		53F4CCF31FD6785800BA6F5F /* essaytableCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essaytableCell1.m; sourceTree = "<group>"; };
+		53F768961FF3B9AA00D3E4FB /* fivestarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fivestarVC.h; sourceTree = "<group>"; };
+		53F768971FF3B9AA00D3E4FB /* fivestarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fivestarVC.m; sourceTree = "<group>"; };
 		57A75A802B829959B5E47621 /* libPods-Lovedoneducation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovedoneducation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF601B0F7B2BF5BA4975B67 /* Pods-LovedoneducationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovedoneducationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovedoneducationUITests/Pods-LovedoneducationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74E9CEC45046319E1AA06F23 /* Pods-Lovedoneducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovedoneducation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lovedoneducation/Pods-Lovedoneducation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2689,6 +2692,8 @@
 				18528E4C1FA2D9D60081C543 /* LiveChooseKechengquanVC.m */,
 				189D52501FA6FEDF00600947 /* MyCourseViewController.h */,
 				189D52511FA6FEDF00600947 /* MyCourseViewController.m */,
+				53F768961FF3B9AA00D3E4FB /* fivestarVC.h */,
+				53F768971FF3B9AA00D3E4FB /* fivestarVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4524,6 +4529,7 @@
 				181F872A1FB437790090EDEF /* NIMAttributedLabel.m in Sources */,
 				181F87241FB437790090EDEF /* NIMTimePickerView.m in Sources */,
 				53963AC61FA08239009AEFCA /* aboutCell1.m in Sources */,
+				53F768981FF3B9AA00D3E4FB /* fivestarVC.m in Sources */,
 				53C3DC8E1FA9B4D300966F47 /* YZLineChartView.m in Sources */,
 				181F86E01FB437790090EDEF /* NIMContactDataItem.m in Sources */,
 				181F868C1FB437790090EDEF /* NTESLocationPoint.m in Sources */,

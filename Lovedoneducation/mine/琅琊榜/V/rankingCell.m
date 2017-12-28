@@ -92,7 +92,6 @@
     if(!_infoimg)
     {
         _infoimg = [[UIImageView alloc] init];
-        _infoimg.backgroundColor = [UIColor orangeColor];
         _infoimg.layer.masksToBounds = YES;
         _infoimg.layer.cornerRadius = 65/2;
     }

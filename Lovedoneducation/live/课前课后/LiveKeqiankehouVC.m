@@ -60,35 +60,30 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
-    
-    
-    
-    
-    
+    [self panduanstate];
 }
 
-- (NSString *)panduanstate{
+- (void)panduanstate{
     
     FileModel *model = [NSObject getFileModeWithFilUrl:self.FileURL];
     if (model) {
         switch (model.fileState) {
             case FileDownloaded:
-                return @"1";
+                [self.down setTitle:@"讲义已下载" forState:UIControlStateNormal];
                 break;
             case FileDownloading:
-                return @"2";
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
                 break;
             case FileStopDownload:
-                return @"3";
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
                 break;
             case FileWillDownload:
-                return @"4";
+                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
                 break;
             default:
                 break;
         }
     }
-    return @"0";
 }
 
 
@@ -105,21 +100,7 @@
             self.wbURL = [data objectForKey:@"whiteboard"]; // gz
             self.FileURL = [data objectForKey:@"video"];    ////  ******.mp3/4
             self.down.enabled = YES;
-            NSString *str = [self panduanstate];
-            if ([str isEqualToString:@"1"]) {
-                [self.down setTitle:@"讲义已下载" forState:UIControlStateNormal];
-                self.down.enabled = NO;
-            }if ([str isEqualToString:@"2"]) {
-                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
-                self.down.enabled = NO;
-            }if ([str isEqualToString:@"3"]) {
-                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
-                self.down.enabled = NO;
-            }if ([str isEqualToString:@"4"]) {
-                [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
-                self.down.enabled = NO;
-            }
-            
+            [self panduanstate];
             
         } else {
             NSLog(@"...");
@@ -292,7 +273,9 @@
         [arrM addObject:fileModel];
     }
     [HttpShare downloadFileWithFileModelArray:arrM];
-    
+    [self panduanstate];
+    [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+    self.down.enabled = NO;
 }
 
 

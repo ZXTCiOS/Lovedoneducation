@@ -35,8 +35,8 @@
                   symbolName = "-[LogupVC myTabVClick:]"
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Work/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536067963.484556"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
+                  timestampString = "536137408.362888"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -50,8 +50,8 @@
                   symbolName = "__23-[LogupVC myTabVClick:]_block_invoke"
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Work/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536067963.490165"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
+                  timestampString = "536137408.365508"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -65,8 +65,8 @@
                   symbolName = "__copy_helper_block_"
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Work/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536067963.496248"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
+                  timestampString = "536137408.36843"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -80,8 +80,8 @@
                   symbolName = "__destroy_helper_block_"
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Work/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536067963.503069"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
+                  timestampString = "536137408.370979"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -95,8 +95,8 @@
                   symbolName = "__23-[LogupVC myTabVClick:]_block_invoke.187"
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Work/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536067963.508253"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
+                  timestampString = "536137408.373744"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -407,22 +407,6 @@
             startingLineNumber = "239"
             endingLineNumber = "239"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lovedoneducation/live/&#x56de;&#x653e;/&#x767d;&#x677f;&#x97f3;&#x9891;&#x56de;&#x653e;/LievWhiteboardRecoredVC.m"
-            timestampString = "536067963.373134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-playerInit"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -38,7 +38,7 @@
 @property (nonatomic, strong) UITableView *courseListView;
 @property (nonatomic, strong) UITableView *teacherListView;
 @property (nonatomic, strong) UIScrollView *courseIntroView;
-
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSArray *datalist; // 课程表
 @end
 
@@ -49,7 +49,9 @@
     [self setbtns];
     [self netWorking];
     self.title = @"课程详情";
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2 * 60 block:^(NSTimer * _Nonnull timer) {
+        [self netWorking];
+    } repeats:YES];
     if (@available(iOS 11.0, *)){
         //self.greenV.frame = CGRectMake(0, 0, kScreenW, 100);
         self.view.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH - 64);
@@ -101,7 +103,17 @@
     if ([self.model.isbuy isEqualToString:@"1"]) {
         [self.buyBtn setTitle:@"进入课程" forState:UIControlStateNormal];
     }
-    
+    [self.timer fire];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.timer invalidate];
+}
+
+- (void)dealloc{
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)netWorking{

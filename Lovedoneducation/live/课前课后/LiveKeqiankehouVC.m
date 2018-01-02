@@ -65,20 +65,37 @@
 
 - (void)panduanstate{
     
-    FileModel *model = [NSObject getFileModeWithFilUrl:self.FileURL];
+    FileModel *model;// = [NSObject getFileModeWithFilUrl:self.FileURL];
+    NSMutableArray *arr = [NSMutableArray array];
+    [arr addObjectsFromArray:HttpShare.downloadingList];
+    [arr addObjectsFromArray:HttpShare.diskFileList];
+    if (!self.FileURL) return;
+    NSArray *file = [self.FileURL componentsSeparatedByString:@"?"];
+    for (FileModel *modelll in arr) {
+        NSArray *fileee = [modelll.fileUrl componentsSeparatedByString:@"?"];
+        if ([file.firstObject isEqualToString:fileee.firstObject]) {
+            model = modelll;
+        }
+    }
+    
+    
     if (model) {
         switch (model.fileState) {
             case FileDownloaded:
                 [self.down setTitle:@"讲义已下载" forState:UIControlStateNormal];
+                self.down.enabled = NO;
                 break;
             case FileDownloading:
                 [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
                 break;
             case FileStopDownload:
                 [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
                 break;
             case FileWillDownload:
                 [self.down setTitle:@"讲义下载中" forState:UIControlStateNormal];
+                self.down.enabled = NO;
                 break;
             default:
                 break;

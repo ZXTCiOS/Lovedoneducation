@@ -52,12 +52,15 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     [btn bk_addEventHandler:^(id sender) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"删除全部下载文件?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *act = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
-            for (FileModel *model in HttpShare.downloadingList) {
-                [NSObject delFiles:model];
-            }
-            for (FileModel *model in HttpShare.diskFileList) {
-                [NSObject delFiles:model];
-            }
+            
+            [HttpShare removeFileWithFileArray:self.dataSource];
+            [HttpShare removeFileWithFileArray:self.whiteboardlist];
+//            for (FileModel *model in HttpShare.downloadingList) {
+//                [NSObject delFiles:model];
+//            }
+//            for (FileModel *model in HttpShare.diskFileList) {
+//                [NSObject delFiles:model];
+//            }
             [self updateTableViewData];
             
         }];
@@ -79,6 +82,9 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     [self updateTableViewData];
 }
 
+- (void)dealloc{
+    HttpShare.sessionDelegate  = nil;
+}
 
 - (void)updateTableViewData{
     [self.dataSource removeAllObjects];
@@ -112,8 +118,6 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 #pragma mark empty datasource
 
@@ -199,20 +203,19 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [self.dataSource removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationAutomatic];
         FileModel *model = self.dataSource[indexPath.row];
+        [HttpShare removeFileWithFileArray:@[model]];
         NSArray *arr = [model.fileName componentsSeparatedByString:@"."];
         if ([arr.lastObject isEqualToString:@"aac"]) {
             for (FileModel *model in self.whiteboardlist) {
                 NSString *name = [model.fileName componentsSeparatedByString:@"."].firstObject;
                 if ([name isEqualToString:arr.firstObject]) {
-                    [NSObject delFiles:model];
+                    [HttpShare removeFileWithFileArray:@[model]];
                 }
             }
         }
-        [NSObject delFiles:model];
     }
+    [self updateTableViewData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

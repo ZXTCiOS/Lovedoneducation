@@ -149,7 +149,7 @@
         // 上课去
         NSString *roomid;
         for (LiveCourseListModel *model in self.datalist) {
-            if (model.isstart){
+            if (model.isstart == CourseStateing){
                 for (LiveTeacherModel *teacher in self.model.teacher) {
                     if ([model.tid isEqualToString:teacher.tid]) {
                         roomid = teacher.roomid;

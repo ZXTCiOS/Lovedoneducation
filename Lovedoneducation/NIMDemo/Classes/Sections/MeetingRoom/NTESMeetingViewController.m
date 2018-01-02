@@ -376,12 +376,12 @@ NTES_FORBID_INTERACTIVE_POP
 - (void)meetingActorBeenEnabled
 {
     if (!self.actorSelectView) {
-        _isRemainStdNav = NO;
+        _isRemainStdNav = YES;
         self.actorSelectView = [[NTESActorSelectView alloc] initWithFrame:self.view.bounds];
         self.actorSelectView.delegate = self;
         [self.actorSelectView setUserInteractionEnabled:YES];
-        [self onSelectedAudio:YES video:NO whiteboard:NO];
-        //[self.view addSubview:self.actorSelectView];
+        //[self onSelectedAudio:YES video:NO whiteboard:NO];
+        [self.view addSubview:self.actorSelectView];
     }
 }
 
@@ -423,7 +423,7 @@ NTES_FORBID_INTERACTIVE_POP
     
     if (whiteboardOn) {
         [[NTESMeetingRolesManager sharedInstance] setMyWhiteBoard:YES];
-    }    
+    }
 }
 
 #pragma mark - Private

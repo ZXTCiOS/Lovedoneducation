@@ -113,7 +113,7 @@
         
         [self.whiteboardButton addTarget:self action:@selector(whiteboardPressed) forControlEvents:UIControlEventTouchUpInside];
         
-        [self.backView addSubview:self.whiteboardButton];
+        //[self.backView addSubview:self.whiteboardButton];
         
         self.line = [[UIView alloc] init];
         self.line.backgroundColor = [UIColor grayColor];
@@ -146,11 +146,11 @@
     self.hintLabel.centerX = self.backView.width * .5f;
     
     self.audioButton.top = self.hintLabel.bottom + 15.f;
-    self.audioButton.left  = 5;
+    self.audioButton.left  = 30;
     self.audioButton.width =80;
     
     self.videoButton.top = self.audioButton.top;
-    self.videoButton.left  = self.audioButton.right;
+    self.videoButton.right  = self.hintLabel.right + 30.f;
     self.videoButton.width = self.audioButton.width;
 
     self.whiteboardButton.top = self.audioButton.top;
@@ -185,7 +185,7 @@
 - (void)okPressed
 {
     if (_delegate) {
-        [_delegate onSelectedAudio:!self.audioButton.selected video:!self.videoButton.selected whiteboard:YES];
+        [_delegate onSelectedAudio:!self.audioButton.selected video:!self.videoButton.selected whiteboard:NO];
     }
 }
 

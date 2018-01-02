@@ -41,7 +41,6 @@
         default:
             break;
     }
-    //self.down.hidden = NO;
     [self networking];
     [self layoutview];
     self.view.backgroundColor = [UIColor whiteColor];

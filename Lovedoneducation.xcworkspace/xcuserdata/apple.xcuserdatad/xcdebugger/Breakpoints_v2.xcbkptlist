@@ -36,7 +36,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536569165.939453"
+                  timestampString = "536575957.723178"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -51,7 +51,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536569165.94239"
+                  timestampString = "536575957.726681"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -66,7 +66,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536569165.944958"
+                  timestampString = "536575957.72926"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -81,7 +81,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536569165.94748"
+                  timestampString = "536575957.731767"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -96,7 +96,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536569165.9501"
+                  timestampString = "536575957.73499"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -376,6 +376,70 @@
             endingLineNumber = "138"
             landmarkName = "-downFileUrl:filename:fileimage:extention:downtype:teacherName:teacherIntro:courseTime:courseIntro:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lovedoneducation/live/ViewController/LiveSubmitOrderVC.m"
+            timestampString = "536573319.364049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lovedoneducation/live/ViewController/LiveSubmitOrderVC.m"
+            timestampString = "536573319.364132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__54-[LiveSubmitOrderVC tableView:viewForFooterInSection:]_block_invoke_2"
+                  moduleName = "Lovedoneducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/live/ViewController/LiveSubmitOrderVC.m"
+                  timestampString = "536575957.798074"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__54-[LiveSubmitOrderVC tableView:viewForFooterInSection:]_block_invoke_3"
+                  moduleName = "Lovedoneducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/live/ViewController/LiveSubmitOrderVC.m"
+                  timestampString = "536575957.800581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

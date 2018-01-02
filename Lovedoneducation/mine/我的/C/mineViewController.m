@@ -25,6 +25,7 @@
 @property (nonatomic,copy)   NSString *phonestr;
 @property (nonatomic,copy)   NSString *nicknamestr;
 @property (nonatomic,copy)   NSString *passwordstr;
+@property (nonatomic,copy)   NSString *uname;
 @property (nonatomic,assign) BOOL firstenload;
 @end
 
@@ -101,6 +102,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             self.nicknamestr = [dic objectForKey:@"uname"];
             self.phonestr = [dic objectForKey:@"uphone"];
             self.passwordstr = [dic objectForKey:@"upwd"];
+            self.uname = [dic objectForKey:@"uname"];
             [userDefault setObject:self.phonestr forKey:user_phone];
             NSArray* array = [self.typestr componentsSeparatedByString:@">>"];
             NSString *str = array.firstObject;
@@ -137,6 +139,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
         if (!cell) {
             cell = [[mineCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
         }
+        cell.nameLab.text = self.uname;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         return cell;

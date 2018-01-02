@@ -15,3 +15,4 @@
 - (instancetype)initWithChatroom:(NIMChatroom *)chatroom;
 
 @end
+

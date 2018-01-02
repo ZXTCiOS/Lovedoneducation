@@ -18,8 +18,8 @@
 @interface coursescacheVC ()<UITableViewDataSource,UITableViewDelegate, DZNEmptyDataSetSource, HTTPSessionShareDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
-
 @property (nonatomic, strong) NSMutableArray *whiteboardlist;
+@property (nonatomic, assign) BOOL isPause;
 
 @end
 
@@ -44,32 +44,35 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
     self.table.tableFooterView = [UIView new];
     
     [HttpShare startAllTask];
-    
+    self.isPause = YES;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"删除全部" forState:UIControlStateNormal];
+    [btn setTitle:@"开始下载" forState:UIControlStateNormal];
     [btn setTintColor:krgb(8, 210, 178)];
     btn.frame = CGRectMake(0, 0, 60, 18);
     [btn bk_addEventHandler:^(id sender) {
+        /*
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"删除全部下载文件?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *act = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
             
             [HttpShare removeFileWithFileArray:self.dataSource];
             [HttpShare removeFileWithFileArray:self.whiteboardlist];
-//            for (FileModel *model in HttpShare.downloadingList) {
-//                [NSObject delFiles:model];
-//            }
-//            for (FileModel *model in HttpShare.diskFileList) {
-//                [NSObject delFiles:model];
-//            }
             [self updateTableViewData];
             
         }];
         UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
         }];
         [alert addAction:act];
         [alert addAction:act1];
-        [self.navigationController presentViewController:alert animated:YES completion:nil];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];*/
+        
+        if (self.isPause) {
+            [HttpShare startAllTask];
+        } else {
+            [HttpShare stopAllTask];
+        }
+        self.isPause = !self.isPause;
+        NSString *name = self.isPause ? @"开始下载" : @"停止下载";
+        [btn setTitle:name forState:UIControlStateNormal];
     } forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = item;
@@ -237,8 +240,12 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
             }
         }
         [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        [self.view showWarning:@"还没有下载完成哦"];
+    } else if (model.fileState == FileDownloading) {
+        [self.view showWarning:@"已暂停下载"];
+        [HttpShare stopDownloadWithFile:model];
+    } else if (model.fileState == FileStopDownload || model.fileState == FileWillDownload){
+        [self.view showWarning:@"已开始下载"];
+        [HttpShare continueDownloadWithFile:model];
     }
     
 }

@@ -116,7 +116,7 @@
         LiveCourseModel *model = self.model;
         cell.titleL.text = model.c_name;
         // TODO:   介绍.....
-        cell.introL.text = @"介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍";
+        cell.introL.text = model.c_intro;
         
         NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
         dateformater.dateFormat = @"yyyy.MM.dd";
@@ -186,6 +186,9 @@
     
     CGFloat kechengquan = [self.kechengquan floatValue];
     CGFloat price = [self.model.c_price floatValue];
+    if (self.money == NULL) {
+        self.money = @"0";
+    }
     CGFloat cashdiyong = [self.money floatValue];
     
     

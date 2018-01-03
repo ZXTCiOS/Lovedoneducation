@@ -173,6 +173,7 @@ CGFloat calendar_height = 230;
     self.selectDate = date;
     [self.calendar selectDate:date scrollToDate:YES];
     NSTimeInterval selectTime = [date timeIntervalSince1970];
+    [self.calendarList removeAllObjects];
     for (LiveMyCourseModel *model in self.datalist) {
         for (NSString *time in model.ymdhis) {
             NSTimeInterval courseTime = [time integerValue];

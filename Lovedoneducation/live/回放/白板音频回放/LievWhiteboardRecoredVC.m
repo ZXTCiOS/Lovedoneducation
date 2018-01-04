@@ -38,6 +38,8 @@
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, assign) NSInteger location;
 @property (nonatomic, assign) NSInteger wbTime;
+@property (nonatomic, strong) NSData *content;
+
 @end
 
 @implementation LievWhiteboardRecoredVC
@@ -484,7 +486,9 @@
 - (void)parseData:(NSData *)data atSeconds:(NSInteger) seconds{
     
     NSInteger location = self.location;
-    if ((location + 8 < data.length) && (self.wbTime < seconds)) {
+    while ((location + 8 < data.length) && (self.wbTime < seconds)) {
+        // 解包
+        !self.content ?: [self parseComond:self.content];
         // 获取 包长
         NSData *bagLengthData = [data subdataWithRange:NSMakeRange(location, 4)];
         int baglength;
@@ -497,10 +501,10 @@
         NSInteger length = baglength - 8;
         // 获取 包内容
         NSData *content = [data subdataWithRange:NSMakeRange(location + 8 , length)];
-        //NSString *str = [[NSString alloc]initWithData:content encoding:NSUTF8StringEncoding];
-        [self parseComond:content];
-        //NSLog(@"包长: %d 时间戳: %d  包内容: %@", baglength, time, str);
+        self.content = content;
         self.location += baglength;
+        
+        //NSLog(@"包长: %d 时间戳: %d  包内容: %@", baglength, time, str);
     };
     
 }
@@ -511,6 +515,7 @@
     self.location = 0;
     _lines.isdrag = YES;
     do {
+        !self.content ?: [self parseComond:self.content];
         // 获取 包长
         NSData *bagLengthData = [self.data subdataWithRange:NSMakeRange(self.location, 4)];
         int baglength;
@@ -523,11 +528,9 @@
         NSInteger length = baglength - 8;
         // 获取 包内容
         NSData *content = [self.data subdataWithRange:NSMakeRange(self.location + 8 , length)];
-        //NSString *str = [[NSString alloc]initWithData:content encoding:NSUTF8StringEncoding];
-        [self parseComond:content];
-        //NSLog(@"包长: %d 时间戳: %d  包内容: %@", baglength, time, str);
+        self.content = content;
         self.location += baglength;
-        
+        //NSLog(@"包长: %d 时间戳: %d  包内容: %@", baglength, time, str);
     }while ((self.wbTime < time.value * 1000));
     _lines.isdrag = NO;
     [self.playerView play];

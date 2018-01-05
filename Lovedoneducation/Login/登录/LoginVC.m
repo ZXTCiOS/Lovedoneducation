@@ -370,7 +370,15 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
-        NSString *uname = model.openid;
+        NSString *uname = @"";
+        if ([strisNull isNullToString:model.openid]) {
+            uname = @"";
+        }
+        else
+        {
+            uname = model.openid;
+        }
+       
         NSDictionary *dic = @{@"uname":uname};
         //show
         [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
@@ -407,7 +415,16 @@
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
         NSDictionary *dicid = model.originalResponse;
-        NSString *uname = [dicid objectForKey:@"unionid"];
+        NSString *strstr = [dicid objectForKey:@"unionid"];
+        NSString *uname = @"";
+        if ([strisNull isNullToString:strstr]) {
+            uname = @"";
+        }
+        else
+        {
+            uname =  [dicid objectForKey:@"unionid"];
+        }
+       // [dicid objectForKey:@"unionid"];
         NSDictionary *dic = @{@"uname":uname};
         //show
         [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];

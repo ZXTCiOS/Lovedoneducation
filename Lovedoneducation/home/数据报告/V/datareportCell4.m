@@ -279,14 +279,17 @@
     {
         practicedays = [dic objectForKey:@"practicedays"];
     }
-    str = [NSString stringWithFormat:@"%@%@",@"0",str1];
+    str = [NSString stringWithFormat:@"%@%@",practicedays,str1];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+
     [attrStr addAttribute:NSForegroundColorAttributeName
                     value:[UIColor colorWithHexString:@"08D2B2"]
                     range:NSMakeRange(0, practicedays.length)];
+    
     [attrStr addAttribute:NSForegroundColorAttributeName
                     value:[UIColor colorWithHexString:@"646464"]
                     range:NSMakeRange(practicedays.length, str1.length)];
+    
     [attrStr addAttribute:NSFontAttributeName
                     value:[UIFont systemFontOfSize:30.0f]
                     range:NSMakeRange(0, practicedays.length)];

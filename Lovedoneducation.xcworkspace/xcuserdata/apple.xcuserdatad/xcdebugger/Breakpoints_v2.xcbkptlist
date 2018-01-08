@@ -36,7 +36,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536638554.848525"
+                  timestampString = "537100284.902447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -51,7 +51,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536638554.851104"
+                  timestampString = "537100284.905376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -66,7 +66,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536638554.853577"
+                  timestampString = "537100284.908039"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -81,7 +81,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536638554.856084"
+                  timestampString = "537100284.910939"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -96,7 +96,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "536638554.858566"
+                  timestampString = "537100284.9138809"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -183,22 +183,6 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "-joinMeeting:delegate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lovedoneducation/NIMDemo/Classes/Sections/MeetingRoom/View/NTESMeetingActorsView.m"
-            timestampString = "535020832.440023"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-onRemoteYUVReady:width:height:from:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -58,6 +58,8 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *datadic = [obj objectForKey:@"data"];
             NSArray *class = [datadic objectForKey:@"class"];
+            self.moneydic = [datadic objectForKey:@"all"];
+            self.isshow = YES;
             for (int i = 0; i<class.count; i++) {
                 NSDictionary *dic = [class objectAtIndex:i];
                 securitesModel *model = [[securitesModel alloc] init];
@@ -69,10 +71,9 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
                 model.ucprice = [dic objectForKey:@"ucprice"];
                 model.uctype = [dic objectForKey:@"uctype"];
                 [self.dataSource addObject:model];
-                self.moneydic = [datadic objectForKey:@"all"];
-                self.isshow = YES;
-                [self.table reloadData];
+               
             }
+             [self.table reloadData];
         }
     } failure:^(NSError *error) {
         

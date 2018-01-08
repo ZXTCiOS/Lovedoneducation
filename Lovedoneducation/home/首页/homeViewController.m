@@ -53,7 +53,6 @@
 - (void)configNaviBar{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     if ( [userDefault objectForKey:user_type]) {
-        
         self.title = [userDefault objectForKey:user_type];
     }
     UIButton *more = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -115,8 +114,8 @@
             //NSDictionary *dic = [obj objectForKey:@"data"];
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.data.isdeport;
-            self.title = self.data.user.utest_type;
-            [userDefault setObject:self.title forKey:user_type];
+            //self.title = self.data.user.utest_type;
+            [userDefault setObject:self.data.user.utest_type forKey:user_type];
         }
         [self.collectionView endHeaderRefresh];
     } failure:^(NSError *error) {

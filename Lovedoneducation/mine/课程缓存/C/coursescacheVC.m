@@ -172,7 +172,11 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
 - (void)updatecell:(coursescacheCell *)cell WithModel:(FileModel *)model{
     cell.headingslab.text = [model.fileName componentsSeparatedByString:@"."].firstObject;
     cell.messagelab.text = model.courseIntro;
-    cell.timelab.text = model.courseTime;
+    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
+    dateformater.dateFormat = @"yyyy.MM.dd";
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[model.courseTime integerValue]];
+    NSString *startTime = [dateformater stringFromDate:startDate];
+    cell.timelab.text = startTime;
     cell.personlab.text = model.teacherIntro;
     cell.namelab.text = model.teacherName;
     cell.livebtn.hidden = model.fileState == FileDownloaded ? NO : YES;

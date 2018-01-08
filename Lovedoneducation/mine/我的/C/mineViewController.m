@@ -91,9 +91,10 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     NSString *token = [userDefault objectForKey:user_token];
     NSString *url = [NSString stringWithFormat:GET_INFO,uid,token];
     [DNNetworking getWithURLString:url success:^(id obj) {
+        self.firstenload = YES;
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
-            self.firstenload = YES;
+           
             NSArray *utest_typearr = [dic objectForKey:@"utest_type"];
             NSArray *typearr = [utest_typearr objectAtIndex:0];
             NSString *string = [typearr componentsJoinedByString:@","];

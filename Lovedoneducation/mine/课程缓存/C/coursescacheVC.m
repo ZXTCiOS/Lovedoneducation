@@ -221,6 +221,13 @@ static NSString *coursecacheidentfid = @"coursecacheidentfid";
                 }
             }
         }
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *name = [model.fileName componentsSeparatedByString:@"."].firstObject;
+        NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *path = [documentPath stringByAppendingPathComponent:name];
+        if ([manager fileExistsAtPath:path]) {
+            [manager removeItemAtPath:path error:nil];
+        }
     }
     [self updateTableViewData];
 }

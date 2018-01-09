@@ -89,10 +89,10 @@
     
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
     NSString *filep = [cachePath stringByAppendingString:@"/miaocai/common/cache/downloadFile"];
-    NSString *videoFilePath = [filep stringByAppendingPathComponent:self.audioPath];
+    NSString *videoFilePath = [filep stringByAppendingPathComponent:self.wbPath];
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     NSString *name = self.titlename;
-    NSString *toPath = [documentPath stringByAppendingString:name];
+    NSString *toPath = [documentPath stringByAppendingPathComponent:name];
     if([[NSFileManager defaultManager] fileExistsAtPath:toPath]){
         NSData *data = [NSData dataWithContentsOfFile:toPath];
         self.data = data;
@@ -486,7 +486,7 @@
 - (void)parseData:(NSData *)data atSeconds:(NSInteger) seconds{
     
     NSInteger location = self.location;
-    while ((location + 8 < data.length) && (self.wbTime < seconds)) {
+    if ((location + 8 < data.length) && (self.wbTime < seconds)) {
         // 解包
         !self.content ?: [self parseComond:self.content];
         // 获取 包长
@@ -531,7 +531,7 @@
         self.content = content;
         self.location += baglength;
         //NSLog(@"包长: %d 时间戳: %d  包内容: %@", baglength, time, str);
-    }while ((self.wbTime < time.value * 1000));
+    }while ((self.wbTime < time.value * 1000) && self.location < self.data.length);
     _lines.isdrag = NO;
     [self.playerView play];
 }

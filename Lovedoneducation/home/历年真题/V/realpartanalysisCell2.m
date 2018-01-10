@@ -187,7 +187,7 @@
     {
         self.errorlab.text = errorstr;
     }
-    if ([accuracystr isEqualToString:@""]) {
+    if ([accuracystr isEqualToString:@"zxtc"]) {
           self.accuracylab.text = [NSString stringWithFormat:@"%@%@",@"0",@"%"];
     }
     else

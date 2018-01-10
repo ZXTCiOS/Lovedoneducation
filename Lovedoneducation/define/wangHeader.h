@@ -55,8 +55,8 @@
 
 #define user_denglufangsi @"user_denglufangsi"
 
-#define BASE_URL   @"http://55.irapidtech.net"
-//#define BASE_URL  @"http://app.aitangedu.com"
+//#define BASE_URL   @"http://55.irapidtech.net"
+#define BASE_URL  @"http://app.aitangedu.com"
 
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"

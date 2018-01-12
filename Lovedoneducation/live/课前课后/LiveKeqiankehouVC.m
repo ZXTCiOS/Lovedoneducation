@@ -255,9 +255,10 @@
             teacherModel = teacher;
         }
     }
+    NSString *type = [[self.FileURL componentsSeparatedByString:@"?"].firstObject componentsSeparatedByString:@"."].lastObject;
     
     NSMutableArray *arrM = [NSMutableArray array];
-    if (![self.wbURL isEqualToString:@"whiteboard"]) {
+    if ([type isEqualToString:@"aac"]) {
         FileModel *fileModel = [[FileModel alloc] init];
         fileModel.fileName = [filename stringByAppendingString:@".aac"];
         fileModel.fileUrl = fileurl;

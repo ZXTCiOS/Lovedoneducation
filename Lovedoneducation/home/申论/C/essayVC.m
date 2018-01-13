@@ -96,6 +96,10 @@ static NSString *essayidentfid = @"essayidentfid";
 
 #pragma mark - 数据源
 
+/*!
+  @header essayVC.h
+  申论题目信息
+ */
 -(void)loaddata
 {
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -162,7 +166,10 @@ static NSString *essayidentfid = @"essayidentfid";
     }
     return _head;
 }
-
+/*!
+ @header essayVC.h
+ 申论界面布局
+ */
 - (void)prepareLayout {
     self.layout = [[UICollectionViewFlowLayout alloc] init];
     self.layout .scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -235,6 +242,9 @@ static NSString *essayidentfid = @"essayidentfid";
     dispatch_resume(timer);
 }
 
+/**
+ 答题卡
+ */
 -(void)cardclick
 {
     if (self.isclick) {

@@ -97,6 +97,9 @@ static NSString *changevc1identfid = @"changevc1identfid";
 
 #pragma mark - 实现方法
 
+/**
+ 选择考试类型
+ */
 -(void)rightAction
 {
     if ([self.secondtype isEqualToString:@"1"]) {

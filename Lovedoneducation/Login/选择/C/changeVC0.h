@@ -6,6 +6,15 @@
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
+/*!
+ @header changeVC0.h
+ 
+ @brief 选择考试类型
+ @author 中讯投创
+ @copyright  © 2017年 wangjungang. All rights reserved.
+ @version    1.0
+ */
+
 #import "BaseViewController.h"
 
 @interface changeVC0 : BaseViewController

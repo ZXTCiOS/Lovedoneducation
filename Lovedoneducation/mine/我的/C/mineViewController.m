@@ -85,6 +85,9 @@ static NSString *mineidentfid9 = @"mineidentfid9";
     return _table;
 }
 
+/**
+ 网络请求个人信息
+ */
 -(void)loaddata
 {
     NSString *uid = [userDefault objectForKey:user_uid];

@@ -44,6 +44,9 @@ static NSString *myinfomessageidentfid = @"myinfomessageidentfid";
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ 获取爱唐博报
+ */
 -(void)loaddata
 {
     [DNNetworking getWithURLString:GET_slide success:^(id obj) {

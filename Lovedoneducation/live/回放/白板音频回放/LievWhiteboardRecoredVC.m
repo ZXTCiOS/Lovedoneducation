@@ -5,7 +5,14 @@
 //  Created by apple on 2017/11/13.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
-
+/*!
+ @header LievWhiteboardRecoredVC.m
+ 
+ @brief 白板音视频回放
+ @author 中讯投创
+ @copyright  © 2017年 wangjungang. All rights reserved.
+ @version    1.0
+ */
 #import "LievWhiteboardRecoredVC.h"
 #import "NVHTarGzip.h"
 
@@ -23,20 +30,25 @@
 @interface LievWhiteboardRecoredVC ()<ZFPlayerDelegate, ZFPlayerControlViewDelagate, NTESDocumentHandlerDelegate>
 
 @property (nonatomic, strong) UIView *wbView;
+/*!  播放器 view  */
 @property (nonatomic, strong) ZFPlayerView *playerView;
 @property (nonatomic, strong) id timeobserver;
-
+/*!  白板 view  */
 @property (nonatomic, strong) NTESWhiteboardDrawView *drawView;
 @property (nonatomic, strong) NTESWhiteboardLines *lines;
+/*!  激光点  */
 @property (nonatomic, strong) UIView *laserView;
+/*!  文档  */
 @property (nonatomic, strong) UIImageView *docView;
 @property (nonatomic, strong) NIMDocTranscodingInfo *docInfo;
 @property (nonatomic, strong) NSMutableDictionary *docInfoDic;
 @property (nonatomic, strong) NTESDocumentHandler *docHander;
 @property (nonatomic) int currentPage;
-
+/*!  等待执行的包内容  */
 @property (nonatomic, strong) NSData *data;
+/*!  当前解析位置  */
 @property (nonatomic, assign) NSInteger location;
+/*!  待执行的包内容对应的白板时间戳  */
 @property (nonatomic, assign) NSInteger wbTime;
 @property (nonatomic, strong) NSData *content;
 
@@ -60,7 +72,9 @@
     }
     self.location = 0;
 }
-
+/*!
+ 配置 naviBar
+ */
 - (void)configInit{
     _docHander = [[NTESDocumentHandler alloc]initWithDelegate:self];
     self.lines = [[NTESWhiteboardLines alloc] init];
@@ -83,7 +97,9 @@
     self.wbView.frame = frame;
     self.docView.frame = frame;
 }
-
+/*!
+  解压网易云信录制的 gz 压缩文件
+ */
 - (void)unGZip{
     //NSArray *arr = [self.wbPath componentsSeparatedByString:@"."];
     
@@ -108,7 +124,9 @@
     }
     
 }
-
+/*!
+ * 初始化播放器, 根据播放文件的后缀是 MP4还是 aac 来区分是视频文件还是音频文件. 选择是否初始化白板 view
+ */
 - (void)playerInit{
     ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
     ZFPlayerModel *model = [[ZFPlayerModel alloc] init];
@@ -134,7 +152,10 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 
-
+/*!
+  解析包内容
+ @param data 最新50ms 获取到的录制内容,
+ */
 - (void)parseComond:(NSData *)data{
     
     NSString *cmdsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -237,6 +258,10 @@
     [self onReceiveDocShareInfo:shareInfo from:@"123"];
     
 }
+
+/*!
+ *具体解析包内容, 区分是什么命令.用以就具体画白板内容
+ */
 
 - (void)onReceiveCmd:(NTESWhiteBoardCmdType)type from:(NSString *)sender
 {
@@ -480,8 +505,12 @@
     //[self.navigationController popViewControllerAnimated:NO];
 }
 
-/*
+/*!
+ @method 解析解压后的服务器录制文件
  * 解析解压后的服务器录制文件
+ @param data  每一个包内容, 完整的包内容如下,整个包为二进制文件, 前四个字节为这个包长, 之后的4个字节为此包从开始录制的时间戳, 后面为具体录制内容
+ @param seconds 每50ms 的定时器, 当前播放时间.
+ @return 成功失败
  */
 - (void)parseData:(NSData *)data atSeconds:(NSInteger) seconds{
     
@@ -509,8 +538,14 @@
     
 }
 
+/*!
+ 解析解压后的服务器录制文件-- 快进快退时使用
+ @para seconds 拖动手势结束时的播放时间
+ 拖动开始时暂停播放, 同时开始从0s 循环解析白板内容, 直到拖动位置, 转到正常播放流程, 开始播放.
+ */
+
 - (void)playerSeekToTime:(CMTime)time{
-    // TODO: 添加快进快退逻辑
+    
     self.wbTime = 0;
     self.location = 0;
     _lines.isdrag = YES;
@@ -536,6 +571,10 @@
     [self.playerView play];
 }
 
+/*!
+ 播放器每50ms 调用的代理,
+ @param time 播放器当前播放时间位置信息
+ */
 - (void)blockPer50ms:(NSInteger)time{
     //NSLog(@"%ld", time);
     [self parseData:self.data atSeconds:time];
@@ -547,7 +586,10 @@
 {
     return YES;
 }
-//强制转屏
+/*!
+ 强制转屏
+ @param orientation 需要强制转向的设备方向
+ */
 - (void)interfaceOrientation:(UIInterfaceOrientation)orientation
 {
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {

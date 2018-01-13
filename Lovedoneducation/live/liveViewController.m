@@ -5,6 +5,15 @@
 //  Created by 王俊钢 on 2017/10/18.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
+/*!
+ @header liveViewController.m
+ 
+ @brief 直播首页
+ 所有课程的列表页, 一个 tableView.
+ @author 中讯投创
+ @copyright  © 2017年 wangjungang. All rights reserved.
+ @version    1.0
+ */
 
 #import "liveViewController.h"
 #import "LiveModel.h"

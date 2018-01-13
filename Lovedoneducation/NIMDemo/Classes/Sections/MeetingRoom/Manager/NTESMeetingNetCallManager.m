@@ -102,6 +102,7 @@
     if ([meeting.name isEqualToString:_meeting.name]) {
         [[NTESMeetingRolesManager sharedInstance] updateMeetingUser:uid isJoined:NO];
     }
+    
 }
 
 - (void)onMeetingError:(NSError *)error

@@ -42,6 +42,7 @@
 @property (nonatomic, copy) NSString *qtid;
 @property (nonatomic, copy) NSString *qtname;
 @property (nonatomic, strong) NSArray<HomeChild2Model *> *child;
+/*! 是否付费 */
 @property (nonatomic, copy) NSString *ischarge;//  是否付费
 @end
 
@@ -50,6 +51,7 @@
 @property (nonatomic, copy) NSString *img;
 @property (nonatomic, copy) NSString *qtid;
 @property (nonatomic, copy) NSString *qtname;
+/*! 是否付费 */
 @property (nonatomic, copy) NSString *ischarge;//  是否付费
 
 @end

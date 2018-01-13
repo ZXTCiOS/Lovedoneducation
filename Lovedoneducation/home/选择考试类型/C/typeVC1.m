@@ -95,7 +95,6 @@ static NSString *type1identfid1 = @"type1identfid1";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     self.secondtype = @"1";
     changeModel1 *model = self.dataSource[indexPath.row];
     self.testid = model.testid;
@@ -103,7 +102,6 @@ static NSString *type1identfid1 = @"type1identfid1";
     NSLog(@"testid---%@",self.testid);
     NSLog(@"utest_type====%@",model.testpath);
 }
-
 
 #pragma mark - 实现方法
 

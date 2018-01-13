@@ -42,12 +42,18 @@
     [self configNaviBar];
     [self.collectionView registerClass:[HomeSortCell class] forCellWithReuseIdentifier:@"cell"];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeBannerView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-    [self networking];
+
     self.collectionView.backgroundColor = [UIColor whiteColor];
     MJWeakSelf
     [self.collectionView addHeaderRefresh:^{
         [weakSelf networking];
     }];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self networking];
 }
 
 - (void)configNaviBar{
@@ -92,10 +98,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]}];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -105,7 +108,6 @@
 - (void)networking{
     NSString *uid = [userDefault valueForKey:user_uid];
     NSString *token = [userDefault valueForKey:user_token];
-    
     [DNNetworking getWithURLString:get_shouye parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
         NSString *code = [obj objectForKey:@"code"];
         if ([code isEqualToString:@"200"]) {
@@ -114,7 +116,7 @@
             //NSDictionary *dic = [obj objectForKey:@"data"];
             [self.collectionView reloadData];
             self.qiandao.enabled = !model.data.isdeport;
-            //self.title = self.data.user.utest_type;
+            self.navigationItem.title = self.data.user.utest_type;
             [userDefault setObject:self.data.user.utest_type forKey:user_type];
         }
         [self.collectionView endHeaderRefresh];
@@ -127,7 +129,7 @@
 #pragma mark - UICollectionView  delegate && datasource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return self.data.quetions.count ? 1 : 0;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

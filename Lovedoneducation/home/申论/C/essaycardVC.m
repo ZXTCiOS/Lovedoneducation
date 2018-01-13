@@ -113,22 +113,22 @@ static NSString *essaycardientfid1 = @"essaycardientfid1";
 
 #pragma mark --UICollectionViewDelegateFlowLayout
 
-//定义每个UICollectionView 的大小
+///定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(60, 60);
 }
 
-//定义每个UICollectionView 的间距
+///定义每个UICollectionView 的间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(5, 5, 5, 0);//上下左右
 }
 
-//定义每个UICollectionView 纵向的间距
+///定义每个UICollectionView 纵向的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
 
-//头部显示的内容(此处可放置UIScrollview)
+///头部显示的内容(此处可放置UIScrollview)
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                             UICollectionElementKindSectionFooter withReuseIdentifier:essaycardientfid1 forIndexPath:indexPath];
@@ -219,6 +219,11 @@ static NSString *essaycardientfid1 = @"essaycardientfid1";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+/**
+ 获取当前时间
+
+ @return 当前时间
+ */
 -(NSString*)getCurrentTimes{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制

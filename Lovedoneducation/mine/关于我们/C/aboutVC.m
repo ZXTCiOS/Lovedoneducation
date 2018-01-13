@@ -55,6 +55,9 @@ static NSString *aboutidentfid5 = @"aboutidentfid5";
     // Dispose of any resources that can be recreated.
 }
 
+/**
+  网络请求
+ */
 -(void)loaddata
 {
     NSString *uid = [userDefault objectForKey:user_uid];

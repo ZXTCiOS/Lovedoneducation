@@ -132,6 +132,9 @@ static NSString *feedbackidentfid1 = @"feedbackidentfid1";
     [textview resignFirstResponder];
 }
 
+/**
+ 提交问题反馈
+ */
 -(void)submitbtnclick
 {
     NSString *uid = [userDefault objectForKey:user_uid];

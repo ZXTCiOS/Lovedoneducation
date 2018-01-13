@@ -206,6 +206,9 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
 
 #pragma mark - 实现方法
 
+/**
+ 注册方法
+ */
 -(void)submitbtnclick
 {
     UITextField *text0 = [self.table viewWithTag:201];
@@ -283,6 +286,11 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     }
 }
 
+/**
+ 验证码获取方法
+
+ @param cell 验证码
+ */
 -(void)myTabVClick:(UITableViewCell *)cell
 {
     UITextField *text1 = [self.table viewWithTag:202];
@@ -309,6 +317,9 @@ static NSString *logupCell6identfid = @"logupCell6identfid";
     }];
 }
 
+/**
+ 空白处回收键盘
+ */
 -(void)tabletap
 {
     UITextField *text0 = [self.table viewWithTag:201];

@@ -68,6 +68,9 @@
     [self.navigationController.navigationBar setHidden:YES];
 }
 
+/**
+ 界面layout布局
+ */
 -(void)layout
 {
     __weak typeof (self) weakSelf = self;
@@ -268,6 +271,9 @@
 
 #pragma mark - 实现方法
 
+/**
+ 登录方法
+ */
 -(void)submitclick
 {
     NSString *phone = @"";
@@ -287,12 +293,18 @@
         pwd = self.passwordText.text;
     }
     
-    //show
+    /// 显示toast提示转圈
     [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
     
     NSString *password = [MD5Tool MD5ForUpper32Bate:pwd];
     NSDictionary *dic = @{@"uname":phone,@"upwd":password};
     
+    /**
+     登录接口
+
+     @param obj 账号和密码信息
+     @return 登录结果
+     */
     [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [obj objectForKey:@"data"];
@@ -321,15 +333,18 @@
             [_hudView hide];
             [MBProgressHUD showSuccess:@"手机号不存在" toView:self.view];
         }
-        //hide
+        /// hide toast提示
         [_hudView hide];
     } failure:^(NSError *error) {
-        //hide
+        /// hide toast提示
         [_hudView hide];
         [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];;
 }
 
+/**
+ 网易云登录
+ */
 - (void)NIMLogin{
     NSString *appKey        = NIMKEY;
     NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
@@ -346,6 +361,11 @@
     [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
 }
 
+/**
+ 网易云信息回调
+
+ @param step 网易云
+ */
 - (void)onLogin:(NIMLoginStep)step{
     NSLog(@"%ld", step);
 }
@@ -364,6 +384,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+/**
+ qq第三方登录功能
+ */
 -(void)qqbtnclick
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
@@ -408,6 +431,9 @@
     }];
 }
 
+/**
+ 微信第三方登录功能
+ */
 -(void)weixinbtnclick
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
@@ -460,6 +486,9 @@
     [self.passwordText resignFirstResponder];
 }
 
+/**
+ 判断手机是否安装了qq或者微信
+ */
 -(void)xianshi{
     if([WXApi isWXAppInstalled]){
         

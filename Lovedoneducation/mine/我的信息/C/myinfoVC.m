@@ -178,6 +178,9 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
 
 #pragma mark - 实现方法
 
+/**
+ 退出登录的账号
+ */
 -(void)submtibtnclick
 {
     UIAlertController *control = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要退出登录吗" preferredStyle:UIAlertControllerStyleAlert];
@@ -188,6 +191,13 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
         [userDefault removeObjectForKey:user_uid];
         [userDefault removeObjectForKey:user_token];
         [userDefault removeObjectForKey:user_denglufangsi];
+        
+        /**
+         根控制器切换
+
+         @param AppDelegate app
+         @return 切换
+         */
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         startVC *vc = [[startVC alloc] init];
         MainNavigationController *nav = [[MainNavigationController alloc] init];

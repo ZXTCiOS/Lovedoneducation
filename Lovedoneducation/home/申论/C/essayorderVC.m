@@ -269,6 +269,9 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 
 #pragma mark - 支付宝&&微信
 
+/**
+ 支付宝支付
+ */
 -(void)zhifubaoclick
 {
     NSString *uid = [userDefault objectForKey:user_uid];
@@ -308,6 +311,9 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     }];
 }
 
+/**
+ 微信支付
+ */
 -(void)weichatclick
 {
     NSString *uid = [userDefault objectForKey:user_uid];

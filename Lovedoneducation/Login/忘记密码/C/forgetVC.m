@@ -188,6 +188,11 @@ static NSString *forgetidentfid4 = @"forgetidentfid4";
     [text3 resignFirstResponder];
 }
 
+/**
+ 验证码获取
+
+ @param cell 验证码
+ */
 -(void)myTabVClick:(UITableViewCell *)cell
 {
     UITextField *text1 = [self.table viewWithTag:301];
@@ -211,6 +216,9 @@ static NSString *forgetidentfid4 = @"forgetidentfid4";
     }];
 }
 
+/**
+ 忘记密码
+ */
 -(void)submitbtnclick
 {
     UITextField *text0 = [self.table viewWithTag:301];

@@ -50,6 +50,10 @@
     }];
 }
 
+/*!
+ 设置 naviBar
+ */
+
 - (void)configNaviBar{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     if ( [userDefault objectForKey:user_type]) {
@@ -101,6 +105,11 @@
     [super viewWillAppear:animated];
     self.moreV.hidden = YES;
 }
+
+/*!
+ @brief get the json data of Home
+ @return nothing
+ */
 
 - (void)networking{
     NSString *uid = [userDefault valueForKey:user_uid];

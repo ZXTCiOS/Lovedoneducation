@@ -5,7 +5,15 @@
 //  Created by apple on 2017/11/17.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
-
+/*!
+ @header LiveKeqiankehouVC.m
+ 
+ @brief 课程状态详情页面.m
+ 
+ @author 中讯投创
+ @copyright  © 2017年 wangjungang. All rights reserved.
+ @version    1.0
+ */
 #import "LiveKeqiankehouVC.h"
 //#import <ZFDownloadManager.h>
 #import "HTTPSessionShare.h"
@@ -14,14 +22,17 @@
 
 @interface LiveKeqiankehouVC ()
 
+/*! 背景图片 */
 @property (nonatomic) UIImageView *bgImg;
+
 @property (nonatomic) UIButton *back;
 @property (nonatomic) UILabel *title_course;
 @property (nonatomic) UILabel *teacher;
 @property (nonatomic) UILabel *time;
 @property (nonatomic, strong) UIButton *down;
-
+/*! 白板下载地址 */
 @property (nonatomic, copy) NSString *wbURL;
+/*! 音视频下载地址 */
 @property (nonatomic, copy) NSString *FileURL;
 
 
@@ -61,7 +72,7 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self panduanstate];
 }
-
+/*! 判断当前下载状态 */
 - (void)panduanstate{
     
     FileModel *model;// = [NSObject getFileModeWithFilUrl:self.FileURL];

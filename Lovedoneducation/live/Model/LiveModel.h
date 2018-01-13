@@ -35,13 +35,15 @@ typedef NS_ENUM(NSUInteger, CourseState) {
 @property (nonatomic, copy) NSString *c_intro_img;
 @property (nonatomic, copy) NSString *c_intro;
 @property (nonatomic, copy) NSString *c_qq;
+/*! 1, mianfei  , 2 shoufei; */
 @property (nonatomic, copy) NSString *c_type; // 1, mianfei  , 2 shoufei;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, strong) NSArray<LiveTeacherModel *> *teacher;
 @property (nonatomic, copy) NSString *classnum;
+/*!  1, 已买, 2. 没买 */
 @property (nonatomic, copy) NSString *isbuy;  // 1, 已买, 2. 没买
 
-// 缓存课程专用
+/*!  缓存课程专用 */
 @property (nonatomic, strong) LiveCourseListModel *course;
 
 @end
@@ -89,11 +91,13 @@ typedef NS_ENUM(NSUInteger, CourseState) {
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *cdintro;
 @property (nonatomic, copy) NSString *cdimg;
+/*! 是否已开课的状态 */
 @property (nonatomic, assign) CourseState isstart;  //是否已开课的状态
 @property (nonatomic, copy) NSString *tname;
 @property (nonatomic, copy) NSString *cdstart_time;
 @property (nonatomic, copy) NSString *cdend_time;
 @property (nonatomic, copy) NSString *time;
+/*! 白板地址 */
 @property (nonatomic, copy) NSString *whiteboard;  // 白板地址
 
 @end

@@ -271,7 +271,15 @@
                 NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
                 NSLog(@"价格----%@",ordertotalprice);
                 self.orderPrice = ordertotalprice;
-
+                
+                CGFloat ff1 = [ordertotalprice floatValue];
+                NSString *uprice = [userDefault objectForKey:user_uprice];
+                CGFloat ff2 = [uprice floatValue];
+                if (ff1>ff2) {
+                    [MBProgressHUD showSuccess:@"余额不足，请先充值" toView:self.view];
+                }
+                else
+                {
                     NSString *uid = [userDefault objectForKey:user_uid];
                     NSString *token = [userDefault objectForKey:user_token];
                     [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid,@"type":@"2"} success:^(id obj) {
@@ -284,6 +292,9 @@
                     } failure:^(NSError *error) {
                         [self.view showWarning:@"服务器错误, 请稍后再试"];
                     }];
+                }
+                
+                
                     
       
             }

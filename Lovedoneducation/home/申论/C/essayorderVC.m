@@ -272,17 +272,26 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
                     NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
                     NSLog(@"价格----%@",ordertotalprice);
                     [MBProgressHUD showSuccess:@"提交成功" toView:self.table];
-                    NSString *uid = [userDefault objectForKey:user_uid];
-                    NSString *token = [userDefault objectForKey:user_token];
-                    NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid,@"type":@"2"};
-                    
-                    [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
-                        if ([[obj objectForKey:@"code"] intValue]==200) {
-                            [MBProgressHUD showSuccess:@"支付成功" toView:self.view];
-                        }
-                    } failure:^(NSError *error) {
+                    CGFloat ff1 = [ordertotalprice floatValue];
+                    NSString *uprice = [userDefault objectForKey:user_uprice];
+                    CGFloat ff2 = [uprice floatValue];
+                    if (ff1>ff2) {
+                        [MBProgressHUD showSuccess:@"余额不足，请充值" toView:self.view];
+                    }
+                    else
+                    {
+                        NSString *uid = [userDefault objectForKey:user_uid];
+                        NSString *token = [userDefault objectForKey:user_token];
+                        NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid,@"type":@"2"};
                         
-                    }];
+                        [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
+                            if ([[obj objectForKey:@"code"] intValue]==200) {
+                                [MBProgressHUD showSuccess:@"支付成功" toView:self.view];
+                            }
+                        } failure:^(NSError *error) {
+                            
+                        }];
+                    }
 
                 }
             } failure:^(NSError *error) {

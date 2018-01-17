@@ -449,6 +449,8 @@
 		53625082200F30E000516F1F /* mymoneycell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625081200F30E000516F1F /* mymoneycell0.m */; };
 		53625085200F30ED00516F1F /* mymoneycell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625084200F30ED00516F1F /* mymoneycell1.m */; };
 		53625088200F30F800516F1F /* mymoneycell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625087200F30F800516F1F /* mymoneycell2.m */; };
+		5362508A200F696100516F1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53625089200F696100516F1F /* StoreKit.framework */; };
+		5362508E200F697E00516F1F /* YQInAppPurchaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */; };
 		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
 		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
 		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
@@ -1429,6 +1431,9 @@
 		53625084200F30ED00516F1F /* mymoneycell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell1.m; sourceTree = "<group>"; };
 		53625086200F30F800516F1F /* mymoneycell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell2.h; sourceTree = "<group>"; };
 		53625087200F30F800516F1F /* mymoneycell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell2.m; sourceTree = "<group>"; };
+		53625089200F696100516F1F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQInAppPurchaseTool.m; sourceTree = "<group>"; };
+		5362508D200F697E00516F1F /* YQInAppPurchaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQInAppPurchaseTool.h; sourceTree = "<group>"; };
 		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
 		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
 		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
@@ -1625,6 +1630,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5362508A200F696100516F1F /* StoreKit.framework in Frameworks */,
 				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
 				5344D9381FC449D40011F504 /* TencentOpenAPI.framework in Frameworks */,
 				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
@@ -3603,6 +3609,15 @@
 			path = ZPActionsheet;
 			sourceTree = "<group>";
 		};
+		5362508B200F697E00516F1F /* YQInAppPurchaseTool */ = {
+			isa = PBXGroup;
+			children = (
+				5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */,
+				5362508D200F697E00516F1F /* YQInAppPurchaseTool.h */,
+			);
+			path = YQInAppPurchaseTool;
+			sourceTree = "<group>";
+		};
 		537F66A91FDBBBBC0028E888 /* V */ = {
 			isa = PBXGroup;
 			children = (
@@ -4020,6 +4035,7 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5362508B200F697E00516F1F /* YQInAppPurchaseTool */,
 				1865DBDE1FF377E70003F8BA /* ZBSessionDownload */,
 				187716AC1FE39C4300801677 /* Classes */,
 				5344D9341FC449D40011F504 /* Tencent */,
@@ -4234,6 +4250,7 @@
 		9BAAE0C9431CE0E3714EC8E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53625089200F696100516F1F /* StoreKit.framework */,
 				181F82A51FB42C8E0090EDEF /* UIKit.framework */,
 				181F82A31FB42C1E0090EDEF /* Foundation.framework */,
 				185C04C71FA998F600571E67 /* libsqlite3.0.tbd */,
@@ -4346,6 +4363,9 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -4989,6 +5009,7 @@
 				1865DC0F1FF377E70003F8BA /* NSObject+FileDBManager.m in Sources */,
 				181F86ED1FB437790090EDEF /* NIMInputToolBar.m in Sources */,
 				53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */,
+				5362508E200F697E00516F1F /* YQInAppPurchaseTool.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				181F873A1FB437790090EDEF /* NIMProgressHUD.m in Sources */,
 				181F871F1FB437790090EDEF /* NIMAdvancedTeamMemberCell.m in Sources */,

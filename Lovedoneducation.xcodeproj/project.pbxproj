@@ -404,8 +404,6 @@
 		534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E51FA1AEE400A68BA7 /* ZTVendorAccountModel.m */; };
 		534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */; };
 		534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */; };
-		534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */; };
-		534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */; };
 		534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */; };
 		534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F21FA1AEE400A68BA7 /* libSocialSina.a */; };
 		534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F61FA1AEE400A68BA7 /* UMSocialCore.framework */; };
@@ -1349,8 +1347,6 @@
 		534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorPayModel.m; sourceTree = "<group>"; };
 		534B49E81FA1AEE400A68BA7 /* ZTVendorShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorShareModel.h; sourceTree = "<group>"; };
 		534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorShareModel.m; sourceTree = "<group>"; };
-		534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
 		534B49F01FA1AEE400A68BA7 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		534B49F21FA1AEE400A68BA7 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
@@ -1650,7 +1646,6 @@
 				534B4A111FA1AEE400A68BA7 /* UMSocialNetwork.framework in Frameworks */,
 				4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */,
 				534B4A131FA1AEE400A68BA7 /* libUMSocialLog.a in Frameworks */,
-				534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */,
 				534B4A141FA1AEE400A68BA7 /* libSocialWeChat.a in Frameworks */,
 				534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */,
 			);
@@ -3354,22 +3349,12 @@
 		534B49EA1FA1AEE400A68BA7 /* VendorSDK */ = {
 			isa = PBXGroup;
 			children = (
-				534B49EB1FA1AEE400A68BA7 /* AlipaySDK */,
 				534B49EE1FA1AEE400A68BA7 /* QQ */,
 				534B49F11FA1AEE400A68BA7 /* Sina */,
 				534B49F41FA1AEE400A68BA7 /* UMSocial */,
 				534B49FB1FA1AEE400A68BA7 /* WeChat */,
 			);
 			path = VendorSDK;
-			sourceTree = "<group>";
-		};
-		534B49EB1FA1AEE400A68BA7 /* AlipaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */,
-				534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */,
-			);
-			path = AlipaySDK;
 			sourceTree = "<group>";
 		};
 		534B49EE1FA1AEE400A68BA7 /* QQ */ = {
@@ -4424,7 +4409,6 @@
 				534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				534B4A121FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle in Resources */,
-				534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */,
 				534B49C71FA0D75D00A68BA7 /* w_star_red@3x.png in Resources */,

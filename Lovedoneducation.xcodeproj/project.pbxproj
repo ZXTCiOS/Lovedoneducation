@@ -447,6 +447,10 @@
 		535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */; };
 		535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */; };
 		535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */; };
+		5362507F200F2CAD00516F1F /* mymoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362507E200F2CAD00516F1F /* mymoneyVC.m */; };
+		53625082200F30E000516F1F /* mymoneycell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625081200F30E000516F1F /* mymoneycell0.m */; };
+		53625085200F30ED00516F1F /* mymoneycell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625084200F30ED00516F1F /* mymoneycell1.m */; };
+		53625088200F30F800516F1F /* mymoneycell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625087200F30F800516F1F /* mymoneycell2.m */; };
 		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
 		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
 		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
@@ -1421,6 +1425,14 @@
 		535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell5.m; sourceTree = "<group>"; };
 		535F33B21FB0401D005C3176 /* exerciseweeklyCell6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell6.h; sourceTree = "<group>"; };
 		535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell6.m; sourceTree = "<group>"; };
+		5362507D200F2CAD00516F1F /* mymoneyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneyVC.h; sourceTree = "<group>"; };
+		5362507E200F2CAD00516F1F /* mymoneyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneyVC.m; sourceTree = "<group>"; };
+		53625080200F30E000516F1F /* mymoneycell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell0.h; sourceTree = "<group>"; };
+		53625081200F30E000516F1F /* mymoneycell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell0.m; sourceTree = "<group>"; };
+		53625083200F30ED00516F1F /* mymoneycell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell1.h; sourceTree = "<group>"; };
+		53625084200F30ED00516F1F /* mymoneycell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell1.m; sourceTree = "<group>"; };
+		53625086200F30F800516F1F /* mymoneycell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell2.h; sourceTree = "<group>"; };
+		53625087200F30F800516F1F /* mymoneycell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell2.m; sourceTree = "<group>"; };
 		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
 		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
 		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
@@ -3719,6 +3731,8 @@
 				53D1F26A1F9F0A6E002E1524 /* changenameVC.m */,
 				53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */,
 				53D1F26D1F9F0E35002E1524 /* changepasswordVC.m */,
+				5362507D200F2CAD00516F1F /* mymoneyVC.h */,
+				5362507E200F2CAD00516F1F /* mymoneyVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -3737,6 +3751,12 @@
 				53D1F2701F9F1129002E1524 /* changepasswordCell0.m */,
 				53D1F2721F9F1438002E1524 /* changepasswordCell1.h */,
 				53D1F2731F9F1438002E1524 /* changepasswordCell1.m */,
+				53625080200F30E000516F1F /* mymoneycell0.h */,
+				53625081200F30E000516F1F /* mymoneycell0.m */,
+				53625083200F30ED00516F1F /* mymoneycell1.h */,
+				53625084200F30ED00516F1F /* mymoneycell1.m */,
+				53625086200F30F800516F1F /* mymoneycell2.h */,
+				53625087200F30F800516F1F /* mymoneycell2.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4668,6 +4688,7 @@
 				181F86611FB437790090EDEF /* UIViewController+NTES.m in Sources */,
 				181F87081FB437790090EDEF /* NIMSessionFileTransContentView.m in Sources */,
 				181F86CE1FB437790090EDEF /* NTESUserUtil.m in Sources */,
+				53625085200F30ED00516F1F /* mymoneycell1.m in Sources */,
 				186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */,
 				181F86921FB437790090EDEF /* NTESChatroomMemberCell.m in Sources */,
 				181F86D21FB437790090EDEF /* NSString+NIM.m in Sources */,
@@ -4851,6 +4872,7 @@
 				181F87021FB437790090EDEF /* NIMSessionViewController.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				181F86CF1FB437790090EDEF /* NTESPinyinConverter.m in Sources */,
+				5362507F200F2CAD00516F1F /* mymoneyVC.m in Sources */,
 				181F86821FB437790090EDEF /* NTESChatroomMaker.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				53E1DD6A1FADA14B009965AF /* datareportModel.m in Sources */,
@@ -4913,6 +4935,7 @@
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
 				535EFE261FC9570900A5DA77 /* answerView.m in Sources */,
 				181F86FB1FB437790090EDEF /* NIMTipContentConfig.m in Sources */,
+				53625088200F30F800516F1F /* mymoneycell2.m in Sources */,
 				181F87011FB437790090EDEF /* NIMSessionMsgDatasource.m in Sources */,
 				181F86AB1FB437790090EDEF /* NTESMeetingActorsView.m in Sources */,
 				181F872E1FB437790090EDEF /* NIMImageCache.m in Sources */,
@@ -4971,6 +4994,7 @@
 				181F86FF1FB437790090EDEF /* NIMMessageCellMaker.m in Sources */,
 				181F869C1FB437790090EDEF /* renderer_yuv420sp.c in Sources */,
 				181F86F71FB437790090EDEF /* NIMImageContentConfig.m in Sources */,
+				53625082200F30E000516F1F /* mymoneycell0.m in Sources */,
 				53963ABE1FA07CE9009AEFCA /* feedbackCell.m in Sources */,
 				181F86B01FB437790090EDEF /* NTESDemoCloseMeetingTask.m in Sources */,
 				534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */,

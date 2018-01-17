@@ -73,7 +73,7 @@
 
 -(void)setdata:(NSString *)pricestr
 {
-    self.rightlab.text = [NSString stringWithFormat:@"%@%@",@"¥",pricestr];
+    self.rightlab.text = [NSString stringWithFormat:@"%@%@",@"",pricestr];
 }
 
 

@@ -121,7 +121,7 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        _contentlab.text = @"共作3道题目，共计¥365";
+
         _contentlab.textColor = [UIColor colorWithHexString:@"FFFFFF"];
         _contentlab.font = [UIFont systemFontOfSize:15];
     }
@@ -134,7 +134,7 @@
 -(void)setdatatimestr:(NSString *)timestr andnumstr:(NSString *)numstr andpricestr:(NSString *)pricestr
 {
     self.timelab.text = timestr;
-    self.contentlab.text = [NSString stringWithFormat:@"%@%@%@%@",@"共做",numstr,@"道题目，共计¥",pricestr];
+    self.contentlab.text = [NSString stringWithFormat:@"%@%@%@%@",@"共做",numstr,@"道题目，共计",pricestr];
 }
 
 

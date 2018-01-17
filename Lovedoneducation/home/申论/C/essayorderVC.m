@@ -92,31 +92,6 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     }];
 }
 
--(void)showwindow
-{
-    //1. 取出window
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    //2. 创建背景视图
-    _bgView = [[UIView alloc]init];
-    _bgView.frame = window.bounds;
-    //3. 背景颜色可以用多种方法
-    _bgView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.4];
-    //    _bgView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.6];
-    [window addSubview:_bgView];
-    //4. 把需要展示的控件添加上去
-    
-    self.zhifuView = [[chooseView alloc] init];
-    [window addSubview:self.zhifuView];
-    self.zhifuView.frame = CGRectMake(kScreenW/2-150, kScreenH, 300, 600);
-    [self.zhifuView.clonebtn addTarget:self action:@selector(cloneclick) forControlEvents:UIControlEventTouchUpInside];
-    [self.zhifuView.leftimg addTarget:self action:@selector(weichatclick) forControlEvents:UIControlEventTouchUpInside];
-    [self.zhifuView.rightimg addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
-    //6.给背景添加一个手势，后续方便移除视图
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideAlertView)];
-    [_bgView addGestureRecognizer:tap];
-
-}
-
 #pragma mark - getters
 
 -(UITableView *)table
@@ -255,134 +230,13 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
 
 }
 
--(void)hideAlertView
-{
-    [self cloneclick];
-}
--(void)cloneclick
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        [_bgView removeFromSuperview];
-        self.zhifuView.transform = CGAffineTransformIdentity;
-    }];
-}
 
-#pragma mark - 支付宝&&微信
-
-/**
- 支付宝支付
- */
--(void)zhifubaoclick
-{
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSString *price = self.money;
-    
-    //NSString *url = [NSString stringWithFormat:GET_ZHIFUBAO,uid,token,price];
-    
-    NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"ordersn":self.ordersn};
-    [DNNetworking postWithURLString:POST_ZHIFUBAO parameters:para success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==200) {
-            NSDictionary *dic = [obj objectForKey:@"data"];
-            NSString *str = [dic objectForKey:@"str"];
-            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
-            model.aliPayOrderString = str;
-            [self.payManager payOrderWith:0 orderModel:model payResultBlock:^(BOOL success,NSError *error) {
-                if (success) {
-                    NSLog(@"支付成功");
-                    NSString *uid = [userDefault objectForKey:user_uid];
-                    NSString *token = [userDefault objectForKey:user_token];
-                    NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid};
-                    
-                    [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
-                        
-                    } failure:^(NSError *error) {
-                        
-                    }];
-                    
-                }else{
-                    NSLog(@"%@",error);
-                }
-            }];
-        }
-
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
-/**
- 微信支付
- */
--(void)weichatclick
-{
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSString *price = self.money;
-
-    NSDictionary *dic = @{@"uid":uid,@"token":token,@"price":price};
-    [DNNetworking postWithURLString:POST_WEIXINZHIFU parameters:dic success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==200) {
-            NSDictionary *dic = [obj objectForKey:@"data"];
-            NSString *appid = [dic objectForKey:@"appid"];
-            NSString *noncestr = [dic objectForKey:@"noncestr"];
-            self.out_trade_no = [dic objectForKey:@"out_trade_no"];
-            NSString *package = [dic objectForKey:@"package"];
-            NSString *partnerid = [dic objectForKey:@"partnerid"];
-            NSString *prepayid = [dic objectForKey:@"prepayid"];
-            NSString *sign = [dic objectForKey:@"sign"];
-            NSString *timestamp = [dic objectForKey:@"timestamp"];
-            
-            ZTVendorPayModel *model = [[ZTVendorPayModel alloc] init];
-            model.timeStamp = [timestamp intValue];
-            
-            model.partnerId = partnerid;
-            model.prepayId = prepayid;
-            model.package = package;
-            model.nonceStr = noncestr;
-            model.sign = sign;
-            model.appid = appid;
-            [self.payManager payOrderWith:1 orderModel:model payResultBlock:^(BOOL success, NSError *error) {
-                if (success) {
-                    NSLog(@"支付成功");
-                    NSString *uid = [userDefault objectForKey:user_uid];
-                    NSString *token = [userDefault objectForKey:user_token];
-                    NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid};
-                    [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
-                        
-                    } failure:^(NSError *error) {
-                        
-                    }];
-                }else{
-                    NSLog(@"%@",error);
-                    NSString *url = [NSString stringWithFormat:GET_WEIXINCLONE,self.out_trade_no];
-                    [DNNetworking getWithURLString:url success:^(id obj) {
-                        
-                    } failure:^(NSError *error) {
-                        
-                    }];
-                }
-                
-            }];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-}
 
 -(void)tijiaodanan
 {
     NSString *couponprice = @"";
     CGFloat f1 = [self.zhekoumoney floatValue];
     CGFloat f2 = [self.pricestr floatValue];
-    
-//    if (f1>=f2) {
-//        couponprice = self.pricestr;
-//    }
-//    else
-//    {
-//        couponprice = self.zhekoumoney;
-//    }
     
     if (f1==0&&f2==0) {
         [MBProgressHUD showSuccess:@"您还没有做题" toView:self.view];
@@ -392,7 +246,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
         if (f1==f2) {
             NSString *uid = [userDefault objectForKey:user_uid];
             NSString *token = [userDefault objectForKey:user_token];
-            NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid};
+            NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid,@"type":@"1"};
             [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
                 
             } failure:^(NSError *error) {
@@ -412,36 +266,28 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
             [self.para setValue:@"2" forKey:@"type"];
             [DNNetworking postWithURLString:POST_orderInsert parameters:self.para success:^(id obj) {
                 if ([[obj objectForKey:@"code"] intValue]==200) {
-                    /*
-                     NSDictionary *dic = [obj objectForKey:@"data"];
-                     NSString *c_id = [dic objectForKey:@"c_id"];
-                     NSString *classcoupon = [dic objectForKey:@"classcoupon"];
-                     NSString *couponprice = [dic objectForKey:@"couponprice"];
-                     NSString *orderprice = [dic objectForKey:@"orderprice"];
-                     NSString *ordersn = [dic objectForKey:@"ordersn"];
-                     NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
-                     NSString *ordertype = [dic objectForKey:@"ordertype"];
-                     NSString *time = [dic objectForKey:@"time"];
-                     NSString *ucid = [dic objectForKey:@"ucid"];
-                     */
-                    
                     NSDictionary *dic = [obj objectForKey:@"data"];
                     self.orderid = [dic objectForKey:@"orderid"];
                     self.ordersn = [dic objectForKey:@"ordersn"];
                     NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
                     NSLog(@"价格----%@",ordertotalprice);
                     [MBProgressHUD showSuccess:@"提交成功" toView:self.table];
-                    [self showwindow];
-                    [UIView animateWithDuration:0.3 animations:^{
-                        self.zhifuView.transform =CGAffineTransformMakeTranslation(0, -500);
-                    }completion:^(BOOL finished) {
+                    NSString *uid = [userDefault objectForKey:user_uid];
+                    NSString *token = [userDefault objectForKey:user_token];
+                    NSDictionary *para = @{@"uid":uid,@"token":token,@"orderid":self.orderid,@"type":@"2"};
+                    
+                    [DNNetworking postWithURLString:POST_successOrder parameters:para success:^(id obj) {
+                        if ([[obj objectForKey:@"code"] intValue]==200) {
+                            [MBProgressHUD showSuccess:@"支付成功" toView:self.view];
+                        }
+                    } failure:^(NSError *error) {
                         
                     }];
+
                 }
             } failure:^(NSError *error) {
                 
             }];
-            
         }
     }
 }

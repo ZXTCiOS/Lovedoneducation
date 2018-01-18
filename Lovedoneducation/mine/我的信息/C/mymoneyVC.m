@@ -148,23 +148,31 @@ static NSString *moneyidentfid2 = @"moneyidentfid2";
 
 -(void)submitVClick1:(UITableViewCell *)cell
 {
-    if (self.isxuanze) {
-        if ([self.moneystr isEqualToString:@"1"]) {
-            [self BuyProduct:[self.productArray firstObject]];
-        }
-        if ([self.moneystr isEqualToString:@"12"]) {
-            SKProduct *objd = [self.productArray objectAtIndex:1];
-            [self BuyProduct:objd];
-        }
-        if ([self.moneystr isEqualToString:@"30"]) {
-            SKProduct *objd = [self.productArray objectAtIndex:2];
-            [self BuyProduct:objd];
-        }
+    if (self.productArray.count==0) {
+        [MBProgressHUD showSuccess:@"请等待" toView:self.view];
     }
     else
     {
-        [MBProgressHUD showSuccess:@"请选择充值金额" toView:self.view];
+        
+        if (self.isxuanze) {
+            if ([self.moneystr isEqualToString:@"1"]) {
+                [self BuyProduct:[self.productArray firstObject]];
+            }
+            if ([self.moneystr isEqualToString:@"12"]) {
+                SKProduct *objd = [self.productArray objectAtIndex:1];
+                [self BuyProduct:objd];
+            }
+            if ([self.moneystr isEqualToString:@"30"]) {
+                SKProduct *objd = [self.productArray objectAtIndex:2];
+                [self BuyProduct:objd];
+            }
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"请选择充值金额" toView:self.view];
+        }
     }
+   
 }
 
 #pragma mark --------YQInAppPurchaseToolDelegate

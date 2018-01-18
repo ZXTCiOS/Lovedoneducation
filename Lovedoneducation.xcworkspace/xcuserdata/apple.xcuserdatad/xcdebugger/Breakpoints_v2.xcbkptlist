@@ -36,12 +36,12 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537189973.263623"
+                  timestampString = "537528562.668468"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "307"
-                  endingLineNumber = "307"
-                  offsetFromSymbolStart = "612">
+                  startingLineNumber = "306"
+                  endingLineNumber = "306"
+                  offsetFromSymbolStart = "512">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,57 +51,12 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537189973.266175"
+                  timestampString = "537528562.671083"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
                   endingLineNumber = "307"
-                  offsetFromSymbolStart = "536">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_"
-                  moduleName = "Lovedoneducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537189973.269076"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "307"
-                  endingLineNumber = "307"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "Lovedoneducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537189973.27166"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "307"
-                  endingLineNumber = "307"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__23-[LogupVC myTabVClick:]_block_invoke.187"
-                  moduleName = "Lovedoneducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537189973.274345"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "307"
-                  endingLineNumber = "307"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>

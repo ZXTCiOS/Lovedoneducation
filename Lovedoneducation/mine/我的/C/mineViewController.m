@@ -107,6 +107,9 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             self.phonestr = [dic objectForKey:@"uphone"];
             self.passwordstr = [dic objectForKey:@"upwd"];
             self.uname = [dic objectForKey:@"uname"];
+            
+            NSString *uprice = [dic objectForKey:@"uprice"];
+            [userDefault setObject:uprice forKey:user_uprice];
             [userDefault setObject:self.phonestr forKey:user_phone];
             NSArray* array = [self.typestr componentsSeparatedByString:@">>"];
             NSString *str = array.firstObject;

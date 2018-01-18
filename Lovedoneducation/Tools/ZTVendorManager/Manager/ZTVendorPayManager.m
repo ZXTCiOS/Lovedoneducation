@@ -9,7 +9,6 @@
 #import "ZTVendorPayManager.h"
 #import "ZTVendorPayModel.h"
 #import "ZTWXApiManager.h"
-#import <AlipaySDK/AlipaySDK.h>
 #import "ZTVendorManagerConfig.h"
 
 const NSNotificationName kAlipayResultNotification = @"kAlipayResultNotification";
@@ -54,22 +53,22 @@ const NSNotificationName kAlipayResultNotification = @"kAlipayResultNotification
     if (payMethod == ZTVendorPayMethodAliPay) { //支付宝支付
         NSString *appScheme = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]; //scheme
         
-        [[AlipaySDK defaultService] payOrder:payModel.aliPayOrderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            if (resultDic != nil) { //web回调
-                NSError *error;
-                NSString *code = [resultDic objectForKey:@"resultStatus"];
-                BOOL success = [code isEqualToString:@"9000"];
-                if (!success) {
-                    NSDictionary *userInfo = @{@"errorInfo": resultDic};
-                    error = [[NSError alloc]initWithDomain:NSCocoaErrorDomain code: code.integerValue  userInfo:userInfo];
-                }
-                !handler ?: handler(success,error);
-                [weakSelf payCallbackState:success];
-            }else { //钱包回调
-                _payResultBlock = handler;
-            }
-            
-        }];
+//        [[AlipaySDK defaultService] payOrder:payModel.aliPayOrderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+//            if (resultDic != nil) { //web回调
+//                NSError *error;
+//                NSString *code = [resultDic objectForKey:@"resultStatus"];
+//                BOOL success = [code isEqualToString:@"9000"];
+//                if (!success) {
+//                    NSDictionary *userInfo = @{@"errorInfo": resultDic};
+//                    error = [[NSError alloc]initWithDomain:NSCocoaErrorDomain code: code.integerValue  userInfo:userInfo];
+//                }
+//                !handler ?: handler(success,error);
+//                [weakSelf payCallbackState:success];
+//            }else { //钱包回调
+//                _payResultBlock = handler;
+//            }
+//            
+//        }];
     }else if (payMethod == ZTVendorPayMethodWechatPay){ //微信支付
         [self wechatWith:payModel];
         [ZTWXApiManager sharedManager].WXPayResponseBlock = ^(PayResp *response) {

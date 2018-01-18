@@ -55,7 +55,7 @@
     self.money = @"0";
     [self loaddata];
     self.title = @"提交订单";
-    self.payManager = [[ZTVendorPayManager alloc] init];
+   // self.payManager = [[ZTVendorPayManager alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -115,7 +115,6 @@
         LiveCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"course" forIndexPath:indexPath];
         LiveCourseModel *model = self.model;
         cell.titleL.text = model.c_name;
-        // TODO:   介绍.....
         cell.introL.text = model.c_intro;
         
         NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
@@ -128,7 +127,7 @@
         NSString *endTime = [dateformater stringFromDate:endDate];
         cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
         cell.count.text = model.c_pay_num;
-        cell.priceL.text = [NSString stringWithFormat:@"¥%@", model.c_price];
+        cell.priceL.text = [NSString stringWithFormat:@"%@", model.c_price];
         cell.teacher1.hidden = YES;
         cell.teacher2.hidden = YES;
         cell.teacher3.hidden = YES;
@@ -180,7 +179,7 @@
         cell.kechengquanNum.text = [NSString stringWithFormat:@"%ld", self.dataSource.count];
         cell.hideL.hidden = NO;
     } else {
-        cell.kechengquanNum.text = [NSString stringWithFormat:@"¥%@", self.kechengquan];
+        cell.kechengquanNum.text = [NSString stringWithFormat:@"%@", self.kechengquan];
         cell.hideL.hidden = YES;
     }
     
@@ -202,17 +201,17 @@
                 cashdiyong = leftmoney;
             }
         }
-        cell.diyongquanNum.text = [NSString stringWithFormat:@"¥%.0f", cashdiyong];
+        cell.diyongquanNum.text = [NSString stringWithFormat:@"%.0f", cashdiyong];
     } else {
         cashdiyong = 0;
-        cell.diyongquanNum.text = [NSString stringWithFormat:@"¥%@", self.money];
+        cell.diyongquanNum.text = [NSString stringWithFormat:@"%@", self.money];
     }
     CGFloat count = [self.model.c_price doubleValue] - [self.kechengquan doubleValue] - cashdiyong;
     if (count < 0) {
         count = 0.00;
     }
     self.daijinquan = cashdiyong;
-    cell.money.text = [NSString stringWithFormat:@"¥%.2f", count];
+    cell.money.text = [NSString stringWithFormat:@"%.2f", count];
     self.orderPrice = cell.money.text;
     return cell;
 }
@@ -272,10 +271,18 @@
                 NSString *ordertotalprice = [dic objectForKey:@"ordertotalprice"];
                 NSLog(@"价格----%@",ordertotalprice);
                 self.orderPrice = ordertotalprice;
-                if ([self.orderPrice floatValue] == 0) {
+                
+                CGFloat ff1 = [ordertotalprice floatValue];
+                NSString *uprice = [userDefault objectForKey:user_uprice];
+                CGFloat ff2 = [uprice floatValue];
+                if (ff1>ff2) {
+                    [MBProgressHUD showSuccess:@"余额不足，请先充值" toView:self.view];
+                }
+                else
+                {
                     NSString *uid = [userDefault objectForKey:user_uid];
                     NSString *token = [userDefault objectForKey:user_token];
-                    [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid} success:^(id obj) {
+                    [DNNetworking postWithURLString:post_ordersucess parameters:@{@"uid": uid, @"token": token, @"orderid": self.orderid,@"type":@"2"} success:^(id obj) {
                         NSString *code = [obj objectForKey:@"code"];
                         if ([code isEqualToString:@"200"]) {
                             [self.view showWarning:@"购买成功"];
@@ -285,17 +292,11 @@
                     } failure:^(NSError *error) {
                         [self.view showWarning:@"服务器错误, 请稍后再试"];
                     }];
-                    
-                } else {
-                    //[MBProgressHUD showSuccess:@"提交成功" toView:self.table];
-                    //[self showwindow];
-                    [UIView animateWithDuration:0.3 animations:^{
-                        self.payV.alpha = 1;
-                        self.payV.hidden = NO;
-                    }completion:^(BOOL finished) {
-                        
-                    }];
                 }
+                
+                
+                    
+      
             }
         } failure:^(NSError *error) {
             

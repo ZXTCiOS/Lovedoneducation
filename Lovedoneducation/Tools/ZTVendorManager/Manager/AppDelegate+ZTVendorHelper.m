@@ -10,7 +10,6 @@
 #import "ZTVendorManager.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import "WXApi.h"
-#import <AlipaySDK/AlipaySDK.h>
 #import "ZTWXApiManager.h"
 #import <objc/runtime.h>
 @implementation AppDelegate (ZTVendorHelper)
@@ -43,12 +42,12 @@
 {
     
     if ([url.host isEqualToString:@"safepay"]) {
-        //跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //发通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAlipayResultNotification object:nil userInfo:resultDic];
-            NSLog(@"result = %@",resultDic);
-        }];
+//        //跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            //发通知
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kAlipayResultNotification object:nil userInfo:resultDic];
+//            NSLog(@"result = %@",resultDic);
+//        }];
     }
     
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
@@ -64,12 +63,12 @@
 {
     
     if ([url.host isEqualToString:@"safepay"]) {
-        //跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //发通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAlipayResultNotification object:nil userInfo:resultDic];
-            NSLog(@"result = %@",resultDic);
-        }];
+//        //跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            //发通知
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kAlipayResultNotification object:nil userInfo:resultDic];
+//            NSLog(@"result = %@",resultDic);
+//        }];
     }
     //分享回调
     BOOL shareResult = [[UMSocialManager defaultManager] handleOpenURL:url options:options];

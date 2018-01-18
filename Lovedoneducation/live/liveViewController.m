@@ -157,7 +157,7 @@
     NSString *endTime = [dateformater stringFromDate:endDate];
     cell.timeL.text = [NSString stringWithFormat:@"%@-%@", startTime, endTime];
     cell.count.text = model.c_pay_num;
-    cell.priceL.text = [NSString stringWithFormat:@"¥%@", model.c_price];
+    cell.priceL.text = [NSString stringWithFormat:@"%@", model.c_price];
     cell.teacher1.hidden = YES;
     cell.teacher2.hidden = YES;
     cell.teacher3.hidden = YES;

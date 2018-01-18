@@ -13,6 +13,7 @@
 #import "changephoneVC.h"
 #import "changenameVC.h"
 #import "changepasswordVC.h"
+#import "mymoneyVC.h"
 
 @interface myinfoVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -106,11 +107,11 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
     {
         NSString *str = [userDefault objectForKey:user_denglufangsi];
         if ([str isEqualToString:@"2"]) {
-            return 1;
+            return 2;
         }
         else
         {
-            return 3;
+            return 4;
         }
     }
 }
@@ -142,9 +143,12 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
             cell.textLabel.text = @"修改昵称";
         }
         if (indexPath.row==1) {
-            cell.textLabel.text = @"修改密码";
+            cell.textLabel.text = @"我的账户";
         }
         if (indexPath.row==2) {
+            cell.textLabel.text = @"修改密码";
+        }
+        if (indexPath.row==3) {
             cell.textLabel.text = @"更换手机号";
         }
         return cell;
@@ -217,10 +221,14 @@ static NSString *myinfoidentfid3 = @"myinfoidentfid3";
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==1) {
-            changepasswordVC *vc = [[changepasswordVC alloc] init];
+            mymoneyVC *vc = [[mymoneyVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row==2) {
+            changepasswordVC *vc = [[changepasswordVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        if (indexPath.row==3) {
             changephoneVC *vc = [[changephoneVC alloc] init];
             vc.phonestr = self.phonestr;
             [self.navigationController pushViewController:vc animated:YES];

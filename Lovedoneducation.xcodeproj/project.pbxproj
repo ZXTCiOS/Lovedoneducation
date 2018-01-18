@@ -404,8 +404,6 @@
 		534B4A091FA1AEE400A68BA7 /* ZTVendorAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E51FA1AEE400A68BA7 /* ZTVendorAccountModel.m */; };
 		534B4A0A1FA1AEE400A68BA7 /* ZTVendorPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */; };
 		534B4A0B1FA1AEE400A68BA7 /* ZTVendorShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */; };
-		534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */; };
-		534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */; };
 		534B4A0E1FA1AEE400A68BA7 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */; };
 		534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F21FA1AEE400A68BA7 /* libSocialSina.a */; };
 		534B4A101FA1AEE400A68BA7 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534B49F61FA1AEE400A68BA7 /* UMSocialCore.framework */; };
@@ -447,6 +445,12 @@
 		535F33AE1FB030AF005C3176 /* exerciseweeklyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33AD1FB030AF005C3176 /* exerciseweeklyCell4.m */; };
 		535F33B11FB03BF0005C3176 /* exerciseweeklyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */; };
 		535F33B41FB0401D005C3176 /* exerciseweeklyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = 535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */; };
+		5362507F200F2CAD00516F1F /* mymoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362507E200F2CAD00516F1F /* mymoneyVC.m */; };
+		53625082200F30E000516F1F /* mymoneycell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625081200F30E000516F1F /* mymoneycell0.m */; };
+		53625085200F30ED00516F1F /* mymoneycell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625084200F30ED00516F1F /* mymoneycell1.m */; };
+		53625088200F30F800516F1F /* mymoneycell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53625087200F30F800516F1F /* mymoneycell2.m */; };
+		5362508A200F696100516F1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53625089200F696100516F1F /* StoreKit.framework */; };
+		5362508E200F697E00516F1F /* YQInAppPurchaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */; };
 		537A36981FA81740009E1442 /* datareportCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A36971FA81740009E1442 /* datareportCell0.m */; };
 		537A369B1FA8175A009E1442 /* datareportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369A1FA8175A009E1442 /* datareportCell1.m */; };
 		537A369E1FA84941009E1442 /* datareportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A369D1FA84941009E1442 /* datareportCell2.m */; };
@@ -1345,8 +1349,6 @@
 		534B49E71FA1AEE400A68BA7 /* ZTVendorPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorPayModel.m; sourceTree = "<group>"; };
 		534B49E81FA1AEE400A68BA7 /* ZTVendorShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorShareModel.h; sourceTree = "<group>"; };
 		534B49E91FA1AEE400A68BA7 /* ZTVendorShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTVendorShareModel.m; sourceTree = "<group>"; };
-		534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		534B49EF1FA1AEE400A68BA7 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
 		534B49F01FA1AEE400A68BA7 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
 		534B49F21FA1AEE400A68BA7 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
@@ -1421,6 +1423,17 @@
 		535F33B01FB03BF0005C3176 /* exerciseweeklyCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell5.m; sourceTree = "<group>"; };
 		535F33B21FB0401D005C3176 /* exerciseweeklyCell6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exerciseweeklyCell6.h; sourceTree = "<group>"; };
 		535F33B31FB0401D005C3176 /* exerciseweeklyCell6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = exerciseweeklyCell6.m; sourceTree = "<group>"; };
+		5362507D200F2CAD00516F1F /* mymoneyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneyVC.h; sourceTree = "<group>"; };
+		5362507E200F2CAD00516F1F /* mymoneyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneyVC.m; sourceTree = "<group>"; };
+		53625080200F30E000516F1F /* mymoneycell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell0.h; sourceTree = "<group>"; };
+		53625081200F30E000516F1F /* mymoneycell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell0.m; sourceTree = "<group>"; };
+		53625083200F30ED00516F1F /* mymoneycell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell1.h; sourceTree = "<group>"; };
+		53625084200F30ED00516F1F /* mymoneycell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell1.m; sourceTree = "<group>"; };
+		53625086200F30F800516F1F /* mymoneycell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymoneycell2.h; sourceTree = "<group>"; };
+		53625087200F30F800516F1F /* mymoneycell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mymoneycell2.m; sourceTree = "<group>"; };
+		53625089200F696100516F1F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQInAppPurchaseTool.m; sourceTree = "<group>"; };
+		5362508D200F697E00516F1F /* YQInAppPurchaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQInAppPurchaseTool.h; sourceTree = "<group>"; };
 		537A36961FA81740009E1442 /* datareportCell0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell0.h; sourceTree = "<group>"; };
 		537A36971FA81740009E1442 /* datareportCell0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = datareportCell0.m; sourceTree = "<group>"; };
 		537A36991FA8175A009E1442 /* datareportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datareportCell1.h; sourceTree = "<group>"; };
@@ -1617,6 +1630,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5362508A200F696100516F1F /* StoreKit.framework in Frameworks */,
 				534B4A181FA1AF3E00A68BA7 /* CoreMotion.framework in Frameworks */,
 				5344D9381FC449D40011F504 /* TencentOpenAPI.framework in Frameworks */,
 				534B4A1A1FA1AF4C00A68BA7 /* SystemConfiguration.framework in Frameworks */,
@@ -1638,7 +1652,6 @@
 				534B4A111FA1AEE400A68BA7 /* UMSocialNetwork.framework in Frameworks */,
 				4CC1FFFD3296F9CD8046FF17 /* libPods-Lovedoneducation.a in Frameworks */,
 				534B4A131FA1AEE400A68BA7 /* libUMSocialLog.a in Frameworks */,
-				534B4A0D1FA1AEE400A68BA7 /* AlipaySDK.framework in Frameworks */,
 				534B4A141FA1AEE400A68BA7 /* libSocialWeChat.a in Frameworks */,
 				534B4A0F1FA1AEE400A68BA7 /* libSocialSina.a in Frameworks */,
 			);
@@ -3342,22 +3355,12 @@
 		534B49EA1FA1AEE400A68BA7 /* VendorSDK */ = {
 			isa = PBXGroup;
 			children = (
-				534B49EB1FA1AEE400A68BA7 /* AlipaySDK */,
 				534B49EE1FA1AEE400A68BA7 /* QQ */,
 				534B49F11FA1AEE400A68BA7 /* Sina */,
 				534B49F41FA1AEE400A68BA7 /* UMSocial */,
 				534B49FB1FA1AEE400A68BA7 /* WeChat */,
 			);
 			path = VendorSDK;
-			sourceTree = "<group>";
-		};
-		534B49EB1FA1AEE400A68BA7 /* AlipaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				534B49EC1FA1AEE400A68BA7 /* AlipaySDK.bundle */,
-				534B49ED1FA1AEE400A68BA7 /* AlipaySDK.framework */,
-			);
-			path = AlipaySDK;
 			sourceTree = "<group>";
 		};
 		534B49EE1FA1AEE400A68BA7 /* QQ */ = {
@@ -3606,6 +3609,15 @@
 			path = ZPActionsheet;
 			sourceTree = "<group>";
 		};
+		5362508B200F697E00516F1F /* YQInAppPurchaseTool */ = {
+			isa = PBXGroup;
+			children = (
+				5362508C200F697E00516F1F /* YQInAppPurchaseTool.m */,
+				5362508D200F697E00516F1F /* YQInAppPurchaseTool.h */,
+			);
+			path = YQInAppPurchaseTool;
+			sourceTree = "<group>";
+		};
 		537F66A91FDBBBBC0028E888 /* V */ = {
 			isa = PBXGroup;
 			children = (
@@ -3719,6 +3731,8 @@
 				53D1F26A1F9F0A6E002E1524 /* changenameVC.m */,
 				53D1F26C1F9F0E35002E1524 /* changepasswordVC.h */,
 				53D1F26D1F9F0E35002E1524 /* changepasswordVC.m */,
+				5362507D200F2CAD00516F1F /* mymoneyVC.h */,
+				5362507E200F2CAD00516F1F /* mymoneyVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -3737,6 +3751,12 @@
 				53D1F2701F9F1129002E1524 /* changepasswordCell0.m */,
 				53D1F2721F9F1438002E1524 /* changepasswordCell1.h */,
 				53D1F2731F9F1438002E1524 /* changepasswordCell1.m */,
+				53625080200F30E000516F1F /* mymoneycell0.h */,
+				53625081200F30E000516F1F /* mymoneycell0.m */,
+				53625083200F30ED00516F1F /* mymoneycell1.h */,
+				53625084200F30ED00516F1F /* mymoneycell1.m */,
+				53625086200F30F800516F1F /* mymoneycell2.h */,
+				53625087200F30F800516F1F /* mymoneycell2.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4015,6 +4035,7 @@
 		53C9998B1F973AC0006A6570 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5362508B200F697E00516F1F /* YQInAppPurchaseTool */,
 				1865DBDE1FF377E70003F8BA /* ZBSessionDownload */,
 				187716AC1FE39C4300801677 /* Classes */,
 				5344D9341FC449D40011F504 /* Tencent */,
@@ -4229,6 +4250,7 @@
 		9BAAE0C9431CE0E3714EC8E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53625089200F696100516F1F /* StoreKit.framework */,
 				181F82A51FB42C8E0090EDEF /* UIKit.framework */,
 				181F82A31FB42C1E0090EDEF /* Foundation.framework */,
 				185C04C71FA998F600571E67 /* libsqlite3.0.tbd */,
@@ -4341,6 +4363,9 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -4404,7 +4429,6 @@
 				534B49C51FA0D75D00A68BA7 /* w_star_red.png in Resources */,
 				18283D171F9F56E600111352 /* HomeMoreView.xib in Resources */,
 				534B4A121FA1AEE400A68BA7 /* UMSocialSDKPromptResources.bundle in Resources */,
-				534B4A0C1FA1AEE400A68BA7 /* AlipaySDK.bundle in Resources */,
 				1822E4521F9E10A500C92DEA /* HomeBannerCell.xib in Resources */,
 				534B49CA1FA0D75D00A68BA7 /* w_star_white@3x.png in Resources */,
 				534B49C71FA0D75D00A68BA7 /* w_star_red@3x.png in Resources */,
@@ -4668,6 +4692,7 @@
 				181F86611FB437790090EDEF /* UIViewController+NTES.m in Sources */,
 				181F87081FB437790090EDEF /* NIMSessionFileTransContentView.m in Sources */,
 				181F86CE1FB437790090EDEF /* NTESUserUtil.m in Sources */,
+				53625085200F30ED00516F1F /* mymoneycell1.m in Sources */,
 				186420611FA1817E004DF7A4 /* LiveTeacherInfoVC.m in Sources */,
 				181F86921FB437790090EDEF /* NTESChatroomMemberCell.m in Sources */,
 				181F86D21FB437790090EDEF /* NSString+NIM.m in Sources */,
@@ -4851,6 +4876,7 @@
 				181F87021FB437790090EDEF /* NIMSessionViewController.m in Sources */,
 				5317DE411F9744CB00D4AE2C /* DNNetworking.m in Sources */,
 				181F86CF1FB437790090EDEF /* NTESPinyinConverter.m in Sources */,
+				5362507F200F2CAD00516F1F /* mymoneyVC.m in Sources */,
 				181F86821FB437790090EDEF /* NTESChatroomMaker.m in Sources */,
 				1822E46F1F9E112F00C92DEA /* UIView+HYBUIViewCommon.m in Sources */,
 				53E1DD6A1FADA14B009965AF /* datareportModel.m in Sources */,
@@ -4913,6 +4939,7 @@
 				1822E4591F9E10A500C92DEA /* HomeLayout.m in Sources */,
 				535EFE261FC9570900A5DA77 /* answerView.m in Sources */,
 				181F86FB1FB437790090EDEF /* NIMTipContentConfig.m in Sources */,
+				53625088200F30F800516F1F /* mymoneycell2.m in Sources */,
 				181F87011FB437790090EDEF /* NIMSessionMsgDatasource.m in Sources */,
 				181F86AB1FB437790090EDEF /* NTESMeetingActorsView.m in Sources */,
 				181F872E1FB437790090EDEF /* NIMImageCache.m in Sources */,
@@ -4971,6 +4998,7 @@
 				181F86FF1FB437790090EDEF /* NIMMessageCellMaker.m in Sources */,
 				181F869C1FB437790090EDEF /* renderer_yuv420sp.c in Sources */,
 				181F86F71FB437790090EDEF /* NIMImageContentConfig.m in Sources */,
+				53625082200F30E000516F1F /* mymoneycell0.m in Sources */,
 				53963ABE1FA07CE9009AEFCA /* feedbackCell.m in Sources */,
 				181F86B01FB437790090EDEF /* NTESDemoCloseMeetingTask.m in Sources */,
 				534219AC1F9F58FF00F26E61 /* myinfomessageVC.m in Sources */,
@@ -4981,6 +5009,7 @@
 				1865DC0F1FF377E70003F8BA /* NSObject+FileDBManager.m in Sources */,
 				181F86ED1FB437790090EDEF /* NIMInputToolBar.m in Sources */,
 				53B851B11FB07ABD00608925 /* smartgroupvolumeVC.m in Sources */,
+				5362508E200F697E00516F1F /* YQInAppPurchaseTool.m in Sources */,
 				53C999561F9739D9006A6570 /* AppDelegate.m in Sources */,
 				181F873A1FB437790090EDEF /* NIMProgressHUD.m in Sources */,
 				181F871F1FB437790090EDEF /* NIMAdvancedTeamMemberCell.m in Sources */,

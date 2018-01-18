@@ -61,6 +61,7 @@
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"
 #define user_phone  @"PHONE"
+#define user_uprice @"uprice"
 #define userDefault [NSUserDefaults standardUserDefaults]
 #define JIGUANG     @"ee1c88aff0f66a47758b45ae"
 #define user_type   @"user_type"
@@ -298,7 +299,7 @@
 
  @return
  */
-#define POST_successOrder @"/app.php/order/successOrder?uid=%@&token=%@&orderid=%@"
+#define POST_successOrder @"/app.php/order/successOrder"
 
 /**
  评论
@@ -306,4 +307,11 @@
  @return pinglun
  */
 #define POST_COMMENT @"/app.php/user/commit"
+
+/**
+ 充值
+
+ @return
+ */
+#define POST_PRICE @"/app.php/order/successPrice"
 #endif /* wangHeader_h */

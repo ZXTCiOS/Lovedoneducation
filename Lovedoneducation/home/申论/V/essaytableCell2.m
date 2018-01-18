@@ -104,9 +104,9 @@
     pricestr = @"20";
     NSString *str1 = @"共计";
     NSString *str2 = numser;
-    NSString *str3 = @"道题目，总计 ¥";
+    NSString *str3 = @"道题目，总计 ";
     NSString *str4 = pricestr;
-    NSString *str5 = @"元";
+    NSString *str5 = @"";
     NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@",str1,str2,str3,str4,str5];
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];

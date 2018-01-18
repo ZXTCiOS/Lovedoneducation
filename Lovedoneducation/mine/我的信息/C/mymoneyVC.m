@@ -47,11 +47,12 @@ static NSString *moneyidentfid2 = @"moneyidentfid2";
     //设置代理
     IAPTool.delegate = self;
     //购买后，向苹果服务器验证一下购买结果。默认为YES。不建议关闭
-    //IAPTool.CheckAfterPay = NO;
+//    IAPTool.CheckAfterPay = NO;
     //向苹果询问哪些商品能够购买
-    [IAPTool requestProductsWithProductArray:@[@"com.problenchild.YQIAPTest.product1",
-                                               @"com.problenchild.YQIAPTest.product2",
-                                               @"com.problenchild.YQIAPTest.product3"]];
+    [IAPTool requestProductsWithProductArray:@[@"com.wangjungang.Lovedoneducation1",
+                                               @"com.wangjungang.Lovedoneducation2",
+                                               @"com.wangjungang.Lovedoneducation3"]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,13 +148,18 @@ static NSString *moneyidentfid2 = @"moneyidentfid2";
 
 -(void)submitVClick1:(UITableViewCell *)cell
 {
-    
-    
-//    SKProduct *objd = [self.productArray objectAtIndex:2];
-//    [self BuyProduct:[self.productArray firstObject]];
-//    [self BuyProduct:objd];
     if (self.isxuanze) {
-        
+        if ([self.moneystr isEqualToString:@"1"]) {
+            [self BuyProduct:[self.productArray firstObject]];
+        }
+        if ([self.moneystr isEqualToString:@"12"]) {
+            SKProduct *objd = [self.productArray objectAtIndex:1];
+            [self BuyProduct:objd];
+        }
+        if ([self.moneystr isEqualToString:@"30"]) {
+            SKProduct *objd = [self.productArray objectAtIndex:2];
+            [self BuyProduct:objd];
+        }
     }
     else
     {
@@ -165,20 +171,17 @@ static NSString *moneyidentfid2 = @"moneyidentfid2";
 //IAP工具已获得可购买的商品
 -(void)IAPToolGotProducts:(NSMutableArray *)products {
     NSLog(@"GotProducts:%@",products);
-    //    for (SKProduct *product in products){
-    //        NSLog(@"localizedDescription:%@\nlocalizedTitle:%@\nprice:%@\npriceLocale:%@\nproductID:%@",
-    //              product.localizedDescription,
-    //              product.localizedTitle,
-    //              product.price,
-    //              product.priceLocale,
-    //              product.productIdentifier);
-    //        NSLog(@"--------------------------");
-    //    }
+        for (SKProduct *product in products){
+            NSLog(@"localizedDescription:%@\nlocalizedTitle:%@\nprice:%@\npriceLocale:%@\nproductID:%@",
+                  product.localizedDescription,
+                  product.localizedTitle,
+                  product.price,
+                  product.priceLocale,
+                  product.productIdentifier);
+            NSLog(@"--------------------------");
+        }
     self.productArray = products;
-    
-   // [self.tabV reloadData];
 
-    //[SVProgressHUD showSuccessWithStatus:@"成功获取到可购买的商品"];
 }
 //支付失败/取消
 -(void)IAPToolCanceldWithProductID:(NSString *)productID {
@@ -231,6 +234,7 @@ static NSString *moneyidentfid2 = @"moneyidentfid2";
 -(void)BuyProduct:(SKProduct *)product{
     
     [[YQInAppPurchaseTool defaultTool]buyProduct:product.productIdentifier];
+    
 }
 
 -(void)zhifuchenggong

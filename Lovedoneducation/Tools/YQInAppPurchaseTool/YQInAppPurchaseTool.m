@@ -5,6 +5,7 @@
 //  Created by problemchild on 16/8/24.
 //  Copyright © 2016年 ProblenChild. All rights reserved.
 //
+
 #ifdef DEBUG
 #define checkURL @"https://sandbox.itunes.apple.com/verifyReceipt"
 #else

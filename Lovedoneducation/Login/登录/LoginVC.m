@@ -400,7 +400,7 @@
             uname = model.openid;
         }
        
-        NSDictionary *dic = @{@"uname":uname};
+        NSDictionary *dic = @{@"uname":uname,@"name":model.nickname};
         //show
         [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
         [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {
@@ -448,8 +448,7 @@
         {
             uname =  [dicid objectForKey:@"unionid"];
         }
-       // [dicid objectForKey:@"unionid"];
-        NSDictionary *dic = @{@"uname":uname};
+        NSDictionary *dic = @{@"uname":uname,@"name":model.nickname};
         //show
         [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
         [DNNetworking postWithURLString:POST_LOGIN parameters:dic success:^(id obj) {

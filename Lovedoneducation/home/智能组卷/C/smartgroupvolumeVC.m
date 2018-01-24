@@ -523,6 +523,9 @@
     NSLog(@"333===%ld",index.item);
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"A"];
+    
+    [self downSelectClick];
+    
 }
 
 -(void)myTabVClickB:(UICollectionViewCell *)cell
@@ -531,6 +534,8 @@
     NSLog(@"333===%ld",index.item);
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"B"];
+    
+    [self downSelectClick];
 }
 
 -(void)myTabVClickC:(UICollectionViewCell *)cell
@@ -539,6 +544,8 @@
     NSLog(@"333===%ld",index.item);
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"C"];
+    
+    [self downSelectClick];
 }
 
 -(void)myTabVClickD:(UICollectionViewCell *)cell
@@ -547,6 +554,8 @@
     NSLog(@"333===%ld",index.item);
     [self.cardtypeArray replaceObjectAtIndex:index.item withObject:@"1"];
     [self.arrayDatasource replaceObjectAtIndex:index.item withObject:@"D"];
+    
+    [self downSelectClick];
 }
 
 -(void)textstr:(UICollectionViewCell *)cell andtextstr:(NSString *)str
@@ -620,13 +629,27 @@
     }
 }
 
-//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-//    NSString *title = @"该分类暂时没有题目";
-//    NSDictionary *attributes = @{
-//                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
-//                                 NSForegroundColorAttributeName:[UIColor darkGrayColor]
-//                                 };
-//    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
-//}
+//下一题
+- (void)downSelectClick {
+    
+    if (self.indexPathNow.row < self.dataSource.count - 1) {
+        
+        [self.collectionV scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.indexPathNow.item + 1 inSection:self.indexPathNow.section] atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
+        
+        self.indexPathNow = [NSIndexPath indexPathForItem:self.indexPathNow.item + 1 inSection:self.indexPathNow.section];
+        
+        int inter = (int)self.indexPathNow.item;
+        int newint = inter+1;
+        NSString *newstr = [NSString stringWithFormat:@"%ld",(long)newint];
+        self.head.numberlab.text = [NSString stringWithFormat:@"%@%@%@",newstr,@"/",[NSString stringWithFormat:@"%lu",(unsigned long)self.dataSource.count]];
+        smartgroupModel *model = [self.dataSource objectAtIndex:inter];
+        self.pidstr = model.qid;
+        
+        [self.collectionV reloadData];
+    }else {
+        //[hudTool showContent:@"当前已是最后一题，快交卷吧" inView:self.view withDuration:1.0];
+        NSLog(@"已经是最后一题了" );
+    }
+}
 
 @end

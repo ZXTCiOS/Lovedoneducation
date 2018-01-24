@@ -31,7 +31,7 @@
 #import "NTESMeetingWhiteboardViewController.h"
 #import <NIMAVChat/NIMAVChat.h>
 
-@interface NTESMeetingViewController ()<NTESMeetingActionViewDataSource,NTESMeetingActionViewDelegate,NIMInputDelegate,NIMChatroomManagerDelegate,NTESMeetingNetCallManagerDelegate,NTESActorSelectViewDelegate,NTESMeetingRolesManagerDelegate,NIMLoginManagerDelegate
+@interface NTESMeetingViewController ()<NTESMeetingActionViewDataSource,NTESMeetingActionViewDelegate,NIMInputDelegate,NIMChatroomManagerDelegate,NTESMeetingNetCallManagerDelegate,NTESActorSelectViewDelegate,NTESMeetingRolesManagerDelegate,NIMLoginManagerDelegate, NIMRTSConferenceManagerDelegate
 >
 
 @property (nonatomic, copy)   NIMChatroom *chatroom;
@@ -83,6 +83,7 @@ NTES_FORBID_INTERACTIVE_POP
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[NTESMeetingNetCallManager sharedInstance] leaveMeeting];
+    [[NIMAVChatSDK sharedSDK].rtsConferenceManager removeDelegate:self];
 }
 
 - (void)viewDidLoad {
@@ -100,7 +101,7 @@ NTES_FORBID_INTERACTIVE_POP
     [[NIMSDK sharedSDK].loginManager addDelegate:self];
     [[NTESMeetingRolesManager sharedInstance] setDelegate:self];
     [[NTESMeetingNetCallManager sharedInstance] joinMeeting:_chatroom.roomId delegate:self];
-    
+    [[NIMAVChatSDK sharedSDK].rtsConferenceManager addDelegate:self];
 
 }
 
@@ -423,6 +424,15 @@ NTES_FORBID_INTERACTIVE_POP
     
     if (whiteboardOn) {
         [[NTESMeetingRolesManager sharedInstance] setMyWhiteBoard:YES];
+    }
+}
+
+#pragma mark - NTESRtsConferenceDelegate
+
+- (void)onUserLeft:(NSString *)uid conference:(NIMRTSConference *)conference reason:(NIMRTSConferenceUserLeaveReason)reason{
+    if ([uid isEqualToString:self.chatroom.creator]) {
+        [self pop];
+        //[self.navigationController popViewControllerAnimated:YES];
     }
 }
 

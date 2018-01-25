@@ -73,7 +73,25 @@
 
 -(void)setdata:(NSString *)pricestr
 {
-    self.rightlab.text = [NSString stringWithFormat:@"%@%@",@"",pricestr];
+    NSString *str1 = pricestr;
+    NSString *str2 = @"爱唐币";
+    NSString *str = [NSString stringWithFormat:@"%@%@",str1,str2];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"FF9B19"]
+                    range:NSMakeRange(0, str1.length)];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor colorWithHexString:@"646464"]
+                    range:NSMakeRange(str1.length, str2.length)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:24.0f]
+                    range:NSMakeRange(0, str1.length)];
+    
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:14.0f]
+                    range:NSMakeRange(str1.length, str2.length)];
+    self.rightlab.attributedText = attrStr;
+    //self.rightlab.text = [NSString stringWithFormat:@"%@%@",pricestr,@"爱唐币"];
 }
 
 

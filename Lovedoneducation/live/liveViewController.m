@@ -38,6 +38,7 @@
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([LiveCourseCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     self.tableView.tableFooterView = [UIView new];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)configNaviBar{

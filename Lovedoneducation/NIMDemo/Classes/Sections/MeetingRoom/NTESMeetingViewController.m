@@ -113,6 +113,7 @@ NTES_FORBID_INTERACTIVE_POP
     self.chatroomViewController.delegate = self;
     [self.currentChildViewController beginAppearanceTransition:YES animated:animated];
     self.actorsView.isFullScreen = NO;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -136,6 +137,7 @@ NTES_FORBID_INTERACTIVE_POP
 {
     [super viewDidDisappear:animated];
     [self.currentChildViewController endAppearanceTransition];
+    
 }
 
 

@@ -10,6 +10,8 @@
 
 @interface NTESMeetingActorsView : UIView
 
+@property (nonatomic, strong) NSMutableArray *actorViews;
+
 @property (nonatomic) BOOL isFullScreen;
 
 @property (nonatomic) BOOL showFullScreenBtn;

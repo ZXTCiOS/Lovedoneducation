@@ -93,6 +93,12 @@
     for (NIMMessage *message in messages) {
         if ([self isMeetingControlMessage:message]) {
             [filteredMessages removeObject:message];
+        } else if ([message.text isEqualToString:@"我开启摄像头了"]){
+            
+            [filteredMessages removeObject:message];
+        } else if ([message.text isEqualToString:@"我关闭摄像头了"]){
+            
+            [filteredMessages removeObject:message];
         }
     }
     [super onRecvMessages:filteredMessages];

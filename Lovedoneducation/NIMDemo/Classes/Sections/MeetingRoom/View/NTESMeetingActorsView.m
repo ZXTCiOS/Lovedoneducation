@@ -17,7 +17,7 @@
 
 @interface NTESMeetingActorsView()<NIMNetCallManagerDelegate>
 {
-    NSMutableArray *_actorViews;
+    //NSMutableArray *_actorViews;
     NSMutableArray *_actors;
     NSMutableArray *_backgroundViews;
 }

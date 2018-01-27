@@ -214,7 +214,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         if (self.isshow) {
             UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
             UILabel *lab0 = [[UILabel alloc] init];
-            lab0.text = @"现金抵用券";
+            lab0.text = @"抵用券";
             lab0.frame = CGRectMake(15, 20, 100, 20);
             [footview addSubview:lab0];
             return footview;

@@ -140,7 +140,7 @@
 -(void)setdata:(securitesModel *)model
 {
     self.smodel = model;
-    self.leftpriceLabel.text = [NSString stringWithFormat:@"%@%@",@"¥",model.ucprice];
+    self.leftpriceLabel.text = [NSString stringWithFormat:@"%@%@",@"",model.ucprice];
     self.numberLabel.text = [NSString stringWithFormat:@"%@%@%@",@"共",model.number,@"张"];
     self.messageLabel.text = [NSString stringWithFormat:@"%@%@%@%@",model.ucprice,@"元及",model.ucprice,@"元以下课程任意券"];
 }

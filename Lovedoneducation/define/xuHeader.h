@@ -62,7 +62,7 @@ _Pragma("clang diagnostic pop")\
 #define user_accid @"test0"
 #define user_imtoken @"user_imtoken"
 
-#define TeacherBGImage @"ziliaofenxi_image_shouye"
+#define TeacherBGImage @"qqq"
 
 
 #define kFrameeeee if (@available(iOS 11.0, *)){\

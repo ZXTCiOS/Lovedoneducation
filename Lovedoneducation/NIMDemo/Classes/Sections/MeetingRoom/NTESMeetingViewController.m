@@ -31,7 +31,7 @@
 #import "NTESMeetingWhiteboardViewController.h"
 #import <NIMAVChat/NIMAVChat.h>
 
-@interface NTESMeetingViewController ()<NTESMeetingActionViewDataSource,NTESMeetingActionViewDelegate,NIMInputDelegate,NIMChatroomManagerDelegate,NTESMeetingNetCallManagerDelegate,NTESActorSelectViewDelegate,NTESMeetingRolesManagerDelegate,NIMLoginManagerDelegate
+@interface NTESMeetingViewController ()<NTESMeetingActionViewDataSource,NTESMeetingActionViewDelegate,NIMInputDelegate,NIMChatroomManagerDelegate,NTESMeetingNetCallManagerDelegate,NTESActorSelectViewDelegate,NTESMeetingRolesManagerDelegate,NIMLoginManagerDelegate, NIMRTSConferenceManagerDelegate, NIMChatManagerDelegate
 >
 
 @property (nonatomic, copy)   NIMChatroom *chatroom;
@@ -83,6 +83,8 @@ NTES_FORBID_INTERACTIVE_POP
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[NTESMeetingNetCallManager sharedInstance] leaveMeeting];
+    [[NIMAVChatSDK sharedSDK].rtsConferenceManager removeDelegate:self];
+    [[NIMSDK sharedSDK].chatManager removeDelegate:self];
 }
 
 - (void)viewDidLoad {
@@ -100,8 +102,8 @@ NTES_FORBID_INTERACTIVE_POP
     [[NIMSDK sharedSDK].loginManager addDelegate:self];
     [[NTESMeetingRolesManager sharedInstance] setDelegate:self];
     [[NTESMeetingNetCallManager sharedInstance] joinMeeting:_chatroom.roomId delegate:self];
-    
-
+    [[NIMAVChatSDK sharedSDK].rtsConferenceManager addDelegate:self];
+    [[NIMSDK sharedSDK].chatManager addDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -111,6 +113,7 @@ NTES_FORBID_INTERACTIVE_POP
     self.chatroomViewController.delegate = self;
     [self.currentChildViewController beginAppearanceTransition:YES animated:animated];
     self.actorsView.isFullScreen = NO;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -134,6 +137,7 @@ NTES_FORBID_INTERACTIVE_POP
 {
     [super viewDidDisappear:animated];
     [self.currentChildViewController endAppearanceTransition];
+    
 }
 
 
@@ -148,6 +152,26 @@ NTES_FORBID_INTERACTIVE_POP
     NSArray *vcs = [self makeChildViewControllers];
     for (UIViewController *vc in vcs) {
         [self addChildViewController:vc];
+    }
+}
+
+#pragma mark - NIMChatManagerDelegate
+
+/*
+ * 此处添加聊天代理, 仅为了处理教师开闭摄像头的事件.
+*/
+
+- (void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
+    for (NIMMessage *message in messages) {
+        if ([message.text isEqualToString:@"我开启摄像头了"]) {
+            for (UIView *view in self.actorsView.actorViews) {
+                view.hidden = NO;
+            }
+        }else if([message.text isEqualToString:@"我关闭摄像头了"]){
+            for (UIView *view in self.actorsView.actorViews) {
+                view.hidden = YES;
+            }
+        }
     }
 }
 
@@ -423,6 +447,15 @@ NTES_FORBID_INTERACTIVE_POP
     
     if (whiteboardOn) {
         [[NTESMeetingRolesManager sharedInstance] setMyWhiteBoard:YES];
+    }
+}
+
+#pragma mark - NTESRtsConferenceDelegate
+
+- (void)onUserLeft:(NSString *)uid conference:(NIMRTSConference *)conference reason:(NIMRTSConferenceUserLeaveReason)reason{
+    if ([uid isEqualToString:self.chatroom.creator]) {
+        [self pop];
+        //[self.navigationController popViewControllerAnimated:YES];
     }
 }
 

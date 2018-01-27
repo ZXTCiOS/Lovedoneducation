@@ -36,7 +36,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537528562.668468"
+                  timestampString = "538648749.6131231"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "306"
@@ -51,7 +51,7 @@
                   moduleName = "Lovedoneducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Lovedoneducation/Lovedoneducation/Login/%E6%B3%A8%E5%86%8C/C/LogupVC.m"
-                  timestampString = "537528562.671083"
+                  timestampString = "538648749.615739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "307"
@@ -74,54 +74,6 @@
             startingLineNumber = "651"
             endingLineNumber = "651"
             landmarkName = "-onJoin:result:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lovedoneducation/NIMDemo/Classes/Sections/MeetingRoom/Manager/NTESMeetingNetCallManager.m"
-            timestampString = "535543712.271368"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-joinMeeting:delegate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lovedoneducation/NIMDemo/Classes/Sections/MeetingRoom/Manager/NTESMeetingNetCallManager.m"
-            timestampString = "535543712.271685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-joinMeeting:delegate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lovedoneducation/NIMDemo/Classes/Sections/MeetingRoom/Manager/NTESMeetingNetCallManager.m"
-            timestampString = "535543712.271839"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-joinMeeting:delegate:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

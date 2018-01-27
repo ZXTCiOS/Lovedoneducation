@@ -27,7 +27,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"代金劵";
+    self.title = @"爱唐币优惠劵";
     self.isshow = NO;
     self.dataSource = [NSMutableArray new];
     self.moneydic = [NSDictionary new];
@@ -196,7 +196,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
             UILabel *lab0 = [[UILabel alloc] init];
             UILabel *lab1 = [[UILabel alloc] init];
             lab1.font = [UIFont systemFontOfSize:12];
-            lab0.text = @"课程券";
+            lab0.text = @"爱唐课程券";
             lab1.text = @"每次限使用一张，少补不退";
             lab0.frame = CGRectMake(15, 20, 100, 20);
             lab1.frame = CGRectMake(130, 20, 200, 20);
@@ -214,7 +214,7 @@ static NSString *securitiesidentfid2 = @"securitiesidentfid2";
         if (self.isshow) {
             UIView *footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 60)];
             UILabel *lab0 = [[UILabel alloc] init];
-            lab0.text = @"抵用券";
+            lab0.text = @"爱唐币抵用券";
             lab0.frame = CGRectMake(15, 20, 100, 20);
             [footview addSubview:lab0];
             return footview;

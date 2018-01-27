@@ -97,7 +97,7 @@
     }
     else
     {
-        self.numberlab.text = [NSString stringWithFormat:@"%@%@",@"",[dic objectForKey:@"price"]];
+        self.numberlab.text = [NSString stringWithFormat:@"%@%@",[dic objectForKey:@"price"],@"爱唐币"];
     }
     self.messagelab.text = [NSString stringWithFormat:@"%@%@%@",@"您已累计签到",[dic objectForKey:@"days"],@"天，请继续努力"];
 }

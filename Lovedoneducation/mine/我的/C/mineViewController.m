@@ -168,7 +168,7 @@ static NSString *mineidentfid9 = @"mineidentfid9";
             if (!cell) {
                 cell = [[mineCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid2];
             }
-            cell.leftLab.text = @"代金劵";
+            cell.leftLab.text = @"爱唐币优惠劵";
             cell.typeLab.text = @"";
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;

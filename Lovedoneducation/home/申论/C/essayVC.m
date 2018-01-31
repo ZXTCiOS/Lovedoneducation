@@ -464,26 +464,26 @@ static NSString *essayidentfid = @"essayidentfid";
 
 -(void)rightAction
 {
-    LYMenu * menu = [[LYMenu alloc]initWithTitles:@[@"收藏本题",@"分享本题"] images:@[@"shoucangtimu_icon_gengduo",@"fenxiang_icon"] menuType:LYMenuTypeRight buttonAction:^(NSInteger buttonIndex) {
+    LYMenu * menu = [[LYMenu alloc]initWithTitles:@[@"分享本题"] images:@[@"shoucangtimu_icon_gengduo",@"fenxiang_icon"] menuType:LYMenuTypeRight buttonAction:^(NSInteger buttonIndex) {
         NSLog(@"RightMenu INDEX %d",(int)buttonIndex);
+     //   if (buttonIndex==0) {
+//            NSLog(@"收藏本题");
+//            NSLog(@"pid------%@",self.pidstr);
+//            NSString *uid = [userDefault objectForKey:user_uid];
+//            NSString *token = [userDefault objectForKey:user_token];
+//            NSDictionary *dic = @{@"uid":uid,@"token":token,@"qid":self.pidstr};
+//            [DNNetworking postWithURLString:POST_userCollection parameters:dic success:^(id obj) {
+//                if ([[obj objectForKey:@"code"] intValue]==200) {
+//                    [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
+//                }
+//                if ([[obj objectForKey:@"code"] intValue]==014) {
+//                    [MBProgressHUD showSuccess:@"已收藏本题" toView:self.collectionV];
+//                }
+//            } failure:^(NSError *error) {
+//
+//            }];
+  //      }
         if (buttonIndex==0) {
-            NSLog(@"收藏本题");
-            NSLog(@"pid------%@",self.pidstr);
-            NSString *uid = [userDefault objectForKey:user_uid];
-            NSString *token = [userDefault objectForKey:user_token];
-            NSDictionary *dic = @{@"uid":uid,@"token":token,@"qid":self.pidstr};
-            [DNNetworking postWithURLString:POST_userCollection parameters:dic success:^(id obj) {
-                if ([[obj objectForKey:@"code"] intValue]==200) {
-                    [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
-                }
-                if ([[obj objectForKey:@"code"] intValue]==014) {
-                    [MBProgressHUD showSuccess:@"已收藏本题" toView:self.collectionV];
-                }
-            } failure:^(NSError *error) {
-                
-            }];
-        }
-        if (buttonIndex==1) {
             NSLog(@"分享本题");
             [self screenShot:self.collectionV];
         }

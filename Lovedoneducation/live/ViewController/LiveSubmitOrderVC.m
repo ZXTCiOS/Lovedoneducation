@@ -28,6 +28,7 @@
 @property (nonatomic, copy) NSString *ordersn;
 @property (nonatomic, copy) NSString *orderPrice;
 
+@property (nonatomic, strong) UILabel *textlab;
 @end
 
 @implementation LiveSubmitOrderVC
@@ -98,6 +99,19 @@
     }];
 }
 
+-(UILabel *)textlab
+{
+    if(!_textlab)
+    {
+        _textlab = [[UILabel alloc] init];
+        
+        _textlab.textAlignment = NSTextAlignmentCenter;
+        _textlab.font = [UIFont systemFontOfSize:12];
+        _textlab.textColor = [UIColor colorWithHexString:@"646464"];
+        _textlab.text = @"#请到账户信息-我的账户进行充值#";
+    }
+    return _textlab;
+}
 
 #pragma mark - Table view data source
 
@@ -237,10 +251,16 @@
     [submit setTitle:@"提交订单" forState:UIControlStateNormal];
     [view addSubview:submit];
     submit.tintColor = [UIColor whiteColor];
-    
+    [view addSubview:self.textlab];
     [submit mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(0);
         make.size.equalTo(CGSizeMake(200, 44));
+    }];
+    [self.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view).with.offset(20);
+        make.right.equalTo(view).with.offset(-20);
+        make.top.equalTo(submit.bottom).with.offset(10);
+        make.height.mas_offset(20);
     }];
     submit.titleLabel.textColor = [UIColor whiteColor];
     submit.backgroundColor = krgb(8, 210, 178);

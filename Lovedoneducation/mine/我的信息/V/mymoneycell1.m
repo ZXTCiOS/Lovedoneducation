@@ -184,7 +184,7 @@
     self.btn2.backgroundColor = [UIColor colorWithHexString:@"FFFFFF"];
     [self.btn2 setTitleColor:[UIColor colorWithHexString:@"08D2B2"] forState:normal];
     
-    self.contentlab.text = @"支付金额1:00";
+    self.contentlab.text = @"支付金额1.00";
     [self.delegate myTabVClick0:self];
 }
 
@@ -200,7 +200,7 @@
     self.btn2.backgroundColor = [UIColor colorWithHexString:@"FFFFFF"];
     [self.btn2 setTitleColor:[UIColor colorWithHexString:@"08D2B2"] forState:normal];
     
-    self.contentlab.text = @"支付金额12:00";
+    self.contentlab.text = @"支付金额12.00";
     [self.delegate myTabVClick1:self];
 }
 
@@ -215,7 +215,7 @@
     self.btn2.backgroundColor = [UIColor colorWithHexString:@"08D2B2"];
     [self.btn2 setTitleColor:[UIColor colorWithHexString:@"FFFFFF"] forState:normal];
     
-    self.contentlab.text = @"支付金额30:00";
+    self.contentlab.text = @"支付金额30.00";
     [self.delegate myTabVClick2:self];
 }
 

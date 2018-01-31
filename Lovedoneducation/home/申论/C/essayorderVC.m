@@ -26,9 +26,10 @@
 @property (nonatomic,copy) NSString *zhekoumoney;
 @property (nonatomic,copy) NSString *money;
 @property (nonatomic, strong) ZTVendorPayManager *payManager;
+@property (nonatomic,strong) UILabel *textlab;
 
 @property (nonatomic,copy) NSString *orderid;
-@property (nonatomic,copy)  NSString *out_trade_no ;
+@property (nonatomic,copy) NSString *out_trade_no ;
 @property (nonatomic,copy) NSString *ordersn;
 @end
 
@@ -47,8 +48,6 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     self.payManager = [[ZTVendorPayManager alloc]init];
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
- 
-
     if (@available(iOS 11.0, *)){
         self.table.frame = CGRectMake(0, NAVIGATION_HEIGHT, kScreenW, kScreenH-NAVIGATION_HEIGHT);
     }
@@ -113,6 +112,7 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
         _footView.frame = CGRectMake(0, 0, kScreenW, 120);
         _footView.backgroundColor = [UIColor colorWithHexString:@"F6F6F6"];
         [_footView addSubview:self.submitBtn];
+        [_footView addSubview:self.textlab];
     }
     return _footView;
 }
@@ -131,6 +131,22 @@ static NSString *essayorderidentfid4 = @"essayorderidentfid4";
     }
     return _submitBtn;
 }
+
+-(UILabel *)textlab
+{
+    if(!_textlab)
+    {
+        _textlab = [[UILabel alloc] init];
+        _textlab.frame = CGRectMake((kScreenW-225)/2, 70, 225, 20);
+        _textlab.textAlignment = NSTextAlignmentCenter;
+        _textlab.font = [UIFont systemFontOfSize:12];
+        _textlab.textColor = [UIColor colorWithHexString:@"646464"];
+        _textlab.text = @"#请到账户信息-我的账户进行充值#";
+    }
+    return _textlab;
+}
+
+
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 

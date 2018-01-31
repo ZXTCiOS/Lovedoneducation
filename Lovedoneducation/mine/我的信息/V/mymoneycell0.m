@@ -52,7 +52,7 @@
         _moneylab = [[UILabel alloc] init];
         _moneylab.textAlignment = NSTextAlignmentCenter;
         _moneylab.font = [UIFont systemFontOfSize:22];
-        _moneylab.text = @"12:00";
+        _moneylab.text = @"12.00";
     }
     return _moneylab;
 }

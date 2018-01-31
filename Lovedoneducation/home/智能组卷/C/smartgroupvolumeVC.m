@@ -355,6 +355,9 @@
                 if ([[obj objectForKey:@"code"] intValue]==200) {
                     [MBProgressHUD showSuccess:@"收藏成功" toView:self.collectionV];
                 }
+                if ([[obj objectForKey:@"code"] intValue]==014) {
+                    [MBProgressHUD showSuccess:@"已收藏本题" toView:self.collectionV];
+                }
             } failure:^(NSError *error) {
                 
             }];

@@ -143,6 +143,9 @@ static NSString *realparticularsCellidentfid4 = @"realparticularsCellidentfid4";
                 if ([[obj objectForKey:@"code"] intValue]==200) {
                     [MBProgressHUD showSuccess:@"收藏成功" toView:self.table];
                 }
+                if ([[obj objectForKey:@"code"] intValue]==014) {
+                    [MBProgressHUD showSuccess:@"已收藏本题" toView:self.table];
+                }
             } failure:^(NSError *error) {
                 
             }];

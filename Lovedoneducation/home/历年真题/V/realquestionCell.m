@@ -47,7 +47,8 @@
     [weakSelf.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.scorelab.mas_right).with.offset(20);
         make.top.equalTo(weakSelf.scorelab);
-        make.width.mas_offset(50);
+        make.width.mas_offset(250);
+        
     }];
 }
 
@@ -93,7 +94,7 @@
     NSString *str = @"";
     str = [NSString stringWithFormat:@"%.2f",[model.qdegree floatValue]/10];
     self.scorelab.text = [NSString stringWithFormat:@"%@%@",@"难度 : ",str];
-    self.typelab.text = @"未完成";
+    self.typelab.text = model.qcintro;
     
 //    ctime = 1508739001;
 //    ismake = 2;

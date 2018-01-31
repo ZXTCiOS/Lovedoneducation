@@ -17,7 +17,7 @@
 
 #import "BaseViewController.h"
 
-@interface realpartfinishVC : BaseViewController
+@interface realpartfinishVC : UIViewController
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,strong) NSMutableArray *answerarray0;
 @property (nonatomic,strong) NSMutableArray *answerarray1;

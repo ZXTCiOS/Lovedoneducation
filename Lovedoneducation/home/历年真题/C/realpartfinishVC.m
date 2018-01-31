@@ -33,6 +33,17 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_icon_nav"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"1e2b3b"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"444444"]}];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"确定"];
+    
+    
     // Do any additional setup after loading the view.
     self.title = @"练习报告";
     self.interstr = @"";
@@ -204,6 +215,11 @@ static NSString *realpartfinishidentfid1 = @"realpartfinishidentfid1";
     vc.answer0 = self.answerarray0;
     vc.answer1 = self.answerarray1;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)backAction
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
